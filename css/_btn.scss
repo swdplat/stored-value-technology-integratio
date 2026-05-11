@@ -1,0 +1,644 @@
+//一般內容按鈕
+
+// path[fill="#565F73"],
+// path[stroke="#565F73"],
+// circle[stroke="#565F73"],
+// rect[stroke="#565F73"] {
+//     transition: fill 0.5s, stroke 0.5s;
+//     fill: var(--btn-icon-color);
+//     stroke: var(--btn-icon-color);
+// }
+
+.my-btn-icon-main{
+    cursor: pointer!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    line-height: 0px!important;
+    transition: 0.5s!important;
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 6px!important;
+    svg{
+        width: 24px!important;
+        height: 24px!important;
+    }
+}
+
+.my-btn-icon-main-s{
+    cursor: pointer!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    line-height: 0px!important;
+    transition: 0.5s!important;
+    width: 32px!important;
+    height: 32px!important;
+    border-radius: 6px!important;
+    svg{
+        width: 24px!important;
+        height: 24px!important;
+    }
+}
+
+.my-btn-icon-round{
+    cursor: pointer!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    line-height: 0px!important;
+    transition: 0.5s!important;
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 100px!important;
+    svg{
+        width: 24px!important;
+        height: 24px!important;
+    }
+} 
+
+.my-btn-icon-round-s{
+    cursor: pointer!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    line-height: 0px!important;
+    transition: 0.5s!important;
+    width: 32px!important;
+    height: 32px!important;
+    border-radius: 100px!important;
+    svg{
+        width: 24px!important;
+        height: 24px!important;
+    }
+} 
+
+.my-btn-arrow{
+    line-height: 0px!important;
+}
+.my-btn-main{
+    cursor: pointer!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-decoration: none!important;
+    transition: 0.5s!important;
+    // outline-offset: -2px!important;
+    border-radius: 6px!important;
+    padding: 6px 16px 6px 16px!important;
+    .my-btn-icon{
+        margin: 0 6px 0 0!important;
+        width: 24px!important;
+        height: 24px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+        }
+    }
+    .my-btn-text{
+        line-height: 24px!important;
+        font-size: 14px!important;
+    }
+    .my-btn-arrow{
+        margin: 0 0 0 6px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+        }
+    }
+}
+.my-btn-main-s{
+    cursor: pointer!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-decoration: none!important;
+    transition: 0.5s!important;
+    // outline-offset: -2px!important;
+    border-radius: 6px!important;
+    padding: 4px 8px 4px 8px!important;
+    .my-btn-icon{
+        margin: 0 6px 0 0!important;
+        width: 24px!important;
+        height: 24px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+        }
+    }
+    .my-btn-text{
+        line-height: 24px!important;
+        font-size: 13px!important;
+    }
+    .my-btn-arrow{
+        margin: 0 0 0 6px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+        }
+    }
+}
+@include web_768{
+    .my-btn-main-s-md{
+        cursor: pointer!important;
+        display: inline-flex!important;
+        align-items: center!important;
+        justify-content: center!important;
+        text-decoration: none!important;
+        transition: 0.5s!important;
+        // outline-offset: -2px!important;
+        border-radius: 6px!important;
+        padding: 4px 8px 4px 8px!important;
+        .my-btn-icon{
+            margin: 0 6px 0 0!important;
+            width: 24px!important;
+            height: 24px!important;
+            svg{
+                width: 24px!important;
+                height: 24px!important;
+            }
+        }
+        .my-btn-text{
+            line-height: 24px!important;
+            font-size: 13px!important;
+        }
+        .my-btn-arrow{
+            margin: 0 0 0 6px!important;
+            svg{
+                width: 24px!important;
+                height: 24px!important;
+            }
+        }
+    }
+}
+@include web_570{
+    .my-btn-main-s-sm{
+        cursor: pointer!important;
+        display: inline-flex!important;
+        align-items: center!important;
+        justify-content: center!important;
+        text-decoration: none!important;
+        transition: 0.5s!important;
+        // outline-offset: -2px!important;
+        border-radius: 6px!important;
+        padding: 4px 8px 4px 8px!important;
+        .my-btn-icon{
+            margin: 0 6px 0 0!important;
+            width: 24px!important;
+            height: 24px!important;
+            svg{
+                width: 24px!important;
+                height: 24px!important;
+            }
+        }
+        .my-btn-text{
+            line-height: 24px!important;
+            font-size: 13px!important;
+        }
+        .my-btn-arrow{
+            margin: 0 0 0 6px!important;
+            svg{
+                width: 24px!important;
+                height: 24px!important;
+            }
+        }
+    }
+}
+.my-btn-round{
+    cursor: pointer!important;
+    cursor: pointer!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-decoration: none!important;
+    transition: 0.5s!important;
+    // outline-offset: -2px!important;
+    border-radius: 100px!important;
+    padding: 8px 12px 8px 8px!important;
+    .my-btn-icon{
+        font-size: 0px!important;
+        line-height: 0px!important;
+        margin: 0 8px 0 0!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+        }
+    }
+    .my-btn-text{
+        line-height: 24px!important;
+        font-size: 13px!important;
+        user-select: none!important;
+    }
+}
+
+.my-btn-main-text{
+    cursor: pointer!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-decoration: none!important;
+    transition: 0.5s!important;
+    // outline-offset: -2px!important;
+    border-radius: 6px!important;
+    padding: 0px 0px 0px 0px!important;
+    .my-btn-icon{
+        margin: 0 6px 0 0!important;
+        width: 24px!important;
+        height: 24px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+            path{
+                transition: 0.5s!important;
+            }
+        }
+    }
+    .my-btn-text{
+        line-height: 24px!important;
+        font-size: 14px!important;
+    }
+    .my-btn-arrow{
+        margin: 0 0 0 6px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+            path{
+                transition: 0.5s!important;
+            }
+        }
+    }
+}
+
+.my-btn-main-text-s{
+    cursor: pointer!important;
+    display: inline-flex!important;
+    align-items: center!important;
+    justify-content: center!important;
+    text-decoration: none!important;
+    transition: 0.5s!important;
+    // outline-offset: -2px!important;
+    border-radius: 6px!important;
+    padding: 0px 0px 0px 0px!important;
+    .my-btn-icon{
+        margin: 0 6px 0 0!important;
+        width: 24px!important;
+        height: 24px!important;
+        svg{
+            width: 24px!important;
+            height: 24px!important;
+            path{
+                transition: 0.5s!important;
+            }
+        }
+    }
+    .my-btn-text{
+        line-height: 24px!important;
+        font-size: 14px!important;
+    }
+    .my-btn-arrow{
+        margin: 0 0 0 6px!important;
+        svg{
+            width: 16px!important;
+            height: 16px!important;
+            path{
+                transition: 0.5s!important;
+            }
+        }
+    }
+}
+
+.my-btn-main-text.my-btn-primary{
+    color: $my-secondary-800!important;
+    background: transparent!important;
+    border: 2px solid transparent!important;
+    svg {
+        path{
+            fill:#3C4250!important;  
+        }
+    }
+    &:hover {
+        color: $my-primary-400!important;
+        background: transparent!important;
+        border: 2px solid transparent!important;
+        svg {
+            path{
+                fill:#4FAFF1!important;  
+            }
+        }
+    }
+    &:focus {
+        color: $my-primary-500!important;
+        background: transparent!important;
+        border: 2px solid transparent!important;
+        svg {
+            path{
+                fill:#178DE0!important;  
+            }
+        }
+       
+    }
+}
+
+.my-btn-main-text-s.my-btn-primary{
+    color: $my-secondary-800!important;
+    background: transparent!important;
+    border: 2px solid transparent!important;
+    svg {
+        path{
+            fill:#3C4250!important;  
+        }
+    }
+    &:hover {
+        color: $my-primary-400!important;
+        background: transparent!important;
+        border: 2px solid transparent!important;
+        svg {
+            path{
+                fill:#4FAFF1!important;  
+            }
+        }
+    }
+    &:focus {
+        color: $my-primary-500!important;
+        background: transparent!important;
+        border: 2px solid transparent!important;
+        svg {
+            path{
+                fill:#178DE0!important;  
+            }
+        }
+    }
+}
+
+.my-btn-main-text.my-btn-primary.my-btn-disabled{
+    border: 2px solid transparent!important;
+    background-color: transparent!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+
+.my-btn-main-text-s.my-btn-primary.my-btn-disabled{
+    border: 2px solid transparent!important;
+    background-color: transparent!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+//按鈕顏色
+.my-btn-primary{
+    color: #ffffff!important;
+    background-color: $my-primary-400!important;
+    border: 2px solid $my-primary-400!important;
+    svg {
+        path{
+            fill:#fff!important;
+        }
+    }
+    &:hover {
+        border: 2px solid $my-primary-500!important;
+        background-color: $my-primary-500!important;
+    }
+    &:focus {
+        border: 2px solid $my-primary-300!important;
+        background-color: $my-primary-400!important;
+    }
+}
+.my-btn-primary.my-btn-disabled{
+    border: 2px solid $my-primary-400!important;
+    background-color: $my-primary-400!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-round-primary{
+    color: #ffffff!important;
+    background-color: $my-primary-400!important;
+    border: 2px solid $my-primary-400!important;
+    svg {
+        path{
+            fill:#fff!important;
+        }
+    }
+    &:hover {
+        border: 2px solid $my-primary-500!important;
+        background-color: $my-primary-500!important;
+    }
+    &:focus {
+        border: 2px solid $my-primary-300!important;
+        background-color: $my-primary-400!important;
+    }
+}
+.my-btn-round-primary.my-btn-disabled{
+    border: 2px solid $my-primary-400!important;
+    background-color: $my-primary-400!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-secondary{
+    color: $my-grey-600!important;
+    background-color: $my-grey-100!important;
+    border: 2px solid $my-grey-100!important;
+    svg{
+        path{
+            fill:#515151!important;
+        }
+    }
+    &:hover {
+        border: 2px solid $my-grey-200!important;
+        background-color: $my-grey-200!important;
+    }
+    &:focus {
+        border: 2px solid $my-grey-200!important;
+        background-color: $my-grey-100!important;
+    }
+}
+.my-btn-secondary.my-btn-disabled{
+    border: 2px solid $my-grey-100!important;
+    background-color: $my-grey-100!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-round-secondary{
+    color: $my-grey-600!important;
+    background-color: $my-grey-50!important;
+    border: 2px solid $my-grey-50!important;
+    svg{
+        path{
+            fill:#515151!important;
+        }
+    }
+    &:hover {
+        border: 2px solid $my-grey-100!important;
+        background-color: $my-grey-100!important;
+    }
+    &:focus {
+        border: 2px solid $my-grey-100!important;
+        background-color: $my-grey-50!important;
+    }
+}
+.my-btn-round-secondary.my-btn-disabled{
+    border: 2px solid $my-grey-100!important;
+    background-color: $my-grey-100!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+//
+.my-btn-icon-primary{
+    background-color: $my-primary-400!important;
+    svg {
+        path{
+            fill:#ffffff!important;
+        }
+    }
+    &:hover {
+        background-color: $my-primary-500!important;
+    }
+    &:focus {
+        background-color: $my-primary-500!important;
+    }
+}
+.my-btn-icon-primary.my-btn-icon-disabled{
+    background-color: $my-primary-400!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-icon-secondary{
+    background-color: $my-grey-100!important;
+    svg {
+        path{
+            // fill:#3C4250!important;
+        }
+    }
+    &:hover {
+        background-color: $my-grey-200!important;
+    }
+    &:focus {
+        background-color: $my-grey-200!important;
+    }
+}
+.my-btn-icon-secondary.my-btn-icon-disabled{
+    background-color: $my-grey-100!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-icon-third{
+    background-color:transparent!important;
+    svg {
+        path{
+            fill:#515151!important;
+        }
+    }
+    &:hover {
+        color: $my-grey-600!important;
+        background-color: $my-grey-50!important;
+    }
+    &:focus {
+        color: $my-primary-400!important;
+        background-color: transparent!important;
+        svg {
+            path{
+                fill:#4FAFF1!important;
+            }
+        }
+    }
+}
+.my-btn-icon-third.my-btn-icon-disabled{
+    background-color:transparent!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-icon-fourth{
+    background-color: #363A4480!important;
+    svg {
+        path{
+            fill:#ffffff!important;
+        }
+    }
+    &:hover {
+        background-color: #363A44B2!important;
+    }
+    &:focus {
+        background-color: #363A44B2!important;
+    }
+}
+.my-btn-icon-fourth.my-btn-icon-disabled{
+    background-color: #363A4480!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+//線框
+.my-btn-outline{
+    color: $my-secondary-500!important;
+    background-color: transparent!important;
+    border: 1.5px solid $my-secondary-500!important;
+    svg{
+        path{
+            transition: 0.5s!important;
+            --btn-icon-color: #6B768C!important;
+        }
+    }
+    &:hover {
+        color: $my-secondary-900!important;
+        background-color: transparent!important;
+        border: 1.5px solid $my-secondary-900!important;
+        svg{
+            path{
+                --btn-icon-color: #363A44!important;
+            }
+            
+        }
+    }
+    &:focus {
+        color: $my-primary-500!important;
+        border: 1.5px solid $my-primary-500!important;
+        background-color: $my-primary-100!important;
+        svg{
+            path{
+                --btn-icon-color: #178DE0!important;
+            }
+        }
+    }
+}
+.my-btn-outline.my-btn-disabled{
+    color: $my-secondary-500!important;
+    border: 1.5px solid $my-secondary-500!important;
+    background-color: transparent!important;
+    opacity: 0.5!important;
+    pointer-events: none!important;
+}
+.my-btn-round.my-btn-outline{
+    padding: 6px 12px 6px 12px!important;
+    outline-width: 1px!important;
+    .my-btn-icon{
+        svg{
+            width: 16px !important;
+            height: 16px !important;
+        }
+    }
+    &:hover {
+        color: #4FAFF1!important;
+        background-color: transparent!important;
+        border: 1.5px solid #4FAFF1!important;
+        svg{
+            path{
+                fill: #4FAFF1!important;
+                stroke: #4FAFF1!important;
+            }
+            
+        }
+    }
+    &:focus {
+        color: #ffffff!important;
+        border: 1.5px solid #4FAFF1!important;
+        background-color: #4FAFF1!important;
+        svg{
+            path{
+               fill: #ffffff!important;
+               stroke: #ffffff!important;
+            }
+        }
+    }
+    .my-btn-text{
+        font-size: 14px!important;
+        line-height: 20px!important;
+    }
+}
+//switch btn

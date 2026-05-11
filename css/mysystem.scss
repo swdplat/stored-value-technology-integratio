@@ -1,0 +1,172 @@
+@import 'normalize';
+@import 'variables';
+@import 'breakpoints';
+@import 'border';
+@import 'btn';
+@import 'color';
+@import 'cursor';
+@import 'element';
+@import 'flex';
+@import 'font';
+@import 'form';
+@import 'icon';
+@import 'input';
+@import 'list_group';
+@import 'scrollbar';
+@import 'skeleton';
+@import 'spacing';
+@import 'tabs';
+@import 'tag';
+@import 'round';
+@import 'overlay';
+@import 'overflow';
+@import 'modal';
+@import 'pagination';
+@import 'position';
+@import 'zindex';
+@import 'system_moduls';
+@import 'member_quick';
+
+//全部頁面通用，處理天邊fixed和內容的間距
+.webpage{
+    padding: 63px 0 0 0;
+    @include web_1140{
+        padding: 51px 0 0 0;
+    }
+}
+.main-content{
+    margin: 40px 0 60px 0;
+    @include web_768{
+        margin: 40px 0 64px 0;
+    }
+    @include web_570{
+        margin: 16px 0 40px 0;
+    }
+    .main-content-container{
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+}
+
+section {
+    margin: 40px 0 0;
+    @include web_570{
+        margin: 24px 0 0 0;
+    }
+    &:first-child {
+        margin: 0 0 0 0;
+    }
+}
+
+//彈窗STR
+.none{
+    display: none!important;
+}
+.show-f{
+    display: flex!important;
+}
+.show-b{
+    display: block!important;
+}
+.overlay-two{
+    z-index: 200;
+    display: none;
+}
+.overlay{
+    z-index: 100;
+    display: none;
+}
+.noslide{
+    position: relative;
+    overflow-y: hidden;
+    margin-right: 17px;
+    @include web_570{
+        margin-right: 0px;
+    }
+}
+
+/*ios正常但會有每次開彈窗會跑到置頂的問題*/
+// .noslide {
+//     // overflow-y: hidden;
+//     overflow-y: scroll;
+//     margin-right: 17px;
+//     position: fixed;
+//     width: 100%;
+//     height: 100%;
+//     touch-action: none;
+//     -webkit-overflow-scrolling: none;
+    // @include web_570 {
+    //     margin-right: 0px;
+    // }
+// }
+// .noslide {
+//     position: fixed;
+//     width: 100%;
+//     height: 100vh; /* 使用 vh 單位，確保在 iOS Safari 中正確高度 */
+//     overflow: hidden; /* 隱藏滾動 */
+//     top: 0;
+//     left: 0;
+    
+//     /* 以下為 iOS Safari 優化 */
+//     -webkit-overflow-scrolling: touch; 
+//     overscroll-behavior: none;
+//     touch-action: none;
+
+//     @include web_570 {
+//         margin-right: 0px;
+//     }
+// }
+  
+  
+/* 針對 iOS Safari 的額外處理 */
+@supports (-webkit-touch-callout: none) {
+    .noslide {
+        height: -webkit-fill-available; /* iOS Safari 的替代高度解決方案 */
+    }
+}
+
+// 建議同時設定 html 樣式，確保整個頁面都不會滾動
+html {
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+.rotate-180{
+    transform: rotate(180deg);
+}
+//彈窗END
+
+:root{
+    --swiper-navigation-size: 30px;
+}
+
+button{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+.iconBox{
+    line-height: 0px;   
+    font-size: 0px;
+}
+
+
+
+//共用 STR//
+//content
+.pageContent-container{ 
+    padding: 60px 80px 60px 80px;
+    @include web_1140{
+        padding: 60px 40px 60px 40px;
+    }
+    @include web_768 {
+        padding: 0 16px 0 16px;
+    }
+}
+//共用 END//
+
+
+body {
+    background-color: #f7f7f7;
+}

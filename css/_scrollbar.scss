@@ -1,0 +1,77 @@
+.my-scrollbar {
+    &::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 4px;
+        @include web_570 {
+            width: 10px;
+        }
+    }
+    &::-webkit-scrollbar-button {
+        height: 0px;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #E3E3E3;
+        border-left: 0px solid #ffffff;
+        border-radius: 4px;
+        @include web_570 {
+            border: 2px solid #FFFFFF;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        box-shadow: transparent;
+    }
+}
+
+.my-scrollbar-m {
+    &::-webkit-scrollbar {
+        width: 6px;
+        border-radius: 4px;
+        @include web_570 {
+            width: 10px;
+        }
+    }
+    &::-webkit-scrollbar-button {
+        height: 0px;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #E3E3E3;
+        border-left: 0px solid #ffffff;
+        border-radius: 4px;
+        @include web_570 {
+            border: 2px solid #FFFFFF;
+        }
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        box-shadow: transparent;
+    }
+}
+
+.my-scrollbar-bgTransparent{
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-button {
+        height: 0px;
+        background: transparent;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: #FFFFFF;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+        box-shadow: transparent;
+    }
+}

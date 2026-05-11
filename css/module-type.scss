@@ -1,0 +1,1280 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'font';
+@import '_module-closableimg';
+
+@mixin my-font-tool{
+    font-size: 16px!important;
+    font-weight: 500!important;
+    line-height: 140%!important;
+    @include web_570{
+        font-size: 12px!important;
+    }
+}
+
+@mixin my-font-module-title{
+    width: 100%;
+    font-size: 22px!important;
+    line-height: 120%!important;
+    font-weight: 700!important;
+    @include web_570{
+        font-size: 16px!important;
+    }
+}
+
+@mixin my-font-module-content-title-m{
+    font-size: 16px!important;
+    line-height: 120%!important;
+    font-weight: 500!important;
+    color: #363A44!important;
+    @include web_570 {
+        font-size: 14px!important;
+    }
+}
+
+@mixin my-font-module-content-m{
+    font-size: 14px!important;
+    line-height: 140%!important;
+    font-weight: normal!important;
+    color: #666666!important;
+    @include web_570 {
+        font-size: 13px!important;
+    }
+}
+
+@mixin my-font-module-more{
+    font-size: 14px!important;
+    line-height: 170%!important;
+    font-weight: normal!important;
+    color: #565F73!important;
+}
+
+@mixin my-font-module-date{
+    font-size: 12px!important;
+    line-height: 140%!important;
+    font-weight: 400!important;
+    color: #A4A4A4!important;
+}
+
+@mixin my-font-module-card-title{
+    font-size: 16px!important;
+    line-height: 120%!important;
+    font-weight: 500!important;
+    color: #363A44!important;
+    @include web_570 {
+        font-size: 14px!important;
+    }
+}
+.my-font-tool{
+    @include my-font-tool;
+}
+.my-font-module-title{
+    @include my-font-module-title;
+}
+.my-font-module-content-title-m{
+    @include my-font-module-content-title-m;
+}
+.my-font-module-content-m{
+    @include my-font-module-content-m;
+}
+
+.my-font-module-more{
+    @include my-font-module-more;
+}
+
+.my-font-module-date{
+    @include my-font-module-date;
+}
+
+// 大輪播
+.module-topImg {
+    width: 100%;
+    overflow: hidden;
+    .module-topImg-container {
+        width: 100%;
+        max-width: 1920px;
+        margin: 0 auto;
+        .module-topImg-swiper {
+            position: relative;
+            &::before{
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: 10;
+                content: '';
+                width: 25%;
+                height: 100%;
+                background: linear-gradient(to right, rgb(247, 247, 247) 20%, rgb(247, 247, 247, 80) 30%, rgb(247, 247, 247, 50) 40%, rgba(247, 247, 247, 0) 100%);
+                pointer-events: none;
+                @include web_1140{
+                    background:transparent;
+                }
+            }
+            &::after{
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: 10;
+                content: '';
+                width: 25%;
+                height: 100%;
+                background: linear-gradient(to left, rgb(247, 247, 247) 20%, rgb(247, 247, 247, 80) 30%, rgb(247, 247, 247, 50) 40%, rgba(247, 247, 247, 0) 100%);
+                pointer-events: none;
+                @include web_1140{
+                    background:transparent;
+                }
+            }
+            .swiper-wrapper {
+                .swiper-slide {
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        bottom: 0px;
+                        left: 0px;
+                        content: '';
+                        width: 100%;
+                        height: 98px;
+                        background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))!important;
+                        pointer-events: none;
+                        border-radius: 16px;
+                        z-index: 10;
+                        @include web_768{
+                            height: 94px;
+                        }
+                        @include web_570{
+                            border-radius: 8px;
+                            height: 35%;
+                        }
+                    }
+                    a {
+                        .imgBox{
+                            img.mainImg{
+                                width: 100%;
+                                max-width: 948px;
+                                border-radius: 16px;
+                                opacity: 0.5;
+                                @include web_768{
+                                    max-width: 575px;
+                                }
+                                @include web_570{
+                                    max-width: 423px;
+                                    border-radius: 8px;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        .grade{
+                            position: absolute;
+                            top: 8px;
+                            right: 8px;
+                            height: 100%;
+                            @include web_570{
+                                top: 4px;
+                                right: 4px;
+                            }
+                            img{
+                                border-radius:  4px 4px 4px 4px;
+                                width: auto;
+                                height: 10%;
+                                max-height: 40px;
+                                transform: scale(1.0, 1.0);
+                                @include web_570{
+                                    max-height: 20px;
+                                }
+                            }
+                        }
+                        .textBox{
+                            position: absolute;
+                            bottom: 0px;
+                            left: 0px;
+                            color: #ffffff;
+                            z-index: 20;
+                            width: 100%;
+                            text-align: center;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            height: auto;
+                            padding: 24px 24px 24px 24px;
+                            @include web_570{
+                                padding: 16px 16px 12px 16px;
+                            }
+                            h4{
+                                font-size: 22px!important;
+                                line-height: 120%!important;
+                                margin: 0 0 4px 0;
+                                @include my-font-overflow;
+                                -webkit-line-clamp: 1!important;
+                                @include web_768{
+                                    font-size: 16px!important;
+                                }
+                                @include web_570{
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                            p{
+                                font-size: 14px;
+                                line-height: 140%;
+                                @include my-font-overflow;
+                                -webkit-line-clamp: 1;
+                                @include web_768{
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-slide-active{
+                    a {
+                        .imgBox {
+                            img.mainImg{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//通路橫幅
+.module-topImg-bar{
+    margin: 0 0 0 0;
+    position: relative;
+    background: linear-gradient(to right, #a9bce6 0%, #a9bce6 50%, #5937a8 50.1%, #5937a8 100%);
+    .module-topImg-bar-container{
+        position: relative;
+        width: 100%;
+        max-height: 280px;
+        margin: 0 auto;
+        position: relative;
+        // background-image: url(https://image.mycard520.com/globalmycard/member/test0417/0417/img/rectangle-1660.jpg);
+        // background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 222px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include web_1140{
+            min-height: 140px;
+            // background-image: url(https://image.mycard520.com/globalmycard/member/test0417/0417/img/rectangle-1000.jpg);
+        }
+        @include web_570{
+            max-height: 180px;
+        }
+        .textBox{
+            width: 100%;
+            height: 100%;
+            h2{
+                width: 100%;
+                text-align: center;
+                font-size: 36px;
+                line-height: 120%;
+                color: #ffffff;
+                @include web_570{
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+// 工具區
+.module-toolIcon {
+    .module-toolIcon-container {
+        .module-toolIcon-swiper {
+            position: relative;
+            .swiper-wrapper {
+                .swiper-slide {
+                    a {
+                        text-decoration: none;
+                        display: block;
+                        .icon {
+                            position: relative;
+                            width: 100%;
+                            max-width: 125px;
+                            height: 125px;
+                            margin: 0 auto 4px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 0.3s;
+                            @include web_1140{
+                                max-width: 100px;
+                                height: 100px;
+                            }
+                            @include web_570{
+                                margin: 0 auto 0 auto;
+                                max-width: 60px;
+                                height: 60px;
+                            }
+                            .iconBox {
+                                position: relative;
+                                img,svg {
+                                    max-width: 80px;
+                                    max-height: 80px;
+                                    width: 100%;
+                                    @include web_1140{
+                                        max-width: 60px;
+                                        max-height: 60px;
+                                    }
+                                    @include web_570{
+                                        max-width: 48px;
+                                        max-height: 48px;
+                                    }
+                                }
+                                
+                            }
+                            .dots {
+                                width: 12px;
+                                height: 12px;
+                                background-color: $my-errorNote-400;
+                                border-radius: 100px;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                opacity: 0;
+                                animation-name: dots-active;
+                                animation-duration: 2s;
+                                animation-iteration-count: infinite;
+                                @include web_1140{
+                                    width: 10px;
+                                    height: 10px;
+                                }
+                                @include web_570{
+                                    width: 8px;
+                                    height: 8px;
+                                }
+                                @keyframes dots-active {
+                                    0%   {
+                                        opacity: 0;
+                                    }
+                                    50% {
+                                        opacity: 1;
+                                    }
+                                    100%{
+                                        opacity: 0;
+                                    }
+                                }
+                            }
+                        }
+                        p {
+                            text-align: center;
+                            color: #6B768C;
+                        }
+                        &:hover{
+                            .icon {
+                                background-color: #EDEEF1;
+                                border-radius: 16px;
+                                @include web_570{
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//圖文模組
+.module-imgtext {
+    //圖文模組-基本架構
+    .module-imgtext-container {
+        .module-imgtext-title {
+            display: flex;
+            flex-direction: column;
+            margin: 0 0 16px 0;
+            @include web_570 {
+                margin: 0 0 8px 0;
+            }
+            .module-imgtext-titleBox{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+                @include web_570 {
+                    gap: 16px;
+                }
+                h3 {
+                    // width: calc(100% - 80px);
+                    ul {
+                        display: flex;
+                        gap: 40px;
+                        // overflow-x: auto;
+                        @include web_570 {
+                            gap: 16px;
+                        }
+                        &::-webkit-scrollbar {
+                            display: none;
+                            @include web_1140 {
+                                display: block;
+                                height: 4px;
+                                border-radius: 5px;
+                            }
+                        }
+                        &::-webkit-scrollbar-button {
+                            height: 0px;
+                            background: transparent;
+                        }
+                        &::-webkit-scrollbar-track-piece{
+                            background: transparent;
+                        }
+                        &::-webkit-scrollbar-track {
+                            background-color: transparent;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            background-color: transparent;
+                        }
+                        li {
+                            color: #24242E;
+                        }
+                        //js判斷li數量動態新增class list-tab
+                        &.list-tab {
+                            overflow-x: auto; // 保持捲動效果
+                            -ms-overflow-style: none;  // IE and Edge
+                            scrollbar-width: none;  // Firefox
+                            &::-webkit-scrollbar {
+                                display: none; // 隱藏 Webkit 瀏覽器的捲軸
+                            }
+                            li {
+                                padding: 0 0 4px 0;
+                                color: #B3B9C6;
+                                border-bottom: 2px solid transparent;
+                                flex-shrink: 0;
+                                cursor: pointer;
+                                transition: 0.3s;
+                                @include web_570 {
+                                    padding: 0 0 6px 0;
+                                }
+                                &:hover{
+                                    color: #B3B9C6;
+                                    border-bottom: 2px solid #B3B9C6;
+                                }
+                            }
+                            li.active {
+                                color: #1D1F25;
+                                border-bottom: 2px solid #1D1F25;
+                            }
+                        }
+                    }
+                    
+                    .list-tab-colorBlue{
+                        li.active {
+                            color: #4FAFF1!important;
+                            border-bottom: 2px solid #4FAFF1!important;
+                        }
+                    }
+                }
+                .my-font-module-title-morelist{
+                    .my-font-module-title-moreitem{
+                        &.active{
+                            display: block!important;
+                        }
+                        display: none;
+                    }
+                }
+                .my-btn-main-text.my-btn-primary {
+                    color: #565F73!important;
+                    .my-btn-text{
+                        white-space:nowrap;
+                        @include web_570{
+                            display: none;
+                        }
+                    }
+                    svg {
+                        path{
+                            fill: #565F73!important;
+                        }
+                    }
+                    &:hover {
+                        color: $my-primary-400!important;
+                        background: transparent!important;
+                        border: 2px solid transparent!important;
+                        svg {
+                            path{
+                                fill:#4FAFF1!important;  
+                            }
+                        }
+                    }
+                    &:focus {
+                        color: $my-primary-500!important;
+                        background: transparent!important;
+                        border: 2px solid transparent!important;
+                        svg {
+                            path{
+                                fill:#178DE0!important;  
+                            }
+                        }
+                       
+                    }
+                }
+            }
+            .module-imgtext-titleBox{
+                & + .tabs{
+                    margin: 16px 0 8px 0;
+                    @include web_570{
+                        margin: 8px 0 8px 0;
+                    }
+                }
+            }
+            .my-tabs{
+                margin: 16px 0 8px 0;
+                @include web_570{
+                    margin: 8px 0 4px 0;
+                }
+            }
+        }
+        .module-imgtextbox {
+            //消除不知名的間距使用
+            .swiper{
+                overflow: initial;
+            }
+            
+            //js判斷如果content有1個以上，名稱會替換為module-title-tab-content
+            .module-title-tab-content {
+                display: none;
+            }
+            .module-title-tab-content.active {
+                display: block;
+            }
+            .module-tab-content{
+                display: none;
+            }
+            .module-tab-content.active {
+                display: block;
+            }
+            .img-title-text-swiper {
+                position: relative;
+                .swiper-wrapper {
+                    .module-imgtext-moreBox{
+                        display: none;
+                    }
+                    .swiper-slide.module-imgtext-more{
+                        height:initial!important;
+                        background-color: #E3E3E3;
+                        border-radius: 16px 16px 16px 16px;
+                        @include web_570{
+                            border-radius: 8px 8px 8px 8px;
+                        }
+                        a{
+                            width: 100%;
+                            height: 100%;
+                            .module-imgtext-moreBox{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100%;
+                                .module-imgtext-more-text{
+                                    font-size: 16px;
+                                    margin: 0 0 8px 0;
+                                    color: #565F73;
+                                    @include web_570{
+                                        font-size: 14px;
+                                    }
+                                }
+                                .iconBox{
+                                    path{
+                                        fill:#565F73;
+                                    }
+                                }
+                            }
+                            .imgBox{
+                                display: none;
+                            }
+                            .textBox{
+                                display: none;
+                            }
+                        }
+                    }
+                    .swiper-slide {
+                        a {
+                            display: block;
+                            text-decoration: none;
+                            .imgBox {
+                                position: relative;
+                                .grade {
+                                    position: absolute;
+                                    top: 8px;
+                                    right: 8px;
+                                    height: 100%;
+                                    @include web_570{
+                                        top: 4px;
+                                        right: 4px;
+                                    }
+                                    img {
+                                        display: block;
+                                        border-radius:  4px 4px 4px 4px;
+                                        width: auto;
+                                        max-height: 32px;
+                                        @include web_570 {
+                                            max-height: 16px;
+                                        }
+                                        // height: 10%;
+                                        // transform: scale(1.0, 1.0);
+                                    }
+                                }
+                                .mainImg {
+                                    width: 100%;
+                                    max-width: 100%;
+                                    border-radius: 16px;
+                                    height: auto;
+                                    margin: 0 0 12px 0;
+                                    @include web_570{
+                                        border-radius: 8px;
+                                        margin: 0 0 0 0;
+                                    }
+                                }
+                            }
+                            .textBox {
+                                width: 100%;
+                                display: block;
+                                .my-tag {
+                                    margin: 12px 0 0 0;
+                                    padding: 0 0 0 0!important;
+                                    @include web_570 {
+                                        margin: 8px 0 0 0;
+                                    }
+                                }
+                                .grade{
+                                    height: 100%;
+                                    img{
+                                        border-radius: 4px 4px 4px 4px;
+                                        max-height: 32px;
+                                        @include web_570 {
+                                            max-height: 16px;
+                                        }
+                                    }
+                                }
+                                h4 {
+                                    @include my-font-overflow;
+                                    -webkit-line-clamp: 1;
+                                    @include web_570 {
+                                        margin: 8px 0 4px 0;
+                                        -webkit-line-clamp: 1;
+                                    }
+                                }
+                                p {
+                                    @include my-font-overflow;
+                                    -webkit-line-clamp: 2;
+                                    @include web_570 {
+                                        margin: 8px 0 0 0;
+                                    }
+                                }
+                                .date {
+                                    margin: 8px 0 0 0;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    @include my-font-overflow;
+                                    -webkit-line-clamp: 1;
+                                }
+                            }
+
+                            .my-tag+.my-font-module-content-title-m{
+                                margin: 8px 0 4px 0;
+                            }
+                            .my-font-module-content-title-m{
+                                margin: 8px 0 0 0;
+                            }
+                            .my-font-module-date{
+                                margin: 8px 0 0 0;
+                                @include web_570{
+                                    margin: 4px 0 0 0;
+                                }
+                            }
+                            .my-font-module-content-title-m+.my-font-module-content-m {
+                                margin: 4px 0 0 0;
+                            }
+                            .textBox>.my-tag+.my-font-module-content-m {
+                                margin: 8px 0 0 0;
+                                @include web_570 {
+                                    margin: 4px 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-button-next, .swiper-button-prev{
+                    color: #ffffff; 
+                    width: 50px;
+                    height: 50px;
+                    @include web_570{
+                        display: none;
+                    }
+                }
+                .swiper-pagination {
+                    position: relative;
+                    bottom: 0px;
+                    font-size: 0px;
+                     @include web_768{
+                        margin: 12px 0 0 0;
+                    }
+                    .swiper-pagination-bullet {
+                        background-color: #E3E3E3;
+                        width: 10px;
+                        height: 10px;
+                        margin: 0 6px 0 6px;
+                        opacity: 1;
+                        @include web_570{
+                            width: 8px;
+                            height: 8px;
+                            margin: 0 4px 0 4px;
+                        }
+                    }
+                    .swiper-pagination-bullet-active {
+                        background-color: $my-primary-300;
+                        opacity: 1;
+                    }
+                }
+                .swiper-horizontal>.swiper-pagination-bullets{
+                    bottom: 0px!important;
+                }
+            }            
+        }
+    }
+    //圖文模組-3欄
+    & + .module-imgtext-columns-3{
+        .grade{
+            img{
+                height: 28px!important;
+            }
+        }
+    }
+    //圖文模組-4欄
+    & + .module-imgtext-columns-4{
+        .grade{
+            img{
+                height: 24px!important;
+            }
+        }
+    }
+}
+//圖文模組-卡片方向-直式
+.module-imgtext.module-imgtext-type-card-column{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        overflow: hidden;
+                        border-radius: 16px 16px 16px 16px;
+                        @include web_570{
+                            border-radius: 8px 8px 8px 8px;
+                        }
+                        a {
+                            position: relative;
+                            .imgBox {
+                                margin: 0 0 0 0;
+                                .mask {
+                                    position: absolute;
+                                    left: 0px;
+                                    bottom: 0px;
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 16px 16px 16px 16px;
+                                    @include web_570{
+                                        border-radius: 8px 8px 8px 8px;
+                                    }
+                                }
+                                img.mainImg{
+                                    border-radius: 0 0 20px 20px;
+                                }
+                                .grade{
+                                    display: none;
+                                }
+                            }
+                            .textBox {
+                                height: 95px;
+                                position: absolute;
+                                left: 0px;
+                                bottom: 0px;
+                                padding: 16px 16px 16px 16px;
+                                border-radius: 0 0 16px 16px;
+                                @include web_1140{
+                                    height: 50px;
+                                }
+                                @include web_570{
+                                    padding: 8px 8px 8px 8px;
+                                    border-radius: 0 0 8px 8px;
+                                }
+                                .my-tag{
+                                    display: none;
+                                }
+                                h4 {
+                                    margin: 0 0 0 0;
+                                    color: #FFFFFF!important;
+                                    @include web_570{
+                                        @include my-font-overflow;
+                                        -webkit-line-clamp: 2;
+                                    }
+                                }
+                                p {
+                                    color: #F7F7F7!important;
+                                    @include web_1140{
+                                        display: none;
+                                    }
+                                }
+                                .my-font-module-date{
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//圖文模組-卡片式-直式-漸層
+.module-imgtext.module-imgtext-type-card.module-imgtext-type-card-gradient{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper {
+                    .swiper-slide {
+                        a {
+                            .imgBox {
+                                .mask {
+                                    background: linear-gradient(to bottom, rgba(29,31,37, 0) 0%, rgba(29,31,37, 0.0) 33%, rgba(29,31,37, 1) 100%);
+                                }
+                                .mainImg{
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                            .textBox{
+                                p{}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//圖文模組-卡片式-直式-色塊
+.module-imgtext.module-imgtext-type-card.module-imgtext-type-card-block{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper {
+                    .swiper-slide {
+                        a {
+                            .imgBox {
+                                .mainImg{
+                                    border-radius: 0 0 20px 20px;
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                            .textBox{
+                                background: #E3E3E3;
+                                h4{
+                                    color: #363A44!important;
+                                }
+                                p{
+                                    color: #666666!important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//圖文模組-卡片式-橫式-色塊
+.module-imgtext.module-imgtext-type-card.module-imgtext-type-card-row.module-imgtext-type-card-block{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        position: relative;
+                        a{
+                            border-radius: 16px;
+                            overflow: hidden;
+                            @include web_570{
+                                border-radius: 8px;
+                            }
+                            .imgBox {
+                                .mainImg{
+                                    border-radius: 0px;
+                                    object-fit: cover;
+                                    object-position: 0px 0px;
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                            .textBox {
+                                position: absolute;
+                                top: 0px;
+                                right: 0px;
+                                left: initial;
+                                bottom: initial;
+                                width: 100%;
+                                max-width: 40%;
+                                height: 100%;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                padding: 16px 16px 16px 16px;
+                                border-radius: 0 16px 16px 0;
+                                overflow: hidden;
+                                background: transparent;
+                                @include web_570{
+                                    border-radius: 0 8px 8px 0;
+                                }
+                                .grade{
+                                    position: absolute;
+                                    top: 8px;
+                                    right: 8px;
+                                    @include web_570{
+                                        top: 4px;
+                                        right: 4px;
+                                    }
+                                    img{
+                                        @include web_570{
+                                            height: 16px!important;
+                                        }
+                                    }
+                                }
+                                h4 + p{
+                                    margin: 0 0 0 0;
+                                }
+                                h4{
+                                    margin: 0 0 16px 0;
+                                    font-size: 26px!important;
+                                    color: #FFFFFF!important;
+                                    @include web_570{
+                                        font-size: 14px!important;
+                                    }
+                                }
+                                p {
+                                    font-size: 20px!important;
+                                    line-height: 140%!important;
+                                    color: #FFFFFF!important;
+                                    @include web_570{
+                                        font-size: 13px!important;
+                                    }
+                                }
+                                .btn{
+                                    margin: 16px 0 0 0;
+                                    @include web_570{
+                                        display: none;
+                                    }
+                                    p{
+                                        font-size: 14px!important;
+                                        display: inline-block;
+                                        padding: 6px 12px 6px 12px;
+                                        margin: 0 0 0 0;
+                                        border-radius: 100px;
+                                        background-color: #FFFFFF!important;
+                                        color: #363A44!important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//圖文模組-橫式{
+.module-imgtext.module-imgtext-grid-row{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper {
+                    .swiper-slide {
+                        a {
+                            display: flex;
+                            align-items: center;
+                            .imgBox {
+                                margin: 0 0 0 0;
+                                flex: 90px 0;
+                                @include web_570{
+                                    flex: 60px 0;
+                                }
+                                img.mainImg{
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                            .textBox {
+                                margin: 0 0 0 12px;
+                                flex: 1;
+                                h4{
+                                    margin: 0 0 4px 0;
+                                    @include web_570{
+                                        -webkit-line-clamp: 2;
+                                    }
+                                }
+                                p {
+                                    margin: 0 0 0 0;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination{
+                    margin: 16px 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+.module-imgtext-grid-row {
+    .swiper-slide {
+        a {
+            display: flex;
+            align-items: center;
+            .imgBox {
+                margin: 0 0 0 0;
+                flex: 90px 0;
+                @include web_570 {
+                    flex: 60px 0;
+                }
+                img.mainImg {
+                    margin: 0 0 0 0;
+                }
+            }
+            .textBox {
+                margin: 0 0 0 12px;
+                flex: 1;
+                h4 {
+                    margin: 0 0 4px 0;
+                }
+                p {
+                    margin: 0 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+//內頁大輪播
+.module-topImg-m{
+    .module-topImg-m-container{
+        .swiper{
+            .swiper-wrapper{
+                .swiper-slide{
+                    a{
+                        .imgBox{
+                            .mainImg.pc{
+                                @include web_570{
+                                    display: none;
+                                }
+                            }
+                            .mainImg.mb{
+                                display: none;
+                                @include web_570{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//處理圖片爆版問題
+.module-imgtext.module-imgtext-columns-6.tab{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 194px;
+                                    @include web_1400{
+                                        // max-width: px;
+                                    }
+                                    @include web_1000{
+                                        // max-width: px;
+                                    }
+                                    @include web_768{
+                                        max-width: 171px;
+                                    }
+                                    @include web_570{
+                                        max-width: 122px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-6{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 194px;
+                                    @include web_1400{
+                                        // max-width: px;
+                                    }
+                                    @include web_1000{
+                                        // max-width: px;
+                                    }
+                                    @include web_768{
+                                        max-width: 200px;
+                                    }
+                                    @include web_570{
+                                        max-width: 142px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-4.module-imgtext-grid-row{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 90px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-4{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 302px;
+                                    @include web_1400{
+                                        max-width: 384px;
+                                    }
+                                    @include web_1000{
+                                        max-width: 405px;
+                                    }
+                                    @include web_768{
+                                        max-width: 314px;
+                                    }
+                                    @include web_570{
+                                        max-width: 231px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-3.module-imgtext-grid-row{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 90px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-3{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 411px;
+                                    @include web_1400{
+                                        max-width: 411px;
+                                    }
+                                    @include web_1000{
+                                        max-width: 531px;
+                                    }
+                                    @include web_768{
+                                        max-width: 417px;
+                                    }
+                                    @include web_570{
+                                        max-width: 302px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.module-imgtext.module-imgtext-columns-2{
+    .module-imgtext-container{
+        .module-imgtextbox{
+            .img-title-text-swiper{
+                .swiper-wrapper{
+                    .swiper-slide{
+                        a{
+                            .imgBox{
+                                .mainImg{
+                                    max-width: 628px;
+                                    @include web_1200{
+                                        max-width: 712px;
+                                    }
+                                    @include web_1000{
+                                        max-width: 796px;
+                                    }
+                                    @include web_768{
+                                        max-width: 622px;
+                                    }
+                                    @include web_570{
+                                        max-width: 452px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

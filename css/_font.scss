@@ -1,0 +1,221 @@
+@mixin my-font-h2{
+    font-size: 26px!important;
+    line-height: 120%!important;
+    font-weight: 700!important;
+    @include web_768{
+        font-size: 24px!important;
+    }
+    @include web_570{
+        font-size: 20px!important;
+    }
+}
+@mixin my-font-h3{
+    font-size: 22px!important;
+    line-height: 26px!important;
+    font-weight: 700!important;
+    @include web_768{
+        font-size: 20px!important;
+    }
+    @include web_570{
+        font-size: 16px!important;
+        font-weight: 700!important;
+    }
+}
+@mixin my-font-h4{
+    font-size: 16px!important;
+    line-height: 120%!important;
+    font-weight: 700!important;
+    @include web_768{
+        font-size: 16px!important;
+    }
+    @include web_570{
+        font-size: 14px!important;
+    }
+}
+
+@mixin my-font-l{
+    font-size: 16px!important;
+    line-height: 140%!important;
+    font-weight: 400!important;
+    @include web_570{
+        font-size: 14px!important;
+    }
+}
+
+@mixin my-font-m{
+    font-size: 14px!important;
+    line-height: 140%!important;
+    font-weight: 400!important;
+    @include web_768{
+        font-size: 13px!important;
+    }
+}
+
+@mixin my-font-s{
+    font-size: 12px!important;
+    line-height: 140%!important;
+    font-weight: 400!important;
+}
+
+.my-font-list{
+    display: flex!important;
+    align-items: center!important;
+    .my-font-item{
+        cursor: pointer!important;
+        position: relative!important;
+        &:nth-child(1){
+            margin: 0 12px 0 0!important;
+            &::after{
+                position: absolute!important;
+                top: -2px!important;
+                right: -12px!important;
+                content: ""!important;
+                background-color: #EDEEF1!important;
+                width: 1px!important;
+                height: 24px!important;
+                cursor: initial!important;
+            }
+        }
+        &:nth-child(2){
+            margin: 0 0 0 12px!important;
+        }
+    }
+}
+
+.my-font-h2{
+    @include my-font-h2;
+}
+
+.my-font-h3{
+    @include my-font-h3;
+}
+
+.my-font-h4{
+    @include my-font-h4;
+}
+
+.my-font-l{
+    @include my-font-l;
+}
+
+.my-font-m{
+    @include my-font-m;
+}
+
+.my-font-s{
+    @include my-font-s;
+}
+//
+.my-font-bold{
+    font-weight: bold;
+}
+//文字不換行
+.my-text-nowrap{
+    white-space:nowrap;
+}
+//文字對齊
+.my-font-start{
+    text-align: left;
+}
+.my-font-center{
+    text-align: center;
+}
+.my-font-end{
+    text-align: end;
+}
+
+.my-font-decoration-none{
+    text-decoration: none;
+}
+
+.my-font-26{
+    font-size: 26px;
+    line-height: 120%;
+}
+.my-font-24{
+    font-size: 24px;
+    line-height: 120%;
+}
+.my-font-22{
+    font-size: 22px;
+    line-height: 120%;
+}
+.my-font-18{
+    font-size: 18px;
+    line-height: 120%;
+}
+.my-font-16{
+    font-size: 16px;
+    line-height: 120%;
+}
+.my-font-14{
+    font-size: 14px;
+    line-height: 140%;
+}
+.my-font-13{
+    font-size: 13px;
+    line-height: 140%;
+}
+.my-font-12{
+    font-size: 12px;
+    line-height: 140%;
+}
+@include web_570{
+    .my-font-26-sm{
+        font-size: 26px;
+        line-height: 120%;
+    }
+    .my-font-24-sm{
+        font-size: 24px;
+        line-height: 120%;
+    }
+    .my-font-22-sm{
+        font-size: 22px;
+        line-height: 120%;
+    }
+    .my-font-16-sm{
+        font-size: 16px;
+        line-height: 120%;
+    }
+    .my-font-14-sm{
+        font-size: 14px;
+        line-height: 140%;
+    }
+    .my-font-13-sm{
+        font-size: 13px;
+        line-height: 140%;
+    }
+    .my-font-12-sm{
+        font-size: 12px;
+        line-height: 140%;
+    }
+}
+@include web_570{
+    .my-font-start-sm{
+        text-align: left;
+    }
+    .my-font-center-sm{
+        text-align: center;
+    }
+    .my-font-end-sm{
+        text-align: end;
+    }
+
+    .my-font-start-s{
+        text-align: left;
+    }
+    .my-font-center-s{
+        text-align: center;
+    }
+    .my-font-end-s{
+        text-align: end;
+    }
+}
+
+//超過行數隱藏
+@mixin my-font-overflow {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

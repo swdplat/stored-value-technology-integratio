@@ -1,0 +1,2025 @@
+@import 'variables';
+@import 'breakpoints';
+@import '_module-closableimg';
+.page{
+    padding: 63px 0 0 0;
+    @include web_1140 {
+        padding: 51px 0 0 0;
+    }
+}
+.imgBox{
+    img{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+//區域狀態圖示
+.areaState {
+    width: 100%;
+    .imgBox {
+        width: 100%;
+        img {
+            width: 100%;
+            max-width: 260px;
+            @include web_900 {
+                max-width: 200px;
+            }
+            @include web_570 {
+                max-width: 160px;
+            }
+        }
+    }
+    .text{
+        color: #363A44;
+    }
+}
+
+//標題頁籤
+.my-title {
+    .my-titleBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // 原本有.my-font-h3，其他版面沒問題後可移除
+        .my-textBox {
+            width: 100%;
+            .my-list-tab {
+                gap: 40px;
+                overflow-x: auto;
+                @include web_570 {
+                    gap: 16px;
+                }
+                &::-webkit-scrollbar {
+                    display: none;
+                    @include web_1140 {
+                        display: block;
+                        height: 0px;
+                        border-radius: 5px;
+                    }
+                }
+                &::-webkit-scrollbar-button {
+                    height: 0px;
+                    background: transparent;
+                }
+                &::-webkit-scrollbar-track-piece {
+                    background: transparent;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: transparent;
+                }
+                .my-list-tab-tiem {
+                    padding: 0 0 4px 0;
+                    color: #1D1F25;
+                }
+            }
+            .my-list-tab {
+                .my-list-tab-tiem {
+                    color: #B3B9C6;
+                    flex-shrink: 0;
+                    cursor: pointer;
+                    transition: 0.3s;
+                    border-bottom: 2px solid transparent;
+                    @include web_570 {
+                        padding: 6px 0 6px 0;
+                    }
+                    &:hover {
+                        border-bottom: 2px solid #B3B9C6;
+                    }
+                }
+                .my-list-tab-tiem.active {
+                    color: #1D1F25;
+                    border-bottom: 2px solid #1D1F25;
+                }
+            }
+            .my-list-tab.my-list-tab-colorBlue {
+                .my-list-tab-tiem.active {
+                    color: #4FAFF1!important;
+                    border-bottom: 2px solid #4FAFF1!important;
+                }
+            }
+        }
+        .my-title-btn {
+            display: flex;
+            align-items: center;
+            margin: 0 0 0 24px;
+            text-decoration: none;
+            @include web_570 {
+                margin: 0 0 0 16px;
+            }
+            .my-btn-main-text-s {
+                cursor: pointer;
+                color: #565F73;
+                text-align: center;
+                @include web_570 {
+                    display: none;
+                }
+            }
+            .iconBox {
+                line-height: 100%;
+                cursor: pointer;
+                font-size: 0px;
+                margin: 0 0 0 6px;
+                @include web_570 {
+                    margin: 0 0 0 0;
+                }
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .icon_right {
+                path {
+                    fill: #565F73;
+                }
+            }
+        }
+    }
+}
+
+//輪播點點樣式
+.my-swiper-bullet-inside-main {
+    .swiper-pagination{
+        position: absolute!important;
+        margin: 16px 0 0 0!important;
+        bottom: 12px!important;
+        font-size: 0px!important;
+        @include web_570{
+         margin: 12px 0 0 0!important;
+        }
+         .swiper-pagination-bullet{
+             width: 10px!important;
+             height: 10px!important;
+             margin: 0 6px 0 6px!important;
+             background-color: rgba(227, 227, 227, 1)!important;
+             opacity: 1!important;
+             @include web_570{
+                 width: 8px!important;
+                 height: 8px!important;
+                 margin: 0 4px 0 4px!important;
+             }
+         }
+         .swiper-pagination-bullet-active{
+             background-color: rgba(227, 227, 227, 1)!important;
+             width: 60px!important;
+             border-radius: 50px!important;
+             &::before{
+                 content: ''!important;
+                 display: block!important;
+                 height: 100%!important;
+                 background-color: rgba(23, 141, 224, 1)!important;
+                 border-radius: 50px!important;
+                 animation-name: bullet-active!important;
+                 animation-duration: 4s!important;
+             }
+             @keyframes bullet-active {
+                 0%   {
+                     width: 10px!important;
+                 }
+                 100% {
+                     width: 100%!important;
+                 }
+             }
+             @include web_570{
+                 width: 40px!important;
+             }
+         }
+     }
+}
+.my-swiper-bullet-outside-main {
+    .swiper-pagination{
+        position: relative;
+        margin: 16px 0 0 0;
+        font-size: 0px;
+        bottom: initial;
+        @include web_570{
+         margin: 12px 0 0 0;
+        }
+         .swiper-pagination-bullet{
+             width: 10px;
+             height: 10px;
+             margin: 0 6px 0 6px;
+             background-color: rgba(227, 227, 227, 1);
+             opacity: 1;
+             @include web_570{
+                 width: 8px;
+                 height: 8px;
+                 margin: 0 4px 0 4px;
+             }
+         }
+         .swiper-pagination-bullet-active{
+             background-color: rgba(227, 227, 227, 1);
+             width: 60px;
+             border-radius: 50px;
+             &::before{
+                 content: '';
+                 display: block;
+                 height: 100%;
+                 background-color: rgba(23, 141, 224, 1);
+                 border-radius: 50px;
+                 animation-name: bullet-active;
+                 animation-duration: 4s;
+             }
+             @keyframes bullet-active {
+                 0%   {
+                     width: 10px;
+                 }
+                 100% {
+                     width: 100%;
+                 }
+             }
+             @include web_570{
+                 width: 40px;
+             }
+         }
+     }
+}
+.my-swiper-bullet-inside {
+    .swiper-pagination {
+        position: absolute!important;
+        bottom: 12px!important;
+        font-size: 0px!important;
+        .swiper-pagination-bullet {
+            background-color: #82C5F7 !important;
+            width: 10px!important;
+            height: 10px!important;
+            opacity: 1!important;
+            margin: 0 6px 0 6px!important;
+            @include web_570 {
+                margin: 0 4px 0 4px!important;
+                width: 8px!important;
+                height: 8px!important;
+            }
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #E3E3E3!important;
+            opacity: 1!important;
+            &::before{
+                content: ''!important;
+                background-color: #82c5f7!important;
+            }
+        }
+    }
+}
+.my-swiper-bullet-outside {
+    .swiper-pagination {
+        position: relative!important;
+        margin: 16px 0 0 0!important;
+        bottom: 0px!important;
+        font-size: 0px!important;
+        .swiper-pagination-bullet {
+            background-color: #E3E3E3!important;
+            width: 10px!important;
+            height: 10px!important;
+            opacity: 1!important;
+            margin: 0 6px 0 6px!important;
+            @include web_570 {
+                margin: 0 4px 0 4px!important;
+                width: 8px!important;
+                height: 8px!important;
+            }
+        }
+        .swiper-pagination-bullet-active {
+            background-color: $my-primary-300!important;
+            opacity: 1!important;
+            &::before{
+                content: ''!important;
+                background-color: #82c5f7!important;
+            }
+        }
+    }
+}
+
+//輪播-箭頭樣式
+.my-swiper{
+    // border-radius: 16px 16px 16px 16px;
+    @include web_570{
+        border-radius: 0px 0px 0px 0px;
+    }
+    .swiper-slide{
+        a{
+            .imgBox{
+                img{
+                    border-radius: 16px 16px 16px 16px;
+                }
+            }
+        }
+    }
+    .swiper-slide-active{
+        a{
+            .imgBox{
+                img{
+                    border-radius: 16px 16px 16px 16px;
+                }
+            }
+        }
+    }
+    .swiper-button-prev,.swiper-button-next{
+        color: #ffffff!important;
+        background-color: rgba(29, 31, 37, 0.3)!important;
+        padding: 24px 10px 24px 10px!important;
+        border-radius: 12px!important;
+        width: 60px!important;
+        height: 88px!important;
+        z-index: 200!important;
+        transition: 0.3s!important;
+        @include web_1140{
+            display: none!important;
+        }
+        &:hover{
+            background-color: rgba(29, 31, 37, 0.4)!important;
+        }
+    }
+    .swiper-button-prev{
+        top: 50%!important;
+        left: 20%!important;
+        transform: translate(0,-50%)!important;
+    }
+    .swiper-button-next{
+        top: 50%!important;
+        right: 20%!important;
+        transform: translate(0%,-50%)!important;
+    }
+}
+
+.my-modal.my-modal-m {
+    .faceImg {
+        width: 100%;
+        max-width: 100px;
+    }
+}
+
+.my-modal.my-modal-s {
+    .areaState {
+        .imgBox {
+            width: 100%;
+            img {
+                width: 100%;
+                max-width: 160px;
+                @include web_570 {
+                    max-width: 120px;
+                }
+            }
+        }
+    }
+}
+
+.my-module-columns-three-row.grid-row{
+    .swiper-wrapper {
+        .swiper-slide {
+            a {
+                display: flex!important;
+                align-items: center!important;
+                .imgBox {
+                    margin: 0 0 0 0;
+                    flex: 90px 0;
+                    @include web_570{
+                        flex: 60px 0;
+                    }
+                    img.mainImg{
+                        margin: 0 0 0 0;
+                    }
+                }
+                .text {
+                    margin: 0 0 0 12px;
+                    flex: 1;
+                    h4{
+                        margin: 0 0 4px 0;
+                    }
+                    p {
+                        margin: 0 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+//彈窗內容樣式
+.my-modal-body {
+    .my-modal-body-box{
+        p.invalid{
+            color: #F8553B;
+        }
+        //選擇頭像
+        .faceImg-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            .faceImg-item {
+                cursor: pointer;
+                border-radius: 100px;
+                overflow: hidden;
+                width: calc(100% / 4 - 18px);
+                border: 3px solid transparent;
+                position: relative;
+                transition: 0.5s;
+                &:hover{
+                    border: 3px solid #82C5F7;
+                }
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+            .click.faceImg-item{
+                &::before{
+                    content: '';
+                    background-image: url(../img/member/check.png);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                }
+                &::after{
+                    content: '';
+                    background-color: #1D1F25;
+                    opacity: 0.5;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 1;
+                }
+            }
+        }
+        .btn-list {
+            width: 100%;
+            .btn-item {
+                padding: 8px 8px 8px 8px;
+                text-align: center;
+                p {
+                    display: inline-block;
+                    cursor: pointer;
+                    color: #464D5E;
+                }
+            }
+        }
+        .textBox{
+            //吃目前領獎專區內的結構
+            h2{
+                font-size: 22px;
+                color: #1D1F25;
+                @include web_570{
+                    font-size: 16px;
+                }
+            }
+            h3{
+                margin: 16px 0 0 0;
+                color: #1D1F25;
+                font-size: 16px;
+                @include web_570{
+                    font-size: 14px;
+                }
+            }
+            .time{
+                margin: 16px 0 0 0;
+                h4{
+                    font-size: 16px;
+                    font-weight: initial;
+                    line-height: 140%;
+                    color: #1D1F25;
+                    @include web_570{
+                        font-size: 14px;
+                    }
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 140%;
+                    color: #3C4250;
+                    margin: 4px 0 0 0;
+                    @include web_570{
+                        font-size: 13px;
+                    }
+                }
+            }
+            p{
+                font-size: 14px;
+                line-height: 140%;
+                // color: #6B768C;
+                margin: 0 0 0 0;
+                @include web_570{
+                    font-size: 13px;
+                }
+            }
+            .iconBox{
+                .icon_copy{
+                    cursor: pointer;
+                }
+            }
+        }
+        .textBox-link-list{
+            list-style: disc;
+            .textBox-link-list-item{
+                &::before{
+                    content: "·";
+                    font-size: 16px;
+                    color: #178DE0;
+                    vertical-align: middle;
+                    line-height: 20px;
+                    padding: 0 8px;
+                }
+                a{
+                    color: #178DE0;
+                    text-decoration: underline;
+                    font-size: 14px;
+                    line-height: 140%;
+                    font-weight: 400;
+                    @include web_768{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+        //虛寶收合
+        .textBox-imgText-list{
+            width: 100%;
+            .textBox-imgText-list-item{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                padding: 8px 0 8px 0;
+                border-bottom: 1px solid #EDEEF1;
+                color: #3C4250;
+                .textBox-imgText-list-item-img{
+                    img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                .textBox-imgText-list-item-text{
+                    // flex: 1;
+                    margin: 0 16px 0 16px;
+                }
+                .textBox-imgText-list-item-icon{}
+                .textBox-imgText-list-item-icon{
+                    svg.rotate-180{
+                        transform: rotate(180deg);
+                    }
+                }
+                ul.textBox-imgText-list{
+                    margin: 0 0 0 46px;
+                    display: none;
+                    li{
+                        border-bottom: none;
+                        padding: 2px 0 2px 0;
+                    }
+                }
+            }
+            .textBox-imgText-list-item.cursor{
+                cursor: pointer;
+            }
+        }
+        //注意事項
+        .textBox-note-list{
+            list-style:decimal;
+            padding: 0 0 0 16px;
+            .textBox-note-list-item{
+                color: #3C4250;
+                a{
+                    color: #178DE0;
+                }
+            }
+        }
+        //項目列
+        .textBox-list{
+            list-style:decimal;
+            padding: 0 0 0 16px;
+            .textBox-list-item{
+                color: #565F73;
+                &+.textBox-list-item{
+                    margin: 16px 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+//按鈕欄數
+.my-btn-column-4{
+    flex-wrap: wrap;
+    gap: 24px 32px;
+    .btnBox{
+        width: 100%;
+        max-width: calc(100% / 4 - 24px);
+        .my-btn-main{
+            width: 100%;
+        }
+    }
+}
+@include web_570{
+    .my-btn-column-1-sm{
+        gap: 12px 12px;
+        .btnBox{
+            width: 100%;
+            max-width: 100%;
+            .my-btn-main{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@include web_570{
+    .my-card-column-1-sm{
+        flex-wrap: wrap;
+        .my-card-column-item{
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}
+.my-module-card-list-six{
+    .my-module-card-item{
+        width: 100%;
+        max-width: calc(100% / 6 - 20px);
+    }
+}
+@include web_768{
+    .my-module-card-list-four-md{
+        .my-module-card-item{
+            width: 100%;
+            max-width: calc(100% / 4 - 18px);
+        }
+    }
+}
+@include web_570{
+    .my-module-card-list-six-sm{
+        .my-module-card-item{
+            width: 100%;
+            max-width: calc(100% / 6 - 8px);
+        }
+    }
+    .my-module-card-list-three-sm{
+        .my-module-card-item{
+            width: 100%;
+            max-width: calc(100% / 3 - 8px);
+        }
+    }
+}
+.my-module-card{
+    .my-module-card-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        @include web_768{
+            gap: 24px;
+        }
+        @include web_570{
+            gap: 12px;
+        }
+        .my-module-card-item{}
+        .my-module-card-item{
+            a{
+                text-decoration: none;
+                .my-card-img-top{
+                    .imgBox{
+                        .mainImg{
+
+                        }
+                    }
+                }
+                .my-card-body{
+                    .my-card-title{
+                        margin: 12px 0 0 0;
+                        @include web_570{
+                            margin: 8px 0 0 0;
+                        }
+                    }
+                    .my-card-text{}
+                }
+            }
+        }
+    }
+}
+
+//搜尋欄位
+.my-search {
+    width: 100%;
+    min-height: 40px;
+    max-height: 40px;
+    position: relative;
+    @include web_768 {
+        width: 100%;
+    }
+    .my-search-box {
+        min-height: 40px;
+        max-height: 40px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 4px 4px 4px 8px;
+        border-radius: 100px;
+        overflow: hidden;
+        background-color: map-get(map-get($colors, my-grey), "50");
+        border: 1px solid transparent;
+        &:hover {
+            border: 1px solid map-get(map-get($colors, my-grey), "300");
+        }
+        @include web_768 {
+            padding: 4px 4px 4px 16px;
+        }
+        .iconBox {
+            margin: 0 0 0 0;
+            .icon_search{
+                width: 24px;
+                height: 24px;
+                @include web_768 {
+                    display: none;
+                }
+            }
+        }
+        .input{
+            position: absolute;
+            z-index: 4;
+            flex: 1;
+            width: calc(100% - 24px);
+            margin: 0 0 0 34px;
+            background-color: transparent;
+            height:100%;
+            @include web_768{
+                margin: 0 0 0 0;
+                width: 100%;
+            }
+            .inputBox{
+                height: 100%;
+                input[type=search] {
+                    position: relative;
+                    z-index: 100;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    background-color: transparent;
+                    flex: 1;
+                    font-size: 16px;
+                    transform: scale(0.92);
+                    transform-origin: left;
+                    @include my-font-overflow;
+                    -webkit-line-clamp: 1;
+                    &:focus {
+                        outline: none;
+                        color: map-get(map-get($colors, my-grey), "900");
+                    }
+                    &:hover {
+                        color: map-get(map-get($colors, my-grey), "900");
+                    }
+                    //輸入欄位輸入文字後默認的叉號不顯示
+                    &::-webkit-search-cancel-button {
+                        -webkit-appearance: none;
+                    }
+                }
+                .textJump {
+                    width: 100%;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    z-index: 5;
+                    background-color: transparent;
+                    overflow-x: hidden!important;
+                    font-weight: 200;
+                    height: 100%;
+                    .swiper {
+                        width: 100%;
+                        height: 30px;
+                        height: 100%;
+                        .swiper-slide {
+                            text-align: left;
+                            font-size: 18px;
+                            display: flex;
+                            align-items: center;
+                            font-size: 13px;
+                            p {
+                                color: map-get(map-get($colors, my-grey), "300");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .my-search-box.border {
+        border: 1px solid map-get(map-get($colors, my-grey), "300");
+    }
+    .my-dropDown {
+        width: 100%;
+        padding: 16px 16px 16px 16px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 8px 0px #0000001A;
+        border-radius: 16px;
+        display: none;
+        position: absolute;
+        left: 0px;
+        top: 48px;
+        z-index: 100;
+        .my-keywords-title {
+            font-weight: initial;
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            line-height: 140%;
+        }
+
+        .my-keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            line-height: 32px;
+            gap: 12px;
+            .my-keywords-item {
+                .my-keywords-link {
+                    text-decoration: none;
+                    background-color: #E3E3E3;
+                    padding: 6px 12px 6px 12px;
+                    border-radius: 100px;
+                    white-space: initial;
+                    font-size: 14px;
+                    color: #363A44;
+                }
+            }
+        }
+    }
+}
+//頁籤切換
+.my-tab-card{
+    .my-title-tab-contentBox{
+        .my-title-tab-content{
+            display: none;
+        }
+        .my-title-tab-content.active{
+            display: block!important;
+        }
+        .my-tab-content{
+            display: none;
+        }
+        .my-tab-content.active{
+            display: block!important;
+        }
+    }
+}
+//儲值列內頁-商品列表
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    @include web_570{
+        gap: 0px;
+    }
+    // .product-column-item.my-skeleton{
+    //     label{
+    //         cursor: default;
+    //     }
+    // }
+    .product-column-item.active{
+        background-color: #EDEEF1!important;
+    }
+    .product-column-item{
+        &+ .product-column-item{
+            border-top: 2px solid #f7f7f7;
+        }
+        position: relative;
+        border: 1px solid #EDEEF1;
+        background-color: #fff;
+        border-radius: 6px;
+        width: 100%;
+        max-width: calc(100% / 3 - 10.662px);
+        height: 92px;
+        transition: 0.3s;
+        overflow: hidden;
+        &:hover {
+            box-shadow: 0 0 8px 0 #6666731A;
+        }
+        @include web_1140{
+            max-width: calc(100% / 2 - 8px);
+        }
+        @include web_570{
+            border: none;
+            border-radius: initial;
+            max-width:100%;
+            height: 76px;
+            &:hover {
+                box-shadow: 0 0 0px 0 #ffffff00;
+            }
+        }
+        label{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content:space-between;
+            align-items: center;
+            padding: 16px 16px 16px 16px;
+            cursor: pointer;
+            @include web_570 {
+                padding: 8px 12px;
+            }
+            .product-column-item-tag {
+                overflow: hidden;
+                background-color: #47CB32;
+                color: #ffffff;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                border-radius: 0px 100px 100px 0;
+                padding: 4px 6px;
+    
+                p {
+                    line-height: 14px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    text-align: center;
+                }
+            }
+            .imgText{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                @include web_570{
+                    gap: 12px;
+                }
+                .imgBox{
+                    min-width: 60px;
+                    max-width: 60px;
+                    &::before{
+                        content: "";
+                        border-radius: 4px;
+                    }
+                    img{
+                        border-radius: 4px;
+                    }
+                }
+                .textBox{
+                    width: 100%;
+                    h5{
+                        font-weight: 500 !important;
+                        @include my-font-overflow;
+                        -webkit-line-clamp: 2;
+                    }
+                    p{
+                        @include my-font-overflow;
+                        -webkit-line-clamp: 1;
+                    }
+                }
+                .inputBox{
+                    
+                    width: 100%;
+                    input{
+                        background-color: #FFFFFF;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+//儲值列內頁-付款列表
+.paymentMain{
+    .payment-more{
+        border: 1px solid #EDEEF1;
+        border-radius: 6px;
+        padding: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        .payment-moreBox{
+            .imgBox{
+                font-size: 0px;
+                img{
+                    min-width: 24px;
+                }
+            }
+        }
+        &:hover {
+            box-shadow: 0 0 8px 0 #6666731A;
+        }
+        @include web_570{
+            padding: 0px;
+        }
+    }
+    .payment-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        width: 100%;
+        @include web_570{
+            gap: 0px!important;
+        }
+        .payment-column-item{
+            &+ .payment-column-item{
+                @include web_570{
+                    border-top: 2px solid #f7f7f7;
+                }
+            }
+            position: relative;
+            border: 1px solid #EDEEF1;
+            background-color: #fff;
+            border-radius: 6px;
+            width: 100%;
+            max-width: calc(100% / 3 - 10.662px);
+            height: 92px;
+            overflow: hidden;
+            &:hover {
+                box-shadow: 0 0 8px 0 #6666731A;
+            }
+            &.active{
+                background-color: #EDEEF1;
+                padding: 0px;
+                @include web_570{
+                    border-radius: 4px;
+                }
+            }
+            @include web_1140{
+                max-width: calc(100% / 2 - 8px);
+            }
+            @include web_570{
+                border: none;
+                border-radius: initial;
+                max-width:100%;
+                height: 76px;
+                &:hover {
+                    box-shadow: 0 0 0px 0 #ffffff00;
+                }
+            }
+            input[type=radio]{
+                position: absolute;
+                opacity: 0;
+            }
+            label{
+                width: 100%;
+                display: flex;
+                gap: 16px;
+                align-items: center;
+                padding: 16px 16px 16px 16px;
+                cursor: pointer;
+                @include web_570 {
+                    padding: 8px 12px 8px 0px;
+                }
+                .imgText{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    @include web_570{
+                        gap: 12px;
+                    }
+                    .imgBox{
+                        min-width: 60px;
+                        &::before{
+                            content: "";
+                            border-radius: 4px;
+                        }
+                        img{
+                            border-radius: 4px;
+                        }
+                    }
+                    .textBox{
+                        width: 100%;
+                        h5{
+                            font-weight: 500 !important;
+                            @include my-font-overflow;
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.paymentSub{
+    .payment-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        @include web_570{
+            gap: 0px;
+        }
+        .payment-column-item.active{
+            background-color: #EDEEF1!important;
+        }
+        .payment-column-item{
+            &+ .payment-column-item{
+                @include web_570{
+                    border-top: 2px solid #f7f7f7;
+                }
+            }
+            position: relative;
+            border: 1px solid #EDEEF1;
+            background-color: #fff;
+            border-radius: 6px;
+            width: 100%;
+            max-width: calc(100% / 3 - 10.662px);
+            height: 92px;
+            transition: 0.3s;
+            overflow: hidden;
+            &:hover {
+                box-shadow: 0 0 8px 0 #6666731A;
+            }
+            @include web_1140{
+                max-width: calc(100% / 2 - 8px);
+            }
+            @include web_570{
+                border: none;
+                border-radius: initial;
+                max-width:100%;
+                height: 76px;
+                &:hover {
+                    box-shadow: 0 0 0px 0 #ffffff00;
+                }
+            }
+            input[type=radio]{
+                position: absolute;
+                opacity: 0;
+            }
+            label{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content:space-between;
+                align-items: center;
+                padding: 16px 16px 16px 16px;
+                cursor: pointer;
+                @include web_570 {
+                    padding: 8px 12px;
+                }
+                .imgText{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    @include web_570{
+                        gap: 12px;
+                    }
+                    .imgBox{
+                        min-width: 60px;
+                        &::before{
+                            content: "";
+                            border-radius: 4px;
+                        }
+                        img{
+                            border-radius: 4px;
+                        }
+                    }
+                    .textBox{
+                        width: 100%;
+                        h5{
+                            font-weight: 500 !important;
+                            @include my-font-overflow;
+                            -webkit-line-clamp: 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// 儲值列內頁-相關連結icon
+.relatedLinks-icon{
+    display: flex;
+    gap: 12px;
+    @include web_570{
+        margin: 0 0 0 0;
+        padding: 12px 12px 12px 12px;
+    }
+    .relatedLinks-icon-item{
+        min-width: 66px;
+        max-width: 66px;
+        a{
+            text-decoration: none;
+            .text{
+                font-size: 13px;
+                text-align: center;
+                color: #3C4250;
+                margin: 8px 0 0 0;
+            }
+        }
+    }
+}
+//儲值列內頁-遊戲介紹
+.gameIntroduction{
+    .rotate-180 {
+        transform: rotate(180deg);
+        transition: 0.3s;
+    }
+    .text{
+        .heightLimit{
+            max-height: 560px;
+            overflow: hidden;
+        }
+        .textBox{
+            p{
+                margin: 16px 0 0 0;
+            }
+        }
+        .btn-more{
+            cursor: pointer;
+        }
+    }
+}
+//儲值列表內頁-活動
+.event{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    @include web_570{
+        gap: 16px;
+    }
+    .eventItem{
+        width: 100%;
+        max-width: calc(50% - 16px);
+        border: 1px solid #EDEEF1;
+        border-radius: 8px 8px 8px 8px;
+        background-color: #ffffff;
+        @include web_768{
+            max-width: 100%;
+        }
+        .title{
+            padding: 8px 16px 8px 16px;
+            border-bottom: 1px solid #EDEEF1;
+            max-height: 42px;
+            @include web_570{
+                max-height: 40px;
+            }
+        }
+        .information{
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 16px 16px 16px 16px;
+            @include web_570{
+                flex-direction: column;
+                gap: 16px;
+            }
+            .textBox{
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                flex: 1;
+                color: #3C4250;
+                @include web_570{
+                    gap: 8px;
+                }
+                .text{
+                    color: #1D1F25;
+                }
+            }
+            .btnLink{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                min-width: 200px;
+                max-width: 200px;
+                @include web_570{
+                    flex-direction: row-reverse;
+                    min-width: initial;
+                    max-width: initial;
+                }
+                .my-btn-main{
+                    @include web_570{
+                        width: 100%;
+                        max-width: 50%;
+                    }
+                }
+                .my-btn-main-text{
+                    justify-content: end!important;
+                }
+            }
+        }
+    }    
+}
+//交易結果-金流
+.tradingInformation{
+    .tradingInformation-state{
+        flex: 1;
+        .areaState{
+            .text{
+                width: 100%;
+                max-width: 260px;
+                @include web_768{
+                    max-width: 230px; 
+                }
+            }
+        }
+    }
+    .tradingInformation-data{
+        flex: 1;
+        width: 100%;
+        max-width: 540px;
+        @include web_1140{
+            max-width: 100%;
+        }
+    }
+}
+//
+.inputNumberBox{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    .inputNumberBox-btn{
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+    }
+    .inputNumberBox-input{
+        width: 32px;
+        line-height: 32px;
+        border: none;
+        text-align: center;
+    }
+}
+//浮動狀態
+.my-floating-state{
+    width: 100%;
+    max-width: 360px;
+    line-height: 44px;
+    padding: 10px 16px 10px 16px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 128px;
+    z-index: 51;
+    @include web_570{
+        max-width: calc(100% - 32px);
+        bottom: 16px;
+    }
+}
+//頁籤滑動置頂
+@include web_570{
+    .tab-title.fixed-top{
+        z-index: 10;
+        position: fixed;
+        width: 100%;
+        top: 51px;
+        left: 0px;
+        background-color: #ffffff;
+    }   
+}
+//
+.my-platform{
+    li{
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include web_570{
+            width: 20px;
+            height: 20px;
+        }
+        svg{
+            width: 20px;
+            height: 20px;
+            @include web_570{
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+}
+//分級
+.gameRating{
+    .imgBox{
+        img{
+            width: 50px;
+            height: 50px;
+            @include web_570{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+.checkout.fixed-bottom{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    z-index: 50;
+    box-shadow: 0px 0px 8px 0px #0000001A;
+    background-color: #fff;
+    .checkoutBox{
+        padding: 0 0 0 0!important;
+        margin:  0 0 0 0!important;
+        .checkoutBox-content{
+            border-radius: 0 0 0 0!important;
+            max-width: 1192px;
+            padding: 0 16px 0 16px;
+            margin: 0 auto!important;
+            border: none;
+            @include web_570{
+                padding: 0 0 0 0;
+            }
+            .btnBox{
+                min-width: 200px;
+            }
+        }
+    }
+}
+//會員背包-麵包屑
+.my-breadcrumb{
+    list-style: none;
+    display: flex;
+    .my-breadcrumb-item{
+        display: flex;
+        .iconBox{
+            margin: 0 8px 0 8px;
+            display: flex;
+            align-items: center;
+        }
+        a{
+            text-decoration: none;
+            color: #8993A7;
+            font-size: 14px;
+            line-height: 19.6px;
+        }
+    }
+    .my-breadcrumb-item.active{
+        a{
+            color: #565F73;
+        }
+    }
+}
+// 背包列表
+.my-bag-list{
+    .my-bag-itemizedType{
+        flex-wrap: wrap;
+        // 棋盤
+        &.my-bag-fourCardType{
+            @include web_570{
+                padding: 12px 12px 12px 12px;
+                background-color: #ffffff;
+                border-radius: 8px 8px 8px 8px!important;
+                gap: 16px!important;
+            }
+            .my-bag-item{
+                flex-basis: calc(20% - 19.2px);
+                padding: 0px 0px 0px 0px;
+                position: relative;
+                gap: 0px;
+                border:none;
+                @include web_570{
+                    flex-basis: calc(33.3333% - 11px);
+                }
+                .imgtextBox{
+                    gap: 0px;
+                    display: initial;
+                    .imgBox{
+                        max-width: 100%;
+                        max-height: 100%;
+                        img{
+                            max-width:initial;
+                        }
+                    }
+                    .textBox{
+                        position: absolute;
+                        left: 0px;
+                        top: 12px;
+                        .my-font-l{
+                            display: none;
+                        }
+                        .my-font-m{
+                            display: none;
+                        }
+                        .dateBox{
+                            margin: 0px 0px 0px 0px;
+                            gap: 0px;
+                            .date{
+                                display: none;
+                            }
+                            .state{
+                                .my-tag{
+                                    border-radius: 0 100px 100px 0!important;
+                                }
+                            }
+                        }
+                    }
+                    .seal{
+                        top: initial;
+                        right: 4px;
+                        bottom: 4px;
+                        transform: initial;
+                    }
+                }
+            }
+        }
+        .my-bag-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            flex-basis: calc(50% - 12px);
+            padding: 16px 16px 16px 16px;
+            border: 1px solid #EDEEF1;
+            border-radius: 8px 8px 8px 8px;
+            position: relative;
+            &.popdata{
+                cursor: pointer;
+            }
+            @include web_570{
+                flex-direction: column;
+                background-color: #ffffff;
+                padding: 12px 12px 12px 12px;
+                border-radius: 8px 8px 8px 8px;
+                gap: 16px;
+                flex-basis: 100%;
+                border: none;
+            }
+            .imgtextBox{
+                width: 100%;
+                display: flex;
+                gap: 24px;
+                @include web_570{
+                    gap: 16px;
+                }
+                .imgBox{
+                    width: 100%;
+                    max-width: 82px;
+                    max-height: 82px;
+                    border-radius: 6px 6px 6px 6px;
+                    background-color: #F6F7F9;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 100%;
+                        max-width: 82px;
+                    }
+                }
+                .textBox{
+                    width: 100%;
+                    position: relative;
+                    .my-font-m{
+                        @include my-font-overflow;
+                        -webkit-line-clamp: 1;
+                    }
+                    .my-font-l{
+                        @include my-font-overflow;
+                        -webkit-line-clamp: 1;
+                    }
+                    .dateBox{
+                        display: flex;
+                        align-items: center;
+                        margin: 16px 0 0 0;
+                        gap: 16px;
+                        @include web_570{
+                            margin: 8px 0 0 0;
+                        }
+                        .date{
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            line-height: 26px;
+                            @include web_570{
+                                line-height: 21px;
+                                width: 100%;
+                            }
+                        }
+                        .state{
+                            @include web_570{
+                                justify-content: space-between;
+                            }
+                        }
+                    }
+                }
+                .seal{
+                    position: absolute;
+                    top: 50%;
+                    right: 16px;
+                    transform: translate(0,-50%);
+                    .circleLine{
+                        width: 70px;
+                        height: 70px;
+                        border: 1.5px solid #8993A7;
+                        border-radius: 100px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        .text{
+                            transform: rotate(15deg);
+                            font-size: 14px;
+                            font-weight: 500;
+                            line-height: 120%;
+                        }
+                    }
+                }
+            }
+            .my-bag-item-pop{
+                position: relative;
+                z-index: 201;
+            }
+        }
+    }
+}
+.my-prizeMode{
+    width: 100%;
+    max-width: 340px;
+    transition: 0.5s;
+    cursor: pointer;
+    @include web_570{
+        max-width: 100%;
+    }
+    &.active{
+        border: 2px solid #82C5F7;
+        &:hover{
+            border: 2px solid #82C5F7;
+        }
+    }
+    border: 2px solid #D6D9E1;
+    border-radius: 6px;
+    &:hover{
+        border: 2px solid #8993A7;
+    }
+    .iconBox{
+        padding: 8px 8px 8px 8px;
+        svg{
+            width: 60px;
+            height: 60px;
+        }
+        @include web_570{
+            padding: 6px 6px 6px 6px;
+            svg{
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+}
+.my-pop-message{
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 6px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,0%);
+    z-index: 202;
+    @include web_570{
+        max-width: calc(100% - 32px);
+        bottom: 16px;
+    }
+}
+//topup_list-儲值列表頁
+#topup_list{
+    #header{
+        .header-search{
+            display: none;
+        }
+        .header-search-mb{
+            display: none;
+        }
+    }
+    .module-topImg-bar{
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            max-width: 50%;
+            height: 100%;
+            background-color: #82c5f7;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            max-width: 50%;
+            height: 100%;
+            background-color: #82c5f7;
+        }
+        .module-topImg-bar-container{
+            background-image: url(https://image.mycard520.com/globalmycard/member/mycardweb-test/images/topimg/topimg-s-1920.jpg);
+            padding: 74px 0 74px 0;
+            @include web_1140{
+                min-height: 140px;
+                background-image: url(https://image.mycard520.com/globalmycard/member/mycardweb-test/images/topimg/topimg-s-1140.jpg);
+            }
+            .textBox{
+                padding: 0 16px 0 16px;
+            }
+        }
+        .my-search{
+            margin: 48px auto 0 auto;
+            max-width: 680px;
+            @include web_570{
+                margin: 24px auto 0 auto;
+            }
+        }
+    }
+    .main-content{
+        .main-content-container{
+            .history{
+                .my-module-card{
+                    .swiper{
+                        .swiper-wrapper{
+                            .swiper-slide{
+                                .my-card-body{
+                                    .my-card-title{
+                                        @include my-font-overflow;
+                                        -webkit-line-clamp: 1;
+                                        font-weight: 500!important;
+                                        @include web_570{
+                                            @include my-font-overflow;
+                                            -webkit-line-clamp: 2;  
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .allServices,.recommended{
+                .my-module-card{
+                    .my-module-card-item{
+                        .my-card-body{
+                            .my-card-title{
+                                @include my-font-overflow;
+                                -webkit-line-clamp: 1;
+                                font-weight: 500!important;
+                                @include web_570{
+                                    @include my-font-overflow;
+                                    -webkit-line-clamp: 2;  
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .areaState{
+        h4.my-font-h4{
+            font-weight: normal!important;
+        }
+    }
+    .my-titleBox{
+        .dropDown{
+            position: absolute;
+            top: 40px;
+            right: 0px;
+        }
+    }
+} 
+#topUpItem{
+    .product-pup,.event-pup{
+        z-index: 201;
+    }
+    .topUpItem-overlay{
+        z-index: 200;
+    }
+}
+#payment{
+    .tradingInformation{
+        .tradingInformation-state{
+            .areaState{
+                .imgBox{
+                    img{
+                        @include web_570{
+                            max-width: 110px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// #payment{
+//     #header{
+//         .header-search{
+//             display: none;
+//         }
+//         .header-search-mb{
+//             display: none;
+//         }
+//     }
+// }
+
+#member{
+    padding: 63px 0 0 0;
+    @include web_570{
+        padding: 51px 0 0 0;
+    }
+}
+#memberBag{
+    .my-font-list{
+        .my-font-item:nth-child(1){
+            margin: 0 0 0 0!important;
+            &::after{
+                width:0px!important;
+            }
+        }
+    }
+    .filter-dropDown{
+        top: 47px;
+        right: 24px;
+        z-index: 1;
+        @include web_570{
+            right: 0px;
+        }
+    }
+    .filterBtn{
+        cursor: pointer;
+        &.active{
+            svg{
+                path{
+                    stroke:#4FAFF1;
+                }
+            }
+        }
+    }
+    .moreBtn{
+        cursor: pointer;
+    }
+    .my-more-dropDown{
+        position: absolute;
+        top: 44px;
+        right: 32px;
+        padding: 8px 8px 8px 8px;
+        box-shadow: 0px 0px 8px 0px #0000001A;
+        border-radius: 8px;
+        background-color: #ffffff;
+        z-index: 2;
+        @include web_570{
+            right: 0px;      
+        }
+        .my-more-dropDown-list{
+            height: auto;
+            flex-direction: column;
+            .my-more-dropDown-item{
+                cursor: pointer;
+                margin: 0 0 0 0;
+                text-align: left;
+                width: 100%;
+                .my-more-dropDown-item-link{
+                    display: block;
+                    padding: 8px 8px 8px 8px;
+                    color: map-get(map-get($colors, my-secondary), "700");
+                    text-decoration: none;
+                    font-size: 13px;
+                    line-height: 140%;
+                    white-space: nowrap;
+                    &:hover {
+                        background-color: map-get(map-get($colors, my-secondary), "50");
+                    }
+                    &::after {
+                        content: '';
+                        position: initial;
+                    }
+                }
+            }
+        }
+    }
+    .my-modal{
+        .my-modal-dialog{
+            .modal-content{
+                .my-modal-body{
+                    .my-modal-body-box{
+                        .my-pop-discountList{
+                            .my-pop-discountitem{
+                                padding: 12px 0 12px 0;
+                                &+.my-pop-discountitem{
+                                    border-top: 1px solid #edeef1;
+                                }
+                                .imgtextBox{
+                                    .imgBox{
+                                        max-width: 82px!important;
+                                        img{
+                                            max-width: 82px!important;
+                                        }
+                                    }
+                                }
+                                .textmoreBtn{
+                                    svg{
+                                        width:16px!important;
+                                        height: 16px!important;
+                                        path{
+                                            fill: #6B768C !important;
+                                        }
+                                    }
+                                }
+                                .btnBox{
+                                    .my-btn-main{
+                                        min-width: 160px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+// 會員背包、會員背包-設定
+#memberBag,#memberBag-setting{
+    .main-content-container{
+        display: flex;
+        @include web_900{
+            flex-direction: column;
+        }
+        .sideBar{
+            width: 100%;
+            max-width: 300px;
+            @include web_900{
+                max-width:100%;
+            }
+            @include web_570{
+                display: none;
+            }
+        }
+        .sideContent{
+            width: 100%;
+            max-width: calc(100% - 340px);
+            @include web_900{
+                max-width:100%;
+            }
+            .imgBox{
+                img{
+                    display: block;
+                    width: 100%;
+                    border-radius: 16px;
+                }
+            }
+        }
+    }
+    .my-breadcrumb{
+        display: none;
+        @include web_570{
+            display: flex;
+        }
+    }
+    .memberBag-overlay{
+        z-index: 200;
+    }
+    .icon_question{
+        cursor: pointer;
+    }
+    .question-pop{
+        z-index: 201;
+    }
+}
+
+
+//202506會員中心
+#memberBag{
+    .module-topImg {
+        .module-topImg-container {
+            .module-topImg-swiper {
+                &::before{
+                    background: initial;
+                }
+                &::after{
+                    background: initial;
+                }
+                .swiper-wrapper {
+                    .swiper-slide {
+                        &::after{
+                            background: initial!important;
+                        }
+                        a {
+                            .imgBox{
+                                img.mainImg{
+                                }
+                            }
+                            .grade{
+                                img{
+                                }
+                            }
+                            .textBox{
+                                h4{
+                                }
+                                p{
+                                }
+                            }
+                        }
+                    }
+                    .swiper-slide-active{
+                        a {
+                            .imgBox {
+                                img.mainImg{
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

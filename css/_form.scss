@@ -1,0 +1,910 @@
+.invalid-feedback{
+    color: #F8553B;
+    width: 100%;
+    & + .my-form-control{
+        border-color:#F8553B;
+        &:hover {
+            border-color:#F8553B;
+        }
+        &:focus-visible {
+           border-color:#F8553B;
+        }
+    }
+    & + .my-form-input-group{
+        border-color:#F8553B;
+        &:hover {
+            border-color:#F8553B;
+        }
+        &:focus-visible {
+           border-color:#F8553B;
+        }
+    }
+}
+
+.is-valid.my-form-control {
+    background: url(https://image.mycard520.com/mycardweb/image/form/form-fill.svg) no-repeat scroll right 16px center transparent;
+    user-select: none;
+    &:hover{
+        color: initial;
+        border: 1px solid #D6D9E1;
+    }
+}
+.is-invalid {
+    & + .my-form-select {
+        border-color: #F8553B;
+    }
+    & + .my-form-control {
+        border-color: #F8553B;
+    }
+    & + .my-form-input-group {
+        border-color: #F8553B;
+    }
+}
+.my-form-group{
+    display: flex;
+    // justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    // div{
+    //     flex: 1;
+    // }
+
+    label{
+        color: #1D1F25;
+        font-size: 14px;
+        line-height: 140%;
+        font-weight: 400;
+        width: 100%;
+        @include web_570{
+            font-size: 13px;
+        }
+    }
+    .my-form-input {
+        width: 100%;
+        padding: 0 16px;
+        border-radius: 6px;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 2px;
+        background-color: transparent;
+        border: 0px solid transparent;
+        color: #363A44;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+        outline: none;
+        &:hover {
+            color: #B3B9C6;
+        }
+
+        &:focus-visible {
+            color: #363A44;
+        }
+
+        &::placeholder {
+            color: #B3B9C6; // 这里是你想要设置的颜色
+        }
+
+    }
+    .my-form-input-disabled{
+        opacity: 0.5;
+
+    }
+}
+.my-form-input-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.my-form-select-group+.my-form-input-group{
+    margin: 0 0 0 12px;
+}
+.my-form-select-group.my-form-select-w120{
+    width: 100%;
+    max-width: 120px;
+}
+
+.my-form-label+.my-form-input-group{
+    flex: initial;
+}
+
+.my-form-input-group{
+    flex-wrap: wrap;
+
+}
+//輸入欄位
+.my-form-control {
+    width: 100%;
+    border-radius: 6px;
+    text-indent: 2px;
+    background-color: transparent;
+    border: 1px solid #D6D9E1;
+    color: #363A44;
+    transition: 0.5s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    outline: none;
+    font-size: 14px;
+    &:hover {
+        color: #363A44;
+        border: 1px solid #B3B9C6;
+    }
+
+    &:focus-visible {
+        border: 1px solid #8993A7;
+        color: #363A44;
+    }
+
+    &::placeholder {
+        color: #B3B9C6; // 这里是你想要设置的颜色
+    }
+}
+.my-form-control-s{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px 0 8px;
+}
+.my-form-control-m{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px 0 16px;
+}
+.my-form-control-m+.my-form-input-btn-m{
+    top: 4px;
+    right: 4px;
+}
+.my-form-control-l{
+    height: 48px;
+    line-height: 48px;
+    padding: 0 56px 0 16px;
+}
+
+.my-form-control-l+.my-form-input-btn-l{
+    top: 8px;
+    right: 8px;
+}
+.my-form-control.is-invalid{
+    border-color: #F8553B ;
+}
+@include web_768{
+    .my-form-control-m-md+.my-form-input-btn-m-md{
+        top: 4px;
+        right: 4px;
+    }
+    .my-form-control-m-md{
+        height: 40px;
+        line-height: 40px;
+        padding: 0 16px 0 16px;
+    }
+}
+@include web_570{
+    .my-form-control-m-sm{
+        height: 40px;
+        line-height: 40px;
+    }
+    .my-form-control-m-sm+.my-form-input-btn-m-sm{
+        top: 4px;
+        right: 4px;
+    }
+    .my-form-control-l-sm{
+        height: 48px;
+        line-height: 48px;
+    }
+}
+//按鈕
+.my-form-inputBtn-group{
+    width: 100%;
+    flex: initial;
+    position: relative;
+    .my-form-input-btn{
+        min-width: 64px;
+        cursor: pointer;
+        font-size: 13px;
+        height: 32px;
+        line-height: 32px;
+        padding: 0 16px 0 16px;
+        border-radius: 6px;
+        transition: 0.5s;
+        position: absolute;
+    }
+    .my-form-input-btn.disabled{
+        pointer-events: none;
+        filter: none;
+        opacity: 0.5;
+    }
+
+    .my-form-input-btn-primary{
+        color: #FFFFFF;
+        background-color: #4FAFF1;
+    }
+
+    .my-form-input-btn-secondary{
+        color: #515151 ;
+        background-color: #E3E3E3;
+    }
+}
+.my-form-inputBtn-group.is-invalid{
+    border-color: #F8553B ;
+}
+label+.my-form-inputBtn-group{
+    flex: initial;
+}
+.my-form-control.is-invalid{
+    border-color: #F8553B ;
+}
+//下拉選單
+.my-form-select-group{
+    .my-form-select {
+        width: 100%;
+        border-radius: 6px;
+        text-indent: 2px;
+        background-color: transparent;
+        border: 1px solid #D6D9E1;
+        color: #363A44;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+        outline: none;
+        transition: 0.5s;
+        cursor: pointer;
+        option:checked,
+        &:hover {
+            border-color: #B3B9C6;
+            color: #363A44;
+        }
+    
+        &:focus {
+            border-color: #8993A7;
+            color: #B3B9C6;
+        }
+    
+        &:focus-visible {
+            border-color: #D6D9E1;
+            color: #363A44;
+        }
+    
+        &:disabled {
+            border-color: #D6D9E1;
+            color: #B3B9C6;
+        }
+    
+        option,
+        &::-webkit-datalist-option,
+        &::-moz-datalist-option {
+            padding: 0;
+            background-color: transparent;
+            color: inherit;
+            border: none;
+            appearance: none; // 尝试再次使用 appearance 属性
+    
+            // 悬停时改变背景颜色和文字颜色
+            &:hover {
+                background-color: #F6F7F9;
+            }
+    
+            // 选中时的样式
+            &:checked {
+                background-color: #ffffff; 
+            }
+    
+            &:focus {
+                background-color: #ffffff; 
+                color: #178DE0;
+            }
+    
+            &:disabled{
+                background-color: #ffffff;
+                color: #acacac;
+            }
+        }
+    
+    }
+    .my-form-select-disabled{
+        opacity: 0.5!important;
+        cursor: default!important;
+    }
+    .my-form-select-s{
+        height: 32px;
+        line-height: 32px;
+        padding: 0px 8px 0px 8px;
+        background-image: url(https://image.mycard520.com/mycardweb/image/form/form-arrow_default.svg);
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        background-size: 16px;
+    }
+    .my-form-select-m{
+        height: 40px;
+        line-height: 40px;
+        padding: 0px 16px 0px 16px;
+        background-image: url(https://image.mycard520.com/mycardweb/image/form/form-arrow_default.svg);
+        background-repeat: no-repeat;
+        background-position: right 24px center;
+        background-size: 16px;
+    }
+    .my-form-select-l{
+        height: 48px;
+        line-height: 48px;
+        padding: 0px 16px 0px 16px;
+        background-image: url(https://image.mycard520.com/mycardweb/image/form/form-arrow_default.svg);
+        background-repeat: no-repeat;
+        background-position: right 24px center;
+        background-size: 16px;
+    }
+    .my-form-select.is-invalid{
+        border-color: #F8553B ;
+    }
+}
+@include web_768{
+    .my-form-select-group{
+        .my-form-select-m-md{
+            height: 40px;
+            line-height: 40px;
+            padding: 0px 16px 0px 16px;
+            background-image: url(https://image.mycard520.com/mycardweb/image/form/form-arrow_default.svg);
+            background-repeat: no-repeat;
+            background-position: right 24px center;
+            background-size: 16px;
+        }
+    }
+}
+@include web_570{
+    .my-form-select-group{
+        .my-form-select-m-sm{
+            height: 40px;
+            line-height: 40px;
+            padding: 0px 16px 0px 16px;
+            background-image: url(https://image.mycard520.com/mycardweb/image/form/form-arrow_default.svg);
+            background-repeat: no-repeat;
+            background-position: right 24px center;
+            background-size: 16px;
+        }
+    }
+}
+//勾選框
+.my-form-check-group{
+    .my-form-check{
+        .my-form-check-label{
+            flex: 1;
+            color: #3C4250;
+        }
+    }
+    
+    .my-form-check+.my-form-check{
+        margin: 12px 0 0 0;
+    }
+    
+    .my-form-check-label-agree{
+        font-size: 14px;
+        line-height: 140%;
+        font-weight: 400;
+        .my-form-check-label-link{
+            color: #178DE0;
+        }
+    }
+}
+//
+.my-title{
+    .my-dropDown{
+        box-shadow: 0px 0px 15px 0px #0000001A;
+        border-radius: 16px 16px 16px 16px;
+        display: none;
+        top: 40px;
+        right: 0px;
+        @include web_570{
+            border-radius: 16px 16px 0px 0px;
+        }
+        .my-form-group{
+            justify-content: space-between;
+            div{
+                flex: 1;
+            }
+        }
+    }
+}
+.my-dropDown{
+    @include web_570{
+        z-index: 200;
+    }
+    .my-modal.my-modal-m{
+        min-width: 320px;
+        max-width: 320px;
+        .my-modal-dialog{
+            .modal-content{
+                .my-modal-header{
+                    padding: 10px 24px 10px 24px;
+                    .my-font-h3{
+                        width: inherit;
+                    }
+                }
+                .my-modal-body{
+                    min-height: 390px;
+                    padding: 8px 12px 12px 12px ;
+                    .my-modal-body-box{
+                        max-height: 390px;
+                        .my-form-group{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: column;
+                            .my-form-check+.my-form-check{
+                                margin: 0 0 0 0;
+                            }
+                            .my-form-check{
+                                justify-content: space-between;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                .my-form-check-label-main{
+                                    padding: 10px 12px 10px 12px;
+                                }
+                                .my-form-check-label-item{
+                                    padding: 10px 12px 10px 40px;
+                                }
+                                .my-form-check-state{
+                                    display: flex;
+                                    align-items: center;
+                                    flex: 1;
+                                    &:hover {
+                                        .my-form-check-input {
+                                
+                                            &[type="radio"],
+                                            &[type="checkbox"] {
+                                                border: 2px solid #3C4250;
+                                
+                                                &:checked[type=radio] {
+                                                    background-image: url(https://image.mycard520.com/mycardweb/image/form/form-radioChecked.svg);
+                                                    border-color: #178DE0;
+                                                }
+                                
+                                                &:checked[type=checkbox] {
+                                                    background-image: url(https://image.mycard520.com/mycardweb/image/form/form-checkBox.svg);
+                                                    border-color: #178DE0;
+                                                    background-color: #178DE0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .my-form-check-input{
+                                    }
+                                    .my-form-check-label{
+                                        flex: 1;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .my-form-check-icon{
+                                    cursor: pointer;
+                                    .iconBox{
+                                        display: flex;
+                                        margin: 0 0 0 8px;
+                                    }
+                                    .iconBox.rotate-180{
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                                .my-form-check-list{
+                                    width: 100%;
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+                .my-modal-footer{
+                    padding: 12px 12px 12px 12px;
+                }
+            }
+        }
+    }
+}  
+//驗證碼
+.my-form-verify{
+    position: relative;
+    .code-pic{
+        position: absolute;
+        top: 3px;
+        left: 16px;
+        img{
+            width: auto;
+            max-height: 42px;
+            @include web_768{
+                max-height: 34px;
+            }
+        }
+    }
+    .my-form-input-btn{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        min-width: initial;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 0 0 0;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include web_570{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+        img{
+            width: 100%;
+            max-width: 24px;
+            max-height: 24px;
+        }
+    }
+}
+//表單欄數
+.my-form-column-4{
+    flex-wrap: wrap;
+    .my-form-group{
+        // display: initial;
+        width: 100%;
+        max-width: calc(100% / 4 - 24px);
+    }
+}
+.my-form-column-2{
+    flex-wrap: wrap;
+    .my-form-group{
+        // display: initial;
+        width: 100%;
+        max-width: calc(100% / 2 - 16px);
+    }
+    .my-form-returnData-group{
+        max-width: calc(50% - 16px);
+    }
+}
+@include web_768{
+    .my-form-column-2-lg{
+        .my-form-group{
+            max-width: calc(100% / 2 - 16px);
+        }
+    }
+    .my-form-column-1-lg{
+        .my-form-group{
+            max-width: 100%;
+        }
+    }
+}
+@include web_570{
+    .my-form-column-2-sm{
+        .my-form-group{
+            max-width: calc(100% / 2 - 6px);
+        }
+    }
+    .my-form-column-1-sm{
+        .my-form-group{
+            max-width: 100%;
+        }
+    }
+}
+//表單回傳值樣式
+.my-form-returnData{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 40px;
+    &.my-tradeInfo{
+        gap: 0;
+        .my-form-returnData-group{
+            height: initial;
+            line-height: initial;
+            padding: 8px 0 8px 0;
+            border:none;
+            gap: 16px;
+            height: 48px;
+            @include web_768{
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                height: initial;
+            }
+            &+.my-form-returnData-group{
+                border-top: 1px solid #F7F7F7
+            }
+            .my-form-returnData-title{
+                padding:0;
+                background-color:initial;
+                text-align:left;
+            }
+            .my-form-returnData-text{
+                padding: 0;
+            }
+        }
+    }
+    .my-form-returnData-group{
+        border: 1px solid #EDEEF1;
+        display: flex;
+        flex-wrap: wrap;
+        height: 48px;
+        line-height: 48px;
+        border-radius: 6px ;
+        width: 100%;
+        max-width: calc(50% - 20px);
+        font-size: 14px;
+        @include web_768{
+            height: 34px;
+            line-height: 34px;
+            max-width: 100%;
+            border: 1px solid #EDEEF1;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+        @include web_570{
+            height: 34px;
+            line-height: 34px;
+            max-width: 100%;
+            border: none;
+            border-radius: initial;
+            font-size: 13px;
+        }
+        .my-form-returnData-title{
+            min-width: 160px;
+            max-width: 160px;
+            display: block;
+            padding: 0 24px 0 24px;
+            text-align: center;
+            color: #3C4250 ;
+            background-color: #F6F7F9;
+            @include web_570{
+                min-width: 130px;
+                max-width: 130px;
+                padding: 0;
+                text-align: left;
+                background-color: transparent;
+            }
+        }
+        .my-form-returnData-text{
+            padding: 0 24px 0 24px;
+            flex: 1;
+            white-space: nowrap;
+            display: inline-block;
+            max-width: 100%;
+            padding: 0 24px 0 24px;
+            flex: 1;
+            color: #6B768C;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include web_570{
+                font-size: 13px;
+            }
+        }
+    }
+    .my-form-returnData-group+.my-form-returnData-group{
+        @include web_768{
+            border-top: 1px solid #F7F7F7;
+        }
+    }
+    .my-form-returnData-group.my-skeleton {
+        font-size: 0 !important;
+        border-radius: 4px;
+        height: 48px;
+        background: linear-gradient(90deg, #E3E3E3 25%, #F4F4F4 50%, #E3E3E3 75%);
+        animation: skeleton-animation 1.5s infinite;
+        background-size: 200% 100%;
+        .my-form-returnData-title {
+            background: initial;
+        }
+        .my-form-returnData-text {
+            font-size: 0 !important;
+        }
+        @include web_570{
+            height: 34px;
+            line-height: 34px;
+        }
+    }
+}
+/////////////*欣君/
+.my-form-check {
+    display: flex;
+    align-items: center;
+    // gap: 8px;
+
+    // radio & checkbox hover
+    .my-form-check-input{
+        margin: 0 8px 0 0;
+    }
+    // radio styles
+    .my-form-check-input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        vertical-align: top;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 2px solid #6B768C;
+        border-radius: 50%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+
+        &:checked {
+            &[type="radio"] {
+                background-image: url(https://image.mycard520.com/mycardweb/image/form/form-radio.svg);
+                background-size: 12px;
+                border-color: #4FAFF1;
+            }
+        }
+
+        &:disabled {
+            background-color: #edeef1;
+            border: 2px solid #D6D9E1;
+            pointer-events: none;
+            filter: none;
+            opacity: 0.5;
+
+            &:checked[type=radio] {
+                background-image: url(https://image.mycard520.com/mycardweb/image/form/form-radio.svg);
+                border-color: #4FAFF1;
+            }
+        }
+    }
+
+    // checkbox styles
+    .my-form-check-input[type="checkbox"] {
+        width: 100%;
+        max-width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border: 2px solid #6B768C;
+        border-radius: 4px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -o-appearance: none;
+        -ms-appearance: none;
+
+        &:checked {
+            background-image: url(https://image.mycard520.com/mycardweb/image/form/form-checkBox.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #4FAFF1;
+            border: 2px solid #4FAFF1;
+        }
+        &:indeterminate{
+            background-image: url(https://image.mycard520.com/mycardweb/image/form/form-mixed.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #4FAFF1;
+            border: 2px solid #4FAFF1;
+        }
+
+        &:disabled {
+            background-color: #EDEEF1;
+            border: 2px solid #D6D9E1;
+            pointer-events: none;
+            filter: none;
+            opacity: 0.5;
+
+            &:checked[type=checkbox] {
+                background-image: url(https://image.mycard520.com/mycardweb/image/form/form-checkBox.svg);
+                background-color: #4FAFF1;
+                border-color: #4FAFF1;
+            }
+        }
+    }
+    .my-form-check-label-main{
+        .my-form-check-input[type="checkbox"] {
+            width: 100%;
+            max-width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 2px solid #6B768C;
+            border-radius: 4px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            -o-appearance: none;
+            -ms-appearance: none;
+    
+            &:checked {
+                background-image: url(https://image.mycard520.com/mycardweb/image/form/form-checkBox.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #4FAFF1;
+                border: 2px solid #4FAFF1;
+            }
+            &:indeterminate{
+                background-image: url(https://image.mycard520.com/mycardweb/image/form/form-mixed.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #4FAFF1;
+                border: 2px solid #4FAFF1;
+            }
+    
+            &:disabled {
+                background-color: #EDEEF1;
+                border: 2px solid #D6D9E1;
+                pointer-events: none;
+                filter: none;
+                opacity: 0.5;
+    
+                &:checked[type=checkbox] {
+                    background-image: url(https://image.mycard520.com/mycardweb/image/form/form-checkBox.svg);
+                    background-color: #4FAFF1;
+                    border-color: #4FAFF1;
+                }
+            }
+        } 
+    }
+}
+.my-form-input-groupFlex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid #D6D9E1;
+    border-radius:6px;
+    &:hover {
+        border: 1px solid #B3B9C6;
+    }
+
+    &:focus-visible {
+        border: 1px solid #8993A7;
+    }
+
+    &::placeholder {
+        color: #B3B9C6;// 这里是你想要设置的颜色
+    }
+}
+
+// switch styles
+.my-form-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+  
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+  
+        &:checked + .slider {
+            background-color: #4FAFF1;
+  
+            &:before {
+                transform: translateX(16px);
+            }
+        }
+    }
+  
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #B3B9C6;
+        transition: .4s;
+        border-radius: 100px;
+  
+        &:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+    }
+}

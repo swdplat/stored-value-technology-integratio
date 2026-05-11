@@ -1,0 +1,1087 @@
+@import 'breakpoints';
+
+.my-swiper .swiper-button-prev {
+    left: 12% !important;
+}
+
+.my-swiper .swiper-button-next {
+    right: 12% !important;
+}
+
+.main-content {
+    @include web_570 {
+        margin: 0 0 40px 0;
+    }
+
+    // .my-swiper {
+    //     .swiper-slide {
+    //         a {
+    //             .imgBox img {
+    //                 border-radius: 8px;
+    //                 // 阻止放大
+    //                 max-width: 680px;
+
+    //                 @include web_1200 {
+    //                     max-width: 875px;
+    //                 }
+
+    //                 @include web_900 {
+    //                     max-width: 600px;
+    //                 }
+
+    //                 @include web_570 {
+    //                     max-width: 360px;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+
+
+.my-tags {
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @include web_570 {
+        gap: 0px;
+    }
+
+    ul.my-tags-box {
+        flex-wrap: wrap;
+        gap: 8px;
+
+        li {
+            margin: 0 0 0 0;
+        }
+    }
+}
+
+.user-topUpcardData .my-font-h3,
+.user-selectProduct .my-font-h3,
+.user-selectPayment .my-font-h3,
+.user-topUpData .my-font-h3,
+.relatedLinks .my-font-h3,
+.user-uid .my-font-h3 {
+    @include web_570 {
+        line-height: 120% !important;
+        min-height: 40px;
+        max-height: 40px;
+    }
+}
+
+.uid-form-wrapper {
+    .uid-form-content {
+        gap: 32px 40px;
+
+        @include web_900 {
+            gap: 12px;
+        }
+
+        .uid-form-group {
+            width: calc(50% - 20px) !important;
+
+            @include web_900 {
+                width: 100% !important;
+            }
+        }
+
+        .form-column-3 {
+            max-width: calc(25% - 16px);
+        }
+    }
+
+    .uid-form-input {
+        height: 40px;
+    }
+
+}
+
+.my-form-returnData {
+    // gap: 16px 40px;
+
+    .my-form-returnData-group {
+        // max-width: calc(50% - 20px);
+
+        @include web_768 {
+            // height: 34px;
+            // line-height: 34px;
+            // max-width: 100%;
+            // border: 1px solid #EDEEF1;
+            // border-radius: 6px;
+            // font-size: 13px;
+        }
+
+        // @media (max-width: 576px) {
+        //     height: 34px;
+        //     line-height: 34px;
+        //     max-width: 100%;
+        //     border: none;
+        //     border-radius: initial;
+        //     font-size: 13px;
+        // }
+
+        // .my-form-returnData-text {
+        //     white-space: nowrap;
+        //     display: inline-block;
+        //     max-width: 100%;
+        //     padding: 0 24px 0 24px;
+        //     flex: 1;
+        //     color: #6B768C;
+        //     overflow: hidden;
+        //     text-overflow: ellipsis;
+        // }
+    }
+}
+
+// #payment {
+//     .my-form-returnData-text {
+//         white-space: wrap;
+//     }
+// }
+
+// #topup {
+//     .my-form-returnData-text {
+//         white-space: wrap;
+//     }
+// }
+.my-form-returnData-text {
+    white-space: wrap;
+}
+
+.my-form-column-2 {
+    @include web_900 {
+        .my-form-returnData-group {
+            max-width: calc(100% - 0px);
+        }
+    }
+}
+
+.my-column-1-sm {
+    @include web_570 {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.product {
+    .product-column-item {
+        @include web_900 {
+            max-width: calc(100% - 0px);
+        }
+        // height: 92px;
+        // transition: 0.3s;
+        // overflow: hidden;
+
+        // @include web_570 {
+        //     height: 76px;
+        // }
+
+        // &:hover {
+        //     box-shadow: 0 0 8px 0 #6666731A;
+        // }
+
+        // @include web_900 {
+        //     max-width: calc(100% - 0px);
+        // }
+
+        // @include web_570 {
+        //     &:hover {
+        //         box-shadow: 0 0 0px 0 #ffffff00;
+        //     }
+        // }
+
+        // .product-column-item-tag {
+        //     overflow: hidden;
+        //     background-color: #47CB32;
+        //     color: #ffffff;
+        //     position: absolute;
+        //     top: 0px;
+        //     left: 0px;
+        //     border-radius: 0px 100px 100px 0;
+        //     padding: 4px 6px;
+
+        //     p {
+        //         line-height: 14px;
+        //         font-size: 12px;
+        //         font-weight: 500;
+        //         text-align: center;
+        //     }
+        // }
+
+        // label {
+        //     height: 100%;
+
+        //     @include web_570 {
+        //         padding: 8px 12px;
+        //     }
+
+        //     .imgText {
+        //         .textBox h5 {
+        //             font-weight: 500 !important;
+        //         }
+
+        //         .imgBox {
+        //             img {
+        //                 border-radius: 4px;
+        //             }
+        //         }
+
+        //         .imgBox::before {
+        //             content: "";
+        //             border-radius: 4px;
+        //         }
+        //     }
+        // }
+    }
+
+}
+
+
+.checkoutBox-content {
+    @include web_900 {
+        flex-wrap: wrap;
+    }
+}
+
+.checkoutBox {
+    .checkoutBox-content {
+        .topup-min-width {
+            min-width: 530px;
+
+            @include web_900 {
+                width: 100% !important;
+                justify-content: space-between !important;
+
+                .btnBox {
+                    min-width: initial;
+                }
+            }
+
+            @include web_570 {
+                min-width: initial;
+            }
+
+            .selectQuantity {
+                @include web_900 {
+                    justify-content: space-between;
+                }
+
+            }
+        }
+    }
+}
+
+.my-modal-footer {
+    .btnBox {
+        justify-content: space-between;
+        @include web_1140 {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .selectQuantity {
+
+            text-wrap: nowrap;
+
+            @include web_1140 {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        .my-btn-main {
+            max-height: 40px;
+
+            @include web_1140 {
+                max-width: 100% !important;
+            }
+        }
+    }
+}
+
+.product-pup,
+.event-pup,
+.systemMsg-pup {
+    z-index: 201;
+    form.my-modal.my-modal-m {
+        .my-modal-dialog {
+            .modal-content {
+                .my-modal-body {
+                    .my-modal-body-box {
+                        max-height: 564px;
+                        padding-right: 8px;
+                        @include web_570 {
+                            padding-right: 12px;
+                        }
+                        .textBox-link-list {
+                            list-style: none;
+                            .textBox-imgText-list-item {
+                                flex-wrap: nowrap;
+                            }
+                        }
+                    }
+                }
+                .my-modal-footer {
+                    @include web_570 {
+                        padding: 16px;
+                        position: sticky;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+        .my-modal-header {
+            @include web_570 {
+                position: sticky;
+                top: 0;
+                background-color: #ffffff;
+                z-index: 2px;
+                border-radius: 8px 8px 0 0;
+            }
+        }
+    }
+}
+
+.event-pup {
+    .my-modal {
+        .my-modal-dialog {
+            overflow: initial !important;
+            .modal-content {
+                .my-modal-header {
+                    @include web_570 {
+                        position: sticky;
+                        top: 0;
+                        background-color: #ffffff;
+                        z-index: 2px;
+                        border-radius: 8px 8px 0 0;
+                    }
+                }
+                .my-modal-body {
+                    padding: 24px;
+                    min-height: initial;
+
+                    @include web_570 {
+                        padding: 16px;
+                    }
+
+                    .my-modal-body-box {
+                        padding-right: 2px;
+
+                        .textBox {
+                            @include web_570 {
+                                gap: 12px;
+                            }
+
+                            .time {
+                                margin: 0px 0 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gameIntroduction {
+    .text {
+        /* 影片容器 */
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            max-width: 785px;
+            overflow: hidden;
+            border-radius: 8px;
+            font-size: 0px;
+            iframe {
+                position: relative;
+                width: 100%;
+                height: auto;
+                max-height: 440px;
+                aspect-ratio: 16 / 9;
+                border-radius: 8px;
+            }
+        }
+        // 介紹圖
+        .gameIntroduction-img {
+            width: 100%;
+            img {
+                width: auto;
+                max-width: 100%;
+                max-height: 440px;
+                border-radius: 8px;
+            }
+        }
+        .heightLimit {
+            max-height: 400px;
+            @include web_570 {
+                max-height: 264px;
+            }
+        }
+        .gameIntroduction-img+.youtube-container{
+            margin: 16px 0 0 0;
+            @include web_570{
+                margin: 12px 0 0 0;
+            }
+        }
+        .youtube-container+.gameIntroduction-img{
+            margin: 16px 0 0 0;
+            @include web_570{
+                margin: 12px 0 0 0;
+            }
+        }
+        .gameIntroduction-img+.textBox {
+            margin: 16px 0 0 0;
+            @include web_570{
+               margin: 12px 0 0 0;
+           }
+       }
+        .youtube-container+.textBox {
+             margin: 16px 0 0 0;
+             @include web_570{
+                margin: 12px 0 0 0;
+            }
+        }
+        .textBox p {
+            margin: 0;
+        }
+    }
+}
+
+.relatedLinks {
+    .relatedLinks-icon {
+        .relatedLinks-icon-item {
+            margin: 0 8px;
+            @include web_570 {
+                margin: 0;
+            }
+        }
+    }
+}
+
+.event {
+    .eventItem {
+        @include web_900 {
+            max-width: calc(100% - 0px);
+        }
+        @include web_570 {
+            border: 0px solid #EDEEF1;
+        }
+        .information {
+            flex-direction: column;
+            @include web_1140 {
+                flex-direction: column;
+            }
+            .btnLink {
+                flex-direction: row-reverse;
+                max-width: inherit;
+                @include web_1140 {
+                    max-width: inherit;
+                }
+                .my-btn-main {
+                    width: 100%;
+                    max-width: 200px;
+                    @include web_570 {
+                        width: 100%;
+                        max-width: 160px;
+                    }
+                }
+                .my-btn-main-text {
+                    @include web_1140 {
+                        justify-self: start;
+                    }
+                    .my-btn-arrow {
+                        margin: 0 0 0 0px !important;
+                        padding-left: 8px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.eventItem {
+    h3 {
+        .btn-question {
+            cursor: pointer;
+        }
+    }
+}
+
+.my-modal.my-modal-full.my-modaluid-full {
+    width: 100%;
+    max-width: 100%;
+}
+
+// .my-modal.my-modal-m {
+//     .my-modal-dialog {
+//         .modal-content {
+//             .my-modal-body {
+//                 overflow: auto;
+
+//                 // 等品欣後刪除
+//                 @include web_570 {
+//                     padding: 16px 4px 16px 16px;
+//                 }
+
+//                 .my-modal-body-box {
+//                     .textBox p {
+//                         @include web_1140 {
+//                             margin: 0px 0 0 0;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+.my-tabs.btn-style ul.my-tabs-box li.active .my-btn-outline {
+    background-color: #E1EFFD !important;
+    outline: 0px solid #178DE0 !important;
+    border: 1.5px solid #178DE0 !important;
+    color: #178DE0 !important;
+}
+
+
+.my-form-inputBtn-group .my-form-input-btn {
+    border-radius: 6px !important;
+}
+
+
+// .my-form-select-group {
+//     .my-form-select {
+//         border: 1px solid #D6D9E1;
+//         color: #363A44;
+
+//         &:hover {
+//             color: #363A44;
+//         }
+//     }
+// }
+
+// .my-form-select-group select {
+//     cursor: pointer !important;
+// }
+
+// .my-form-control {
+//     &:hover {
+//         color: #363A44;
+//     }
+// }
+
+.checkout.fixed-bottom {
+    z-index: 60;
+}
+
+.inputNumberBox {
+    .inputNumberBox-btn {
+        text-decoration: none !important;
+        color: #1D1F25 !important;
+        width: 100% !important;
+        line-height: 32px !important;
+        border-radius: 6px 6px 6px 6px !important;
+        text-align: center !important;
+        transition: 0.5s !important;
+
+        &:hover {
+            background-color: #D6D9E1 !important;
+        }
+
+        &:focus {
+            background-color: #D6D9E1 !important;
+            color: #ffffff !important;
+        }
+
+        // &:focus .iconBox svg path {
+        //     stroke: #ffffff !important;
+        // }
+
+        .iconBox {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 100%;
+            width: 32px !important;
+            height: 32px !important;
+        }
+
+        .iconBox.opacity-50 {
+            opacity: 0.5;
+        }
+    }
+
+    .inputNumberBox-input {
+
+        // 隱藏上下箭頭 (Chrome, Safari, Edge)
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        // 隱藏上下箭頭 (Firefox)
+        -moz-appearance: textfield;
+    }
+
+    .inputNumberBox-btn.opacity-50 {
+        opacity: 0.5;
+
+        &:focus {
+            background-color: #EDEEF1 !important;
+            color: #ffffff !important;
+        }
+
+        &:focus .iconBox svg path {
+            stroke: #1D1F25 !important;
+        }
+    }
+}
+
+.giftupper-limit {
+    z-index: 201;
+    bottom: 72px;
+
+    @include web_570 {
+        z-index: 61;
+        bottom: 16px;
+    }
+}
+
+.gameRating {
+    .imgBox {
+        img {
+            max-width: 40px;
+            max-height: 40px;
+        }
+    }
+}
+
+.my-floating-state {
+    z-index: 60;
+}
+
+.eventTime {
+    .eventTime-title {
+        color: #1D1F25;
+    }
+}
+
+.eventItem.my-skeleton{
+    .title{
+        height: 43px;
+        display: flex;
+        align-items: center;
+    }
+}
+.my-tradeInfo {
+    .my-form-returnData-group {
+        max-width: 100%;
+    }
+}
+
+// 彈窗黑底
+.topUpItem-overlay,
+.topUpItem-overlay {
+    z-index: 200;
+}
+
+.user-uid {
+    .my-form-returnData {
+        .my-form-returnData-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+// loader
+// .my-skeleton.my-form-returnData-group {
+//     font-size: 0 !important;
+//     border-radius: 4px;
+//     height: 48px;
+//     background: linear-gradient(90deg, #E3E3E3 25%, #F4F4F4 50%, #E3E3E3 75%);
+//     animation: skeleton-animation 1.5s infinite;
+//     background-size: 200% 100%;
+//     .my-form-returnData-title {
+//         background: initial;
+//     }
+//     .my-form-returnData-text {
+//         font-size: 0 !important;
+//     }
+// }
+
+.my-skeleton {
+    .my-font-h2 {
+        border-radius: 50px;
+    }
+
+    .my-font-h3 {
+        border-radius: 50px;
+    }
+
+    .my-font-h4 {
+        border-radius: 50px;
+    }
+
+    .my-font-s {
+        border-radius: 50px;
+    }
+
+    .my-font-m {
+        border-radius: 50px;
+    }
+
+    .my-font-l {
+        border-radius: 50px;
+    }
+
+    // .imgBox::before {
+    //     content: "";
+    //     border-radius: 16px;
+
+    //     @include web_570 {
+    //         border-radius: 8px;
+    //     }
+    // }
+}
+
+
+// .my-form-returnData {
+//     .my-skeleton.my-form-returnData-group {
+//         height: 48px;
+
+//         @include web_768 {
+//             height: 34px;
+//         }
+//     }
+// }
+
+// loader end
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item ul.textBox-imgText-list {
+    margin: 0px;
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item .textBox-imgText-list-item-text {
+    margin: 0px;
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item {
+    flex-wrap: initial;
+}
+
+.my-pagination {
+    .my-pagination-list {
+        .my-pagination-item.opacity-50 {
+            .my-pagination-link:hover {
+                background-color: initial !important;
+            }
+        }
+    }
+}
+
+.inputNumberBox .inputNumberBox-btn.opacity-50 {
+    cursor: auto !important;
+}
+
+.inputNumberBox {
+    .inputNumberBox-btn.opacity-50 {
+        &:hover {
+            background-color: #EDEEF1 !important;
+            opacity: 0.5;
+        }
+
+    }
+}
+
+.tradingInformation .tradingInformation-data {
+    flex: 1;
+    width: 100%;
+    max-width: 700px;
+}
+
+.my-floating-state {
+    z-index: 202;
+}
+
+.my-form-returnData .my-form-returnData-group+.my-form-returnData-group {
+    @include web_570 {
+        padding-top: 8px;
+    }
+}
+
+// .my-pb-2-sm {
+//     @include web_570 {
+//         padding-bottom: 8px;
+//     }
+// }
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item .textBox-imgText-list-item-img img {
+    border-radius: 4px;
+}
+
+.my-form-check:hover .my-form-check-input[type=radio]:checked[type=checkbox],
+.my-form-check:hover .my-form-check-input[type=checkbox]:checked[type=checkbox] {
+
+    @include web_570 {
+        background-color: #4FAFF1;
+    }
+
+}
+
+.inputNumberBox-input:focus-visible {
+    outline: 1px solid transparent;
+    border-radius: 6px;
+    @include web_570 {
+        outline: 1px solid #8993A7;
+        border-radius: 6px;
+        /* 設定框框顏色為黑色 */
+    }
+}
+
+
+
+//20250102
+.my-form-btn{
+    max-width: calc(25% - 20px);
+    .my-btn-main{
+        height: 40px;
+    }
+    @include web_768{
+        max-width: 100%;
+    }
+}
+.product-column-item{
+    input[type=radio]{
+        position: absolute;
+        opacity: 0;
+    }
+}
+
+// 選擇欄位
+/* 保持原有樣式 */
+.options-box {
+    display: none;
+    position: absolute;
+    transform: translateY(82px);
+    width: 100%;
+    z-index: 10;
+    border: 1px solid #EDEEF1;
+    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 8px;
+    box-shadow: 0px 0px 8px 0px #0000001A;
+    margin: 0;
+    @include web_768{
+        .options-box {
+            transform: translateY(74px);
+        }
+    }
+}
+.options-ul{
+    list-style: none;
+    font-size: 14px;
+    color: #464D5E;
+    overflow-x: auto;
+    max-height: 188px;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
+.options-ul li {
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    max-height: 34px;
+}
+
+.options-ul li:hover {
+    background-color: #F6F7F9;
+    color: #464D5E;
+    border-radius: 8px;
+}
+
+/* 修改此部分，改為控制 options-box */
+.custom-select-ul.open .options-box {
+    display: block;
+}
+
+
+.my-select-title {
+    color: #1D1F25;
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+    width: 100%;
+    @include web_570{
+        font-size: 13px;
+    }
+}
+
+.topImgSwiper{
+    .swiper{
+        .swiper-wrapper{
+            .swiper-slide{
+                a{
+                    .imgBox{
+                        img{
+                            border-radius: 16px;
+                            max-width: 100%;
+                            @include web_570{
+                                border-radius: 8px;
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .my-swiper-bullet-outside {
+        .swiper-pagination{
+            margin: 0 0 0 0!important;
+        }
+    }
+    .my-skeleton{
+        .imgBox{
+            &::before{
+                content: "";
+                border-radius: 16px;
+                @include web_570{
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+}
+#topup{
+    .swiper-slide{
+        .my-skeleton{
+            .imgBox{
+                border-radius: 16px;
+                @include web_570{
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+
+.amountBox{
+    .my-font-h4{
+        font-size: 16px!important;
+        @include web_570{
+            font-size: 14px!important;
+        }
+    }
+    .inputNumberBox-input{
+        font-size: 14px!important;
+    }
+}
+.my-dropDown {
+    .my-modal {
+      &.my-modal-m {
+        .my-modal-dialog {
+          .modal-content {
+            .my-modal-body {
+              .my-modal-body-box {
+                .my-form-group {
+                  .my-form-check {
+                    .my-form-check-state:hover {
+                      .my-form-check-input[type="checkbox"] {
+                        &:indeterminate{
+                            &:hover{
+                                border: 2px solid #4FAFF1;
+                            }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox] {
+    @include web_570 {
+        border-color: rgb(107, 118, 140);
+    }
+}
+
+.my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=radio]:checked[type=checkbox],
+.my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox]:checked[type=checkbox] {
+    @include web_570 {
+        border-color: #178DE0;
+    }
+}
+.my-form-check .my-form-check-label-main .my-form-check-input[type=checkbox]:indeterminate {
+    @include web_570 {
+        border: 2px solid #4FAFF1!important;
+    }
+}
+
+
+.inputNumberBox .inputNumberBox-input {
+    -webkit-appearance: none; 
+    font-size: 14px !important;
+}
+
+.my-dropDown {
+    .my-modal.my-modal-m {
+      .my-modal-dialog {
+        .modal-content {
+          .my-modal-body {
+            .my-modal-body-box {
+              .my-form-group {
+                .my-form-check {
+                  .my-form-check-state:hover {
+                    .my-form-check-input[type="checkbox"] {
+                        &:indeterminate{
+                            border: 2px solid #4FAFF1;
+                        }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+.product{
+    .product-column-item{
+        label{
+            gap: 16px;
+            @include web_570{
+                gap: 12px;
+            }
+        }
+    }
+}
+
+.inputBtnBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    .my-btn-main-s{
+        height: 32px;
+        position: absolute;
+        top: 4px;
+        right: 4px;
+    }
+}

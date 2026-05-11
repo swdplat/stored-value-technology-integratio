@@ -1,0 +1,157 @@
+// Color system
+$my-primary-950:#0B2846;
+$my-primary-900:#10406A;
+$my-primary-800:#0C4B80;
+$my-primary-700:#0A599A;
+$my-primary-600:#0A6FBF;
+$my-primary-500:#178DE0;
+$my-primary-400:#4FAFF1;
+$my-primary-300:#82C5F7;
+$my-primary-200:#BDDFFA;
+$my-primary-100:#E1EFFD;
+$my-primary-50:#F1F8FE;
+
+$my-secondary-950:#1D1F25;
+$my-secondary-900:#363A44;
+$my-secondary-800:#3C4250;
+$my-secondary-700:#464D5E;
+$my-secondary-600:#565F73;
+$my-secondary-500:#6B768C;
+$my-secondary-400:#8993A7;
+$my-secondary-300:#B3B9C6;
+$my-secondary-200:#D6D9E1;
+$my-secondary-100:#EDEEF1;
+$my-secondary-50:#F6F7F9;
+
+$my-grey-950:#262626;
+$my-grey-900:#313131;
+$my-grey-800:#383838;
+$my-grey-700:#434343;
+$my-grey-600:#515151;
+$my-grey-500:#666666;
+$my-grey-400:#818181;
+$my-grey-300:#A4A4A4;
+$my-grey-200:#C8C8C8;
+$my-grey-100:#E3E3E3;
+$my-grey-50:#F7F7F7;
+$my-grey-0:#FFFFFF;
+
+$my-success-950:#0B2B08;
+$my-success-900:#1F4E19;
+$my-success-800:#255F1C;
+$my-success-700:#29781D;
+$my-success-600:#309920;
+$my-success-500:#47CB32;
+$my-success-400:#67D355;
+$my-success-300:#9BE78E;
+$my-success-200:#C7F3BF;
+$my-success-100:#E2FADE;
+$my-success-50:#F4FCF1;
+
+$my-errorNote-950:#481007;
+$my-errorNote-900:#842718;
+$my-errorNote-800:#A02714;
+$my-errorNote-700:#C12C14;
+$my-errorNote-600:#E5381D;
+$my-errorNote-500:#F8553B;
+$my-errorNote-400:#FF735D;
+$my-errorNote-300:#FFADA0;
+$my-errorNote-200:#FFCFC7;
+$my-errorNote-100:#FFE5E1;
+$my-errorNote-50:#FFF3F1;
+
+$colors: (
+  my-primary: (
+    "950": #0B2846,
+    "900": #10406A,
+    "800": #0C4B80,
+    "700": #0A599A,
+    "600": #0A6FBF,
+    "500": #178DE0,
+    "400": #4FAFF1,
+    "300": #82C5F7,
+    "200": #BDDFFA,
+    "100": #E1EFFD,
+    "50": #F1F8FE
+  ),
+  my-secondary: (
+    "950": #1D1F25,
+    "900": #363A44,
+    "800": #3C4250,
+    "700": #464D5E,
+    "600": #565F73,
+    "500": #6B768C,
+    "400": #8993A7,
+    "300": #B3B9C6,
+    "200": #D6D9E1,
+    "100": #EDEEF1,
+    "50": #F6F7F9
+  ),
+  my-grey: (
+    "950": #262626,
+    "900": #313131,
+    "800": #383838,
+    "700": #434343,
+    "600": #515151,
+    "500": #666666,
+    "400": #818181,
+    "300": #A4A4A4,
+    "200": #C8C8C8,
+    "100": #E3E3E3,
+    "50": #F7F7F7,
+    "0": #FFFFFF
+  ),
+  my-success: (
+    "950": #0B2B08,
+    "900": #1F4E19,
+    "800": #255F1C,
+    "700": #29781D,
+    "600": #309920,
+    "500": #47CB32,
+    "400": #67D355,
+    "300": #9BE78E,
+    "200": #C7F3BF,
+    "100": #E2FADE,
+    "50": #F4FCF1
+  ),
+  my-errorNote: (
+    "950": #481007,
+    "900": #842718,
+    "800": #A02714,
+    "700": #C12C14,
+    "600": #E5381D,
+    "500": #F8553B,
+    "400": #FF735D,
+    "300": #FFADA0,
+    "200": #FFCFC7,
+    "100": #FFE5E1,
+    "50": #FFF3F1
+  )
+);
+
+// 生成背景色類別
+@each $color-name, $shades in $colors {
+  @each $shade, $color in $shades {
+    .my-bg-#{$color-name}-#{$shade} {
+      background-color: $color !important;
+    }
+  }
+}
+
+// 生成文字顏色類別
+@each $color-name, $shades in $colors {
+  @each $shade, $color in $shades {
+    .my-text-#{$color-name}-#{$shade} {
+      color: $color !important;
+    }
+  }
+}
+
+// 生成邊框顏色類別
+@each $color-name, $shades in $colors {
+  @each $shade, $color in $shades {
+    .my-border-#{$color-name}-#{$shade} {
+      border-color: $color !important;
+    }
+  }
+}

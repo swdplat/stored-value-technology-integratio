@@ -1,0 +1,107 @@
+@charset "UTF-8";
+/*rwd*/
+@media (max-width: 570px) {
+  .my-scrollbar-m::-webkit-scrollbar-thumb {
+    border: 2px solid #FFFFFF;
+    border-radius: 100px;
+  }
+}
+@media (max-width: 570px) {
+  .my-search .my-dropDown {
+    top: 44px;
+  }
+}
+
+.areaState .max-8 {
+  max-width: 800px;
+}
+
+.my-skeleton .my-font-h2 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-h3 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-h4 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-s {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-m {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-l {
+  border-radius: 50px;
+}
+
+.my-pagination .my-pagination-list .my-pagination-item.opacity-50 .my-pagination-link:hover {
+  background-color: initial !important;
+}
+
+a .imgBox img {
+  max-width: 193px;
+}
+@media (max-width: 1400px) {
+  a .imgBox img {
+    max-width: 193px;
+    min-width: 150px;
+  }
+}
+@media (max-width: 1200px) {
+  a .imgBox img {
+    max-width: initial;
+    min-width: 100px;
+  }
+}
+@media (max-width: 900px) {
+  a .imgBox img {
+    min-width: 100px;
+  }
+}
+@media (max-width: 570px) {
+  a .imgBox img {
+    max-width: 143px;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 570px) {
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=radio]:checked[type=checkbox],
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox]:checked[type=checkbox] {
+    animation: changeColor 0.5s forwards;
+    animation-delay: 0.8s;
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: #178DE0;
+    border-color: #178DE0;
+  }
+  100% {
+    background-color: #4FAFF1;
+    border-color: #4FAFF1;
+  }
+}
+/*列表*/
+#topup_list .my-skeleton .imgBox {
+  border-radius: 16px;
+}
+@media (max-width: 570px) {
+  #topup_list .my-skeleton .imgBox {
+    border-radius: 8px;
+  }
+}
+#topup_list .my-title-btn > .my-btn-round.my-btn-outline.focus {
+  color: #ffffff !important;
+  border: 1.5px solid #4FAFF1 !important;
+  background-color: #4FAFF1 !important;
+}
+#topup_list .my-btn-round.my-btn-outline.focus svg path {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+#topup_list .my-form-check .my-form-check-input[type=checkbox] {
+  cursor: pointer;
+}/*# sourceMappingURL=category.css.map */

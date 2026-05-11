@@ -1,0 +1,30 @@
+.my-icon-80{
+    width: 80px;
+    height: 80px;
+}
+.my-icon-40{
+    width: 40px;
+    height: 40px;
+}
+.my-icon-36{
+    width: 36px;
+    height: 36px;
+}
+.my-icon-24{
+    width: 24px;
+    height: 24px;
+}
+.my-icon-16{
+    width: 16px;
+    height: 16px;
+}
+@include web_570{
+    .my-icon-80-sm{
+        width: 80px;
+        height: 80px;
+    }
+    .my-icon-36-sm{
+        width: 36px;
+        height: 36px;
+    }
+}

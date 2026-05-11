@@ -1,0 +1,731 @@
+@charset "UTF-8";
+/*rwd*/
+.my-swiper .swiper-button-prev {
+  left: 12% !important;
+}
+
+.my-swiper .swiper-button-next {
+  right: 12% !important;
+}
+
+@media (max-width: 570px) {
+  .main-content {
+    margin: 0 0 40px 0;
+  }
+}
+
+.my-tags {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+@media (max-width: 570px) {
+  .my-tags {
+    gap: 0px;
+  }
+}
+.my-tags ul.my-tags-box {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.my-tags ul.my-tags-box li {
+  margin: 0 0 0 0;
+}
+
+@media (max-width: 570px) {
+  .user-topUpcardData .my-font-h3,
+  .user-selectProduct .my-font-h3,
+  .user-selectPayment .my-font-h3,
+  .user-topUpData .my-font-h3,
+  .relatedLinks .my-font-h3,
+  .user-uid .my-font-h3 {
+    line-height: 120% !important;
+    min-height: 40px;
+    max-height: 40px;
+  }
+}
+
+.uid-form-wrapper .uid-form-content {
+  gap: 32px 40px;
+}
+@media (max-width: 900px) {
+  .uid-form-wrapper .uid-form-content {
+    gap: 12px;
+  }
+}
+.uid-form-wrapper .uid-form-content .uid-form-group {
+  width: calc(50% - 20px) !important;
+}
+@media (max-width: 900px) {
+  .uid-form-wrapper .uid-form-content .uid-form-group {
+    width: 100% !important;
+  }
+}
+.uid-form-wrapper .uid-form-content .form-column-3 {
+  max-width: calc(25% - 16px);
+}
+.uid-form-wrapper .uid-form-input {
+  height: 40px;
+}
+
+.my-form-returnData-text {
+  white-space: wrap;
+}
+
+@media (max-width: 900px) {
+  .my-form-column-2 .my-form-returnData-group {
+    max-width: calc(100% - 0px);
+  }
+}
+
+@media (max-width: 570px) {
+  .my-column-1-sm {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .product .product-column-item {
+    max-width: calc(100% - 0px);
+  }
+}
+
+@media (max-width: 900px) {
+  .checkoutBox-content {
+    flex-wrap: wrap;
+  }
+}
+
+.checkoutBox .checkoutBox-content .topup-min-width {
+  min-width: 530px;
+}
+@media (max-width: 900px) {
+  .checkoutBox .checkoutBox-content .topup-min-width {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+  .checkoutBox .checkoutBox-content .topup-min-width .btnBox {
+    min-width: initial;
+  }
+}
+@media (max-width: 570px) {
+  .checkoutBox .checkoutBox-content .topup-min-width {
+    min-width: initial;
+  }
+}
+@media (max-width: 900px) {
+  .checkoutBox .checkoutBox-content .topup-min-width .selectQuantity {
+    justify-content: space-between;
+  }
+}
+
+.my-modal-footer .btnBox {
+  justify-content: space-between;
+}
+@media (max-width: 1140px) {
+  .my-modal-footer .btnBox {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+.my-modal-footer .btnBox .selectQuantity {
+  text-wrap: nowrap;
+}
+@media (max-width: 1140px) {
+  .my-modal-footer .btnBox .selectQuantity {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.my-modal-footer .btnBox .my-btn-main {
+  max-height: 40px;
+}
+@media (max-width: 1140px) {
+  .my-modal-footer .btnBox .my-btn-main {
+    max-width: 100% !important;
+  }
+}
+
+.product-pup,
+.event-pup,
+.systemMsg-pup {
+  z-index: 201;
+}
+.product-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box,
+.event-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box,
+.systemMsg-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box {
+  max-height: 564px;
+  padding-right: 8px;
+}
+@media (max-width: 570px) {
+  .product-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box,
+  .event-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box,
+  .systemMsg-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box {
+    padding-right: 12px;
+  }
+}
+.product-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list,
+.event-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list,
+.systemMsg-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list {
+  list-style: none;
+}
+.product-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list .textBox-imgText-list-item,
+.event-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list .textBox-imgText-list-item,
+.systemMsg-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox-link-list .textBox-imgText-list-item {
+  flex-wrap: nowrap;
+}
+@media (max-width: 570px) {
+  .product-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-footer,
+  .event-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-footer,
+  .systemMsg-pup form.my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-footer {
+    padding: 16px;
+    position: sticky;
+    bottom: 0;
+  }
+}
+@media (max-width: 570px) {
+  .product-pup form.my-modal.my-modal-m .my-modal-header,
+  .event-pup form.my-modal.my-modal-m .my-modal-header,
+  .systemMsg-pup form.my-modal.my-modal-m .my-modal-header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 2px;
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+.event-pup .my-modal .my-modal-dialog {
+  overflow: initial !important;
+}
+@media (max-width: 570px) {
+  .event-pup .my-modal .my-modal-dialog .modal-content .my-modal-header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 2px;
+    border-radius: 8px 8px 0 0;
+  }
+}
+.event-pup .my-modal .my-modal-dialog .modal-content .my-modal-body {
+  padding: 24px;
+  min-height: initial;
+}
+@media (max-width: 570px) {
+  .event-pup .my-modal .my-modal-dialog .modal-content .my-modal-body {
+    padding: 16px;
+  }
+}
+.event-pup .my-modal .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box {
+  padding-right: 2px;
+}
+@media (max-width: 570px) {
+  .event-pup .my-modal .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox {
+    gap: 12px;
+  }
+}
+.event-pup .my-modal .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .textBox .time {
+  margin: 0px 0 0 0;
+}
+
+.gameIntroduction .text {
+  /* 影片容器 */
+}
+.gameIntroduction .text .youtube-container {
+  position: relative;
+  width: 100%;
+  max-width: 785px;
+  overflow: hidden;
+  border-radius: 8px;
+  font-size: 0px;
+}
+.gameIntroduction .text .youtube-container iframe {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+}
+.gameIntroduction .text .gameIntroduction-img {
+  width: 100%;
+}
+.gameIntroduction .text .gameIntroduction-img img {
+  width: auto;
+  max-width: 100%;
+  max-height: 440px;
+  border-radius: 8px;
+}
+.gameIntroduction .text .heightLimit {
+  max-height: 400px;
+}
+@media (max-width: 570px) {
+  .gameIntroduction .text .heightLimit {
+    max-height: 264px;
+  }
+}
+.gameIntroduction .text .gameIntroduction-img + .youtube-container {
+  margin: 16px 0 0 0;
+}
+@media (max-width: 570px) {
+  .gameIntroduction .text .gameIntroduction-img + .youtube-container {
+    margin: 12px 0 0 0;
+  }
+}
+.gameIntroduction .text .youtube-container + .gameIntroduction-img {
+  margin: 16px 0 0 0;
+}
+@media (max-width: 570px) {
+  .gameIntroduction .text .youtube-container + .gameIntroduction-img {
+    margin: 12px 0 0 0;
+  }
+}
+.gameIntroduction .text .gameIntroduction-img + .textBox {
+  margin: 16px 0 0 0;
+}
+@media (max-width: 570px) {
+  .gameIntroduction .text .gameIntroduction-img + .textBox {
+    margin: 12px 0 0 0;
+  }
+}
+.gameIntroduction .text .youtube-container + .textBox {
+  margin: 16px 0 0 0;
+}
+@media (max-width: 570px) {
+  .gameIntroduction .text .youtube-container + .textBox {
+    margin: 12px 0 0 0;
+  }
+}
+.gameIntroduction .text .textBox p {
+  margin: 0;
+}
+
+.relatedLinks .relatedLinks-icon .relatedLinks-icon-item {
+  margin: 0 8px;
+}
+@media (max-width: 570px) {
+  .relatedLinks .relatedLinks-icon .relatedLinks-icon-item {
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .event .eventItem {
+    max-width: calc(100% - 0px);
+  }
+}
+@media (max-width: 570px) {
+  .event .eventItem {
+    border: 0px solid #EDEEF1;
+  }
+}
+.event .eventItem .information {
+  flex-direction: column;
+}
+@media (max-width: 1140px) {
+  .event .eventItem .information {
+    flex-direction: column;
+  }
+}
+.event .eventItem .information .btnLink {
+  flex-direction: row-reverse;
+  max-width: inherit;
+}
+@media (max-width: 1140px) {
+  .event .eventItem .information .btnLink {
+    max-width: inherit;
+  }
+}
+.event .eventItem .information .btnLink .my-btn-main {
+  width: 100%;
+  max-width: 200px;
+}
+@media (max-width: 570px) {
+  .event .eventItem .information .btnLink .my-btn-main {
+    width: 100%;
+    max-width: 160px;
+  }
+}
+@media (max-width: 1140px) {
+  .event .eventItem .information .btnLink .my-btn-main-text {
+    justify-self: start;
+  }
+}
+.event .eventItem .information .btnLink .my-btn-main-text .my-btn-arrow {
+  margin: 0 0 0 0px !important;
+  padding-left: 8px;
+}
+
+.eventItem h3 .btn-question {
+  cursor: pointer;
+}
+
+.my-modal.my-modal-full.my-modaluid-full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.my-tabs.btn-style ul.my-tabs-box li.active .my-btn-outline {
+  background-color: #E1EFFD !important;
+  outline: 0px solid #178DE0 !important;
+  border: 1.5px solid #178DE0 !important;
+  color: #178DE0 !important;
+}
+
+.my-form-inputBtn-group .my-form-input-btn {
+  border-radius: 6px !important;
+}
+
+.checkout.fixed-bottom {
+  z-index: 60;
+}
+
+.inputNumberBox .inputNumberBox-btn {
+  text-decoration: none !important;
+  color: #1D1F25 !important;
+  width: 100% !important;
+  line-height: 32px !important;
+  border-radius: 6px 6px 6px 6px !important;
+  text-align: center !important;
+  transition: 0.5s !important;
+}
+.inputNumberBox .inputNumberBox-btn:hover {
+  background-color: #D6D9E1 !important;
+}
+.inputNumberBox .inputNumberBox-btn:focus {
+  background-color: #D6D9E1 !important;
+  color: #ffffff !important;
+}
+.inputNumberBox .inputNumberBox-btn .iconBox {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100%;
+  width: 32px !important;
+  height: 32px !important;
+}
+.inputNumberBox .inputNumberBox-btn .iconBox.opacity-50 {
+  opacity: 0.5;
+}
+.inputNumberBox .inputNumberBox-input {
+  -moz-appearance: textfield;
+}
+.inputNumberBox .inputNumberBox-input::-webkit-inner-spin-button, .inputNumberBox .inputNumberBox-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inputNumberBox .inputNumberBox-btn.opacity-50 {
+  opacity: 0.5;
+}
+.inputNumberBox .inputNumberBox-btn.opacity-50:focus {
+  background-color: #EDEEF1 !important;
+  color: #ffffff !important;
+}
+.inputNumberBox .inputNumberBox-btn.opacity-50:focus .iconBox svg path {
+  stroke: #1D1F25 !important;
+}
+
+.giftupper-limit {
+  z-index: 201;
+  bottom: 72px;
+}
+@media (max-width: 570px) {
+  .giftupper-limit {
+    z-index: 61;
+    bottom: 16px;
+  }
+}
+
+.gameRating .imgBox img {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+.my-floating-state {
+  z-index: 60;
+}
+
+.eventTime .eventTime-title {
+  color: #1D1F25;
+}
+
+.eventItem.my-skeleton .title {
+  height: 43px;
+  display: flex;
+  align-items: center;
+}
+
+.my-tradeInfo .my-form-returnData-group {
+  max-width: 100%;
+}
+
+.topUpItem-overlay,
+.topUpItem-overlay {
+  z-index: 200;
+}
+
+.user-uid .my-form-returnData .my-form-returnData-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-skeleton .my-font-h2 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-h3 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-h4 {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-s {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-m {
+  border-radius: 50px;
+}
+.my-skeleton .my-font-l {
+  border-radius: 50px;
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item ul.textBox-imgText-list {
+  margin: 0px;
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item .textBox-imgText-list-item-text {
+  margin: 0px;
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item {
+  flex-wrap: initial;
+}
+
+.my-pagination .my-pagination-list .my-pagination-item.opacity-50 .my-pagination-link:hover {
+  background-color: initial !important;
+}
+
+.inputNumberBox .inputNumberBox-btn.opacity-50 {
+  cursor: auto !important;
+}
+
+.inputNumberBox .inputNumberBox-btn.opacity-50:hover {
+  background-color: #EDEEF1 !important;
+  opacity: 0.5;
+}
+
+.tradingInformation .tradingInformation-data {
+  flex: 1;
+  width: 100%;
+  max-width: 700px;
+}
+
+.my-floating-state {
+  z-index: 202;
+}
+
+@media (max-width: 570px) {
+  .my-form-returnData .my-form-returnData-group + .my-form-returnData-group {
+    padding-top: 8px;
+  }
+}
+
+.my-modal-body .my-modal-body-box .textBox-imgText-list .textBox-imgText-list-item .textBox-imgText-list-item-img img {
+  border-radius: 4px;
+}
+
+@media (max-width: 570px) {
+  .my-form-check:hover .my-form-check-input[type=radio]:checked[type=checkbox],
+  .my-form-check:hover .my-form-check-input[type=checkbox]:checked[type=checkbox] {
+    background-color: #4FAFF1;
+  }
+}
+
+.inputNumberBox-input:focus-visible {
+  outline: 1px solid transparent;
+  border-radius: 6px;
+}
+@media (max-width: 570px) {
+  .inputNumberBox-input:focus-visible {
+    outline: 1px solid #8993A7;
+    border-radius: 6px;
+    /* 設定框框顏色為黑色 */
+  }
+}
+
+.my-form-btn {
+  max-width: calc(25% - 20px);
+}
+.my-form-btn .my-btn-main {
+  height: 40px;
+}
+@media (max-width: 768px) {
+  .my-form-btn {
+    max-width: 100%;
+  }
+}
+
+.product-column-item input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* 保持原有樣式 */
+.options-box {
+  display: none;
+  position: absolute;
+  transform: translateY(82px);
+  width: 100%;
+  z-index: 10;
+  border: 1px solid #EDEEF1;
+  border-radius: 8px;
+  background-color: #ffffff;
+  padding: 8px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.1019607843);
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .options-box .options-box {
+    transform: translateY(74px);
+  }
+}
+
+.options-ul {
+  list-style: none;
+  font-size: 14px;
+  color: #464D5E;
+  overflow-x: auto;
+  max-height: 188px;
+}
+.options-ul::-webkit-scrollbar {
+  display: none;
+}
+
+.options-ul li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  max-height: 34px;
+}
+
+.options-ul li:hover {
+  background-color: #F6F7F9;
+  color: #464D5E;
+  border-radius: 8px;
+}
+
+/* 修改此部分，改為控制 options-box */
+.custom-select-ul.open .options-box {
+  display: block;
+}
+
+.my-select-title {
+  color: #1D1F25;
+  font-size: 14px;
+  line-height: 140%;
+  font-weight: 400;
+  width: 100%;
+}
+@media (max-width: 570px) {
+  .my-select-title {
+    font-size: 13px;
+  }
+}
+
+.topImgSwiper .swiper .swiper-wrapper .swiper-slide a .imgBox img {
+  border-radius: 16px;
+  max-width: 100%;
+}
+@media (max-width: 570px) {
+  .topImgSwiper .swiper .swiper-wrapper .swiper-slide a .imgBox img {
+    border-radius: 8px;
+    max-width: 100%;
+  }
+}
+.topImgSwiper .my-swiper-bullet-outside .swiper-pagination {
+  margin: 0 0 0 0 !important;
+}
+.topImgSwiper .my-skeleton .imgBox::before {
+  content: "";
+  border-radius: 16px;
+}
+@media (max-width: 570px) {
+  .topImgSwiper .my-skeleton .imgBox::before {
+    border-radius: 8px;
+  }
+}
+
+#topup .swiper-slide .my-skeleton .imgBox {
+  border-radius: 16px;
+}
+@media (max-width: 570px) {
+  #topup .swiper-slide .my-skeleton .imgBox {
+    border-radius: 8px;
+  }
+}
+
+.amountBox .my-font-h4 {
+  font-size: 16px !important;
+}
+@media (max-width: 570px) {
+  .amountBox .my-font-h4 {
+    font-size: 14px !important;
+  }
+}
+.amountBox .inputNumberBox-input {
+  font-size: 14px !important;
+}
+
+.my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox]:indeterminate:hover {
+  border: 2px solid #4FAFF1;
+}
+
+@media (max-width: 570px) {
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox] {
+    border-color: rgb(107, 118, 140);
+  }
+}
+
+@media (max-width: 570px) {
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=radio]:checked[type=checkbox],
+  .my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox]:checked[type=checkbox] {
+    border-color: #178DE0;
+  }
+}
+
+@media (max-width: 570px) {
+  .my-form-check .my-form-check-label-main .my-form-check-input[type=checkbox]:indeterminate {
+    border: 2px solid #4FAFF1 !important;
+  }
+}
+
+.inputNumberBox .inputNumberBox-input {
+  -webkit-appearance: none;
+  font-size: 14px !important;
+}
+
+.my-dropDown .my-modal.my-modal-m .my-modal-dialog .modal-content .my-modal-body .my-modal-body-box .my-form-group .my-form-check .my-form-check-state:hover .my-form-check-input[type=checkbox]:indeterminate {
+  border: 2px solid #4FAFF1;
+}
+
+.product .product-column-item label {
+  gap: 16px;
+}
+@media (max-width: 570px) {
+  .product .product-column-item label {
+    gap: 12px;
+  }
+}
+
+.inputBtnBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.inputBtnBox .my-btn-main-s {
+  height: 32px;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}/*# sourceMappingURL=topup-uid.css.map */

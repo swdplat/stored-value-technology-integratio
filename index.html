@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專案 Demo 導覽頁</title>
+    <style>
+    :root {
+        --primary-color: #4A90E2;
+        --bg-color: #f4f7f6;
+        --card-bg: #ffffff;
+        --text-main: #333333;
+        --text-muted: #777777;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', Arial, '微軟正黑體', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.6;
+    }
+
+    .hero {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: left;
+        padding: 60px 20px;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 20px;
+    }
+
+    /* --- 改用 Flexbox 佈局 --- */
+    .nav-grid {
+        display: flex;
+        flex-wrap: wrap; /* 讓卡片自動折行 */
+        margin: -12px;   /* 抵銷卡片的外部間距 */
+    }
+
+    .nav-card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        padding: 25px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #eaeaea;
+        
+        /* 核心修改：計算寬度 */
+        /* 在手機版預設為 100% */
+        flex: 0 0 calc(100% - 24px); 
+        margin: 12px;
+        box-sizing: border-box; /* 確保 padding 不影響寬度計算 */
+    }
+
+    /* 平板與電腦版：一行兩個或三個 */
+    @media (min-width: 768px) {
+        .nav-card {
+            flex: 0 0 calc(50% - 24px); /* 一行兩個 */
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .nav-card {
+            flex: 0 0 calc(33.333% - 24px); /* 一行三個 */
+        }
+    }
+    /* ---------------------- */
+
+    .nav-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        border-color: var(--primary-color);
+    }
+
+    .nav-card h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.4rem;
+        color: var(--primary-color);
+    }
+
+    .nav-card p {
+        margin: 0;
+        color: var(--text-muted);
+        flex-grow: 1;
+    }
+
+    .nav-card .status {
+        margin-top: 20px;
+        font-size: 0.85rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background-color: #e8f3ff;
+        color: #2178d1;
+        align-self: flex-start;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: var(--text-muted);
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>專案692-儲值技術整合 頁面展示</h1>
+        <p>本專案分為2部分，分別是列表頁與儲值頁，頁面總計為7頁，包括列表頁1頁，儲值頁6頁，點擊以下圖卡可以閱覽網頁。</p>
+    </header>
+
+    <main class="container">
+        <div class="nav-grid">
+            
+            <!-- 卡片 1 -->
+            <!-- href 請替換成你要導向的實際 html 檔案路徑 -->
+            <a href="./02-category-listpage.html" class="nav-card" target="_blank">
+                <h2>🛍️ 02-列表頁</h2>
+                <p>列表頁，對於"曾經選擇"、"所有服務"、"頁腳"樣式都有所修改，新增"線上購點交易注意事項"、"訊息提示"</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發完成</span>
+                     <span class="status">待審閱</span>
+                </div>
+            </a>
+
+            <!-- 卡片 2 -->
+            <a href="./03-Official-website-launchesAPI-UID.html" class="nav-card" target="_blank">
+                <h2>👤 03-topup_官網發動API_登入帳號-UID</h2>
+                <p>儲值頁，採用二欄式頁面布局，左側是遊戲圖片、遊戲介紹、如何儲值、相關活動。右側是用戶儲值資料、點數兌換商品、選擇付費類別。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發完成</span>
+                     <span class="status">待審閱</span>
+                </div>
+            </a>
+
+            <!-- 卡片 3 -->
+            <a href="./04-topup_customized-page-customization.html" class="nav-card" target="_blank">
+                <h2>📊 04-topup_customized-儲值頁客製</h2>
+                <p>儲值頁，採用二欄式頁面布局，左側是遊戲圖片、遊戲介紹、如何儲值、相關活動。右側是用戶儲值資料、點數兌換商品、選擇付費類別。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發完成</span>
+                     <span class="status">待審閱</span>
+                </div>
+            </a>
+
+             <a href="./06-topup_changeCard-replace-page.html" class="nav-card" target="_blank">
+                <h2>📊 06-topup_changeCard-儲值頁換卡</h2>
+                <p>儲值頁，這是steam卡片儲值頁，採用二欄式頁面布局，左側是遊戲圖片、遊戲介紹、如何儲值、相關活動。右側是點數兌換商品、選擇付費類別。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發完成</span>
+                     <span class="status">待審閱</span>
+                </div>
+            </a>
+
+             <a href="./07-topup_cp-stored-value-page-cp-activate.html" class="nav-card" target="_blank">
+                <h2>📊 07-topup_cp-儲值頁CP發動</h2>
+                <p>儲值頁，這是cp發動的儲值，所以該頁面的作用是將使用者導引至廠商端的網頁。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發完成</span>
+                     <span class="status">待審閱</span>
+                </div>
+            </a>
+
+             <a href="./08-topup_member-myCard-membership.html" class="nav-card" target="_blank">
+                <h2>📊 08-topup_member-儲值頁MyCard會員</h2>
+                <p>儲值頁，這是mycard會員儲值與登錄頁，左側是遊戲圖片、遊戲介紹、如何儲值、相關活動。右側是用戶儲值資料、點數兌換商品、選擇付費類別。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">開發中</span>
+                     <span class="status">待審閱</span>
+                      <span class="status">需與系統部確認</span>
+                </div>
+            </a>
+
+             <a href="./02-channel-通路子頁.html" class="nav-card" target="_blank">
+                <h2>📊 02-channel-通路子頁</h2>
+                <p>此頁面非本次修改的範圍，因此不做任何修改。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">原有檔案頁面</span>
+                     <span class="status">無任何修改</span>
+                </div>
+            </a>
+
+            <a href="./09-topup_member_check-儲值頁MyCard會員確認儲值.html" class="nav-card" target="_blank">
+                <h2>📊 09-topup_member_check-儲值頁MyCard會員確認儲值</h2>
+                <p>此頁面非本次修改的範圍，因此不做任何修改。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">原有檔案頁面</span>
+                     <span class="status">無任何修改</span>
+                </div>
+            </a>
+
+            <a href="./10-TransResult-交易結果頁.html" class="nav-card" target="_blank">
+                <h2>📊 10-TransResult-交易結果頁</h2>
+                <p>此頁面非本次修改的範圍，因此不做任何修改。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">原有檔案頁面</span>
+                     <span class="status">無任何修改</span>
+                </div>
+            </a>
+
+            <a href="./11-TransResult-交易失敗頁.html" class="nav-card" target="_blank">
+                <h2>📊 11-TransResult-交易失敗頁</h2>
+                <p>此頁面非本次修改的範圍，因此不做任何修改。</p>
+                <div style="display: flex; gap: 5px;">
+                    <span class="status">原有檔案頁面</span>
+                     <span class="status">無任何修改</span>
+                </div>
+            </a>
+
+            <!-- 若有更多頁面，可以直接複製上面的 <a> 標籤繼續新增 -->
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My GitHub Portfolio. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

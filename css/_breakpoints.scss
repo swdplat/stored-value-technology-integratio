@@ -1,0 +1,112 @@
+/*rwd*/
+
+// 0~569手機
+// 570~768平板
+// 768~1600筆電
+// 1600~ 桌機 (內容最大1280)
+@mixin web_1600 {
+    @media (max-width: 1600px) {
+        @content
+    }
+}
+
+;
+//header會使用、圖文模組輪播斷點
+@mixin web_1400 {
+    @media (max-width: 1400px) {
+        @content
+    }
+}
+
+;
+//只有footer會使用
+@mixin web_1140 {
+    @media (max-width: 1140px) {
+        @content
+    }
+}
+
+;
+
+//會員中心、登錄中心
+@mixin web_900 {
+    @media (max-width: 900px) {
+        @content
+    }
+}
+
+;
+//圖文模組輪播斷點
+@mixin web_1200 {
+    @media (max-width: 1200px) {
+        @content
+    }
+}
+
+;
+
+@mixin web_1000 {
+    @media (max-width: 1000px) {
+        @content
+    }
+}
+
+;
+@mixin web_768 {
+    @media (max-width: 768px) {
+        @content
+    }
+}
+
+;
+@mixin web_570 {
+    @media (max-width: 570px) {
+        @content
+    }
+}
+
+;
+
+
+// 定義斷點
+$header-width: 1400px;
+$footer-width: 1140px;
+$laptop-width: 1600px;
+$tablet-width: 768px;
+$mobile-width: 570px;
+
+// Mixin定義
+@mixin header-1400 {
+    @media (max-width: #{ $header-width }) {
+        @content;
+    }
+}
+@mixin header-1140 {
+    @media (max-width: #{ $header-width }) {
+        @content;
+    }
+}
+
+@mixin footer-1140 {
+    @media (max-width: #{ $footer-width }) {
+        @content;
+    }
+}
+
+@mixin laptop {
+    @media (max-width: #{ $laptop-width }) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: #{ $tablet-width }) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{ $mobile-width}) {
+        @content;
+    }
+}

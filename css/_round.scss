@@ -1,0 +1,105 @@
+.my-round-0{
+    border-radius: 0px;
+}
+.my-round-1{
+    border-radius: 4px;
+}
+.my-round-2{
+    border-radius: 6px;
+}
+.my-round-3{
+    border-radius: 8px;
+}
+.my-round-4{
+    border-radius: 12px;
+}
+.my-round-5{
+    border-radius: 16px;
+}
+
+.my-round-100{
+    border-radius: 100px;
+}
+
+.my-round-bx-2{
+    border-radius: 0 0 6px 6px;
+}
+.my-round-bx-5{
+    border-radius: 0 0 16px 16px!important;
+}
+.my-round-tx-5{
+    border-radius: 16px 16px 0 0!important;
+}
+@include web_768{
+    .my-round-0-md{
+        border-radius: 0px;
+    }
+    .my-round-1-s{
+        border-radius: 4px;
+    }
+    .my-round-2-s{
+        border-radius: 6px;
+    }
+    .my-round-3-md{
+        border-radius: 8px;
+    }
+    .my-round-4-s{
+        border-radius: 12px;
+    }
+    .my-round-5-md{
+        border-radius: 16px;
+    }
+    //
+    .my-round-top-3-md{
+        border-top-left-radius: 8px!important;
+        border-top-right-radius: 8px!important;
+        border-bottom-left-radius: 0px!important;
+        border-bottom-right-radius: 0px!important;
+    }
+    .my-round-top-5-md{
+        border-top-left-radius: 16px!important;
+        border-top-right-radius: 16px!important;
+        border-bottom-left-radius: 0px!important;
+        border-bottom-right-radius: 0px!important;
+    }
+}
+@include web_570{
+    .my-round-0-sm{
+        border-radius: 0px;
+    }
+    .my-round-1-s{
+        border-radius: 4px;
+    }
+    .my-round-2-s{
+        border-radius: 6px;
+    }
+    .my-round-3-sm{
+        border-radius: 8px!important;
+    }
+    .my-round-4-s{
+        border-radius: 12px;
+    }
+    .my-round-5-sm{
+        border-radius: 16px;
+    }
+    //
+    .my-round-top-3-sm{
+        border-top-left-radius: 8px!important;
+        border-top-right-radius: 8px!important;
+        border-bottom-left-radius: 0px!important;
+        border-bottom-right-radius: 0px!important;
+    }
+    .my-round-top-5-sm{
+        border-top-left-radius: 16px!important;
+        border-top-right-radius: 16px!important;
+        border-bottom-left-radius: 0px!important;
+        border-bottom-right-radius: 0px!important;
+    }
+}
+
+.my-border-shadow{
+    box-shadow: 0px 0px 8px 0px #6666731A;
+}
+.my-border-shadow-15{
+    box-shadow: 0px 0px 15px 0px #0000001A;
+}

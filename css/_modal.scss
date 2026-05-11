@@ -1,0 +1,196 @@
+.my-pup{
+    width: 100%;
+    max-width: 600px;
+    .my-modal{
+        min-height: 20vh;
+        max-height: 70vh;
+    }
+}
+.my-modal {
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex;
+    margin: 0 auto;
+    cursor: initial;
+    @include web_570{
+        min-width: initial;
+    }
+    .my-modal-dialog {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            .my-modal-header {
+                position: relative;
+                padding: 12px 24px 12px 24px;
+                border-bottom: 1px solid #EDEEF1;
+                @include web_570{
+                    padding: 10px 16px 10px 16px;
+                }
+                .my-modal-title {
+                    line-height: 32px;
+                    color: #363A44;
+                }
+                .my-modal-close {
+                    width: 32px;
+                    height: 32px;
+                    position: absolute;
+                    top: 8px;
+                    right: 24px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    @include web_570{
+                        top: 6px;
+                        right: 16px;
+                    }
+                    
+                }
+            }
+            .my-modal-body {
+                flex: 1;
+                .my-modal-body-box {
+                    width: 100%;
+                    .imgBox{
+                        width: 100%;
+                        max-width: 160px;
+                        margin: auto;
+                        @include web_570{
+                            max-width: 120px;
+                        }
+                        img{
+                            width: 100%;
+                            max-width: 160px;
+                        }
+                    }
+                    .textBox{
+                        .imgBox{
+                            max-width: initial;
+                            margin: 0 auto;
+                            &.qrcodeBox{
+                                border: 1px solid #EDEEF1;
+                                border-radius: 6px;
+                                padding: 24px;
+                                width: 100%;
+                                max-width: 100%;
+                                img{
+                                    max-width: 180px;
+                                    margin: 0 auto 0 auto;
+                                    @include web_570{
+                                        max-width: 120px;
+                                    }
+                                }
+                            }
+                            img{
+                                width: 100%;
+                                max-width: 278px;
+                                margin: 0 auto 0 auto;
+                                border-radius: 6px!important;
+                                @include web_570{
+                                    max-width: 100%;
+                                }
+                            }
+                        }
+                    }
+                    .textBox-col-6{
+                        width: 100%!important;
+                        max-width: calc(50% - 8px)!important;
+                    }
+                    .textBox-col-12{
+                        &+.textBox-col-12{
+                            margin: 16px 0 0 0;
+                            @include web_570{
+                                margin: 12px 0 0 0;
+                            }
+                        }
+                    }
+                    .textBox-col-12-sm{
+                        @include web_570{
+                            width: 100%!important;
+                            max-width: 100%!important;
+                        }
+                    }
+                    
+                }
+            }
+            .my-modal-footer {
+                border-top: 1px solid #EDEEF1;
+                background-color: #ffffff;
+                border-radius: 0 0 16px 16px;
+                .my-btn-main{
+                    width: 100%;
+                    max-width: 50%;
+                }
+            }
+        }
+    }
+}
+.my-modal.my-modal-s {
+    width: 100%!important;
+    max-width: 400px!important;
+    min-height: 280px!important;
+    .my-modal-dialog {
+        .modal-content {
+            .my-modal-body {
+                justify-content: center;
+                padding: 40px 24px 32px 24px!important;
+                @include web_570{
+                    padding: 24px 16px 16px 16px!important;
+                }
+            }
+            .my-modal-footer {
+                border-top:none!important;
+                padding: 16px 24px 24px 24px!important;
+                @include web_570 {
+                    padding: 8px 16px 16px 16px!important;
+                }
+            }
+        }
+    }
+}
+.my-modal.my-modal-m {
+    width: 100%;
+    max-width: 600px;
+    .my-modal-dialog {
+        .modal-content {
+            .my-modal-body {
+                padding: 24px 8px 24px 24px;
+                @include web_570{
+                    padding: 16px 4px 16px 16px;
+                }
+                .my-modal-body-box {
+                    max-height: 520px;
+                    overflow-y: auto;
+                    height: 100%;
+                    padding-right: 8px;
+                }
+            }
+            .my-modal-footer {
+                padding: 24px 24px 24px 24px;
+                @include web_570{
+                    padding: 16px 16px 16px 16px;
+                }
+            }
+        }
+    }
+}
+.my-modal.my-modal-full{
+    width: 100%;
+    max-width: 648px;
+    .my-modal-dialog{
+        .modal-content{
+            height: 100vh;
+            .my-modal-header{
+                padding: 12px 24px 12px 24px;
+            }
+            .my-modal-body{
+                padding: 16px 24px 16px 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,496 @@
+@import 'variables';
+@import 'breakpoints';
+//快捷功能
+
+.my-member-quick {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 40px 0 0;
+    height: 100%;
+    min-height: 860px;
+    background-image: url(https://image.mycard520.com/globalmycard/member/test0417/0417/img/member-sidebar-bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    border-radius: 16px 16px 16px 16px;
+    padding: 32px 8px 8px 8px;
+    position: relative;
+    @include web_570 {
+        max-width: 100%;
+        min-height: initial;
+        padding: 24px 16px 16px 16px;
+        margin: 0 0 24px 0;
+    }
+    .my-member-quick-level {
+        position: absolute;
+        top: 0px;
+        right: 16px;
+        width: 53px;
+        height: 20px;
+        background: linear-gradient(180deg, #F8D136 0%, #FAB558 100%);
+        color: #fff;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        padding: 2px 13px 4px 13px;
+        border-radius: 0 0 6px 6px;
+        .my-member-quick-level-title{
+            font-size: 9px;
+            line-height: 100%;
+            color: #FFFFFF;
+        }
+        .my-member-quick-level-number{
+            font-size: 12px;
+            line-height: 100%;
+            color: #FFFFFF;
+        }
+    }
+    .my-member-quickBox {
+        width: 100%;
+        @include web_570 {
+            max-width: 100%;
+        }
+        .my-member-quick-info {
+            flex: 1;
+            .my-member-quick-info-portrait {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin: 0 0 16px 0;
+                @include web_570{
+                    flex-direction: row;
+                }
+                .my-member-quick-group {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    .my-member-quick-img {
+                        flex: 0 0 60px;
+                        margin: 0 24px 0 0;
+                        position: relative;
+                        a {
+                            border-radius: 100px;
+                            overflow: hidden;
+                            border: 1px solid #fff;
+                            display: block;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .my-member-quick-img-btn {
+                            position: absolute;
+                            right: 0px;
+                            bottom: 0px;
+                            width: 20px;
+                            height: 20px;
+                            background-color: #fff;
+                            border-radius: 100px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            svg {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+            .my-member-quick-info-num {
+                cursor: pointer;
+                padding: 12px 16px 12px 16px;
+                border-radius: 6px;
+                background-color: #FFFFFF;
+                width: 100%;
+                margin: 0 0 16px 0;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                .my-member-quick-info-num-text {
+                    color: #3C4250;
+                }
+                .my-member-quick-info-num-number {
+                    flex: 1;
+                    color: #1D1F25;
+                }
+                .iconBox {
+                    width: 24px;
+                    height: 24px;
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+        .my-member-quick-tool {
+            width: 100%;
+            @include web_570 {
+                max-width: 100%;
+            }
+            .my-member-quick-tool-container {
+                ul {
+                    width: 100%;
+                    gap: 16px;
+                    li {
+                        a {
+                            text-decoration: none;
+                            .iconText {
+                                .iconBox {
+                                    svg {
+                                        width: 48px;
+                                        height: 48px;
+                                        @include web_900 {
+                                            width: 60px;
+                                            height: 60px;
+                                        }
+                                        @include web_570 {
+                                            width: 48px;
+                                            height: 48px;
+                                        }
+                                    }
+                                }
+                                .text {
+                                    color: #3C4250;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my-member-quick-points {
+            width: 100%;
+            margin: 0 0 0 0;
+            @include web_570 {
+                max-width: 100%;
+            }
+            .my-member-quick-points-container {
+                .swiper {
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            background-color: #FFFFFF;
+                            border-radius: 6px;
+                            .my-member-quick-points-text {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 8px 16px 8px 16px;
+                                .iconBox{
+                                    cursor: pointer;
+                                    display: none;
+                                }
+                                .iconBox.show{
+                                    display: block;
+                                }
+                            }
+                            .my-member-quick-points-wallet {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 12px 16px 12px 16px;
+                                color: #178DE0;
+                                .currency {
+                                    font-size: 13px;
+                                }
+                                .points {
+                                    font-size: 14px;
+                                    line-height: 140%;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                    .swiper-pagination {
+                        position: initial;
+                    }
+                }
+            }
+        }
+        .imgBox {
+            width: 100%;
+            max-width: 100%;
+            a {
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+        .my-member-quick-tool-swiper {
+            width: 100%;
+            margin: 24px 0 0 0;
+            // max-height: 380px;
+            overflow-y: auto;
+            &::-webkit-scrollbar {
+                width: 12px;
+            }
+            &::-webkit-scrollbar-button {
+                height: 0px;
+                background: transparent;
+            }
+            &::-webkit-scrollbar-track-piece {
+                background: transparent;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: transparent;
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: 4px;
+                background-color: #E3E3E3;
+                border: 4px solid #FFFFFF;
+            }
+            @include web_570 {
+                max-width: 100%;
+                overflow-y: initial;
+                border: 1px solid #EDEEF1;
+                background-color: #fff;
+            }
+            .swiper {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        &:first-child {
+                            a {
+                                border-radius: 6px 6px 0 0;
+                            }
+                        }
+                        &:last-child {
+                            a {
+                                border-bottom: none;
+                            }
+                        }
+                        a {
+                            display: block;
+                            line-height: initial;
+                            text-decoration: none;
+                            background-color: #fff;
+                            border-bottom: 2px solid #EDEEF1;
+                            padding: 12px 16px 12px 16px;
+                            @include web_570 {
+                                border-bottom: initial;
+                                padding: 8px 8px 8px 8px;
+                            }
+                            .iconText {
+                                display: flex;
+                                align-items: center;
+                                @include web_570 {
+                                    flex-direction: column;
+                                }
+                                .iconBox {
+                                    margin: 0 8px 0 0;
+                                    @include web_570 {
+                                        margin: 0 0 8px 0;
+                                    }
+                                    svg {
+                                        width: 24px;
+                                        height: 24px;
+                                        @include web_570 {
+                                            width: 32px;
+                                            height: 32px;
+                                        }
+                                    }
+                                }
+                                .text {
+                                    color: #565F73;
+                                    @include web_570 {
+                                        font-size: 12px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                        a.active {
+                            background-color: #EDEEF1;
+                            @include web_570 {
+                                background-color: #ffffff;
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    position: initial;
+                }
+            }
+        }
+    }
+}
+
+.my-member-quick-otherFunctions{
+    border: 1px solid #F6F7F9;
+    border-radius: 8px;
+    .my-member-quick-otherFunctions-title{
+        padding: 6px 8px 6px 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #F6F7F9;
+        .my-member-quick-otherFunctions-name{
+            line-height: 24px;
+            font-size: 12px;
+            color: #3C4250;
+            font-weight: 400;
+        }
+        .my-member-quick-otherFunctions-btn{
+            margin: 0 0 0 10px;
+            .iconBox{
+                cursor: pointer;
+                display: none;
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            .iconBox.show{
+                display: block;
+            }
+        }
+    }
+    .my-member-quick-otherFunctions-list{
+        display: flex;
+        flex-wrap: wrap;
+        .my-member-quick-otherFunctions-item{
+            a{
+                display: flex;
+                text-decoration: none;
+                padding: 8px 16px 8px 16px;
+                .iconBox{
+                    margin: 0 8px 0 0;
+                    svg{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                .iconText{
+                    display: flex;
+                    align-items: center;
+                    .text{
+                        font-size: 14px;
+                        line-height: 24px;
+                        color: #565F73;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        .my-member-quick-otherFunctions-item+.my-member-quick-otherFunctions-item{
+            border-top: 1px solid #EDEEF1;
+        }
+    }
+    
+}
+.my-member-quick-otherFunctions.list-fourCardType{
+    .my-member-quick-otherFunctions-list{
+        gap: 12px;
+        padding: 8px 8px 8px 8px;
+        .my-member-quick-otherFunctions-item{
+            border-top: none;
+            width: calc(100% / 4 - 9px);
+            a{
+                flex-direction: column;
+                padding: 0 0 0 0;
+                .iconText{
+                    flex-direction: column;
+                    .iconBox{
+                        margin: 0 0 0 0;
+                        svg{
+                            width: 32px;
+                            height: 32px;
+                        }
+                    }
+                    .text{
+                        font-size: 12px;
+                        line-height: 14.4px;
+                        text-align: center;
+                        margin: 8px 0 8px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#quick-electAvatar{
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%,50%);
+    display: none;
+    z-index: 203;
+}
+
+#member-checkIn{
+    .member-checkIn-overlay{
+        z-index: 200;
+    }
+    .rule-pop{
+        z-index: 201;
+    }
+    .terms-pop{
+        z-index: 201;
+    }
+    .pleaseLogIn-pop{
+        z-index: 201;
+    }
+    .main-content-container{
+        display: flex;
+        @include web_900{
+            flex-direction: column;
+        }
+        .sideBar{
+            width: 100%;
+            max-width: 300px;
+            @include web_900{
+                max-width:100%;
+            }
+            @include web_570{
+                display: none;
+            }
+        }
+        .sideContent{
+            width: 100%;
+            max-width: calc(100% - 340px);
+            @include web_900{
+                max-width:100%;
+            }
+            .imgBox{
+                img{
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .my-checkIn-list{
+        &.noLogging{
+            opacity: 0.5;
+        }
+        .swiper-wrapper{
+            width: 100%;
+            max-width: 892px;
+            .swiper-slide{
+                .my-checkIn-item{
+                    &.expired{
+                        opacity: 0.5;
+                    }
+                    &.today{
+                        border: 2px solid #4FAFF1;
+                    }
+                    background-color: #F6F7F9;
+                    border-radius: 6px;
+                    padding: 8px;
+                    .imgBox{
+                        width: 100%;
+                        max-width: 40px;
+                    }
+                }
+            }
+        }
+    }
+    .checkIn-btnBox {
+        .my-btn-main{
+            width: 100%;
+            max-width: 360px;
+        }
+    }
+}

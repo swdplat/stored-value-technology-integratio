@@ -1,0 +1,13 @@
+.my-tag{
+    li{
+        display: inline-block;
+        padding: 4px 12px 4px 12px;
+        border-radius: 50px;
+        background: #E3E3E3;
+        color: map-get(map-get($colors, my-secondary), "600");;
+        font-size: 12px;
+        @include web_570 {
+            padding: 2px 8px 2px 8px;
+        }
+    }
+}

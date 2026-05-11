@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@keyframes spin {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+    border-radius: 50%;
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+.loading-welcome {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+.loading-welcome .loading-welcome-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: relative;
+}
+.loading-welcome .loading-welcome-container .content {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading-welcome .loading-welcome-container .content h1 {
+  text-align: center;
+  margin: 0 0 40px 0;
+  color: #B3B9C6;
+  font-family: "微軟正黑體";
+  font-size: 32px;
+}
+.loading-welcome .loading-welcome-container .content .shape {
+  width: 5em;
+  height: 5em;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  animation: spin 3s infinite;
+  margin: 0 auto;
+}
+.loading-welcome .loading-welcome-container .content .shape::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+@media screen and (max-width: 570px) {
+  h1 {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=loading-welcome.css.map */

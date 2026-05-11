@@ -1,0 +1,111 @@
+/*輸入欄位*/
+.my-input-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 100px;
+    background-color: map-get($colors, my-grey, "50");
+    overflow: hidden;
+}
+
+.my-input-text{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    margin: 0 8px 0 16px;
+    color: map-get($colors, my-secondary, "800");
+    &::placeholder{
+        color: map-get($colors, my-secondary, "800");
+    }
+    &:focus {
+        outline: none;
+        color: map-get($colors, my-secondary, "950");
+    }
+    &:hover {
+        color: map-get($colors, my-secondary, "950");
+    }
+}
+.my-input-btn-text {
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 120%;
+    padding: 0 16px 0 16px;
+    margin: 0 4px 0 0;
+    border-radius: 100px;
+    height: 32px;
+    color: map-get($colors, my-secondary, "800");
+    background-color: map-get($colors, my-secondary, "100");
+    transition: 0.5s;
+    &:hover {
+        background-color: map-get($colors, my-grey, "0");
+    }
+}
+
+.my-input-btn-icon{
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    display: block;
+    border: none;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    .iconBox{
+        svg{
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+.my-input-btn-icon-r6{
+    border-radius: 6px 6px 6px 6px!important;
+}
+.my-input-btn-icon-r100{
+    border-radius: 100px 100px 100px 100px!important;
+}
+
+.my-input-btn-icon-secondary{
+    background-color: map-get(map-get($colors, my-secondary), "100");
+    &:hover {
+        background-color: map-get(map-get($colors, my-secondary), "200");
+    }
+    .iconBox{
+        svg.icon_forward {
+            path {
+                fill: #565F73;
+            }
+        }
+    }
+}
+
+.my-input-btn-icon-primary{
+    background-color: map-get(map-get($colors, my-primary), "400");
+    &:hover {
+        background-color: map-get(map-get($colors, my-primary), "500");
+    }
+}
+
+.my-input-btn-icon-primary-sm{
+    @include web_768 {
+        background-color: map-get(map-get($colors, my-primary), "400")!important;
+        &:hover {
+            background-color: map-get(map-get($colors, my-primary), "500")!important;
+        }
+        .iconBox{
+            .icon_forward {
+                path {
+                    @include web_768 {
+                        fill: #fff!important;
+                    }
+                }
+            }
+        }
+    }
+}

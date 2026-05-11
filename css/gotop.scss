@@ -1,0 +1,27 @@
+@import 'breakpoints';
+#gotop{
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    padding: 4px 4px 4px 4px;
+    background-color: rgba($color: #363A44, $alpha: 0.5);
+    cursor: pointer;
+    z-index: 60;
+    display: none;
+    @include web_570{
+        right: 16px;
+    }
+    &:hover{
+        background-color: rgba($color: #363A44, $alpha: 0.7);
+    }
+    svg{
+        width: 24px;
+        height: 24px;
+        path{
+            fill:#ffffff;
+        }
+    }
+}

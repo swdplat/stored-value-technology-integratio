@@ -1,0 +1,81 @@
+.my-pagination{
+    .my-pagination-list{
+        display: flex!important;
+        gap: 12px!important;
+        .my-pagination-item.my-pagination-arrow.opacity-50{
+            .my-pagination-link{
+                opacity: 0.5;
+            }
+        }
+        .my-pagination-item{
+            width: 32px!important;
+            height: 32px!important;
+            display: flex!important;
+            justify-content: center!important;
+            align-items: center!important;
+            .my-pagination-link{
+                width: 22px!important;
+                height: 32px!important;
+                text-decoration: none!important;
+                color: #1D1F25!important;
+                width: 100%!important;
+                line-height: 32px!important;
+                border-radius: 6px 6px 6px 6px!important;
+                text-align: center!important;
+                transition: 0.5s!important;
+                &:hover{
+                    background-color:#EDEEF1!important;
+                }
+                &:focus{
+                    background-color:#4FAFF1!important;
+                    color: #ffffff!important;
+                    .iconBox{
+                        svg{
+                            path{
+                                fill:#ffffff!important;
+                            }
+                        }
+                    }
+                }
+                .iconBox{
+                    display: flex!important;
+                    align-items: center!important;
+                    justify-content: center!important;
+                    height: 100%;
+                    
+                }
+            }
+        }
+        .my-pagination-item.dots{
+                width: 12px!important;
+                display: flex!important;
+                justify-content: center!important;
+                align-items: center!important;
+            .my-pagination-link{
+                width: 12px!important;
+                height: 22px!important;
+                cursor: default;
+                &:hover{
+                    background-color:transparent!important;
+                }
+                &:focus{
+                    background-color:transparent!important;
+                    color: #ffffff!important;
+                    .iconBox{
+                        svg{
+                            path{
+                                fill:#ffffff!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my-pagination-item.active{
+            .my-pagination-link{
+                background-color: #4FAFF1!important;
+                color: #ffffff!important;
+            }
+        }
+    }   
+}

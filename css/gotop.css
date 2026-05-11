@@ -1,0 +1,29 @@
+/*rwd*/
+#gotop {
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  padding: 4px 4px 4px 4px;
+  background-color: rgba(54, 58, 68, 0.5);
+  cursor: pointer;
+  z-index: 60;
+  display: none;
+}
+@media (max-width: 570px) {
+  #gotop {
+    right: 16px;
+  }
+}
+#gotop:hover {
+  background-color: rgba(54, 58, 68, 0.7);
+}
+#gotop svg {
+  width: 24px;
+  height: 24px;
+}
+#gotop svg path {
+  fill: #ffffff;
+}/*# sourceMappingURL=gotop.css.map */

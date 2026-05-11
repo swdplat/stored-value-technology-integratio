@@ -1,0 +1,44 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+img{
+    display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    line-height: 100%;
+}
+ul {
+    list-style: none;
+}
+input[type="button"]{
+    border: none;
+}
+
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    display: none;
+}
+
+select {
+    appearance: none; /* 隱藏原生樣式 */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+    background: transparent; /* 移除背景 */
+    border: none; /* 移除邊框 */
+    // font-size: inherit; /* 保持字體一致 */
+}

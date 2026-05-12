@@ -946,8 +946,8 @@
 
  .product .product-new-item{
   /* border: 1px solid red; */
-  width: 100%;
-  max-width: 127px;
+  width: calc((100% - 15px) / 2);
+  max-width: 240px;
   border-radius: 8px;
   cursor: pointer;
   background-color: #ffffff;

@@ -546,7 +546,7 @@
 /* 這是information-left 區塊 開始*/
 .payment-info .information-left{
   width: 100%;
-  /* max-width: 560px; */
+  max-width: 560px;
 }
 
 .payment-info .information-left .game-image-slider{

@@ -1558,7 +1558,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="my-p-3-sm">
+                                <div class="my-p-3-sm member-buy">
                                     <button class=" my-btn-main my-btn-primary my-w100-sm my-mt-5 my-d-block my-mx-auto my-mt-0-sm" type="button">
                                         <span class="my-btn-text">載入更多</span>
                                     </button>
@@ -2986,6 +2986,55 @@
         // $(this).addClass('active');
       });
     });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // 1. 選取元素（增加防呆檢查）
+    const productList = document.querySelector('.product');
+    const items = document.querySelectorAll('li.product-new-item');
+    const loadMoreBtn = document.querySelector('.member-buy button');
+
+    if (!productList || items.length === 0 || !loadMoreBtn) {
+        console.error("找不到必要的 DOM 元素，請檢查 HTML 類名是否正確。");
+        return;
+    }
+
+    let currentVisibleItems = 8;
+    const increment = 4;
+
+    console.log("初始化成功，總共有 " + items.length + " 個項目");
+
+    function updateListDisplay() {
+        console.log("目前的顯示數量目標為: " + currentVisibleItems);
+        
+        items.forEach((item, index) => {
+            if (index < currentVisibleItems) {
+                // 強制給予顯示屬性，避免被其他 CSS 影響
+                item.style.setProperty('display', 'list-item', 'important');
+            } else {
+                item.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        // 隱藏按鈕邏輯
+        if (currentVisibleItems >= items.length) {
+            console.log("已顯示全部項目，隱藏按鈕。");
+            loadMoreBtn.parentElement.style.display = 'none';
+        }
+    }
+
+    // 初始化
+    updateListDisplay();
+
+    // 2. 點擊事件
+    loadMoreBtn.addEventListener('click', function (e) {
+        e.preventDefault(); 
+        console.log("點擊了載入更多！");
+        currentVisibleItems += increment;
+        updateListDisplay();
+    });
+});
     </script>
 </body>
 </html>

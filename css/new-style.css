@@ -460,6 +460,7 @@
         width: 32px;
         height: 32px;
         border-radius: 50%;
+        padding-bottom: 2px;
       }
 
       /* rwd樣式  開始*/

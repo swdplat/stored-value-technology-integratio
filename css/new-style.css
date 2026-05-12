@@ -520,6 +520,10 @@
   align-content: center;
 }
 
+.title-bar-region .game-platform .particular-icon{
+  width: 110px !important;
+}
+
 .title-bar-region .game-platform .platform-icon img{
   width: 100%;
 }

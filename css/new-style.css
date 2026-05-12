@@ -841,13 +841,14 @@
   border-radius: 16px;
   margin-top: 40px;
   box-shadow: 3px 3px 10px 1px #99A1AF;
+  position: relative;
 }
 
 .payment-info .information-right .redeem-items .information-color .stored-one {
     margin-right: 10px;
     position: absolute;
     width: 85px;
-    bottom: 40px;
+    top: -20px;
     height: 40px;
     background-color: #1E2939;
     color: #ffffff;
@@ -882,7 +883,6 @@
   justify-content: left !important;
   font-size: 28px !important;
   line-height: normal !important;
-  position: relative;
 }
 
 @media(max-width:576px){

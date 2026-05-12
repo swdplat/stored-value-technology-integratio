@@ -1448,6 +1448,11 @@
 
 
 @media(max-width:768px){
+  .payment-info .information-left {
+    width: 100%;
+    max-width: unset;
+   }
+
   .payment-info{
     width: 100%;
     display: flex;

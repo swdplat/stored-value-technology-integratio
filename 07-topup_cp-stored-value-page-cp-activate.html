@@ -1962,52 +1962,123 @@
 
     <script>
       $(document).ready(function () {
-        const $mainTrack = $(".slider-change");
-        const $mainItems = $(".change-item");
-        const $thumbItems = $(".chose-item");
-        const totalItems = $mainItems.length;
-        let currentIndex = 0;
+    const $container = $(".slider-container"); // 確保這是包裹 .slider-change 的容器
+    const $mainTrack = $(".slider-change");
+    const $mainItems = $(".change-item");
+    const $thumbItems = $(".chose-item");
+    const totalItems = $mainItems.length;
+    let currentIndex = 0;
 
-        function updateGallery(index) {
-          if (index < 0) index = 0;
-          if (index >= totalItems) index = totalItems - 1;
+    // 拖曳相關變數
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let containerWidth = 0;
 
-          currentIndex = index;
+    function updateGallery(index) {
+        if (index < 0) index = 0;
+        if (index >= totalItems) index = totalItems - 1;
 
-          // 大圖軌道位移
-          const offset = -currentIndex * 100;
-          $mainTrack.css("transform", `translateX(${offset}%)`);
+        currentIndex = index;
 
-          // 更新縮圖
-          $thumbItems.removeClass("active").eq(currentIndex).addClass("active");
+        // 恢復動畫效果
+        $mainTrack.css("transition", "transform 0.5s ease-in-out");
 
-          // 【新增/優化】按鈕失效狀態處理
-          $(".prev").prop("disabled", currentIndex === 0);
-          $(".next").prop("disabled", currentIndex === totalItems - 1);
+        // 大圖軌道位移 (百分比)
+        const offset = -currentIndex * 100;
+        $mainTrack.css("transform", `translateX(${offset}%)`);
+
+        // 更新縮圖
+        $thumbItems.removeClass("active").eq(currentIndex).addClass("active");
+
+        // 按鈕狀態處理
+        $(".prev").prop("disabled", currentIndex === 0);
+        $(".next").prop("disabled", currentIndex === totalItems - 1);
+    }
+
+    // --- 拖曳邏輯開始 ---
+
+    function dragStart(e) {
+        isDragging = true;
+        containerWidth = $container.width(); // 取得容器寬度作為位移基準
+        
+        // 取得起始座標 (相容觸控與滑鼠)
+        startX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
+        
+        // 拖曳時關閉 transition，讓軌道即時跟隨手指
+        $mainTrack.css("transition", "none");
+        
+        if (e.type === 'mousedown') {
+            $mainTrack.css("cursor", "grabbing");
+        }
+    }
+
+    function dragMove(e) {
+        if (!isDragging) return;
+        
+        // 取得目前座標
+        currentX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
+        const diff = currentX - startX;
+
+        // 計算位移：原本的百分比位置 + (移動像素 / 容器寬度 * 100)
+        const currentOffset = (-currentIndex * 100) + (diff / containerWidth * 100);
+        
+        $mainTrack.css("transform", `translateX(${currentOffset}%)`);
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        $mainTrack.css("cursor", "grab");
+        const diff = currentX - startX;
+
+        // 判斷滑動距離是否超過容器寬度的 20%，若是則切換下一張
+        if (diff < -containerWidth * 0.2 && currentIndex < totalItems - 1) {
+            currentIndex++;
+        } else if (diff > containerWidth * 0.2 && currentIndex > 0) {
+            currentIndex--;
         }
 
-        // 按鈕點擊 (HTML結構雖然換了，但ID和Class對的話事件依然生效)
-        $(".next").on("click", function () {
-          if (currentIndex < totalItems - 1) {
+        updateGallery(currentIndex);
+    }
+
+    // 綁定滑鼠事件
+    $mainTrack.on("mousedown", dragStart);
+    $(document).on("mousemove", dragMove);
+    $(document).on("mouseup", dragEnd);
+
+    // 綁定觸控事件
+    $mainTrack.on("touchstart", dragStart);
+    $(document).on("touchmove", dragMove);
+    $(document).on("touchend", dragEnd);
+
+    // 防止圖片被滑鼠預設拖動
+    $mainTrack.find("img").on("dragstart", function() { return false; });
+    $mainTrack.css("cursor", "grab");
+
+    // --- 原有邏輯 ---
+
+    $(".next").on("click", function () {
+        if (currentIndex < totalItems - 1) {
             updateGallery(currentIndex + 1);
-          }
-        });
+        }
+    });
 
-        $(".prev").on("click", function () {
-          if (currentIndex > 0) {
+    $(".prev").on("click", function () {
+        if (currentIndex > 0) {
             updateGallery(currentIndex - 1);
-          }
-        });
+        }
+    });
 
-        // 縮圖點擊聯動
-        $thumbItems.on("click", function () {
-          const index = $(this).index();
-          updateGallery(index);
-        });
+    $thumbItems.on("click", function () {
+        const index = $(this).index();
+        updateGallery(index);
+    });
 
-        // 初始化
-        updateGallery(0);
-      });
+    // 初始化
+    updateGallery(0);
+    });
     </script>
 
     <script>

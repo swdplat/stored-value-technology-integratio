@@ -524,6 +524,10 @@
   width: 110px !important;
 }
 
+.title-bar-region .game-platform .particular-other{
+  width: 60px !important;
+}
+
 .title-bar-region .game-platform .platform-icon img{
   width: 100%;
 }

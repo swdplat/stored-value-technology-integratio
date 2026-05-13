@@ -3382,7 +3382,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="btnBox my-d-flex my-gap-4 my-gap-3-sm">
-                                                        
+                                                        <a class="my-btn-main my-btn-secondary btn-cancel">
+                                                            <span class="my-btn-text my-text-nowrap">取消</span>
+                                                        </a>
                                                         <a class="my-btn-main my-btn-primary my-btn-disabled my-flex-fill btn-checkout-next">
                                                             <span class="my-btn-text my-text-nowrap">下一步</span>
                                                         </a>
@@ -3639,6 +3641,14 @@
         // $(this).addClass('active');
       });
     });
+
+    $(document).ready(function(e){
+        $('.btn-cancel').on('click', function(event){
+            event.preventDefault();
+            $('.checkout-none').css('display', 'none');
+            $('.checkout-block').css('display', 'flex');
+        })
+       });
     </script>
 
     <script>

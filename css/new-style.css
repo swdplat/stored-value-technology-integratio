@@ -813,6 +813,20 @@
   color: #1E2939 !important;
 }
 
+.stored-value-one .login-out{
+  width: 100%;
+  display: flex;
+  gap: 24px;
+}
+
+.stored-value-one .new-btn-style{
+  border: 2px solid #4FAFF1 !important;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    color: #4FAFF1 !important;
+}
+
 .insert-user-value{
   background-color: #ffffff !important;
   border: 1px solid #99A1AF !important;

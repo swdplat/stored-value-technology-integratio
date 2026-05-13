@@ -463,6 +463,12 @@
         padding-bottom: 2px;
       }
 
+      .arrow .disabled {
+       opacity: 0.3;             /* 顏色變淡 */
+        cursor: not-allowed;      /* 滑鼠變成禁止符號 */
+       pointer-events: none;     /* 關鍵：讓按鈕無法接收任何點擊事件 */
+      }
+
       /* rwd樣式  開始*/
       /* 當螢幕小於 576px 時，改為顯示 2 張 */
       @media (max-width: 576px) {

@@ -971,9 +971,9 @@
                     <div class="activity-news">
                         <h2>相關活動</h2>
                         <div class="my-bg-grey-50-sm">
-                                    <ul class="movable event news-list my-mt-6 my-mt-0-sm my-px-4-sm my-pt-4-sm">
+                                    <ul class="new-event-list  movable event news-list my-mt-6 my-mt-0-sm my-px-4-sm my-pt-4-sm">
                                         <!-- 未載入完整會加上 class my-skeleton，載入完後移除 -->
-                                        <li class="eventItem list-inner my-skeleton"> 
+                                        <li class="event-info-item eventItem list-inner my-skeleton"> 
                                             <div class="title">
                                                 <div class="my-font-h3">線上金流150點入口</div>
                                             </div>
@@ -1050,7 +1050,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="eventItem list-inner"> 
+                                        <li class="event-info-item eventItem list-inner"> 
                                             <div class="title">
                                                 <div class="my-font-h3">490點儲值回饋活動</div>
                                             </div>
@@ -1127,7 +1127,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="eventItem list-inner"> 
+                                        <li class="event-info-item eventItem list-inner"> 
                                             <div class="title">
                                                 <div class="my-font-h3">1000點儲值回饋活動</div>
                                             </div>
@@ -1205,7 +1205,241 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="eventItem list-inner"> 
+                                        <li class="event-info-item eventItem list-inner"> 
+                                            <div class="title">
+                                                <div class="my-font-h3">1000點儲值回饋活動</div>
+                                            </div>
+                                            <div class="information">
+                                                <div class="textBox">
+                                                    <div class="eventTime">
+                                                        <div class="eventTime-title my-font-l">活動時間</div>
+                                                        <div class="eventTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                        <div class="eventTime-title my-font-l my-mt-4 my-mt-2-sm">會員扣點儲值 500 點以上領獎入口</div>
+                                                    </div>
+                                                    <!-- <div class="topUpTime">
+                                                        <div class="topUpTime-title my-font-l">儲值時間</div>
+                                                        <div class="topUpTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                    </div> -->
+                                                </div>
+
+                                                <div class="btnLink">
+                                                    <a href="" class="my-btn-main my-btn-primary  btn-new-style">
+                                                        <span class="my-btn-text">參加</span>
+                                                    </a>
+                                                    <a class="my-btn-main-text my-btn-primary">
+                                                        <span class="eventItem-btn my-btn-text">查看詳情</span>
+                                                        <span class="my-btn-arrow">
+                                                            <svg class="icon_arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M8.00163 4.70833C8.39215 4.31781 9.02654 4.31658 9.41707 4.70711L16.0029 11.2929C16.3934 11.6834 16.3934 12.3166 16.0029 12.7071L9.41707 19.2929C9.02654 19.6834 8.39215 19.6822 8.00163 19.2917C7.6111 18.9011 7.60988 18.2668 8.0004 17.8762L13.8766 12L8.0004 6.12377C7.60988 5.73325 7.6111 5.09886 8.00163 4.70833Z" fill="#565F73"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="event-pup my-pup my-pup-m my-position-fixed my-position-fixed-center my-position-bottom-0-sm my-position-left-0-sm my-position-transform-initial-sm my-round-top-3-sm">
+                                                    <form class="my-modal my-modal-m my-round-5 my-round-top-3-sm my-d-none">
+                                                        <div class="my-modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="my-modal-header">
+                                                                    <div class="my-modal-title my-font-center">
+                                                                        <h4 class="my-font-h3 my-text-secondary-900">活動詳情</h4>
+                                                                    </div>
+                                                                    <div class="my-modal-close">
+                                                                        <div class="iconBox">
+                                                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M21.6572 11.1567L10.3435 22.4704" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                                <path d="M21.6572 22.4707L10.3435 11.157" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="my-modal-body my-overflow-auto">
+                                                                    <div class="my-modal-body-box my-scrollbar-m">
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <h5 class="my-font-22 my-font-bold my-text-secondary-950 my-font-16-sm">賽馬娘 MyCard 儲值回饋</h5>
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">活動時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">儲值時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="giftEntrance">
+                                                                                <h6 class="my-font-l my-text-secondary-950">會員扣點儲值 500 點以上領獎入口</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12 my-text-secondary-800">
+                                                                            <p>活動期間使用 MyCard 會員扣點兌換 MyCard 10000點遊戲商品，並成功直接儲值至精靈M：無盡冒險遊戲帳號內，即可領取金幣*60000000、閃亮熟練石*500、閃亮強化石*450、璀璨熟練石*400、璀璨強化石*350、蛻變熟練石*300、蛻變強化石*200、Lv.7寶石選擇箱*10、符文結晶體*50000、純粹封印石*5000、需求封印石*3000、羽毛*20000、風之痕跡*10000、經驗值增益藥水*25、時裝兌換票券*25、副本補充石選擇箱*25虛寶回饋，數量有限，送完為止</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="event-info-item eventItem list-inner"> 
+                                            <div class="title">
+                                                <div class="my-font-h3">1000點儲值回饋活動</div>
+                                            </div>
+                                            <div class="information">
+                                                <div class="textBox">
+                                                    <div class="eventTime">
+                                                        <div class="eventTime-title my-font-l">活動時間</div>
+                                                        <div class="eventTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                        <div class="eventTime-title my-font-l my-mt-4 my-mt-2-sm">會員扣點儲值 500 點以上領獎入口</div>
+                                                    </div>
+                                                    <!-- <div class="topUpTime">
+                                                        <div class="topUpTime-title my-font-l">儲值時間</div>
+                                                        <div class="topUpTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                    </div> -->
+                                                </div>
+
+                                                <div class="btnLink">
+                                                    <a href="" class="my-btn-main my-btn-primary  btn-new-style">
+                                                        <span class="my-btn-text">參加</span>
+                                                    </a>
+                                                    <a class="my-btn-main-text my-btn-primary">
+                                                        <span class="eventItem-btn my-btn-text">查看詳情</span>
+                                                        <span class="my-btn-arrow">
+                                                            <svg class="icon_arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M8.00163 4.70833C8.39215 4.31781 9.02654 4.31658 9.41707 4.70711L16.0029 11.2929C16.3934 11.6834 16.3934 12.3166 16.0029 12.7071L9.41707 19.2929C9.02654 19.6834 8.39215 19.6822 8.00163 19.2917C7.6111 18.9011 7.60988 18.2668 8.0004 17.8762L13.8766 12L8.0004 6.12377C7.60988 5.73325 7.6111 5.09886 8.00163 4.70833Z" fill="#565F73"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="event-pup my-pup my-pup-m my-position-fixed my-position-fixed-center my-position-bottom-0-sm my-position-left-0-sm my-position-transform-initial-sm my-round-top-3-sm">
+                                                    <form class="my-modal my-modal-m my-round-5 my-round-top-3-sm my-d-none">
+                                                        <div class="my-modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="my-modal-header">
+                                                                    <div class="my-modal-title my-font-center">
+                                                                        <h4 class="my-font-h3 my-text-secondary-900">活動詳情</h4>
+                                                                    </div>
+                                                                    <div class="my-modal-close">
+                                                                        <div class="iconBox">
+                                                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M21.6572 11.1567L10.3435 22.4704" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                                <path d="M21.6572 22.4707L10.3435 11.157" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="my-modal-body my-overflow-auto">
+                                                                    <div class="my-modal-body-box my-scrollbar-m">
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <h5 class="my-font-22 my-font-bold my-text-secondary-950 my-font-16-sm">賽馬娘 MyCard 儲值回饋</h5>
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">活動時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">儲值時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="giftEntrance">
+                                                                                <h6 class="my-font-l my-text-secondary-950">會員扣點儲值 500 點以上領獎入口</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12 my-text-secondary-800">
+                                                                            <p>活動期間使用 MyCard 會員扣點兌換 MyCard 10000點遊戲商品，並成功直接儲值至精靈M：無盡冒險遊戲帳號內，即可領取金幣*60000000、閃亮熟練石*500、閃亮強化石*450、璀璨熟練石*400、璀璨強化石*350、蛻變熟練石*300、蛻變強化石*200、Lv.7寶石選擇箱*10、符文結晶體*50000、純粹封印石*5000、需求封印石*3000、羽毛*20000、風之痕跡*10000、經驗值增益藥水*25、時裝兌換票券*25、副本補充石選擇箱*25虛寶回饋，數量有限，送完為止</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="event-info-item eventItem list-inner"> 
+                                            <div class="title">
+                                                <div class="my-font-h3">1000點儲值回饋活動</div>
+                                            </div>
+                                            <div class="information">
+                                                <div class="textBox">
+                                                    <div class="eventTime">
+                                                        <div class="eventTime-title my-font-l">活動時間</div>
+                                                        <div class="eventTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                        <div class="eventTime-title my-font-l my-mt-4 my-mt-2-sm">會員扣點儲值 500 點以上領獎入口</div>
+                                                    </div>
+                                                    <!-- <div class="topUpTime">
+                                                        <div class="topUpTime-title my-font-l">儲值時間</div>
+                                                        <div class="topUpTime-text my-font-m my-mt-1">2023-09-01 00:00:00 ~ 2023-09-30 23:59:00</div>
+                                                    </div> -->
+                                                </div>
+
+                                                <div class="btnLink">
+                                                    <a href="" class="my-btn-main my-btn-primary  btn-new-style">
+                                                        <span class="my-btn-text">參加</span>
+                                                    </a>
+                                                    <a class="my-btn-main-text my-btn-primary">
+                                                        <span class="eventItem-btn my-btn-text">查看詳情</span>
+                                                        <span class="my-btn-arrow">
+                                                            <svg class="icon_arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M8.00163 4.70833C8.39215 4.31781 9.02654 4.31658 9.41707 4.70711L16.0029 11.2929C16.3934 11.6834 16.3934 12.3166 16.0029 12.7071L9.41707 19.2929C9.02654 19.6834 8.39215 19.6822 8.00163 19.2917C7.6111 18.9011 7.60988 18.2668 8.0004 17.8762L13.8766 12L8.0004 6.12377C7.60988 5.73325 7.6111 5.09886 8.00163 4.70833Z" fill="#565F73"></path>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <div class="event-pup my-pup my-pup-m my-position-fixed my-position-fixed-center my-position-bottom-0-sm my-position-left-0-sm my-position-transform-initial-sm my-round-top-3-sm">
+                                                    <form class="my-modal my-modal-m my-round-5 my-round-top-3-sm my-d-none">
+                                                        <div class="my-modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="my-modal-header">
+                                                                    <div class="my-modal-title my-font-center">
+                                                                        <h4 class="my-font-h3 my-text-secondary-900">活動詳情</h4>
+                                                                    </div>
+                                                                    <div class="my-modal-close">
+                                                                        <div class="iconBox">
+                                                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                                <path d="M21.6572 11.1567L10.3435 22.4704" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                                <path d="M21.6572 22.4707L10.3435 11.157" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                                            </svg>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="my-modal-body my-overflow-auto">
+                                                                    <div class="my-modal-body-box my-scrollbar-m">
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <h5 class="my-font-22 my-font-bold my-text-secondary-950 my-font-16-sm">賽馬娘 MyCard 儲值回饋</h5>
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">活動時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="time">
+                                                                                <h6 class="my-font-l my-text-secondary-950">儲值時間</h6>
+                                                                                <p>2024-06-27 19:50:00 ~ 2024-08-02 04:59:00</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12">
+                                                                            <div class="giftEntrance">
+                                                                                <h6 class="my-font-l my-text-secondary-950">會員扣點儲值 500 點以上領獎入口</h6>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="textBox textBox-col-12 my-text-secondary-800">
+                                                                            <p>活動期間使用 MyCard 會員扣點兌換 MyCard 10000點遊戲商品，並成功直接儲值至精靈M：無盡冒險遊戲帳號內，即可領取金幣*60000000、閃亮熟練石*500、閃亮強化石*450、璀璨熟練石*400、璀璨強化石*350、蛻變熟練石*300、蛻變強化石*200、Lv.7寶石選擇箱*10、符文結晶體*50000、純粹封印石*5000、需求封印石*3000、羽毛*20000、風之痕跡*10000、經驗值增益藥水*25、時裝兌換票券*25、副本補充石選擇箱*25虛寶回饋，數量有限，送完為止</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="event-info-item eventItem list-inner"> 
                                             <div class="title">
                                                 <div class="my-font-h3">1000點儲值回饋活動</div>
                                             </div>
@@ -1284,7 +1518,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <div class="my-p-3-sm">
+                                    <div class="my-p-3-sm event-item-reload">
                                         <button class="btn-loadMore my-btn-main my-btn-primary my-w100-sm my-mt-5 my-d-block my-mx-auto my-mt-0-sm" type="button">
                                             <span class="my-btn-text">載入更多</span>
                                         </button>
@@ -3387,6 +3621,57 @@
 
     let currentVisibleItems = 8;
     const increment = 4;
+
+    console.log("初始化成功，總共有 " + items.length + " 個項目");
+
+    function updateListDisplay() {
+        console.log("目前的顯示數量目標為: " + currentVisibleItems);
+        
+        items.forEach((item, index) => {
+            if (index < currentVisibleItems) {
+                // 強制給予顯示屬性，避免被其他 CSS 影響
+                item.style.setProperty('display', 'list-item', 'important');
+            } else {
+                item.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        // 隱藏按鈕邏輯
+        if (currentVisibleItems >= items.length) {
+            console.log("已顯示全部項目，隱藏按鈕。");
+            loadMoreBtn.parentElement.style.display = 'none';
+        }
+    }
+
+    // 初始化
+    updateListDisplay();
+
+    // 2. 點擊事件
+    loadMoreBtn.addEventListener('click', function (e) {
+        e.preventDefault(); 
+        console.log("點擊了載入更多！");
+        currentVisibleItems += increment;
+        updateListDisplay();
+    });
+});
+    </script>
+
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // 1. 選取元素（增加防呆檢查）
+    const productList = document.querySelector('.new-event-list');
+    const items = document.querySelectorAll('li.event-info-item');
+    const loadMoreBtn = document.querySelector('.event-item-reload button');
+
+    if (!productList || items.length === 0 || !loadMoreBtn) {
+        console.error("找不到必要的 DOM 元素，請檢查 HTML 類名是否正確。");
+        return;
+    }
+
+    let currentVisibleItems = 4;
+    const increment = 2;
 
     console.log("初始化成功，總共有 " + items.length + " 個項目");
 

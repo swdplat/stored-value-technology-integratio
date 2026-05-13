@@ -615,6 +615,7 @@
 .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner .chose-item img{
   width: 100%;
   display: block;
+  height: 100%;
 }
 
 .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner .chose-item.active{

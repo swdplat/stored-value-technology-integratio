@@ -578,6 +578,7 @@
   width: 100%;
   display: block;
   object-fit: cover;
+  height: 100%;
 }
 
 .payment-info .information-left .game-image-slider .slider-wrapper{

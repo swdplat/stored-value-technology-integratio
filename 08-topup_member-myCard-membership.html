@@ -1622,7 +1622,7 @@
                                                                                  <!-- 確認 -->
                                                                                 <div class="inputBox inputBtnBox customize-insert-info">
                                                                                     <input class="my-form-control my-form-control-m" type="text" placeholder="30~100000">
-                                                                                    <input class="my-btn-main-s my-btn-primary" type="button" value="確認">
+                                                                                    <input class="my-btn-main-s my-btn-primary ready-buy" type="button" value="確認">
                                                                                 </div>
                                                                                 <!-- 修改 -->
                                                                                 <!-- <div class="inputBox inputBtnBox">
@@ -3539,6 +3539,13 @@
         // $(this).siblings().removeClass('active');
         // $(this).addClass('active');
       });
+    });
+
+    $(document).ready(function(){
+        $('.ready-buy').on('click',function(){
+            $('.checkout-block').css('display','none');
+            $('.checkout-none').css('display','block');
+        });
     });
 
     $(document).ready(function(e){

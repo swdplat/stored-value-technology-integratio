@@ -3559,6 +3559,119 @@
     });
     </script>
 
+     <script>
+   $(document).ready(function () {
+    const $outer = $(".payment-info .information-left .game-image-slider .slider-wrapper .slider-outer");
+    const $inner = $outer.find(".slider-inner");
+
+    let isDragging = false;
+    let isMoving = false; 
+    let startX = 0;       
+    let currentTranslate = 0; 
+    let prevTranslate = 0;    
+    let animationId = null;
+
+    function getMinTranslate() {
+        const outerWidth = $outer.width();
+        const innerWidth = $inner.outerWidth();
+        if (innerWidth <= outerWidth) return 0;
+        return outerWidth - innerWidth;
+    }
+
+    function dragStart(e) {
+        // 新增判斷：當寬度大於 768px 時，直接跳出，不執行拖曳
+        if (window.innerWidth > 768) return;
+
+        isDragging = true;
+        isMoving = false; 
+        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        $inner.css("transition", "none");
+    }
+
+    function dragMove(e) {
+        // 新增判斷：當寬度大於 768px 時，不執行任何位移
+        if (window.innerWidth > 768) return;
+        if (!isDragging) return;
+
+        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = x - startX; 
+
+        if (!isMoving && Math.abs(diff) > 3) {
+            isMoving = true;
+            $outer.addClass("is-dragging"); 
+        }
+
+        if (isMoving) {
+            let currentX = prevTranslate + diff;
+            const minTranslate = getMinTranslate();
+            
+            if (currentX > 0) currentX = currentX * 0.2; 
+            if (currentX < minTranslate) currentX = minTranslate + (currentX - minTranslate) * 0.2; 
+
+            currentTranslate = currentX;
+
+            if (animationId) cancelAnimationFrame(animationId);
+            animationId = requestAnimationFrame(() => {
+                $inner.css("transform", `translateX(${currentTranslate}px)`);
+            });
+
+            if (e.cancelable) e.preventDefault();
+        }
+    }
+
+    function dragEnd(e) {
+        // 新增判斷：大於 768px 時直接跳出
+        if (window.innerWidth > 768) return;
+        if (!isDragging) return;
+        
+        isDragging = false;
+        $outer.removeClass("is-dragging");
+        if (animationId) cancelAnimationFrame(animationId);
+
+        if (!isMoving) return; 
+
+        $inner.css("transition", "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)");
+
+        const minTranslate = getMinTranslate();
+        if (currentTranslate > 0) {
+            currentTranslate = 0;
+        } else if (currentTranslate < minTranslate) {
+            currentTranslate = minTranslate;
+        }
+
+        prevTranslate = currentTranslate;
+        $inner.css("transform", `translateX(${currentTranslate}px)`);
+    }
+
+    // 視窗大小改變時（例如桌機拉大、拉小），自動重設大螢幕時的圖片位置
+    $(window).on("resize", function() {
+        if (window.innerWidth > 768) {
+            // 清除可能殘留的變數與行內樣式，讓 CSS 預設排版接管
+            isDragging = false;
+            isMoving = false;
+            currentTranslate = 0;
+            prevTranslate = 0;
+            $inner.css({
+                "transition": "none",
+                "transform": "none"
+            });
+            $outer.removeClass("is-dragging");
+        }
+    });
+
+    // 事件綁定
+    $outer.on("mousedown", dragStart);
+    $(document).on("mousemove", dragMove).on("mouseup", dragEnd);
+
+    const outerEl = $outer[0];
+     if (outerEl) {
+        outerEl.addEventListener("touchstart", dragStart, { passive: true });
+        window.addEventListener("touchmove", dragMove, { passive: false });
+        window.addEventListener("touchend", dragEnd, { passive: true });
+     }
+   });
+    </script>
+
     <script>
       $(document).ready(function () {
         // 點擊左側選項

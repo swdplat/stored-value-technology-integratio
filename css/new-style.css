@@ -985,6 +985,11 @@
   max-height: max-content;
 }
 
+.product .product-new-item:hover{
+  border: 1px solid #4FAFF1;
+  background: rgba(79, 175, 241, 0.24);
+}
+
 @media(max-width:576px){
 .payment-info .information-right .redeem-items .information-color{
   color: #1E2939 !important;
@@ -997,6 +1002,7 @@
 
  .card-list-gap{
   gap: 15px !important;
+  margin-top: 24px;
  }
 
  .product .product-new-item{

@@ -643,14 +643,38 @@
 }
 
 .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner .chose-item{
-  width: calc((100% - 50px)/6);
+ width: 80px;
+ height: 45px;
   cursor: pointer;
   overflow: hidden;
   border-radius: 4px;
   border: 2px solid transparent;
   transition: 0.3s;
   box-sizing: border-box;
-  max-height: 50px;
+}
+
+@media(max-width:765px){
+  .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer{
+  flex-grow: 1;
+  max-width: unset;
+  overflow:hidden;
+ }
+
+ .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner{
+  display: flex;
+  width: max-content;
+ }
+
+ .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner .chose-item{
+  min-width: 80px;
+  height: 45px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  box-sizing: border-box;
+} 
 }
 
 .payment-info .information-left .game-image-slider .slider-wrapper .slider-outer .slider-inner .chose-item img{

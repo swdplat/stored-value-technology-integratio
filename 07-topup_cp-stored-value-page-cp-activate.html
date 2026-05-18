@@ -2316,6 +2316,113 @@
     </script>
 
     <script>
+    $(document).ready(function () {
+    const $outer = $(".slider-outer");
+    const $inner = $(".slider-inner");
+
+    let isDragging = false;
+    let startX = 0;       // 按下時的坐標
+    let currentTranslate = 0; // 目前已經位移的距離
+    let prevTranslate = 0;    // 上一次拖曳結束後的位移距離
+    let animationId = null;
+
+    // 取得最大可滑動邊界
+    function getMinTranslate() {
+        // 外層寬度減去內層總寬度，就是向左滑動的最大極限（負值）
+        return Math.min(0, $outer.width() - $inner.outerWidth());
+    }
+
+    function dragStart(e) {
+        isDragging = true;
+        $outer.addClass("is-dragging");
+        
+        // 取得初始 X 坐標 (相容滑鼠與觸控)
+        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        
+        // 取消 transition 讓拖曳時能即時跟隨手指
+        $inner.css("transition", "none");
+    }
+
+    function dragMove(e) {
+        if (!isDragging) return;
+
+        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+        const diff = x - startX; // 計算移動距離
+        
+        // 目前要移動的位置 = 上一次的位置 + 本次移動的距離
+        let currentX = prevTranslate + diff;
+
+        // 【阻尼感/邊界限制】防止往左或往右滑過頭
+        const minTranslate = getMinTranslate();
+        if (currentX > 0) currentX = currentX * 0.3; // 往右滑過頭時產生阻力
+        if (currentX < minTranslate) currentX = minTranslate + (currentX - minTranslate) * 0.3; // 往左滑過頭時產生阻力
+
+        currentTranslate = currentX;
+
+        // 使用 requestAnimationFrame 優化流暢度
+        if (animationId) cancelAnimationFrame(animationId);
+        animationId = requestAnimationFrame(() => {
+            $inner.css("transform", `translateX(${currentTranslate}px)`);
+        });
+
+        // 如果在滑動中，阻止頁面上下捲動與預設行為
+        if (Math.abs(diff) > 5 && e.cancelable) {
+            e.preventDefault();
+        }
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        $outer.removeClass("is-dragging");
+        if (animationId) cancelAnimationFrame(animationId);
+
+        // 結束時加上過渡動畫，讓回彈比較自然
+        $inner.css("transition", "transform 0.3s ease-out");
+
+        // 檢查是否超出邊界，超出的話就回彈
+        const minTranslate = getMinTranslate();
+        if (currentTranslate > 0) {
+            currentTranslate = 0;
+        } else if (currentTranslate < minTranslate) {
+            currentTranslate = minTranslate;
+        }
+
+        // 儲存本次最終位置
+        prevTranslate = currentTranslate;
+        $inner.css("transform", `translateX(${currentTranslate}px)`);
+    }
+
+    // 視窗大小改變時，重設位置防止破版
+    $(window).on("resize", function() {
+        const minTranslate = getMinTranslate();
+        if (prevTranslate < minTranslate) {
+            prevTranslate = minTranslate;
+            currentTranslate = prevTranslate;
+            $inner.css({
+                "transition": "none",
+                "transform": `translateX(${currentTranslate}px)`
+            });
+        }
+    });
+
+    // --- 事件綁定 ---
+    // 桌機滑鼠事件
+    $outer.on("mousedown", dragStart);
+    $(document).on("mousemove", dragMove);
+    $(document).on("mouseup", dragEnd);
+
+    // 手機觸控事件 (原生綁定以支援 passive: false 阻止瀏覽器預設捲動)
+    const outerEl = $outer[0];
+    if (outerEl) {
+        outerEl.addEventListener("touchstart", dragStart, { passive: true });
+        window.addEventListener("touchmove", dragMove, { passive: false });
+        window.addEventListener("touchend", dragEnd, { passive: true });
+    }
+   });
+    </script>
+
+    <script>
       $(document).ready(function () {
         // 點擊左側選項
         $(".tab-item").on("click", function () {

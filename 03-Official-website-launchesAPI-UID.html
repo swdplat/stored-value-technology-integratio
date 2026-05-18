@@ -3663,8 +3663,8 @@
         return;
     }
 
-    let currentVisibleItems = 8;
-    const increment = 4;
+    let currentVisibleItems = 10;
+    const increment = 5;
 
     console.log("初始化成功，總共有 " + items.length + " 個項目");
 
@@ -3747,6 +3747,20 @@
         updateListDisplay();
     });
 });
+    </script>
+
+     <script>
+        $(document).ready(function(){
+            $('.product-new-item').on('click',function(){
+               $('.product-new-item').removeClass("active");
+               $(this).addClass("active")
+            })
+
+            $('.btn-cancel').on('click',function(event){
+                event.preventDefault();
+                $('.product-new-item').removeClass("active");
+            })
+        });
     </script>
 </body>
 </html>

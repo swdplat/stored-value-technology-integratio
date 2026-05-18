@@ -407,11 +407,12 @@
 
       .card-inner {
         max-width: 193px;
-        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
         border-radius: 10px 10px 10px 10px;
         overflow: hidden;
         height: 265px;
         max-height: 265px;
+        background-color: rgba(255, 255, 255, 1);
       }
 
       .connect {
@@ -525,11 +526,12 @@
         /* 手機板卡片文字樣式 */
         .card-inner {
         max-width: 193px;
-        box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
         border-radius: 10px 10px 10px 10px;
         overflow: hidden;
         height: 100%;
         max-height: 265px;
+        background-color: rgba(255, 255, 255, 1);
       }
       }
       /* rwd樣式  結束*/
@@ -677,6 +679,12 @@
   font-weight: bold;
 }
 
+@media(max-width:768px){
+  .slider-arrow {
+    display: none;
+}
+}
+
 .slider-arrow:disabled{
   opacity: 0.4;
   cursor: default;
@@ -696,7 +704,7 @@
 
 .payment-info .information-left .about-game .about-game-inner{
   width: 100%;
-  margin: 24px 0px;
+  margin: 24px 0px 0px 0px;
   line-height: 1.6;
   max-width: 560px;
 }
@@ -768,7 +776,7 @@
   padding: 24px;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 3px 3px 10px 1px #99A1AF;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .payment-info .information-right .user-stored-value .information-color{
@@ -789,7 +797,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 100px;
   border: 3px solid #ffffff;
   font-size: 24px;
 }
@@ -895,7 +903,7 @@
   background-color: #ffffff;;
   border-radius: 16px;
   margin-top: 40px;
-  box-shadow: 3px 3px 10px 1px #99A1AF;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   position: relative;
 }
 
@@ -910,7 +918,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 100px;
     border: 3px solid #ffffff;
     font-size: 24px;
 }
@@ -977,7 +985,7 @@
 .product .product-new-item{
   border: 1px solid #f3f4f6;
   width: 100%;
-  max-width: 128px;
+  max-width: 120px;
   border-radius: 8px;
   cursor: pointer;
   background-color: #ffffff;
@@ -985,9 +993,20 @@
   max-height: max-content;
 }
 
-.product .product-new-item:hover{
+.card-list-gap{
+  gap: 4px !important;
+  margin-top: 24px;
+ }
+
+/* .product .product-new-item:hover{
   border: 1px solid #4FAFF1;
   background: rgba(79, 175, 241, 0.24);
+} */
+
+.product-new-item:hover,
+.product-new-item.active {
+    border: 1px solid #4FAFF1;
+  background: rgba(79, 175, 241, 0.24) !important;
 }
 
 @media(max-width:576px){
@@ -1098,7 +1117,7 @@
   background-color: #ffffff;
   border-radius: 16px;
   margin-top: 40px;
-  box-shadow: 3px 3px 10px 1px #99A1AF;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 .payment-info .information-right .payment-type .information-color .stored-one {
@@ -1112,7 +1131,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 100px;
     border: 3px solid #ffffff;
     font-size: 24px;
 }
@@ -1544,7 +1563,7 @@
     background-color: #ffffff;
     border-radius: 16px;
     margin-top: 0px !important;
-    box-shadow: 3px 3px 10px 1px #99A1AF;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 @media(max-width:768px){
@@ -1620,7 +1639,7 @@
 .user-stored-value .stored-value-one .stored-process .process-sec-block {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0px;
   position: relative;
 }
 
@@ -1634,26 +1653,26 @@
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .fake::before{
  content: "";
-    background-image: url(../images/test-img/Polygon-6.png);
+    background-image: url(../images/test-img/new-arrow.svg);
     height: 72.5px;
     width: 12px;
     background-position: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute !important;
-    left: 31.4%;
+    left: 32.5%;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .fake::after{
  content: "";
-    background-image: url(../images/test-img/Polygon-6.png);
+    background-image: url(../images/test-img/new-arrow.svg);
     height: 72.5px;
     width: 12px;
     background-position: 100%;
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute !important;
-    left: 65.2%;
+    left: 66.1%;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step .step-number{
@@ -2077,13 +2096,13 @@
   width: 70%;
   background-color: #ffffff;
   border-radius: 16px;
-  padding: 0px 25px;
+  padding: 0px 16px;
   box-shadow: 2px 2px 6px 3px #a9a9a9;
 }
 
 .just-checkout-inner .checkout-newstyle{
   border: none !important;
-  margin: 0px 0px !important;
+  margin: -16px 0px !important;
 }
 
 .price-style{

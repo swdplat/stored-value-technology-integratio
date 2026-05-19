@@ -1349,8 +1349,8 @@
 
       /* 自定義 Radio 外圈 */
       .custom-radio {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         border: 2px solid #333;
         border-radius: 50%;
         margin-right: 15px;

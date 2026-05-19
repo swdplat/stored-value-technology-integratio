@@ -1570,8 +1570,8 @@
                 </h3>
             </div>
 
-            <div class="tabs my-tabs my-tabs-primary">
-                <ul class="my-tabs-box list-tab">
+            <div class="tab-list tabs my-tabs my-tabs-primary">
+              <ul class="my-tabs-box list-tab">
                         <li id="Tag_HOT" onclick="Tag_Click(&#39;Tag_HOT&#39;,&#39;Content_HOT&#39;)" class="active">全部</li>
                         <li id="Tag_A01" onclick="Tag_Click(&#39;Tag_A01&#39;,&#39;Content_A01&#39;)">動作冒險</li>
                         <li id="Tag_A02" onclick="Tag_Click(&#39;Tag_A02&#39;,&#39;Content_A02&#39;)">棋牌益智</li>
@@ -1585,7 +1585,16 @@
                         <li id="Tag_A10" onclick="Tag_Click(&#39;Tag_A10&#39;,&#39;Content_A10&#39;)">益智解謎</li>
                         <li id="Tag_A11" onclick="Tag_Click(&#39;Tag_A11&#39;,&#39;Content_A11&#39;)">角色扮演</li>
                         <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li>
-                <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li><li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li></ul>
+                        <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li>
+                        <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li>
+              </ul>
+              <div class="tab-box-push">
+                <div class="tab-button">
+                  <a href="javascript:void(0)" class="tab-button-push">
+                    <img src="./images/test-img/tab-list-arrow.svg" alt="">
+                  </a>
+                </div>
+              </div>
             </div>
         </div>
 
@@ -3510,19 +3519,18 @@
     </script>
     <!-- 曾經選擇 卡片輪播區塊 結束 -->
      
-         <script>
+    <script>
       $(document).ready(function() {
     const $tabs = $('.list-tab');
     let isDown = false;
     let startX;
     let scrollLeft;
 
+    // --- 原有的滑鼠拖曳滾動功能 ---
     $tabs.on('mousedown', (e) => {
         isDown = true;
         $tabs.addClass('active');
-        // 紀錄點擊時的 X 座標
         startX = e.pageX - $tabs.offset().left;
-        // 紀錄當前的捲軸位置
         scrollLeft = $tabs.scrollLeft();
     });
 
@@ -3535,15 +3543,28 @@
     });
 
     $tabs.on('mousemove', (e) => {
-        if (!isDown) return; // 若沒按下則不執行
+        if (!isDown) return;
         e.preventDefault();
-        
-        // 計算移動距離
         const x = e.pageX - $tabs.offset().left;
-        const walk = (x - startX) * 1; // *1 代表增加滾動阻尼感（速度）
-        
-        // 設定捲軸位置
+        const walk = (x - startX) * 1;
         $tabs.scrollLeft(scrollLeft - walk);
+    });
+
+    // --- 新增：點擊按鈕左右滾動功能 ---
+    $('.tab-button-push').on('click', function(e) {
+        e.preventDefault();
+
+        // 設定每次點擊要滾動的距離（正數往右，負數往左）
+        // 提示：如果你有分「左箭頭」和「右箭頭」，可以用 data 屬性區分，目前預設為向右滾動
+        const moveStep = 200; 
+
+        // 取得當前的捲軸位置
+        const currentScroll = $tabs.scrollLeft();
+
+        // 透過 animate 達成平滑滾動效果（300毫秒）
+        $tabs.stop().animate({
+            scrollLeft: currentScroll + moveStep
+        }, 300);
     });
 });
     </script>

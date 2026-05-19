@@ -1262,7 +1262,7 @@
       }
 
       .tab-item.active {
-        background-color: #e6f7ff;
+        background-color: #F6FBFE;
         color: #1890ff;
         font-weight: bold;
       }
@@ -1299,7 +1299,7 @@
       .right-panel {
         flex: 1;
         padding: 0px;
-        background-color: #e6f7ff;
+        background-color: #F6FBFE;
 
         /* 核心需求：高度限制與捲軸 */
         /* max-height: 465px; */
@@ -1435,7 +1435,7 @@
         }
 
         .accordion-item.active .accordion-header {
-          background-color: #edf6fd; /* 選中時的淡藍色背景 */
+          background-color: #F6FBFE; /* 選中時的淡藍色背景 */
           border-bottom: 1px solid #EDEEF1;
         }
 
@@ -1468,7 +1468,7 @@
         /* 核心需求：下方欄位高度限制與捲軸 */
         .accordion-content {
           display: none; /* 預設收合 */
-          background-color: #edf6fd;
+          background-color: #F6FBFE;
         }
 
         .option-list {

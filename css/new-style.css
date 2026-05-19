@@ -31,7 +31,7 @@
 .game-card{
   /* border: 1px solid red; */
   max-width: 193px;
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12);
   border-radius: 10px 10px 10px 10px;
   overflow: hidden;
   background-color: #ffffff;

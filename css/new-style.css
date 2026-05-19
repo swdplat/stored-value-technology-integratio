@@ -600,8 +600,8 @@
 
 /* 這是information-left 區塊 開始*/
 .payment-info .information-left{
-  width: 50%;
-  max-width: 560px;
+  width: 40%;
+  max-width: 522px;
 }
 
 .payment-info .information-left .game-image-slider{
@@ -807,7 +807,7 @@
 
 /* 這是information-right 區塊 開始*/
 .payment-info .information-right{
-  width: 55%;
+  width: 60%;
 }
 
 .payment-info .information-right .user-stored-value{
@@ -1022,8 +1022,8 @@
 
 .product .product-new-item{
   border: 1px solid #f3f4f6;
-  width: 100%;
-  max-width: 120px;
+  width: calc((100% - 64px) / 5);
+  /* max-width: 120px; */
   border-radius: 8px;
   cursor: pointer;
   background-color: #ffffff;
@@ -1032,7 +1032,7 @@
 }
 
 .card-list-gap{
-  gap: 4px !important;
+  gap: 16px !important;
   margin-top: 24px;
  }
 

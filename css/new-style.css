@@ -130,7 +130,6 @@
 .footer-new-content{
   width: 100%;
   max-width: 1440px;
-  padding: 60px 80px 100px 80px !important;
   margin: 0 auto 0 auto;
 }
 
@@ -138,7 +137,6 @@
   .footer-new-content{
     width: 100%;
     max-width: 1440px;
-    padding: 60px 40px 100px 80px !important;
     margin: 0 auto 0 auto;
    }
 }
@@ -230,12 +228,6 @@
 }
 
 /* copyright */
-#footer .footer-container .footer-logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: right;
-}
 
 #footer .footer-copyright-outer {
     width: 100%;

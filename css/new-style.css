@@ -608,7 +608,7 @@
 
 /* 這是information-left 區塊 開始*/
 .payment-info .information-left{
-  width: 100%;
+  width: 50%;
   max-width: 560px;
 }
 
@@ -815,7 +815,7 @@
 
 /* 這是information-right 區塊 開始*/
 .payment-info .information-right{
-  width: 100%;
+  width: 55%;
 }
 
 .payment-info .information-right .user-stored-value{
@@ -1574,6 +1574,10 @@
 
 
 @media(max-width:768px){
+  .payment-info .information-right {
+    width: 100%;
+  }
+  
   .payment-info .information-left {
     width: 100%;
     max-width: unset;

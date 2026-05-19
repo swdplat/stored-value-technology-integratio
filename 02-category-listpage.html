@@ -3509,9 +3509,6 @@
         $dotsTrack.css("transform", `translateX(${dotOffset}px)`);
     }
 
-    // 按鈕綁定...
-    $(".next").click(() => { if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); } });
-    $(".prev").click(() => { if (currentIndex > 0) { currentIndex--; updateCarousel(); } });
 
     $(window).on("resize", initCarousel);
     initCarousel();
@@ -3520,7 +3517,7 @@
     <!-- 曾經選擇 卡片輪播區塊 結束 -->
      
     <script>
-      $(document).ready(function() {
+    $(document).ready(function() {
     const $tabs = $('.list-tab');
     let isDown = false;
     let startX;

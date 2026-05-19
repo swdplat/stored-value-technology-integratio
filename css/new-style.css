@@ -420,7 +420,7 @@
 
       /* 卡片外觀設計 開始*/
       .card {
-        min-width: calc(100% / 5); /* 假設一次顯示6張，按一張輪一張 */
+        min-width: calc(100% / 6); /* 假設一次顯示6張，按一張輪一張 */
         box-sizing: border-box;
         padding: 10px;
         text-align: center;
@@ -542,6 +542,7 @@
         /* 視情況調整左右箭頭間距或容器 margin */
         .carousel-wrapper {
           width: 95%; /* 手機版可以讓容器寬一點 */
+          margin: 15px auto;
         }
 
         /* 手機板卡片文字樣式 */

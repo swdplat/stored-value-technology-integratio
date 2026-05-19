@@ -608,7 +608,7 @@
 
 /* 這是information-left 區塊 開始*/
 .payment-info .information-left{
-  width: 50%;
+  width: 100%;
   max-width: 560px;
 }
 
@@ -2149,6 +2149,10 @@
 .just-checkout-inner .checkout-newstyle{
   border: none !important;
   margin: -16px 0px !important;
+}
+
+.checkout-newstyle .next-step{
+  opacity: 1 !important;
 }
 
 .price-style{

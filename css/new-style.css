@@ -1066,6 +1066,7 @@
   /* border: 1px solid red; */
   width: calc((100% - 15px) / 2);
   max-width: 240px;
+  min-width: auto;
   border-radius: 8px;
   cursor: pointer;
   background-color: #ffffff;

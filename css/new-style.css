@@ -1115,6 +1115,11 @@
 .product .product-new-item .product-item-inner .product-desc .product-desc-inner .title-first{
   color: #1E2939;
   font-size: 14px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
 }
 
 .product .product-new-item .product-item-inner .product-desc .product-desc-inner .title-second{

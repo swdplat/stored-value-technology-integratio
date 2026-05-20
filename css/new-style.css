@@ -1946,7 +1946,6 @@
   display: flex;
   width: 100%;
   gap: 12px;
-  min-width: 490px;
   position: relative;
 }
 
@@ -1966,7 +1965,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 30%;
+  width: 58%;
   gap: 12px;
 }
 
@@ -2005,7 +2004,6 @@
   display: flex;
   width: 100%;
   gap: 12px;
-  min-width: 350px;
 }
 
 .customize-point .customize-point-insert .customize-item .customize-item-inner .customize-desc{
@@ -2013,11 +2011,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  width: 65%;
 }
 
 .customize-insert-info{
-  width: 60% !important;
+  width: 95% !important;
   max-width: none;
 }
 
@@ -2070,7 +2068,7 @@
 
 .customize-insert-info{
   width: 100% !important;
-  max-width: 205px;
+  /* max-width: 205px; */
 }
 
 .customize-point .customize-point-insert .customize-item .customize-item-inner .customize-item-image{

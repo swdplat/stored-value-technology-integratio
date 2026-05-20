@@ -2202,10 +2202,9 @@
 
     <script>
     $(document).ready(function () {
-    const $container = $(".slider-container"); // 確保這是包裹 .slider-change 的容器
+    const $container = $(".slider-container"); 
     const $mainTrack = $(".slider-change");
     const $mainItems = $(".change-item");
-    const $thumbItems = $(".chose-item");
     let currentIndex = 0;
 
     // 拖曳相關變數
@@ -2222,34 +2221,27 @@
 
         currentIndex = index;
 
-        // 恢復動畫效果
         $mainTrack.css("transition", "transform 0.5s ease-in-out");
 
-        // 大圖軌道位移 (百分比)
         const offset = -currentIndex * 100;
         $mainTrack.css("transform", `translateX(${offset}%)`);
 
-        // 更新縮圖
-        $thumbItems.removeClass("active").eq(currentIndex).addClass("active");
+        // 更新縮圖高亮時，每次都動態選取當前畫面上所有的 .chose-item
+        // 這樣新加入的第 7 張縮圖才能順利吃得到 "active" 樣式
+        $(".chose-item").removeClass("active").eq(currentIndex).addClass("active");
 
-        // 按鈕狀態處理
         $(".prev").prop("disabled", currentIndex === 0);
         $(".next").prop("disabled", currentIndex === totalItems - 1);
     }
 
-    // --- 拖曳邏輯開始 ---
+    // --- 拖曳邏輯 ---
 
     function dragStart(e) {
         isDragging = true;
         isMoving = false;
-        containerWidth = $container.width(); // 取得容器寬度作為位移基準
-        
-        // 取得起始座標 (相容觸控與滑鼠)
+        containerWidth = $container.width(); 
         startX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
-
         currentX = startX;
-        
-        // 拖曳時關閉 transition，讓軌道即時跟隨手指
         $mainTrack.css("transition", "none");
         
         if (e.type === 'mousedown') {
@@ -2260,7 +2252,6 @@
     function dragMove(e) {
         if (!isDragging) return;
         
-        // 取得目前座標
         currentX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
         const diff = currentX - startX;
 
@@ -2269,12 +2260,10 @@
         }
 
         if(isMoving){
-            // 計算位移：原本的百分比位置 + (移動像素 / 容器寬度 * 100)
             const currentOffset = (-currentIndex * 100) + (diff / containerWidth * 100);
             $mainTrack.css("transform", `translateX(${currentOffset}%)`);
             if (e.cancelable) e.preventDefault();
         }
-
     }
 
     function dragEnd() {
@@ -2283,14 +2272,12 @@
         
         $mainTrack.css("cursor", "grab");
         if (!isMoving) {
-            updateGallery(currentIndex); // 確保狀態安全復原
+            updateGallery(currentIndex); 
             return;
         }
         const diff = currentX - startX;
-
         const totalItems = $(".change-item").length;
 
-        // 判斷滑動距離是否超過容器寬度的 20%，若是則切換下一張
         if (diff < -containerWidth * 0.2 && currentIndex < totalItems - 1) {
             currentIndex++;
         } else if (diff > containerWidth * 0.2 && currentIndex > 0) {
@@ -2300,23 +2287,19 @@
         updateGallery(currentIndex);
     }
 
-    // 綁定滑鼠事件
     $mainTrack.on("mousedown", dragStart);
     $(document).on("mousemove", dragMove);
     $(document).on("mouseup", dragEnd);
-
-    // 綁定觸控事件
     $mainTrack.on("touchstart", dragStart);
     $(document).on("touchmove", dragMove);
     $(document).on("touchend", dragEnd);
 
-    // 防止圖片被滑鼠預設拖動
     $mainTrack.on("dragstart", "img", function() { 
         return false; 
     });
     $mainTrack.css("cursor", "grab");
 
-    // --- 原有邏輯 ---
+    // --- 按鈕與縮圖控制邏輯 ---
 
     $(".next").on("click", function () {
         const totalItems = $(".change-item").length;
@@ -2331,14 +2314,16 @@
         }
     });
 
-    $thumbItems.on("click", function () {
-        const index = $(this).index();
+    // 改用事件委託！監聽外層容器，假設是 .slider-inner，請確保與你的 HTML 結構類名相符
+    // 如果包裹縮圖的外層不是 .slider-inner，請自行更換為正確的父層 class
+    $(".slider-inner").on("click", ".chose-item", function () {
+        const index = $(this).index(); // 這裡能精確抓到新舊元素在父層中的排行索引
         updateGallery(index);
     });
 
     // 初始化
     updateGallery(0);
-    });
+});
     </script>
 
     <script>

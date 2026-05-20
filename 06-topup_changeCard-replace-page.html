@@ -3371,21 +3371,22 @@
     </script>
 
     <script>
-     $(document).ready(function () {
+    $(document).ready(function () {
     const $container = $(".slider-container"); // 確保這是包裹 .slider-change 的容器
     const $mainTrack = $(".slider-change");
     const $mainItems = $(".change-item");
     const $thumbItems = $(".chose-item");
-    const totalItems = $mainItems.length;
     let currentIndex = 0;
 
     // 拖曳相關變數
     let isDragging = false;
+    let isMoving = false;
     let startX = 0;
     let currentX = 0;
     let containerWidth = 0;
 
     function updateGallery(index) {
+        const totalItems = $(".change-item").length;
         if (index < 0) index = 0;
         if (index >= totalItems) index = totalItems - 1;
 
@@ -3410,10 +3411,13 @@
 
     function dragStart(e) {
         isDragging = true;
+        isMoving = false;
         containerWidth = $container.width(); // 取得容器寬度作為位移基準
         
         // 取得起始座標 (相容觸控與滑鼠)
         startX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
+
+        currentX = startX;
         
         // 拖曳時關閉 transition，讓軌道即時跟隨手指
         $mainTrack.css("transition", "none");
@@ -3430,10 +3434,17 @@
         currentX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
         const diff = currentX - startX;
 
-        // 計算位移：原本的百分比位置 + (移動像素 / 容器寬度 * 100)
-        const currentOffset = (-currentIndex * 100) + (diff / containerWidth * 100);
-        
-        $mainTrack.css("transform", `translateX(${currentOffset}%)`);
+        if(!isMoving && Math.abs(diff) > 5){
+            isMoving = true;
+        }
+
+        if(isMoving){
+            // 計算位移：原本的百分比位置 + (移動像素 / 容器寬度 * 100)
+            const currentOffset = (-currentIndex * 100) + (diff / containerWidth * 100);
+            $mainTrack.css("transform", `translateX(${currentOffset}%)`);
+            if (e.cancelable) e.preventDefault();
+        }
+
     }
 
     function dragEnd() {
@@ -3441,7 +3452,13 @@
         isDragging = false;
         
         $mainTrack.css("cursor", "grab");
+        if (!isMoving) {
+            updateGallery(currentIndex); // 確保狀態安全復原
+            return;
+        }
         const diff = currentX - startX;
+
+        const totalItems = $(".change-item").length;
 
         // 判斷滑動距離是否超過容器寬度的 20%，若是則切換下一張
         if (diff < -containerWidth * 0.2 && currentIndex < totalItems - 1) {
@@ -3464,12 +3481,15 @@
     $(document).on("touchend", dragEnd);
 
     // 防止圖片被滑鼠預設拖動
-    $mainTrack.find("img").on("dragstart", function() { return false; });
+    $mainTrack.on("dragstart", "img", function() { 
+        return false; 
+    });
     $mainTrack.css("cursor", "grab");
 
     // --- 原有邏輯 ---
 
     $(".next").on("click", function () {
+        const totalItems = $(".change-item").length;
         if (currentIndex < totalItems - 1) {
             updateGallery(currentIndex + 1);
         }

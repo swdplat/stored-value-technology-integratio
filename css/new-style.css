@@ -1023,7 +1023,7 @@
 .product .product-new-item{
   border: 1px solid #f3f4f6;
   width: calc((100% - 64px) / 5);
-  /* max-width: 120px; */
+  min-width: 116px;
   border-radius: 8px;
   cursor: pointer;
   background-color: #ffffff;

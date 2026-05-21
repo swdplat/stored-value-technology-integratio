@@ -21,6 +21,19 @@
   height: 100%;
 }
 
+@media(max-width:576px){
+  .tab-box-push{
+  display: none;
+ }
+}
+
+.tag-gradient{
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  
+  /* Safari 需加上 -webkit- 前綴 */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
 .my-module-card .game-card-outer {
     display: flex;
     flex-wrap: wrap;

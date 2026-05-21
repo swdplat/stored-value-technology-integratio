@@ -1571,7 +1571,7 @@
             </div>
 
             <div class="tab-list tabs my-tabs my-tabs-primary">
-              <div class="tab-box-push">
+              <div class="tab-box-push tag-arrow-left">
                 <div class="tab-button">
                   <a href="javascript:void(0)" class="tab-button-right">
                     <img src="./images/test-img/tab-list-arrow-right.svg" alt="">
@@ -1595,7 +1595,7 @@
                         <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li>
                         <li id="Tag_A13" onclick="Tag_Click(&#39;Tag_A13&#39;,&#39;Content_A13&#39;)">平台點數</li>
               </ul>
-              <div class="tab-box-push">
+              <div class="tab-box-push tag-arrow-right">
                 <div class="tab-button">
                   <a href="javascript:void(0)" class="tab-button-push">
                     <img src="./images/test-img/tab-list-arrow.svg" alt="">
@@ -3528,13 +3528,48 @@
     <!-- 曾經選擇 卡片輪播區塊 結束 -->
      
     <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
     const $tabs = $('.list-tab');
+    const $arrowLeft = $('.tag-arrow-left');   // 左側箭頭
+    const $arrowRight = $('.tag-arrow-right'); // 右側箭頭
+    
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    // --- 原有的滑鼠拖曳滾動功能 ---
+    // 條件 1：當網頁載入時，只有左側箭頭會消失 (隱藏)
+    $arrowLeft.hide();
+
+    // 顯示左側箭頭的共用函式 (加上防重複fadeIn的判斷)
+    function showLeftArrow() {
+        if (!$arrowLeft.is(':visible')) {
+            $arrowLeft.fadeIn(200);
+        }
+    }
+
+    // 檢查是否滾動到最後一格
+    function checkScrollPosition() {
+        const currentScroll = $tabs.scrollLeft();
+        const maxScrollLeft = $tabs[0].scrollWidth - $tabs.outerWidth();
+
+        // 當使用者拖曳/滾動到最後一個 li 標籤時
+        if (currentScroll >= maxScrollLeft - 1) {
+            $arrowRight.hide();
+        } else {
+            $arrowRight.show();
+        }
+
+        if (currentScroll <= 0) {
+            $arrowLeft.fadeOut(200);
+        }
+    }
+
+    // 監聽滾動事件
+    $tabs.on('scroll', function() {
+        checkScrollPosition();
+    });
+
+    // --- 滑鼠拖曳滾動功能 ---
     $tabs.on('mousedown', (e) => {
         isDown = true;
         $tabs.addClass('active');
@@ -3555,39 +3590,40 @@
         e.preventDefault();
         const x = e.pageX - $tabs.offset().left;
         const walk = (x - startX) * 1;
+        
+        // 條件 2 的拖曳部分：當 walk < 0 代表滑鼠往左拉（畫面內容向右滾動，呈現左邊的內容）
+        if (walk < 0) {
+            showLeftArrow();
+        }
+
         $tabs.scrollLeft(scrollLeft - walk);
     });
 
-    // --- 新增：點擊按鈕左右滾動功能 ---
+    // --- 點擊按鈕左右滾動功能 ---
     $('.tab-button-push').on('click', function(e) {
         e.preventDefault();
-
-        // 設定每次點擊要滾動的距離（正數往右，負數往左）
         const moveStep = 200; 
-
-        // 取得當前的捲軸位置
         const currentScroll = $tabs.scrollLeft();
 
-        // 透過 animate 達成平滑滾動效果（300毫秒）
+        // 條件 2 的按鈕部分：點擊向右按鈕時，立刻讓左側箭頭出現
+        showLeftArrow();
+
         $tabs.stop().animate({
             scrollLeft: currentScroll + moveStep
         }, 300);
     });
 
+    // 點擊向左滾動按鈕 (tab-button-right)
     $('.tab-button-right').on('click', function(e) {
         e.preventDefault();
-
         const moveStep = -200; 
-
-        // 取得當前的捲軸位置
         const currentScroll = $tabs.scrollLeft();
 
-        // 透過 animate 達成平滑滾動效果（300毫秒）
         $tabs.stop().animate({
             scrollLeft: currentScroll + moveStep
         }, 300);
+      });
     });
-});
     </script>
 
      <script>

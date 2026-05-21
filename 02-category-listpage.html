@@ -3537,31 +3537,69 @@
     let startX;
     let scrollLeft;
 
-    // 條件 1：當網頁載入時，只有左側箭頭會消失 (隱藏)
-    $arrowLeft.hide();
+    // 定義 576px 的媒體查詢
+    const mediaQuery = window.matchMedia('(max-width: 575.98px)');
 
-    // 顯示左側箭頭的共用函式 (加上防重複fadeIn的判斷)
+    // 條件 1：當網頁載入時，如果大於 576px 則隱藏左側箭頭
+    if (!mediaQuery.matches) {
+        $arrowLeft.hide();
+    } else {
+        // 小於 576px 則兩者都隱藏
+        $arrowLeft.hide();
+        $arrowRight.hide();
+    }
+
+    // 顯示左側箭頭的共用函式（加入螢幕寬度判斷）
     function showLeftArrow() {
-        if (!$arrowLeft.is(':visible')) {
+        // 只有在螢幕寬度大於等於 576px 時才允許顯示
+        if (!mediaQuery.matches && !$arrowLeft.is(':visible')) {
             $arrowLeft.fadeIn(200);
         }
     }
 
-    // 檢查是否滾動到最後一格
+    // 檢查滾動位置並控制箭頭顯示/隱藏
     function checkScrollPosition() {
+        // 如果螢幕小於 576px，直接強制全部隱藏，不進行後續滾動計算
+        if (mediaQuery.matches) {
+            $arrowLeft.hide();
+            $arrowRight.hide();
+            return;
+        }
+
         const currentScroll = $tabs.scrollLeft();
         const maxScrollLeft = $tabs[0].scrollWidth - $tabs.outerWidth();
 
-        // 當使用者拖曳/滾動到最後一個 li 標籤時
+        // 條件 3：當使用者拖曳/滾動到最後一個 li 標籤時
         if (currentScroll >= maxScrollLeft - 1) {
             $arrowRight.hide();
         } else {
             $arrowRight.show();
         }
 
+        // 如果又往回滾動到最左邊(0)，把左側箭頭藏起來
         if (currentScroll <= 0) {
             $arrowLeft.fadeOut(200);
         }
+    }
+
+    // 監聽螢幕寬度改變事件（防範使用者旋轉手機或調整視窗大小）
+    function handleBreakpointChange(e) {
+        if (e.matches) {
+            // 切換到小螢幕：全部消失
+            $arrowLeft.hide();
+            $arrowRight.hide();
+        } else {
+            // 切換回大螢幕：重新計算當前位置該顯示哪一個箭頭
+            $arrowRight.show();
+            checkScrollPosition();
+        }
+    }
+    
+    // 綁定媒體查詢監聽器
+    try {
+        mediaQuery.addEventListener('change', handleBreakpointChange);
+    } catch (e) {
+        mediaQuery.addListener(handleBreakpointChange); // 支援舊版瀏覽器
     }
 
     // 監聽滾動事件
@@ -3591,7 +3629,7 @@
         const x = e.pageX - $tabs.offset().left;
         const walk = (x - startX) * 1;
         
-        // 條件 2 的拖曳部分：當 walk < 0 代表滑鼠往左拉（畫面內容向右滾動，呈現左邊的內容）
+        // 條件 2 的拖曳部分
         if (walk < 0) {
             showLeftArrow();
         }
@@ -3605,7 +3643,7 @@
         const moveStep = 200; 
         const currentScroll = $tabs.scrollLeft();
 
-        // 條件 2 的按鈕部分：點擊向右按鈕時，立刻讓左側箭頭出現
+        // 條件 2 的按鈕部分
         showLeftArrow();
 
         $tabs.stop().animate({
@@ -3613,7 +3651,6 @@
         }, 300);
     });
 
-    // 點擊向左滾動按鈕 (tab-button-right)
     $('.tab-button-right').on('click', function(e) {
         e.preventDefault();
         const moveStep = -200; 
@@ -3622,8 +3659,8 @@
         $tabs.stop().animate({
             scrollLeft: currentScroll + moveStep
         }, 300);
-      });
     });
+});
     </script>
 
      <script>

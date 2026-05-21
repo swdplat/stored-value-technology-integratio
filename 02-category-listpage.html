@@ -1571,6 +1571,13 @@
             </div>
 
             <div class="tab-list tabs my-tabs my-tabs-primary">
+              <div class="tab-box-push">
+                <div class="tab-button">
+                  <a href="javascript:void(0)" class="tab-button-right">
+                    <img src="./images/test-img/tab-list-arrow-right.svg" alt="">
+                  </a>
+                </div>
+              </div>
               <ul class="my-tabs-box list-tab">
                         <li id="Tag_HOT" onclick="Tag_Click(&#39;Tag_HOT&#39;,&#39;Content_HOT&#39;)" class="active">全部</li>
                         <li id="Tag_A01" onclick="Tag_Click(&#39;Tag_A01&#39;,&#39;Content_A01&#39;)">動作冒險</li>
@@ -3556,8 +3563,21 @@
         e.preventDefault();
 
         // 設定每次點擊要滾動的距離（正數往右，負數往左）
-        // 提示：如果你有分「左箭頭」和「右箭頭」，可以用 data 屬性區分，目前預設為向右滾動
         const moveStep = 200; 
+
+        // 取得當前的捲軸位置
+        const currentScroll = $tabs.scrollLeft();
+
+        // 透過 animate 達成平滑滾動效果（300毫秒）
+        $tabs.stop().animate({
+            scrollLeft: currentScroll + moveStep
+        }, 300);
+    });
+
+    $('.tab-button-right').on('click', function(e) {
+        e.preventDefault();
+
+        const moveStep = -200; 
 
         // 取得當前的捲軸位置
         const currentScroll = $tabs.scrollLeft();

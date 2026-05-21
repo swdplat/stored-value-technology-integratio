@@ -919,10 +919,19 @@
 }
 
 .payment-info .information-right .user-stored-value .stored-value-two{
-  background-color: #ECF7FE;
+  background-color: #F6FBFE;
   padding:12px 12px 12px 12px ;
   border-radius: 8px;
   margin-top: 16px;
+}
+
+@media(max-width:576px){
+  .payment-info .information-right .user-stored-value .stored-value-two{
+    background-color: #F6FBFE;
+    padding: 0px 0px 0px 0px ;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
 }
 
 .payment-info .information-right .user-stored-value .stored-value-two .uid-outer{
@@ -931,7 +940,13 @@
 
 @media(max-width:768px){
   .payment-info .information-right .user-stored-value .stored-value-two .uid-outer .uid-inner{
-    background-color: #ECF7FE !important;
+    background-color:#F6FBFE !important;
+  }
+}
+
+@media(max-width:576px){
+  .payment-info .information-right .user-stored-value .stored-value-two .uid-outer{
+     padding: 0px 0px 0px 0px !important;
   }
 }
 

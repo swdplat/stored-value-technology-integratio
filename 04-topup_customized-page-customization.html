@@ -55,8 +55,11 @@
     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/festival.css">
     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/topup-uid.css">
 
-    <!-- 注意 這是新的css樣式 -->
+    <!-- 注意 這是新的css樣式  開始-->
+     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/new-style.css">
      <link rel="stylesheet" href="./css/new-style.css">
+    <!-- 注意 這是新的css樣式 結束-->
+     
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -1543,8 +1546,7 @@
                         </h3>
                         <div class="stored-value-one">
                             <form class="my-d-flex my-flex-wrap my-gap-5 my-gap-3-md my-p-3-sm inputForm" action="" method="">
-                                                        <div class="chinesegamer-choose-item my-d-flex my-form-column-2 my-form-column-1-lg my-w100">
-                                                            <!-- 非原生 -->
+                                <!-- 非原生 -->
                                                             <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
                                                                 <div class="my-select-title my-mb-2">選擇遊戲</div>
                                                                 <!--錯誤狀態加上 is-invalid -->
@@ -1579,6 +1581,7 @@
                                                                 <option value="server9">伺服器9</option>
                                                                 <option value="server10">伺服器10</option>
                                                             </select>
+
                                                             <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
                                                                 <div class="my-select-title my-mb-2">選擇伺服器</div>
                                                                 <!--錯誤狀態加上 is-invalid -->
@@ -1598,28 +1601,35 @@
                                                                     </ul>
                                                                 </div>
                                                                 <div class="my-font-s my-mt-1 invalid-feedback">未選擇玩家伺服器</div>
-                                                            </div></div>
-                                                        <div class="chinesegamer-choose-item my-d-flex my-form-column-2 my-form-column-1-lg my-w100">
+                                                            </div>
+
+                                                            <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
+                                                                <div class="my-select-title my-mb-2">遊戲帳號類型</div>
+                                                                 <!--錯誤狀態加上 is-invalid -->
+                                                                <div class="my-form-select my-form-select-l my-form-select-m-md my-font-14 select-option-ul">請選擇</div>
+                                                                <div class="options-box">
+                                                                  <ul class="options-ul" id="AccountList"><li data-value="1" onclick="getAccountData('1');">1</li><li data-value="2" onclick="getAccountData('2');">2</li></ul>
+                                                                </div>
+                                                               <div class="my-font-s my-mt-1 invalid-feedback"><span class="field-validation-valid" data-valmsg-for="ul.ULAccount" data-valmsg-replace="true"></span></div>
+                                                           </div>
+
                                                             <div class="my-form-group my-flex-column">
                                                                 <label class="my-form-label my-mb-2" for="form-input-account">請輸入遊戲帳號</label>
                                                                 <input class="my-form-control my-form-control-l my-form-control-m-md is-invalid" id="form-input-account" name="uid" type="text" placeholder="請輸入遊戲帳號">
                                                                 <div class="my-font-s my-mt-1 invalid-feedback">未填寫玩家遊戲帳號</div>
                                                             </div>
+
                                                             <div class="my-form-group my-flex-column">
                                                                 <label class="my-form-label my-mb-2" for="form-input-againAccount">再次輸入遊戲帳號</label>
                                                                 <input class="my-form-control my-form-control-l my-form-control-m-md is-invalid" id="form-input-againAccount" name="uid" type="text" placeholder="請輸入遊戲帳號">
                                                                 <div class="my-font-s my-mt-1 invalid-feedback">未填寫玩家遊戲帳號</div>
                                                             </div>
-                                                        </div>
                                                         <div class="my-w100 my-d-flex my-flex-column">
                                                           <label class="user-form-title my-form-label my-mb-2 my-font-14" for="form-input-uid">登入遊戲帳號</label>
                                                           <div class="chinesegamer-logout">
                                                               <div class="my-form-btn my-d-flex my-flex-column my-gap-2">
-                                                                  <button class="my-btn-main my-btn-primary my-w100-sm my-font-14" type="submit">登入</button>
+                                                                  <button class="my-btn-main my-btn-primary my-w100-sm my-font-14" type="submit">確認</button>
                                                                   <div class="my-font-s invalid-feedback">請先進行遊戲帳號登入</div>
-                                                              </div>
-                                                              <div class="logout-buttom my-form-btn my-d-flex my-flex-column my-gap-2">
-                                                                  <button class="user-logout-btn my-btn-main my-btn-primary my-w100-sm my-font-14" type="submit">登出</button>
                                                               </div>
                                                           </div>
                                                 </div>

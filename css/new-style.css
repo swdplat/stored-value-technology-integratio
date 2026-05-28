@@ -1623,6 +1623,43 @@
 .chinesegamer-choose-item{
   justify-content: space-between;
 }
+
+.chinesegamer-logout{
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.chinesegamer-logout .logout-buttom{
+  width: 18%;
+  max-width: 120px;
+}
+
+.chinesegamer-logout .logout-buttom .user-logout-btn{
+  background-color: #4faff100 !important;
+  color: #4FAFF1 !important;
+  padding: 6px 12px !important;
+}
+
+@media(max-width:768px){
+  .chinesegamer-logout{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.chinesegamer-logout .logout-buttom{
+  width: 100%;
+  max-width: unset;
+}
+
+.chinesegamer-logout .logout-buttom .user-logout-btn{
+  background-color: #4faff100 !important;
+  color: #4FAFF1 !important;
+}
+}
+
 /* 中華網龍 客製頁面 結束 */
 
 
@@ -2132,7 +2169,7 @@
   display: flex;
   justify-content: center;
   padding: 16px 16px;
-  box-shadow: 2px 2px 6px 3px #a9a9a9;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12);
   align-items: center;
 }
 
@@ -2213,7 +2250,7 @@
   display: flex;
   justify-content: center;
   padding: 16px 16px;
-  box-shadow: 2px 2px 6px 3px #a9a9a9;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12);
   align-items: center;
 }
 

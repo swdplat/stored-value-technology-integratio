@@ -2298,3 +2298,430 @@
   display: none;
 }
 /* 結帳區塊的樣式 結束 */
+
+/* MyCard會員登入 窗口樣式 開始 */
+.textbox {
+    margin: 0;
+    padding: 0 15px;
+    background-color: #FFF;
+    border: 1px solid #ececec;
+    height: 48px;
+    width: 100%;
+    max-width: 656px;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.textbox:hover {
+    border: 1px solid #d4d4d4;
+}
+
+.textbox:focus {
+    border: 1px solid #92d3ff;
+    box-shadow: 0px 0px 5px #6cc3ff;
+}
+
+
+
+#payment .member_topup_form {
+    margin: 0 auto;
+    padding: 0 0px;
+    width: 100%;
+    /* max-width: 550px; */
+    text-align: center;
+}
+
+input, button, select, textarea {
+    outline: none;
+}
+
+input, textarea {
+    font-size: initial;
+}
+
+#payment .options {
+    clear: both;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #d4d4d4;
+    margin: 0 0 30px;
+    text-align: left;
+}
+
+#payment .options ul {
+    padding: 0;
+    font-size: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: -1px 0;
+}
+
+#payment .member_topup_form ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+#payment .options ul li.now {
+    color: #5a5a5a;
+    background-color: #e8e8e9;
+    border: 1px solid #d6d6d6;
+    border-left: none;
+}
+
+#payment .options ul li {
+    padding: 5px 20px;
+    font-family: "微軟正黑體", Arial;
+    font-size: 14px;
+    color: #5a5a5a;
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#payment .options ul li:last-of-type {
+    margin: 0;
+}
+
+#payment .options ul li+li {
+    border-left: none;
+}
+
+#payment .member_topup_form ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+#payment .member_topup_form h4 {
+    margin: 0px 0 12px 0;
+    padding: 0;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    color: #5a5a5a;
+    font-weight: normal;
+    text-align: left;
+    float: left;
+}
+
+.account_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 14px;
+}
+
+.account_container .country_code_selectbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin-right: 10px;
+    width: 100%;
+    max-width: 0%;
+    font-size: 14px;
+    display: none;
+}
+
+.selectbar {
+    margin: 0;
+    padding: 0 15px;
+    background-color: #FFF;
+    border: 1px solid #ececec;
+    height: 48px;
+    width: 100%;
+    max-width: 656px;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url(https://image.mycard520.com/globalmycard/images/dropdown.svg) no-repeat;
+    background-position: right 15px center !important;
+    background-size: 9px 6px;
+    text-indent: 0.01px;
+    text-overflow: "";
+}
+
+input[type="text"] {
+    -webkit-appearance: none;
+}
+
+.textbox {
+    margin: 0;
+    padding: 0 15px;
+    background-color: #FFF;
+    border: 1px solid #ececec;
+    height: 48px;
+    width: 100%;
+    max-width: unset !important;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.deduct_scan{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#payment .member_topup_form .list li+li {
+    margin: 20px 0 0 0;
+}
+
+#payment .member_topup_form .error {
+    margin: 5px 0 0 0;
+    color: #d53f21;
+    text-align: left;
+    font-size: 10px;
+}
+
+#payment .member_topup_form .authentication_code {
+    margin: 0 2% 0 0;
+    width: 71%;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url(https://image.mycard520.com/globalmycard/images/authentication_code_icon.png);
+    background-position: 12px center;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    border-radius: 6px;
+}
+
+@media(max-width:576px){
+  #payment .member_topup_form .authentication_code {
+    margin: 0 2% 0 0;
+    width: 60%;
+}
+}
+
+#payment .member_topup_form .textbox {
+    padding: 0 15px 0 58px;
+}
+
+#payment .member_topup_form .code_pic {
+    position: relative;
+    margin: 0;
+    padding: 0 5px;
+    background-color: #FFF;
+    border: 1px solid #ececec;
+    max-height: 48px;
+    height: 48px;
+    width: 20%;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 6px 0px 0px 6px;
+}
+
+@media(max-width:576px){
+  #payment .member_topup_form .code_pic {
+    position: relative;
+    margin: 0;
+    padding: 0 5px;
+    background-color: #FFF;
+    border: 1px solid #ececec;
+    max-height: 48px;
+    height: 48px;
+    width: 25%;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 48px;
+    text-align: center;
+}
+}
+
+#payment .member_topup_form .code_pic img {
+    height: 100%;
+    vertical-align: unset;
+}
+
+#payment .member_topup_form .code_pic:after {
+    background-image: url(https://image.mycard520.com/globalmycard/images/noise.png);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    content: "";
+}
+
+#payment .member_topup_form .refresh {
+    margin: 0;
+    padding: 0;
+    width: 6%;
+    height: 48px;
+    display: inline-block;
+    float: right;
+}
+
+@media(max-width:576px){
+  #payment .member_topup_form .refresh {
+    width: 11%;
+    height: 48px;
+}
+}
+
+#payment .member_topup_form .refresh a {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 48px;
+    background: none;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-left: none;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border-radius: 0px 6px 6px 0px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+#payment .member_topup_form .refresh img {
+    width: unset;
+    max-width: unset;
+}
+
+#payment .btn_group {
+    margin: 0px;
+}
+
+#payment .member_topup_form .btn {
+    margin: 40px auto;
+}
+
+.member_topup_form .btn {
+    width: 100%;
+    margin: 43px auto;
+    padding: 11px 54px;
+    border-radius: 6px;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #FFF;
+    border: 1px solid #43a6e9;
+    background-color: #4faff1;
+    background: -moz-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+    background: -webkit-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+    background: -o-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+}
+
+.btn {
+    margin: 40px 10px;
+    padding: 17px 54px;
+    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #FFF;
+    border: 1px solid #43a6e9;
+    background-color: #4faff1;
+    background: -moz-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+    background: -webkit-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+    background: -o-linear-gradient(270deg, #4faff1 0%, #3b9fe3 100%);
+    display: inline-block;
+}
+
+#payment #MyCardMemPW.password {
+    background-image: url(https://image.mycard520.com/globalmycard/images/account_password.svg);
+    background-size: 18px 18px;
+    background-position: 16px center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+}
+
+#payment .mycard_app .qr_img {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+    box-sizing: border-box;
+    position: relative;
+    image-rendering: pixelated;
+}
+
+#payment .member_topup_form img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.deduct_qr .deduct_qr_progressing {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    background: #fff;
+    padding: 10px 15px;
+    color: #a7a7a7;
+    font-size: 13px;
+    transition: .5s;
+    cursor: context-menu;
+    opacity: 0;
+}
+
+#payment .mycard_app .qr_img::after {
+    display: none;
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: url(https://image.mycard520.com/mycardallinone/assets/img/deduct_icon_mycard_android.png?android1024);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -12px;
+}
+
+#payment .mycard_app .deduct_qr_note {
+    width: 202px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 13px;
+    border-bottom: none !important;
+    padding: 10px 0;
+    display: flex !important;
+    justify-content: center !important;
+    color: #99A1AF;
+    text-align: center;
+    font-family: "Noto Sans CJK TC";
+    font-size: 12px;
+     font-style: normal;
+     font-weight: 500;
+    line-height: normal;
+}
+
+#payment .mycard_app .deduct_qr_note img {
+    max-width: 22px;
+    margin-left: 5px;
+}
+
+.account_container .account_textbox {
+    padding: 0 15px 0 58px !important;
+    font-size: 14px;
+    width: 100%;
+    max-width: 100%;
+    background-image: url(https://image.mycard520.com/globalmycard/images/account.svg);
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    border-radius: 6px;
+}
+
+/* MyCard會員登入 窗口樣式 結束 */

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<!-- saved from url=(0286)https://www.mycard520.com/MyCardPay/MemberCost?QuickLoginStatus=1&MyServiceId=SPS0493280&facid=membercoins&TradeType=2&ExchgCurrency=TWD&Country=TW&TradeInfo=8C2A72E058D6B38F1EDFC6D57E8A58582D335B7A7B8EA27ADE772DCBC138A250C84FAF06E7AC24B1B5762DEAB669437CB05E68480FA5ACD8497AF56629AC9D09 -->
+<html lang="en" ng-app="" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}.ng-hide-add-active,.ng-hide-remove{display:block!important;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global MyCard</title>
+
+    <link href="./Global MyCard_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./Global MyCard_files/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="./Global MyCard_files/animate.css" rel="stylesheet" type="text/css">
+    <link href="./Global MyCard_files/selectmenu.css" rel="stylesheet" type="text/css">
+    <link href="./Global MyCard_files/style.css" rel="stylesheet" type="text/css"> 
+    
+    <script type="text/javascript" id="www-widgetapi-script" src="./Global MyCard_files/www-widgetapi.js.下載" async=""></script><script async="" src="./Global MyCard_files/analytics.js.下載"></script><script type="text/javascript" async="" src="./Global MyCard_files/analytics.js.下載"></script><script type="text/javascript" async="" src="./Global MyCard_files/js"></script><script type="text/javascript" async="" src="./Global MyCard_files/js(1)"></script><script async="" src="./Global MyCard_files/gtm.js.下載"></script><script type="text/javascript" src="./Global MyCard_files/jquery-1.7.1.min.js.下載"></script>
+    <script language="JavaScript" src="./Global MyCard_files/gotop.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/jquery-ui.min.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/jQueryRotate.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/selectmenu.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/header.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/note-dialog.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/jquery.reveal_popup.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/payment.js.下載"></script>
+    <script src="./Global MyCard_files/common.js.下載"></script>
+    
+    <link href="./Global MyCard_files/style_country_search.css" rel="stylesheet" type="text/css">
+    <script src="./Global MyCard_files/singleAccount.js.下載"></script>
+
+
+
+    
+    <link href="./Global MyCard_files/jquery.bxslider.css" rel="stylesheet" type="text/css">
+    <link href="./Global MyCard_files/style_part_test.css" rel="stylesheet" type="text/css">
+
+    <script>
+        //按紐倒數
+        var time = 60000;
+        function DisableEnable(objid) {
+            if (time <= 0) {
+                document.getElementById(objid).classList.remove("btn_grey");
+                document.getElementById(objid).value = '發送';
+                document.getElementById(objid).disabled = false;
+                time += 60000;
+            } else {
+                document.getElementById(objid).classList.add("btn_grey");
+                document.getElementById(objid).disabled = true;
+                document.getElementById(objid).value = (time / 1000) + '秒';
+                setTimeout("DisableEnable('" + objid + "')", 1000);
+            }
+            time -= 1000;
+        }
+
+        function closePopup() {
+            $(".reveal-modal").css({ opacity: 1, visibility: "visible" }).animate({ opacity: 0, visibility: 'hidden' }, 300);
+            $(".reveal-modal-bg").css({ opacity: 1 }).animate({ opacity: 0 }, 300);
+        }
+
+        function ShowSubItem(searchTypeName, searchType) {
+            $("#CostPointBillingMyServiceId").val("");
+            $("#CostPointBillingFacid").val("");
+            var $li = $("#CostPointBillingSubLayer").find("li");
+            $li.hide();
+            $li.each(function () {
+                if ($(this).attr("data-type") == searchType && $(this).attr("data-name") == searchTypeName) {
+                    $(this).show();
+                }
+            });
+            $("#CostPointBillingMainLayer").hide();
+            $("#CostPointBillingSubLayer").show();
+            $("#costbillingcancel").hide();
+        }
+
+        function CostBillingData(myServiceId, facid) {
+            $("#CostPointBillingMyServiceId").val(myServiceId);
+            $("#CostPointBillingFacid").val(facid);
+        }
+
+        function freshCode() {
+            document.getElementById("captcha").src = "/MyCardPay/MemberCost/Captcha?" + Math.random();
+            document.getElementById("VerifyCode").value = '';
+        }
+
+        function SendData() {
+            var sendInfo = {
+                CostPointBillingMyServiceId: $("#CostPointBillingMyServiceId").val(),
+                CostPointBillingFacid: $("#CostPointBillingFacid").val(),
+                CostPointBillingTradeInfo: $("#CostPointBillingTradeInfo").val()
+            };
+
+            $.ajax({
+                type: "post",
+                url: "/MyCardPay/MemberCost/CostPointBillingPaymentUpdate",
+                data: JSON.stringify(sendInfo),
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.returnCode == "1") {
+                        top.document.location.href = data.redirectUrl;
+                    }
+                    else if (data.returnCode == "MCPMC028" || data.returnCode == "MCPMC029") {
+                        top.document.location.href = "/MyCardPay/Return";
+                    }
+                    else {
+                        $("#insufficient_currencyaccount").css({ opacity: 1, visibility: "visible" }).animate({ opacity: 0, visibility: 'hidden' }, 300);
+                        $('#SendMsg').text(data.returnMsg);
+                        $('#SendMsg').show();
+                        $("#CostBillingSubmit").attr("disabled", false);
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            // 於 MobileOTP 設定，在此頁清除
+            sessionStorage.clear();
+
+            $("#CostBillingSend").click(function () {
+                SendData();
+            });
+
+            $("#CostBillingSubmit").click(function () {
+                $('#SendMsg').text("");
+                $('#SendMsg').hide();
+
+                if ($("#CostPointBillingMyServiceId").val() == "" || $("#CostPointBillingFacid").val() == "") {
+                    return;
+                }
+
+                $(this).attr("disabled", true);
+
+                var sendCheckInfo = {
+                    Currency: '',
+                    CostPointBillingTradeInfo: $("#CostPointBillingTradeInfo").val()
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/MyCardPay/MemberCost/CheckCurrencyAccount",
+                    data: JSON.stringify(sendCheckInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.returnCode == "1" && !data.hasCurrencyAccount) {
+                            $('#insufficient_currencyaccount').reveal({ animation: "fade", revealId: "myModal" });
+                            return;
+                        }
+                        else {
+                            SendData();
+                        }
+                    }
+                });
+            });
+
+            $("#CostPointBillingSubLayer .list li").click(function () {
+                $("#CostBillingSubmit").removeClass("cancel");
+                $("#CostBillingSubmit").attr('disabled', false);
+            });
+
+            //.close-reveal-modal
+            $(".reveal-modal-bg,#costbillingcancel,#CostBillingCancel").on("click", function () {
+                $('#SendMsg').text("");
+                $('#SendMsg').hide();
+
+                var sendInfo = {
+                    CostPointBillingTradeInfo: $("#CostPointBillingTradeInfo").val(),
+                    Source: $(this).attr("class") == "reveal-modal-bg" ? "bg" : "close"
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/MyCardPay/MemberCost/CostPointBillingPaymentCancel",
+                    data: JSON.stringify(sendInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.returnCode == "100") {
+                            return;
+                        }
+                        else if (data.returnCode == "MCPMC027") {
+                            top.document.location.href = "/MyCardPay/Return";
+                            return;
+                        }
+                        else {
+                            var rUrl = "/MyCardPay/MemberCost/MemberCost" + "?returnCode=" + data.returnCode + "&returnMsg=" + data.returnMsg + "&process=cancel";
+                            top.document.location.href = rUrl;
+                        }
+                    }
+                });
+            });
+
+            $('#subscribe_msg').reveal({ animation: "fade", revealId: "myModal" });
+            $('#subscribe_set').reveal({ animation: "fade", revealId: "myModal" });
+            //會員扣點差額手動儲值
+            $('#insufficient_balance').reveal({ animation: "fade", revealId: "myModal" });
+
+            //取得驗證碼
+            $('#btnSendCode').click(function () {
+                $(this).attr("disabled", false);
+                $('#SendMsg').text("");
+                $('#SendMsg').hide();
+                var UpperLimit = $('#txtUpperLimit').val();
+
+                //補差額為必填
+                if (UpperLimit.trim() == "") {
+                    $(this).attr("disabled", true);
+                    $('#SendMsg').text("金額設定需高於30元");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                //補差額最低限30元
+                if (parseInt(UpperLimit) < 30) {
+                    $(this).attr("disabled", true);
+                    $('#SendMsg').text("金額設定需高於30元");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                //提高單日額度 <  系統預算值 -->補差額設定金額不足,請重新輸入
+                if (parseInt(UpperLimit) < parseInt('0')) {
+                    $(this).attr("disabled", true);
+                    $('#SendMsg').text("補差額設定金額不足,請重新輸入");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                var sendInfo = {
+                    MemberSn: '',
+                    PhoneID: '',
+                    myCardSDKNO: 'KDS2605290046227'
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/MyCardPay/MemberCost/SendUpperLimitOTP",
+                    data: JSON.stringify(sendInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $('#SendMsg').text(data.ReturnMsg);
+                        $('#SendMsg').show();
+                    }
+                });
+            });
+
+            //即時當日補差額上限檢查
+            $("#txtUpperLimit").blur(function () {
+                $('#btnSendCode').attr("disabled", false);
+                $('#SendMsg').text("");
+                $('#SendMsg').hide();
+                var UpperLimit = $('#txtUpperLimit').val();
+
+                //修改後單日額度上限 = 原差額上限設定金額 + 需提高單日額度(自輸)
+                var showUpperLimit = parseInt('0') + parseInt(UpperLimit);
+                $('#labUpperLimit').text(showUpperLimit);
+
+
+                //補差額為必填
+                if (UpperLimit.trim() == "") {
+                    $('#btnSendCode').attr("disabled", true);
+                    $('#SendMsg').text("金額設定需高於30元");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                //補差額最低限30元
+                if (parseInt(UpperLimit) < 30) {
+                    $('#btnSendCode').attr("disabled", true);
+                    $('#SendMsg').text("金額設定需高於30元");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                //提高單日額度 <  系統預算值 -->補差額設定金額不足,請重新輸入
+                if (parseInt(UpperLimit) < parseInt('0')) {
+                    $('#btnSendCode').attr("disabled", true);
+                    $('#SendMsg').text("補差額設定金額不足,請重新輸入");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                var sendInfo = {
+                    MemberSn: '',
+                    nUpperLimitDaily: UpperLimit,
+                    myCardSDKNO: 'KDS2605290046227',
+                    sumUpperLimitDaily: showUpperLimit
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/MyCardPay/MemberCost/UpperLimitDaily_Check",
+                    data: JSON.stringify(sendInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.ReturnMsgNo != "1") {
+                            $('#SendMsg').text(data.ReturnMsg);
+                            $('#SendMsg').show();
+                        }
+                        else {
+                            $('#SendMsg').hide();
+                        }
+                    }
+                });
+            });
+
+            //送出
+            $('#mySubmit').click(function () {
+                $('#btnSendCode').attr("disabled", false);
+                $('#SendMsg').text("");
+                $('#SendMsg').hide();
+                var OTPCode = $('#txtOTPCode').val();
+                var sumUpperLimitDaily = $('#labUpperLimit').text();
+                var UpperLimit = $('#txtUpperLimit').val();
+
+                //需提高單日額度 <  系統預算值 -->補差額設定金額不足,請重新輸入
+                if (parseInt(UpperLimit) < parseInt('0')) {
+                    $('#btnSendCode').attr("disabled", true);
+                    $('#SendMsg').text("補差額設定金額不足,請重新輸入");
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                if (OTPCode == "") {
+                    $('#btnSendCode').attr("disabled", true);
+                    $('#SendMsg').text("請輸入簡訊認證碼"); //請輸入簡訊認證碼
+                    $('#SendMsg').show();
+                    return;
+                }
+
+                var sendInfo = {
+                    RenewInfo: '',
+                    AuthInfo: '',
+                    OTPCode: OTPCode,
+                    nUpperLimitDaily: sumUpperLimitDaily,
+                    myCardSDKNO: 'KDS2605290046227'
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/MyCardPay/MemberCost/UpperLimitDaily_Update",
+                    data: JSON.stringify(sendInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $('#SendMsg').show();
+                        if (data.ReturnMsgNo == "1") {
+                            $('#SendMsg').text(data.ReturnMsg);
+                            closePopup(); //關閉系統訊息跳窗
+                            //導支付密碼
+                            top.document.location.href = "/MyCardPay/MemberCost/Confirm?TradeInfo=" + '8C2A72E058D6B38F1EDFC6D57E8A58582D335B7A7B8EA27ADE772DCBC138A250C84FAF06E7AC24B1B5762DEAB669437CB05E68480FA5ACD8497AF56629AC9D09' + "&Country=" + 'TW';
+                        }
+                        else {
+                            if (data.ReturnMsgNo == "MBPSMB0012") {
+                                $('#SendMsg').text("認證碼驗證錯誤，請您再次確認或重新操作"); //認證碼驗證錯誤
+                            }
+                            else {
+                                closePopup(); //關閉系統訊息跳窗
+                                //導錯誤訊息頁
+                                top.document.location.href = "/MyCardPay/Return/Message?ReturnCode=" + data.ReturnMsgNo + "&ReturnMsg=" + data.ReturnMsg;
+                            }
+                            return;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WDBLPZP');</script>
+    <!-- End Google Tag Manager -->
+
+    <script>
+        //20221219 將事件委託給動態創建的元素
+        $(document).on('click', '.terms-btn', function () {
+            $('#terms, .terms-overlay').fadeOut();
+        });
+
+        $(function () {
+            //$('#myModal').reveal({ animation: "fade", revealId: "myModal" });
+
+            //條款淡入
+            $('.trems-lightbox').click(function () {
+                $('#terms, .terms-overlay').fadeIn();
+            });
+
+            //條款淡出
+            $('.terms-overlay, .terms-btn').click(function () {
+                $('#terms, .terms-overlay').fadeOut();
+            });
+
+             //20231013 國碼設定下拉
+             //首次會抓ViewBag預設值
+            countries =[{"name":"台灣","countrycode":"TW","code":"886"},{"name":"香港","countrycode":"HK","code":"852"},{"name":"澳門","countrycode":"MO","code":"853"},{"name":"中國","countrycode":"CN","code":"86"},{"name":"馬來西亞","countrycode":"MY","code":"60"},{"name":"新加坡","countrycode":"SG","code":"65"},{"name":"印尼","countrycode":"ID","code":"62"},{"name":"泰國","countrycode":"TH","code":"66"},{"name":"菲律賓","countrycode":"PH","code":"63"},{"name":"越南","countrycode":"VN","code":"84"},{"name":"韓國","countrycode":"KR","code":"82"},{"name":"日本","countrycode":"JP","code":"81"},{"name":"美國","countrycode":"US","code":"1"},{"name":"加拿大","countrycode":"CA","code":"1"},{"name":"英國","countrycode":"GB","code":"44"},{"name":"澳洲","countrycode":"AU","code":"61"},{"name":"秘鲁","countrycode":"PE","code":"51"},{"name":"墨西哥","countrycode":"MX","code":"52"},{"name":"巴西","countrycode":"BR","code":"55"},{"name":"智利","countrycode":"CL","code":"56"},{"name":"哥倫比亞","countrycode":"CO","code":"57"},{"name":"烏拉圭","countrycode":"UY","code":"598"},{"name":"寮國","countrycode":"LA","code":"856"},{"name":"德國","countrycode":"DE","code":"49"},{"name":"西班牙","countrycode":"ES","code":"34"},{"name":"法國","countrycode":"FR","code":"33"},{"name":"瑞典","countrycode":"SE","code":"46"},{"name":"俄羅斯","countrycode":"RU","code":"7"},{"name":"紐西蘭","countrycode":"NZ","code":"64"},{"name":"柬埔寨","countrycode":"KH","code":"855"},{"name":"土耳其","countrycode":"TR","code":"90"},{"name":"荷蘭","countrycode":"NL","code":"31"},{"name":"阿拉伯聯合大公國","countrycode":"AE","code":"971"},{"name":"阿根廷","countrycode":"AR","code":"54"},{"name":"比利時","countrycode":"BE","code":"32"},{"name":"義大利","countrycode":"IT","code":"39"},{"name":"葡萄牙","countrycode":"PT","code":"351"}];
+
+            $('.country_code_selectbar').on('touchstart mousedown', function (e) {
+                // 阻止下拉選單列表的開啟
+                e.preventDefault();
+                // 清除搜尋框並顯示
+                $('.country_code_searchbar').val('').show().focus();
+                // 顯示國碼列表
+                $('#countryList').show().empty();
+                // 生成選項
+                countries.forEach(function (country) {
+                    $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                });
+            });
+
+            $('.country_code_searchbar').on('input', function () {
+                var searchTerm = $(this).val().toLowerCase();
+                $('#countryList').show().empty();
+                // 搜尋對應國碼
+                countries.forEach(function (country) {
+                    if (country.name.toLowerCase().includes(searchTerm) || country.countrycode.toLowerCase().includes(searchTerm) || country.code.toLowerCase().includes(searchTerm)) {
+                        $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                    }
+                });
+            });
+
+            $('#countryList').on('click', 'li', function () {
+                var countryCodeData = $(this).data('countrycode');
+                $('.country_code_selectbar option').removeAttr('selected');
+                $('.country_code_selectbar option[value="' + countryCodeData + '"]').attr("selected", "selected");
+                $('.country_code_searchbar').hide();
+                $('#countryList').hide();
+            });
+
+            $('.country_code_searchbar').on('blur', function () {
+                setTimeout(function () {
+                    $('.country_code_searchbar').val('').hide();
+                    $('#countryList').hide();
+                }, 300);
+            });
+            //
+        });
+    </script>
+
+    <!-- 驗證框色 -->
+    <style type="text/css">
+        .field-validation-valid {
+            display: none;
+        }
+
+        .input-validation-error {
+            border: 1px solid #f00;
+            background-color: #fee;
+        }
+
+        /*20240423 登入頁訊息*/
+        #payment .member_topup_form .error {
+            margin: 9px 0 0 0;
+            color: #d53f21;
+            text-align: left;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body style="padding-top: 61px;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDBLPZP" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header>
+            <h1><a href="javascript:void(0)" id="DisplayLogo"><img src="./Global MyCard_files/mycard_logo.png" alt="Global MyCard"></a></h1>
+        
+            <div class="select_billing_box">
+                <select class="select_billing_language" id="GlobalLocal" name="GlobalLocal" onchange="LangSelectChange(this.value);" style="display: none;"><option value="">請選擇</option>
+<option selected="selected" value="zh-tw">台灣 / 繁體中文</option>
+<option value="en-us">Global / English</option>
+<option value="id-id">Indonesia / Bahasa Indonesia</option>
+<option value="zh-hk">香港 / 繁體中文</option>
+<option value="ms-my">Malaysia / English</option>
+<option value="zh-cn">中国大陆 / 简体中文</option>
+<option value="th-TH">Thai / ประเทศไทย</option>
+<option value="ja-jp">Japan / 日本語</option>
+</select><span id="GlobalLocalSelectBoxItContainer" class="selectboxit-container selectboxit-container" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-owns="GlobalLocalSelectBoxItOptions"><span id="GlobalLocalSelectBoxIt" class="selectboxit select_billing_language selectboxit-enabled selectboxit-btn" name="GlobalLocal" tabindex="0" unselectable="on" style="width: 280px;"><span class="selectboxit-option-icon-container"><i id="GlobalLocalSelectBoxItDefaultIcon" class="selectboxit-default-icon selectboxit-option-icon selectboxit-container" unselectable="on" style=""></i></span><span id="GlobalLocalSelectBoxItText" class="selectboxit-text" unselectable="on" data-val="zh-tw" aria-live="polite" style="max-width: 250px;">台灣 / 繁體中文</span><span id="GlobalLocalSelectBoxItArrowContainer" class="selectboxit-arrow-container" unselectable="on"><i id="GlobalLocalSelectBoxItArrow" class="selectboxit-arrow selectboxit-default-arrow" unselectable="on"></i></span></span><ul id="GlobalLocalSelectBoxItOptions" class="selectboxit-options selectboxit-list" tabindex="-1" role="listbox" aria-hidden="true" style="min-width: 280px;"><li data-id="0" data-val="" data-disabled="false" class="selectboxit-option  selectboxit-option-first" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>請選擇</a></li><li data-id="1" data-val="zh-tw" data-disabled="false" class="selectboxit-option selectboxit-selected" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>台灣 / 繁體中文</a></li><li data-id="2" data-val="en-us" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Global / English</a></li><li data-id="3" data-val="id-id" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Indonesia / Bahasa Indonesia</a></li><li data-id="4" data-val="zh-hk" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>香港 / 繁體中文</a></li><li data-id="5" data-val="ms-my" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Malaysia / English</a></li><li data-id="6" data-val="zh-cn" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>中国大陆 / 简体中文</a></li><li data-id="7" data-val="th-TH" data-disabled="false" class="selectboxit-option" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Thai / ประเทศไทย</a></li><li data-id="8" data-val="ja-jp" data-disabled="false" class="selectboxit-option  selectboxit-option-last" role="option"><a class="selectboxit-option-anchor"><span class="selectboxit-option-icon-container"><i class="selectboxit-option-icon  selectboxit-container"></i></span>Japan / 日本語</a></li></ul></span>
+            </div>
+    </header>
+
+    
+
+<!--會員扣點差額手動儲值-->
+
+
+
+
+
+<!--20241113 -->
+
+<!--信用卡重新綁定-->
+<div id="rebind_creditcard" class="reveal-modal normal_popup">
+    <h2>系統訊息</h2>
+    <p id="p_rebind_creditcard"></p>
+    <button class="close-reveal-modal btn_dgrey" id="closePop">稍後再說</button>
+    <button class="btn_blue confirm" id="gotoGlobalMember">重新綁定</button>
+</div>
+
+<div id="payment">
+
+    <div id="universal_visual">
+        <div class="text_box">
+            <h2 data-id="PaymentTitle">MyCard 金流支付</h2>
+            <p data-id="PaymentP1">請確認您的付款資料以完成交易</p>
+        </div>
+    </div>
+
+
+
+
+    <div class="content">
+        
+<form action="https://www.mycard520.com/MyCardPay/MemberCost" autocomplete="off" class="member_topup_form ng-pristine ng-valid" id="form1" method="post" name="form1" novalidate="novalidate">
+            <div class="topad zhtw01" id="ad">
+                <ul class="slider">
+                                    <li class="slide"><a href="https://app.mycard520.com.tw/mmevent?utm_source=gbdeductbn1-zh-tw1&amp;utm_medium=web&amp;utm_campaign=gbdeductbn1" title="" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;buy&#39;, &#39;gm21-1&#39;);"><img src="./Global MyCard_files/1140x124_v1.gif" alt="" class="mobile_slider" style="display: none;"><img src="./Global MyCard_files/1140x124_v1.gif" alt="" class="pc_slider"></a></li>
+                </ul>
+            </div>
+
+
+<input name="__RequestVerificationToken" type="hidden" value="Rea5Qx5MDErKFxIPOqHy6ZqGnRUvGAgv320PAyTIIoyIILdOj7tWDIQ1P9OxuMwbHGP7fCSUAvvou_40zC15w30wBFkJojBJs2O18iupvh1gTZp7uvY6c5ldOkCFhcjjZMD75w2"><input id="TradeInfo" name="TradeInfo" type="hidden" value="8C2A72E058D6B38F1EDFC6D57E8A58582D335B7A7B8EA27ADE772DCBC138A250C84FAF06E7AC24B1B5762DEAB669437CB05E68480FA5ACD8497AF56629AC9D09"><input id="QRCodeUrl" name="QRCodeUrl" type="hidden" value="https://www.mycard520.com/MyCardPay/MemberCost/QRImage?authCode=C7EA1D21AE27220EE27AF9D6BABE5A8FC995FB9BC9128D61555C76D392C5EE74BF9E12B1A3B6DED5B696A2AF9B8E6AF63CC6360E75E13E0C8F27C7DAA7909CE5&amp;tradeInfo=904A8E45E688D06FCF016EE8BA52AEF54289A863EAC9CA5909A053FFA5DAB6EC3D32DAFEE456B9900B7A046805866BA0995148579F252169&amp;sourceType=qrotherapp&amp;hash=9269783b26845063c2a33154fcb25d21f6d42bdd04df08a11dd5dfceca91c658&amp;type=quickpay"><input id="QRCodeImageUrl" name="QRCodeImageUrl" type="hidden" value="https://www.mycard520.com/MyCardPay/Images/CostPointQRCode.ashx?content=https%3a%2f%2fwww.mycard520.com%2fMyCardPay%2fMemberCost%2fAppLink%3fauthCode%3dC7EA1D21AE27220EE27AF9D6BABE5A8FC995FB9BC9128D61555C76D392C5EE74BF9E12B1A3B6DED5B696A2AF9B8E6AF63CC6360E75E13E0C8F27C7DAA7909CE5%26tradeInfo%3d904A8E45E688D06FCF016EE8BA52AEF54289A863EAC9CA5909A053FFA5DAB6EC3D32DAFEE456B9900B7A046805866BA0995148579F252169%26sourceType%3dqrotherapp%26hash%3d9269783b26845063c2a33154fcb25d21f6d42bdd04df08a11dd5dfceca91c658%26type%3dquickpay"><input id="WebFastUrl" name="WebFastUrl" type="hidden" value=""><input data-val="true" data-val-required="IsMobileDevice 欄位是必要項。" id="IsMobileDevice" name="IsMobileDevice" type="hidden" value="False"><input id="Notice" name="Notice" type="hidden" value=""><input id="Country" name="Country" type="hidden" value="TW"><input id="ma" name="ma" type="hidden" value=""><input id="mb" name="mb" type="hidden" value=""><input id="mc" name="mc" type="hidden" value=""><input data-val="true" data-val-number="欄位 QuickLoginStatus 必須是數字。" data-val-required="QuickLoginStatus 欄位是必要項。" id="QuickLoginStatus" name="QuickLoginStatus" type="hidden" value="1">            <h3 data-id="Title">MyCard會員扣點</h3>
+                <div class="options">
+                    <ul>
+                        <li class="options_btn login_btn now" data-id="PasswordLogin">密碼登入</li>
+                        <li class="options_btn app_btn" data-id="AppLogin">MyCard APP快速扣點</li>
+                    </ul>
+                </div>
+            <div class="login" style="display: block;">
+                <ul class="list ">
+                    <li>
+                        
+                        <div>
+                            <h4 data-id="InputMemId">
+                                帳號
+                                
+                            </h4>
+                            <div class="account_container">
+                                <select class="selectbar country_code_selectbar" id="CountryCode" name="CountryCode" style="display: none;"><option selected="selected" value="TW|886">台灣(+886)</option>
+<option value="HK|852">香港(+852)</option>
+<option value="MO|853">澳門(+853)</option>
+<option value="CN|86">中國(+86)</option>
+<option value="MY|60">馬來西亞(+60)</option>
+<option value="SG|65">新加坡(+65)</option>
+<option value="ID|62">印尼(+62)</option>
+<option value="TH|66">泰國(+66)</option>
+<option value="PH|63">菲律賓(+63)</option>
+<option value="VN|84">越南(+84)</option>
+<option value="KR|82">韓國(+82)</option>
+<option value="JP|81">日本(+81)</option>
+<option value="US|1">美國(+1)</option>
+<option value="CA|1">加拿大(+1)</option>
+<option value="GB|44">英國(+44)</option>
+<option value="AU|61">澳洲(+61)</option>
+<option value="PE|51">秘鲁(+51)</option>
+<option value="MX|52">墨西哥(+52)</option>
+<option value="BR|55">巴西(+55)</option>
+<option value="CL|56">智利(+56)</option>
+<option value="CO|57">哥倫比亞(+57)</option>
+<option value="UY|598">烏拉圭(+598)</option>
+<option value="LA|856">寮國(+856)</option>
+<option value="DE|49">德國(+49)</option>
+<option value="ES|34">西班牙(+34)</option>
+<option value="FR|33">法國(+33)</option>
+<option value="SE|46">瑞典(+46)</option>
+<option value="RU|7">俄羅斯(+7)</option>
+<option value="NZ|64">紐西蘭(+64)</option>
+<option value="KH|855">柬埔寨(+855)</option>
+<option value="TR|90">土耳其(+90)</option>
+<option value="NL|31">荷蘭(+31)</option>
+<option value="AE|971">阿拉伯聯合大公國(+971)</option>
+<option value="AR|54">阿根廷(+54)</option>
+<option value="BE|32">比利時(+32)</option>
+<option value="IT|39">義大利(+39)</option>
+<option value="PT|351">葡萄牙(+351)</option>
+</select>
+                                <input class="textbox account_textbox" data-val="true" data-val-length="長度有誤" data-val-length-max="200" data-val-regex="格式有誤" data-val-regex-pattern="((\w+([-+.&#39;]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|(^[0-9]{5,25}$))" data-val-required="帳號為必填欄位" id="MyCardMemId" maxlength="50" name="MyCardMemId" placeholder="請輸入Email或行動帳號" type="text" value="">
+                                <input type="search" class="country_code_searchbar" placeholder="搜尋..." maxlength="50">
+                                <ul id="countryList"> </ul>
+                            </div>
+                            <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="MyCardMemId" data-valmsg-replace="true"></span></p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h4 data-id="InputMemPWD">密碼</h4>
+                            <input class="textbox password" data-val="true" data-val-length="長度有誤" data-val-length-max="15" data-val-regex="請輸入8-12位字元英文與數字混和碼" data-val-regex-pattern="^[0-9a-zA-Z]+" data-val-required="密碼為必填欄位" id="MyCardMemPW" name="MyCardMemPW" placeholder="請輸入8-12碼英數字" type="password" value="">
+                            <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="MyCardMemPW" data-valmsg-replace="true"></span></p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div>
+                            <h4 data-id="AuthenticationCode">驗證碼</h4>
+                            <div style="width: 100%; clear: both;">
+                                <input class="textbox authentication_code code" data-val="true" data-val-length="驗證碼長度有誤" data-val-length-max="6" data-val-regex="驗證碼格式有誤" data-val-regex-pattern="^[0-9]{6}$" data-val-required="驗證碼為必填欄位" id="VerifyCode" name="VerifyCode" placeholder="請輸入驗證碼" type="text" value="">
+                                <span class="code_pic"><img id="captcha" src="./Global MyCard_files/Captcha"></span>
+                                <div class="refresh">
+                                    <a href="javascript:freshCode()"><img src="./Global MyCard_files/refresh_icon.png"></a>
+                                </div>
+                                <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="VerifyCode" data-valmsg-replace="true"></span></p>
+                            </div>
+                        </div>
+                    </li>
+
+
+                    
+                </ul>
+                <div class="btn_group">
+                    <button id="Submit" type="button" class="btn" data-id="BtnSubmit">登入</button>
+                </div>
+            </div>
+            <div class="mycard_app" style="display: none;">
+                <div class="deduct_scan">
+                    <div class="deduct_qr qr_img">
+                        <!--交易的時候 img 加上這個class="deduct_qr_transparent"-->
+                        <!--交易的時候deduct_qr_progressing多加一個class="deduct_qr_progressing_show"-->
+                        <img src="./Global MyCard_files/CostPointQRCode.ashx" class="">
+                        <div class="deduct_qr_progressing">交易進行中/Progressing</div>
+                    </div>
+                    <div class="deduct_qr_note" data-id="AppScan">MyCard APP 掃描扣點<img src="./Global MyCard_files/deduct_icon_copy.jpg" onclick="CopyQRCodeUrl();"></div>
+                    <p class="redeemgo" data-id="TransactionNote">交易尚未完成 請勿關閉此頁面</p>
+                    <div class="btn_group" id="ShowQuery" style="display: none;">
+                        <button type="button" class="btn" onclick="QueryResult(1);" data-id="TransactionConfirm">確認交易狀態</button>
+                    </div>
+                </div>
+            </div>
+
+        <div class="msg">
+            <h3 data-id="Info">訊息提示</h3>
+            <ul>
+                            <li><a target="_blank" href="https://service.mycard520.com/notification-zh-tw/?utm_source=gbtopuptxt1-zh-tw1&amp;utm_medium=&amp;utm_campaign=gbtopuptxt1">【系統】MyCard例行維護: 6/29 08:00-09:30(GMT+8, 台灣)</a></li>
+                            <li><a target="_blank" href="https://app.mycard520.com.tw/mmevent/?utm_content=mycardwalletEvent&amp;utm_source=gbdeducttxt2-zh-tw1&amp;utm_medium=web&amp;utm_campaign=gbdeducttxt2">【隱藏任務】點擊輸入「 我愛MyCard會員扣點」，即可獲得...</a></li>
+            </ul>
+        </div>
+            <!--輪播-->
+            <div id="ad">
+                <ul class="slider">
+                                <li class="slide"><a href="https://app.mycard520.com.tw/mmevent/?utm_source=gbdeductbn2-zh-tw1&amp;utm_medium=web&amp;utm_campaign=gbdeductbn2" title="" target="_blank" onclick="ga(&#39;send&#39;, &#39;event&#39;, &#39;buy&#39;, &#39;gm21-1&#39;);"><img src="./Global MyCard_files/1140x124_v11.gif" alt="" class="mobile_slider" style="display: none;"><img src="./Global MyCard_files/1140x124_v11.gif" alt="" class="pc_slider"></a></li>
+                </ul>
+            </div>
+
+</form>    </div>
+</div>
+<!--注意事項開始-->
+<div id="notice">
+    <div class="container">
+        <h3>會員扣點</h3>
+        <div class="box">
+            <div class="row">
+                <ul class="col-xs-12">
+                    <li>使用MyCard會員扣點時，請按照下面兩個步驟操作：1. 先輸入MyCard會員帳號及會員密碼。2. 再輸入支付密碼或安全代碼。</li><li>使用「MyCard APP快速扣點」不適用狂遊戲紅利回饋。</li><li>若您忘記會員密碼，建議您透過<a href="https://member.mycard520.com/local/Forgot/Password" target="_blank">忘記密碼</a>查詢。</li><li>若您忘記支付密碼或安全代碼，建議您透過<a href="https://member.mycard520.com/local/Forgot/PaymentPassword" target="_blank">忘記支付密碼</a>查詢。</li><li>帳號密碼輸入多次錯誤後，帳號進行鎖定，請勿嘗試盜用他人帳號，避免觸法。</li><li>若您有MyCard儲值相關問題，請您透過MyCard<a href="https://member.mycard520.com/local/OnlineCustomer/Index" target="_blank">線上客服回覆系統</a>反應。</li>
+                </ul>
+            </div>
+            <!--row-->
+        </div>
+        <!--box-->
+    </div>
+    <!--container-->
+</div>
+<!--notice-->
+
+
+
+    <!--copyright開始-->
+    <div id="copyright">
+        <div class="container">
+                <p class="copyright">©Soft-World Corp. All Rights Reserved.</p>
+        </div>
+        <!--container-->
+    </div>
+    <!--copyright結束-->
+    <div id="gotop" style="display: none;">
+        <img src="./Global MyCard_files/gotop_icon.png" alt="gotop">
+    </div>
+
+    <script src="./Global MyCard_files/jquery.modal.min.js.下載"></script>
+    <script src="./Global MyCard_files/angular.min.js.下載"></script>
+    <script src="./Global MyCard_files/jquery.blockUI.js.下載"></script>
+    <script type="text/javascript">
+        var submitFlag = true;
+        $(document).ready(function () {
+            $('div[id^="gv"]').css("display", "block");
+
+            $('.send').click(function () {
+                var form = $("form");
+                if (form.length > 0) {
+                    if (!form.valid() && ($(this).attr('id') == 'Submit' || $(this).attr('id') == 'NextStep')) {
+                        return false;
+                    }
+                    if (form.valid() && $(this).attr('id') == 'NextStep') {
+                        $.unblockUI();
+                    }
+                }
+                $.blockUI({ timeout: 10000, css: { backgroundColor: '#888', color: '#000', border: 'none', opacity: 0.7 }, message: '<div class="loading2"> <img src="https://image.mycard520.com/mycardallinone/assets/img/loading.gif"> <p>' + '讀取中' + '</p></div>' });
+                if ($(this).attr('id') == 'NextStep' | $(this).attr('id') == 'ForwardStep') {
+                    $.unblockUI();
+                }
+            });
+
+        });
+
+        function RunblockUI() {
+            var form = $("form");
+            if (form.length > 0) {
+                if (!form.valid() && ($(this).attr('id') == 'Submit' || $(this).attr('id') == 'NextStep')) {
+                    return false;
+                }
+                if (form.valid() && $(this).attr('id') == 'NextStep') {
+                    $.unblockUI();
+                }
+            }
+            $.blockUI({ timeout: 10000, css: { backgroundColor: '#888', color: '#000', border: 'none', opacity: 0.7 }, message: '<div class="loading2"> <img src="https://image.mycard520.com/mycardallinone/assets/img/loading.gif"> <p>' + '讀取中' + '</p></div>' });
+            if ($(this).attr('id') == 'NextStep' | $(this).attr('id') == 'ForwardStep') {
+                $.unblockUI();
+            }
+        }
+        function SendAjaxForPost(InUrl, InData, Intype) {
+            $.ajax({
+                url: InUrl,
+                type: 'POST',
+                data: InData,
+                success: function (data) {
+                    if (Intype == "checkMobilePhone") { //取得幣別
+                        checkMobilePhone(data);
+                    }
+                },
+                error: function (data) {
+                    console.log("error");
+                }
+            });
+        }//所有取得後端資料的介面
+        function checkMobilePhone(data) {
+            console.log(data);
+            if (data.ReturnMsgNo == "1" | data.ReturnMsgNo == "-1") {
+                if (data.LockMobilePhone == "1") {//這邊代表綁過快儲
+                    submitform1();
+                } else {//這邊代表沒有綁過
+                    console.log('這邊代表沒有綁過');
+                    modal({
+                        type: 'default', title: '快速儲值服務確認', text: "加入快速儲值服務在下次交<br />易時將更快完成交易流程", size: "SMALL",
+                        template: '<div class="modal-box"><div class="modal-inner"><div class="modal-title"></a></div><div class="modal-text"></div><div class="modal-buttons"></div></div></div>', buttons: [{
+                            text: '使用',
+                            onClick: function () {
+                                console.log('使用');
+                                submitform1();
+                                return !0
+                            }
+                        }, {
+                            text: '不使用',
+                            onClick: function () {
+                                console.log('不使用');
+                                $("input[Name=FastService]").prop("checked", false);
+                                console.log($("input[Name=FastService]").is(":checked"));
+                                submitform1();
+                                return !0
+                            }
+                        }]
+                    });
+                }
+            }
+            else {
+                alert(data.ReturnMsg);
+            }
+        }
+
+    </script>
+    
+    <script src="./Global MyCard_files/jquery.validate.min.js.下載"></script>
+    <script src="./Global MyCard_files/jquery.validate.unobtrusive.min.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/jquery.bxslider2.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/hang.js.下載"></script>
+    <script type="text/javascript" src="./Global MyCard_files/payment_test.js.下載"></script>
+    <script async="" src="./Global MyCard_files/iframe_api"></script>
+
+    <script type="text/javascript">
+        var btLoadingMsg = "讀取中";
+        var TransactionNoteMsg = "交易尚未完成 請勿關閉此頁面";
+         //20231013
+        var MyCardMemId_placeholderMsg = '請輸入Email或行動帳號';
+        var VerifyCode_PlaceHolderMsg = '請輸入驗證碼';
+        var FreeMyCardMsg886Msg = '手機門號開頭只能有09且長度限制為10碼';
+
+        function LangSelectChange(lang) {
+            $(".error > span").html("");
+
+            $.ajax({
+                url: "/MyCardPay/Resources/MemberCost",
+                async: false,
+                type: "POST",
+                dataType: "json",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    language: lang
+                }),
+                success: function (data) {
+                    $("body").find("[data-id]").each(function () {
+                        switch ($(this)[0].tagName) {
+                            case "A":
+                                $(this).attr("title", data[$(this).attr("data-id")]);
+                            case "SPAN":
+                            case "LABEL":
+                            case "BUTTON":
+                                $(this).text(data[$(this).attr("data-id")]);
+                                break;
+                            default:
+                                $(this).html(data[$(this).attr("data-id")]);
+                                break;
+                        }
+                    });
+
+                    $("body").find("input").each(function () {
+                        if (data[$(this).attr("id") + "_placeholder"])
+                            $(this).attr("placeholder", data[$(this).attr("id") + "_placeholder"]);
+
+                        if (data[$(this).attr("id") + "_errorlength"])
+                            $(this).attr("data-val-length", data[$(this).attr("id") + "_errorlength"]);
+
+                        if (data[$(this).attr("id") + "_errorformat"])
+                            $(this).attr("data-val-regex", data[$(this).attr("id") + "_errorformat"]);
+
+                        if (data[$(this).attr("id") + "_errorrequired"])
+                            $(this).attr("data-val-required", data[$(this).attr("id") + "_errorrequired"]);
+                    });
+
+                    if (data["btLoading"])
+                        btLoadingMsg = data["btLoading"];
+                    if (data["TransactionNote"])
+                        TransactionNoteMsg = data["TransactionNote"];
+
+                    //20231013
+                    if (data["MyCardMemId_placeholder"])
+                        MyCardMemId_placeholderMsg = data["MyCardMemId_placeholder"];
+                    if (data["VerifyCode_PlaceHolder"])
+                        VerifyCode_PlaceHolderMsg = data["VerifyCode_PlaceHolder"];
+                    if (data["FreeMyCardMsg886"])
+                        FreeMyCardMsg886Msg = data["FreeMyCardMsg886"];
+
+                    $("#form1").removeData("validator");
+                    $("#form1").removeData("unobtrusiveValidation");
+                    $.validator.unobtrusive.parse("#form1");
+
+                    $.ajax('/MyCardPay/Base/_NoticePartial', {
+                        'async': false,
+                        'cache': false,
+                        'data': {
+                            'TypeID': 'pyt3'
+                        },
+                        'dataType': 'html',
+                        'type': 'POST'
+                    }).done(function (data, textStatus, jqXHR) {
+                        $("#notice").remove();
+                        $(data).insertAfter($("#payment"));
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("error2");
+                    });
+
+                    $.ajax('/MyCardPay/Base/AdPartial', {
+                        'async': false,
+                        'cache': false,
+                        'data': {
+                            'AdType': 'MemberCostTop'
+                        },
+                        'dataType': 'html',
+                        'type': 'POST'
+                    }).done(function (data, textStatus, jqXHR) {
+                        $("input[name='__RequestVerificationToken']").prevAll().remove();
+                        $("#form1").prepend(data);
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("error3");
+                    });
+
+                    $.ajax('/MyCardPay/Base/AdPartial', {
+                        'async': false,
+                        'cache': false,
+                        'data': {
+                            'AdType': 'MemberCostBottom'
+                        },
+                        'dataType': 'html',
+                        'type': 'POST'
+                    }).done(function (data, textStatus, jqXHR) {
+                        $(".mycard_app").nextAll().remove();
+                        $("#form1").append(data);
+                    }).fail(function (jqXHR, textStatus, errorThrown) {
+                        alert("error4");
+                    });
+
+                     //20231013 國碼下拉
+                    $.ajax({
+                        url: "/MyCardPay/MemberCost/DropdownLang",
+                        async: false,
+                        type: "POST",
+                        dataType: "json",
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            language: lang
+                        }),
+                        success: function (data) {
+                            $("#CountryCode option").remove();
+
+                            //20231013
+                            //新賦予國碼搜尋值
+                            countries = JSON.parse(data.CountryCodeJS);
+
+                            data.PhoneCodeList.forEach(function (arr) {
+                                if (arr.Selected)
+                                    $("#CountryCode").append("<option value='" + arr.Value + "' selected='selected'>" + arr.Text + "</option>");
+                                else
+                                    $("#CountryCode").append("<option value='" + arr.Value + "'>" + arr.Text + "</option>");
+                            });
+
+                            $("#CountryCode").children('option[value="? string: ?"]').remove();
+
+                            $("#MyCardMemId").attr("placeholder", MyCardMemId_placeholderMsg);
+
+                            $("#VerifyCode").attr("placeholder", VerifyCode_PlaceHolderMsg);
+                        },
+                        error: function () {
+                            $("#CountryCode option").remove();
+                            alert("電話國碼找不到對應語系");
+                        }
+                    });
+                },
+                error: function () {
+                    alert("error");
+                }
+            });
+        }
+
+        //設定次數
+        var t = 60;
+        var meter;
+        var smeter;
+
+        function counterTime() {
+            clearTimeout(smeter);
+            showTime();
+        }
+
+        function showTime() {
+            meter = setTimeout("showTime()", 5000);
+
+            if (t > 0) {
+                QueryResult(2);
+            }
+            else {
+                clearTimeout(meter);
+                $("#ShowQuery").show();
+                return;
+            }
+            t -= 1;
+        }
+
+        var submitFlag = true;
+        $(document).ready(function () {
+            $("#ShowQuery").hide();
+
+            //20231013 國碼設定
+            //首次會抓ViewBag預設值
+            $('#CountryCode').hide();
+              countries =[{"name":"台灣","countrycode":"TW","code":"886"},{"name":"香港","countrycode":"HK","code":"852"},{"name":"澳門","countrycode":"MO","code":"853"},{"name":"中國","countrycode":"CN","code":"86"},{"name":"馬來西亞","countrycode":"MY","code":"60"},{"name":"新加坡","countrycode":"SG","code":"65"},{"name":"印尼","countrycode":"ID","code":"62"},{"name":"泰國","countrycode":"TH","code":"66"},{"name":"菲律賓","countrycode":"PH","code":"63"},{"name":"越南","countrycode":"VN","code":"84"},{"name":"韓國","countrycode":"KR","code":"82"},{"name":"日本","countrycode":"JP","code":"81"},{"name":"美國","countrycode":"US","code":"1"},{"name":"加拿大","countrycode":"CA","code":"1"},{"name":"英國","countrycode":"GB","code":"44"},{"name":"澳洲","countrycode":"AU","code":"61"},{"name":"秘鲁","countrycode":"PE","code":"51"},{"name":"墨西哥","countrycode":"MX","code":"52"},{"name":"巴西","countrycode":"BR","code":"55"},{"name":"智利","countrycode":"CL","code":"56"},{"name":"哥倫比亞","countrycode":"CO","code":"57"},{"name":"烏拉圭","countrycode":"UY","code":"598"},{"name":"寮國","countrycode":"LA","code":"856"},{"name":"德國","countrycode":"DE","code":"49"},{"name":"西班牙","countrycode":"ES","code":"34"},{"name":"法國","countrycode":"FR","code":"33"},{"name":"瑞典","countrycode":"SE","code":"46"},{"name":"俄羅斯","countrycode":"RU","code":"7"},{"name":"紐西蘭","countrycode":"NZ","code":"64"},{"name":"柬埔寨","countrycode":"KH","code":"855"},{"name":"土耳其","countrycode":"TR","code":"90"},{"name":"荷蘭","countrycode":"NL","code":"31"},{"name":"阿拉伯聯合大公國","countrycode":"AE","code":"971"},{"name":"阿根廷","countrycode":"AR","code":"54"},{"name":"比利時","countrycode":"BE","code":"32"},{"name":"義大利","countrycode":"IT","code":"39"},{"name":"葡萄牙","countrycode":"PT","code":"351"}];
+
+            $('.country_code_selectbar').on('touchstart mousedown', function (e) {
+                // 阻止下拉選單列表的開啟
+                e.preventDefault();
+                // 清除搜尋框並顯示
+                $('.country_code_searchbar').val('').show().focus();
+                // 顯示國碼列表
+                $('#countryList').show().empty();
+                // 生成選項
+                countries.forEach(function (country) {
+                    $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                });
+            });
+
+            $('.country_code_searchbar').on('input', function () {
+                var searchTerm = $(this).val().toLowerCase();
+                $('#countryList').show().empty();
+                // 搜尋對應國碼
+                countries.forEach(function (country) {
+                    if (country.name.toLowerCase().includes(searchTerm) || country.countrycode.toLowerCase().includes(searchTerm) || country.code.toLowerCase().includes(searchTerm)) {
+                        $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                    }
+                });
+            });
+
+            $('#countryList').on('click', 'li', function () {
+                var countryCodeData = $(this).data('countrycode');
+                $('.country_code_selectbar option').removeAttr('selected');
+                $('.country_code_selectbar option[value="' + countryCodeData + '"]').attr("selected", "selected");
+                $('.country_code_searchbar').hide();
+                $('#countryList').hide();
+            });
+
+            $('.country_code_searchbar').on('blur', function () {
+                setTimeout(function () {
+                    $('.country_code_searchbar').val('').hide();
+                    $('#countryList').hide();
+                }, 300);
+            });
+
+            //20240423 登入頁4碼錯誤
+            $('.account_textbox').on('blur keyup', function () {
+                $("#SendMsg").text("");
+            });
+            //
+
+            smeter = setTimeout("counterTime()", 20000);
+
+            $("body").on('click', '.popup_close_btn, .overlay', function () {
+                $(".popup, .overlay").fadeOut();
+            });
+
+            $('#Submit').click(function () {
+                if ($('#form1').valid() && submitFlag) {
+                    //20231013 檢查帳號
+                    //輸入手機：國碼+帳號
+                    var o = false;
+                    o = CountryCodeChecker($("#MyCardMemId").val());
+                    if (o == true) {
+                        $('#ma').val(btoa($('input[name="__RequestVerificationToken"]').val() + $("#CountryCode").val().split('|')[1] + "|" + $('#MyCardMemId').val()));
+                    }
+                    else {
+                        $('#ma').val(btoa($('input[name="__RequestVerificationToken"]').val() + $('#MyCardMemId').val()));
+                    }
+
+                    $('#mb').val(btoa($('input[name="__RequestVerificationToken"]').val() + $('#MyCardMemPW').val()));
+
+                    $('#mc').val(btoa($('input[name="__RequestVerificationToken"]').val() + $('#VerifyCode').val()));
+
+                    $('#MyCardMemId').attr("disabled", true);
+                    $('#MyCardMemPW').attr("disabled", true);
+                    $('#VerifyCode').attr("disabled", true);
+
+                    $(this).text(btLoadingMsg);
+                    submitFlag = false;
+                    $("#form1").submit();
+                }
+            });
+
+            //按鈕:稍後再說 => 關閉彈窗
+            $("#closePop").click(function (e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                $('#rebind_creditcard').trigger('reveal:close');
+            });
+
+            //按鈕:重新綁定 => 導頁至會員中心
+            $("#gotoGlobalMember").click(function (e) {
+                e.preventDefault();
+                window.location = 'https://member.mycard520.com/local/Centre/Index';
+            });
+
+            if ('False'.toLowerCase() == 'true' && '0' != '1' && !isWebview()) {
+                OpenMessage();
+            }
+        });
+
+        //20231013 判斷顯示國碼下拉
+        function CountryCodeChecker(inputValue, RexValue) {
+            var o = false;
+            var rules = new RegExp('^[0-9]*$');
+
+            if (rules.test(inputValue)) {
+                o = true;
+            }
+            return o;
+        };
+
+        function CopyQRCodeUrl() {
+            var $temp = $("<input>");
+            var content = $('#QRCodeUrl').val();
+
+            $("body").append($temp);
+            $temp.val(content).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+
+        function QueryResult(ctype) {
+            $.getJSON("/MyCardPay/MemberCost/TransactionQuery", function (j) {
+                if (j.returnNo == 1 && j.isScan) {
+                    $(".deduct_qr_progressing").prev().addClass("deduct_qr_transparent");
+                    $(".deduct_qr_progressing").addClass("deduct_qr_progressing_show");
+                }
+
+                if ((j.returnNo == 1 && j.isComplete) || (j.returnNo == "MCPMC025" && j.isCancel)) {
+                    self.document.location.href = "/MyCardPay/Return";
+                }
+                else if (ctype == 1 && j.returnNo == 1) {
+                    alert(TransactionNoteMsg);
+                }
+                else if (ctype == 1) {
+                    alert(j.ReturnMsg);
+                }
+            });
+        }
+
+        function OpenMessage() {
+            $("#OpenMessageModal").remove();
+            $("#payment").append("<div id='OpenMessageModal' class='popup' style='display:none;'><h2>MyCard</h2><p></p><a class='modal-btn'><button class='popup_close_btn btn_blue'>OK</button></a></div><div class='overlay'></div>");
+            $(".popup, .overlay").fadeIn();
+
+            redirect({
+                android: {
+                    'host': 'mission/?authCode=&tradeInfo=&sourceType=&hash=&type=',
+                    'scheme': 'mycardapp', // Scheme part in a custom scheme URL
+                    'package': 'soft_world.mycard.mycardapp', // Package name in Play store
+                    'fallback': 'https://play.google.com/store/apps/details?id=soft_world.mycard.mycardapp&hl=zh_TW'
+                }
+            });
+
+        }
+
+        function redirect(options) {
+            var hasAndroid = !!(options.android);
+
+            if (hasAndroid && /Android/.test(navigator.userAgent)) {
+
+                var intent = options.android;
+                var intentUrl = 'intent://' + intent.host + '#Intent;' +
+                            'scheme=' + encodeURIComponent(intent.scheme) + ';' +
+                            'package=' + encodeURIComponent(intent.package) + ';' +
+                            (intent.action ? 'action=' + encodeURIComponent(intent.action) + ';' : '') +
+                            (intent.category ? 'category=' + encodeURIComponent(intent.category) + ';' : '') +
+                            (intent.component ? 'component=' + encodeURIComponent(intent.component) + ';' : '') +
+                            (intent.fallback ? 'S.browser_fallback_url=' + encodeURIComponent(intent.fallback) + ';' : '') +
+                            'end';
+
+                $(".modal-btn").attr("href", intentUrl).html("<button class='popup_close_btn btn_blue'>點我開啟MyCardApp快速登入!</button>");
+            } else {
+                console.log('Unknown platform, nothing to do');
+            }
+        }
+
+        function isWebview() {
+            var useragent = navigator.userAgent;
+            var rules = '(WebView|Android.*(wv|\.0\.0\.0))';
+            var regex = new RegExp(rules, 'ig');
+            return Boolean(useragent.match(regex));
+        }
+    </script>
+
+
+
+<div style="display: none; visibility: hidden;"><script>(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b;a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)};a[b].l=1*new Date;c=e.createElement(f);d=e.getElementsByTagName(f)[0];c.async=1;c.src=g;d.parentNode.insertBefore(c,d)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create","UA-8383435-2","auto");ga("send","pageview");</script></div><script type="text/javascript" id="" charset="">$("a[href\x3d'https://guide.mycard520.com/url/uniqueid']").attr("href","https://my24.tw/mmcode");</script>
+<script type="text/javascript" id="" charset="">$("a[href\x3d'https://guide.mycard520.com/url/uniqueidevent']").attr("href","https://my24.tw/mmcodeevent");</script>
+<script type="text/javascript" id="" charset="">$("a[href\x3d'https://guide.mycard520.com/url/uniqueidevent2']").attr("href","https://my24.tw/mmcodeevent2");</script></body></html>

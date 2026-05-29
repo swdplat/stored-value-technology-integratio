@@ -2368,6 +2368,7 @@ input, textarea {
     background-color: #e8e8e9;
     border: 1px solid #d6d6d6;
     border-left: none;
+    border-bottom: none;
 }
 
 #payment .options ul li {

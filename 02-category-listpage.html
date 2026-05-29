@@ -1423,7 +1423,6 @@
               </div>
             </div>
             <div class="carousel-wrapper">
-              <button class="arrow prev">❮</button>
               <div class="carousel-container">
                 <div class="carousel-track">
                   <div class="card">
@@ -1516,40 +1515,8 @@
                       </a>
                     </div>
                   </div>
-                  <div class="card">
-                    <div class="card-inner">
-                      <a class="connect" href="#" target="_blank">
-                        <div class="photo-outer">
-                          <img
-                            class="photo-img"
-                            src="./images/test-image1.png"
-                          />
-                        </div>
-                        <div class="text-outer">
-                          <p>天龍八部2：血戰江湖</p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-inner">
-                      <a class="connect" href="#" target="_blank">
-                        <div class="photo-outer">
-                          <img
-                            class="photo-img"
-                            src="./images/test-image2.png"
-                          />
-                        </div>
-                        <div class="text-outer">
-                          <p>天龍八部2 血戰江湖之戰爭機器</p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
-
-              <button class="arrow next">❯</button>
             </div>
             <div class="carousel-dots-window">
               <div class="carousel-dots-track"></div>
@@ -3367,7 +3334,7 @@
 
     <!-- 曾經選擇 卡片輪播區塊 開始 -->
     <script>
-     $(document).ready(function () {
+$(document).ready(function () {
     const $container = $(".carousel-container");
     const $track = $(".carousel-track");
     const $cards = $(".card");
@@ -3380,28 +3347,63 @@
     let maxIndex = 0;
     let cardWidth = 0;
     let isDragging = false;
-    let wasDragged = false; // 【新增】用來判斷是否為拖曳動作
+    let wasDragged = false; 
     let startX = 0;
     let currentX = 0;
     let animationId = null;
+    let isMobile = false; // 【新增】用來記錄當前是否為手機版狀態
 
     $track.css("will-change", "transform");
 
     function initCarousel() {
-        $track.css("transition", "none");
         const containerWidth = $container.width();
-        if ($cards.length > 0) {
-            cardWidth = $cards[0].getBoundingClientRect().width;
-            const visibleCards = Math.floor((containerWidth + 1) / cardWidth);
-            maxIndex = Math.max(0, $cards.length - visibleCards);
+        const windowWidth = window.innerWidth;
+
+        // 判斷是否小於 576px
+        if (windowWidth < 576) {
+            isMobile = true;
+            $arrows.hide();
+            $dotsTrack.show(); // 顯示 dots 容器
+
+            if ($cards.length > 0) {
+                // 手機版：以兩張作呈現，所以卡片寬度為容器的一半
+                cardWidth = containerWidth / 2;
+                $cards.css("width", `${cardWidth}px`); // 動態設定卡片寬度確保完美平分
+                
+                // 總共 6 張，每次呈現 2 張，最大索引值就是 6 - 2 = 4
+                maxIndex = Math.max(0, $cards.length - 2); 
+            }
+            
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            renderDots();
+            updateCarousel();
+        } else {
+            // 桌面版 (>= 576px)：六張全部呈現，歸零所有輪播狀態
+            isMobile = false;
+            currentIndex = 0;
+            maxIndex = 0;
+            
+            $arrows.show();
+            $dotsTrack.hide();     // 隱藏 dots 容器
+            $dotsTrack.empty();    // 清空圓點
+            
+            // 恢復原本 CSS 配置（讓卡片交由 CSS 寬度或彈性佈局處理，例如 flex: 1 或 width: 16.66%）
+            $cards.css("width", ""); 
+            $track.css({
+                "transform": "translateX(0px)",
+                "transition": "none"
+            });
+            
+            // 桌面版按鈕狀態重置
+            $btnPrev.addClass("disabled");
+            $btnNext.addClass("disabled");
         }
-        if (currentIndex > maxIndex) currentIndex = maxIndex;
-        window.innerWidth < 576 ? $arrows.hide() : $arrows.show();
-        renderDots();
-        updateCarousel();
     }
 
     function updateCarousel() {
+        // 如果不是手機版，就不執行滾動邏輯
+        if (!isMobile) return;
+
         $track.css("transition", "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)");
         const offset = -currentIndex * cardWidth;
         $track.css("transform", `translateX(${offset}px)`);
@@ -3416,22 +3418,46 @@
         else $btnNext.removeClass("disabled");
     }
 
-    // --- 拖曳邏輯修改 ---
+    function updateDotsOffset() {
+        if (!isMobile) return;
+        const dotWidth = 16;
+        let dotOffset = 0;
+        if (currentIndex >= 2) {
+            const moveIndex = Math.min(currentIndex - 2, Math.max(0, maxIndex + 1 - 5));
+            dotOffset = -moveIndex * dotWidth;
+        }
+        $dotsTrack.css("transform", `translateX(${dotOffset}px)`);
+    }
+
+    function renderDots() {
+        $dotsTrack.empty();
+        if (!isMobile) return;
+
+        for (let i = 0; i <= maxIndex; i++) {
+            $dotsTrack.append('<span class="dot"></span>');
+        }
+        $(".dot").off("click").on("click", function () {
+            currentIndex = $(this).index();
+            updateCarousel();
+        });
+    }
+
+    // --- 拖曳邏輯（加入 isMobile 阻斷機制） ---
     function dragStart(e) {
+        if (!isMobile) return; // 【修改】非手機版不允許拖曳
         isDragging = true;
-        wasDragged = false; // 【修改】每次開始拖曳時，先設為 false
+        wasDragged = false; 
         $track.css("transition", "none");
         startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        currentX = startX; // 初始化當前坐標
+        currentX = startX; 
     }
 
     function dragMove(e) {
-        if (!isDragging) return;
+        if (!isDragging || !isMobile) return;
         
         const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
         const diff = x - startX;
 
-        // 【修改】判定：如果移動距離大於 10px，就標記為「正在拖曳」
         if (Math.abs(diff) > 10) {
             wasDragged = true;
         }
@@ -3454,7 +3480,6 @@
         
         const diff = currentX - startX;
         
-        // 如果移動距離足夠，就換頁
         if (diff < -50 && currentIndex < maxIndex) {
             currentIndex++;
         } else if (diff > 50 && currentIndex > 0) {
@@ -3463,17 +3488,17 @@
         updateCarousel();
     }
 
-    // 【核心新增】攔截卡片內部的點擊事件
-    // 如果剛才發生過拖曳 (wasDragged 為 true)，就阻止點擊觸發跳轉
+    // --- 事件綁定 ---
+    
+    // 攔截卡片內部的拖曳後點擊
     $track.on("click", ".card, a", function (e) {
         if (wasDragged) {
             e.preventDefault();
             e.stopImmediatePropagation();
-            console.log("偵測到拖曳後的點擊，已攔截跳轉。");
         }
     });
 
-    // 事件綁定 (保持不變)
+    // 滑鼠與觸控拖曳事件
     const trackEl = $track[0];
     $track.on("mousedown", dragStart);
     $(document).on("mousemove", dragMove).on("mouseup", dragEnd);
@@ -3481,50 +3506,26 @@
     window.addEventListener("touchmove", dragMove, { passive: false });
     window.addEventListener("touchend", dragEnd, { passive: true });
 
-    // 按鈕與其他功能
-    $btnNext.click(() => { if (currentIndex < maxIndex) { currentIndex++; updateCarousel(); } });
-    $btnPrev.click(() => { if (currentIndex > 0) { currentIndex--; updateCarousel(); } });
-
-    $(window).on("resize", initCarousel);
-    initCarousel();
-
-    // --- 其餘函式保持不變，修正 Math.abs ---
-    function renderDots() {
-        $dotsTrack.empty();
-        for (let i = 0; i <= maxIndex; i++) {
-            $dotsTrack.append('<span class="dot"></span>');
-        }
-        $(".dot").off("click").on("click", function () {
-            currentIndex = $(this).index();
-            updateCarousel();
-        });
-    }
-
-    function updateCarousel() {
-        $track.css("transition", "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)");
-        const offset = -currentIndex * cardWidth;
-        $track.css("transform", `translateX(${offset}px)`);
-        $(".dot").removeClass("active").eq(currentIndex).addClass("active");
-        
-        // 點點移動邏輯... (略)
-        updateDotsOffset();
-    }
-
-    function updateDotsOffset() {
-        const dotWidth = 16;
-        let dotOffset = 0;
-        if (currentIndex >= 2) {
-            const moveIndex = Math.min(currentIndex - 2, Math.max(0, maxIndex + 1 - 5));
-            dotOffset = -moveIndex * dotWidth;
-        }
-        $dotsTrack.css("transform", `translateX(${dotOffset}px)`);
-    }
-
-
-    $(window).on("resize", initCarousel);
-    initCarousel();
+    // 左右按鈕點擊事件（加入 isMobile 判斷）
+    $btnNext.off("click").click(function() { 
+        if (isMobile && currentIndex < maxIndex) { 
+            currentIndex++; 
+            updateCarousel(); 
+        } 
     });
-    </script>
+    
+    $btnPrev.off("click").click(function() { 
+        if (isMobile && currentIndex > 0) { 
+            currentIndex--; 
+            updateCarousel(); 
+        } 
+    });
+
+    // 視窗縮放與初始化
+    $(window).on("resize", initCarousel);
+    initCarousel();
+});
+</script>
     <!-- 曾經選擇 卡片輪播區塊 結束 -->
      
     <script>

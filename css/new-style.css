@@ -2590,6 +2590,8 @@ input[type="text"] {
     vertical-align: middle;
     box-sizing: border-box;
     border-radius: 0px 6px 6px 0px;
+    display: flex;
+    justify-content: center;
 }
 
 a:link {

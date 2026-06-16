@@ -2170,6 +2170,8 @@
   padding: 16px 16px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12);
   align-items: center;
+  position: absolute;
+  bottom: 5px;
 }
 
 .Checkout-regin .not-checkout .not-checkout-inner .not-checkout-title{

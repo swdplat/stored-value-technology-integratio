@@ -1652,6 +1652,16 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="350-price card-change my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
+                            <div class="coin-color my-select-title my-mb-2">是否轉換為月卡</div>
+                            <div class="form-select-color my-form-select my-form-select-l my-form-select-m-md my-font-14 select-option-ul">是，轉換為月卡</div>
+                            <div class="options-box new-option-style">
+                                <ul class="options-ul">
+                                    <li data-value="currency1">是，轉換為月卡</li>
+                                    <li data-value="currency2">否，維持為點卡</li>
+                                </ul>
+                            </div>
+                        </div>
                         <!-- 隱藏的原生 select -->
                         <select id="server-select" name="currency" style="display: none;">
                             <li data-value="currency1">台幣1 TWD</li>
@@ -1740,7 +1750,7 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="product-new-item">
+                                    <li class="product-new-item  push-350">
                                         <!-- <div class="product-item-tags">
                                             <p>最新</p>
                                         </div> -->
@@ -3866,6 +3876,29 @@
                 $('.product-new-item').removeClass("active");
             })
         });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+    // 初始狀態：先將 350 的下拉選單隱藏（如果 CSS 沒設定的話）
+      $('.350-price').hide();
+
+    // 功能 1：點擊 class="push-350" 的 <li> 時，顯示下拉選單
+      $(document).on('click', '.push-350', function(e) {
+        // 阻止事件冒泡，避免觸發到功能 2 的全域點擊隱藏
+        e.stopPropagation(); 
+        
+        $('.350-price').show();
+      });
+
+    // 功能 2：點擊 400TWD（或其他任何非 push-350 的區塊）時，隱藏下拉選單
+      $(document).on('click', function(e) {
+        // 檢查點擊的目標，如果不是 .push-350 內部，也不是 .350-price 下拉選單內部，就隱藏
+        if (!$(e.target).closest('.push-350').length && !$(e.target).closest('.350-price').length) {
+            $('.350-price').hide();
+        }
+     });
+});
     </script>
 </body>
 </html>

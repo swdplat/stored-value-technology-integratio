@@ -4381,15 +4381,17 @@
     
     // --- 新增功能：點擊遮罩或指定區塊返回步驟 1 ---
     $('.member-overlay, .login-block').on('click', function(e) {
-        // 檢查點擊的目標（e.target）是不是遮罩或 login-block 本身
-        // 避免點擊 login-step-2 內部的內容時誤觸關閉
-        if ($(e.target).hasClass('member-overlay') || $(e.target).hasClass('login-block')) {
-            // 關閉 step-2 和遮罩
-            $('.login-step-2, .member-overlay').hide();
-            // 重新開啟 step-1
-            $('.login-step-1').show();
-        }
-    });
+    // 檢查點擊的目標是不是遮罩本身
+    // 或者點擊的目標「包含或屬於」.login-block 內部
+    if ($(e.target).hasClass('member-overlay') || $(e.target).closest('.login-block').length > 0) {
+        
+        // 關閉 step-2 和遮罩
+        $('.login-step-2, .member-overlay').hide();
+        
+        // 重新開啟 step-1
+        $('.login-step-1').show();
+    }
+});
     
 });
     </script>

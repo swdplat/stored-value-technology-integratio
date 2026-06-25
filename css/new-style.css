@@ -2021,10 +2021,12 @@
     padding: 2px 8px 4px 8px !important;
     background-color: #ffffff !important;
     color: #4FAFF1 !important;
+    border: 1px solid #4FAFF1 !important;
 }
 
 .confirm-money:hover{
   color: #ffffff !important;
+  border: 1px solid #4FAFF1 !important;
 }
 
 .customize-point-insert .customize-item .customize-item-inner .product-item-tags{
@@ -3222,7 +3224,7 @@ a:link {
 }
 
 .login-box-btn{
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: center;
   gap: 16px;
@@ -3232,7 +3234,6 @@ a:link {
 .login-box-btn .use-password{
   border: 2px solid #1E2939;
   align-content: center;
-  max-width: 152px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -3248,7 +3249,6 @@ a:link {
   background-color: #4FAFF1;
   color: #ffffff;
   align-content: center;
-  max-width: 152px;
   width: 100%;
   display: flex;
   justify-content: center;

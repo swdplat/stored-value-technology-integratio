@@ -2010,6 +2010,23 @@
   position: relative;
 }
 
+.confirm-money {
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: 0.5s !important;
+    border-radius: 6px !important;
+    padding: 2px 8px 4px 8px !important;
+    background-color: #ffffff !important;
+    color: #4FAFF1 !important;
+}
+
+.confirm-money:hover{
+  color: #ffffff !important;
+}
+
 .customize-point-insert .customize-item .customize-item-inner .product-item-tags{
   background-color: #FB2C36;
   color: #ffffff;
@@ -2724,11 +2741,11 @@ a:link {
 }
 
 .account_container .account_textbox {
-    padding: 0 15px 0 58px !important;
+    padding: 0 15px 0 15px !important;
     font-size: 14px;
     width: 100%;
     max-width: 100%;
-    background-image: url(https://image.mycard520.com/globalmycard/images/account.svg);
+    background-image: unset !important;
     background-position: 15px center;
     background-repeat: no-repeat;
     border-radius: 6px;
@@ -2768,7 +2785,6 @@ a:link {
 
 
 .new-modal-body{
-    padding: 24px 0px 24px 0px !important;
     display: flex;
     flex-direction: column;
 }
@@ -2805,13 +2821,15 @@ a:link {
 }
 
 .logout-btn{
-  width: 152px;
+  width: 60px !important;
   cursor: pointer !important;
   border: 2px solid #4FAFF1 !important;
   background-color: #ffffff !important;
   opacity: 1 !important;
   pointer-events: none !important;
   color: #4FAFF1 !important;
+  font-size: 14px !important;
+  padding: 0px !important;
 }
 
 /* 登錄彈窗 欄位樣式*/
@@ -2960,7 +2978,7 @@ a:link {
 
 @media(max-width:576px){
   .login_box .account_container .account-info{
-    padding: 0 15px 0 50px !important;
+    padding: 0 15px 0 15px !important;
   }
 }
 
@@ -2974,6 +2992,7 @@ a:link {
     max-width: 0%;
     font-size: 14px;
     display: none;
+    border-radius: 6px;
 }
 
 .login_form .textbox{
@@ -3065,6 +3084,37 @@ a:link {
     height: 136px;
     border: 1px solid #ececec;
     border-radius: 10px;
+}
+
+.qrcode .qrcode_mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 13px;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 10px;
+}
+
+.scan_box .refresh {
+    margin: 0 0 15px 0;
+    padding: 0 0 0 31px;
+    background-image: url(https://image.mycard520.com/globalmycard/images/refresh_icon.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: none;
+    font-size: 14px;
+    color: #858585;
+    height: 21px;
+    line-height: 21px;
 }
 
 .scan_box .app_download {
@@ -3425,10 +3475,11 @@ a:link {
   height: 48px;
   font-size: 15px;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   color: #4FAFF1;;
    border: 1px solid #4FAFF1;
    border-radius: 6px;
+   letter-spacing: 1px;
 }
 
 @media(max-width:576px){

@@ -782,6 +782,7 @@
 
 .payment-info .information-left .help-you{
   font-size: 20px;
+  font-weight: 500;
   color: #1E2939;
   display: flex;
   align-items: center;

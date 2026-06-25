@@ -55,11 +55,481 @@
     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/festival.css">
     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/topup-uid.css">
 
-    <!-- 注意 這是新的css樣式  開始-->
-     <link rel="stylesheet" href="https://image.mycard520.com/mycardweb/image/test/css/new-style.css">
-     <link rel="stylesheet" href="./css/new-style.css">
-    <!-- 注意 這是新的css樣式 結束-->
+    <!-- MyCard會員中心樣式 開始-->
+     <!-- <link href="./MyCard官方網站 - login_files/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="./MyCard官方網站 - login_files/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="./MyCard官方網站 - login_files/animate.css" rel="stylesheet" type="text/css">
+    <link href="./MyCard官方網站 - login_files/jquery.bxslider.css" rel="stylesheet" type="text/css">
+    <link href="./MyCard官方網站 - login_files/selectmenu.css" rel="stylesheet" type="text/css">
+    <!-- <link href="./MyCard官方網站 - login_files/style.css" rel="stylesheet" type="text/css"> -->
+    <script type="text/javascript" async="" src="./MyCard官方網站 - login_files/analytics.js"></script><script type="text/javascript" async="" src="./MyCard官方網站 - login_files/js"></script><script type="text/javascript" async="" src="./MyCard官方網站 - login_files/js(1)"></script><script type="text/javascript" async="" src="./MyCard官方網站 - login_files/js(2)"></script><script async="" src="./MyCard官方網站 - login_files/gtm.js.下載"></script><script type="text/javascript" src="./MyCard官方網站 - login_files/jquery-1.7.1.min.js.下載"></script>
+    <script language="JavaScript" src="./MyCard官方網站 - login_files/gotop.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/jquery.bxslider2.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/selectmenu.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/header.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/jquery.reveal_popup.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/popup_resize.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/mypopup.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/noise.js"></script>
+    
+    <link href="./MyCard官方網站 - login_files/style_country_search.css" rel="stylesheet" type="text/css">
+    <link rel="canonical" href="https://member.mycard520.com/zh-tw/Login/Index">
 
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/jquery.reveal_popup.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/member_login.js"></script>
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/popup_resize.js"></script>
+    <!-- 上線要新增 -->
+    <script type="text/javascript" src="./MyCard官方網站 - login_files/payment.js"></script>
+    <style>
+        .member_event {
+            margin: 0 0 30px !important;
+            float: initial;
+            display: flex;
+            align-items: center;
+
+            float: left;
+            margin: 0 0 0 0;
+            padding: 0;
+            width: 100%;
+            background-color: #ffefc8;
+            border: 1px solid #ffde8c;
+            border-radius: 5px;
+            position: relative;
+        }
+
+             .member_event p {
+                width: calc(100% - 50px);
+                line-height: 130%;
+
+                margin: 0;
+                padding: 14px 14px;
+                float: left;
+                color: #d53f21;
+                font-size: 13px;
+                max-width: 990px;
+                line-height: 180%;
+            }
+
+            .member_event a {
+                color: #fff;
+                background-color: #d53f21;
+                padding: 5px 10px;
+                border-radius: 4px;
+                text-decoration: none;
+                margin: 0 5px;
+            }
+
+             .member_event .member_event_icon {
+                padding: 0 0 0 10px;
+            }
+
+            .member_event .member_event_icon img {
+             width: 18px;
+             height: 25px;
+            }
+
+        @media screen and (max-width: 768px) {
+             .member_event .member_event_icon {
+                padding: 0 0 0 15px;
+            }
+
+             .member_event p {
+                padding: 10px 10px 10px 10px;
+                width: calc(100% - 50px);
+                font-size: 13px;
+            }
+
+            .member_event_close_btn {
+                width: 10px;
+                height: 10px;
+                background-size: 10px 20px !important;
+                right: 8px;
+                top: 8px;
+            }
+
+           .logo {
+                margin: 15px 0;
+            }
+        }
+    </style>
+    <script src="./MyCard官方網站 - login_files/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="./MyCard官方網站 - login_files/jquery.validate.min.js"></script>
+    <script src="./MyCard官方網站 - login_files/jquery.validate.unobtrusive.min.js"></script>
+    <script src="./MyCard官方網站 - login_files/singleAccount.js"></script>
+    <!-- 上線要移除 -->
+     <script type="text/javascript">
+        //設定倒數秒數
+        var t = 13, st = 20;
+        var meter, smeter;
+
+        $(document).ready(function () {
+            if ($(".member_event").children().last().html().trim() == "")
+                $(".member_event").hide();
+
+            $("#qrimage").attr("src", "https://image.mycard520.com/globalmycard/images/scan_login_img" + "" + ".png")
+
+            $("#btnPassword").hide();
+            $(".qrcode_mask,.refresh").hide();
+            $("#btnResend").attr("disabled", true);
+            //20240423 登入頁4碼錯誤
+            $("#SendMsg").text("");
+
+             //20231013 國碼設定下拉
+             //首次會抓ViewBag預設值
+            countries =[{"name":"台灣","countrycode":"TW","code":"886"},{"name":"香港","countrycode":"HK","code":"852"},{"name":"澳門","countrycode":"MO","code":"853"},{"name":"中國","countrycode":"CN","code":"86"},{"name":"馬來西亞","countrycode":"MY","code":"60"},{"name":"新加坡","countrycode":"SG","code":"65"},{"name":"印尼","countrycode":"ID","code":"62"},{"name":"泰國","countrycode":"TH","code":"66"},{"name":"菲律賓","countrycode":"PH","code":"63"},{"name":"越南","countrycode":"VN","code":"84"},{"name":"韓國","countrycode":"KR","code":"82"},{"name":"日本","countrycode":"JP","code":"81"},{"name":"美國","countrycode":"US","code":"1"},{"name":"加拿大","countrycode":"CA","code":"1"},{"name":"英國","countrycode":"GB","code":"44"},{"name":"澳洲","countrycode":"AU","code":"61"},{"name":"秘鲁","countrycode":"PE","code":"51"},{"name":"墨西哥","countrycode":"MX","code":"52"},{"name":"巴西","countrycode":"BR","code":"55"},{"name":"智利","countrycode":"CL","code":"56"},{"name":"哥倫比亞","countrycode":"CO","code":"57"},{"name":"烏拉圭","countrycode":"UY","code":"598"},{"name":"寮國","countrycode":"LA","code":"856"},{"name":"德國","countrycode":"DE","code":"49"},{"name":"西班牙","countrycode":"ES","code":"34"},{"name":"法國","countrycode":"FR","code":"33"},{"name":"瑞典","countrycode":"SE","code":"46"},{"name":"俄羅斯","countrycode":"RU","code":"7"},{"name":"紐西蘭","countrycode":"NZ","code":"64"},{"name":"柬埔寨","countrycode":"KH","code":"855"},{"name":"土耳其","countrycode":"TR","code":"90"},{"name":"荷蘭","countrycode":"NL","code":"31"},{"name":"阿拉伯聯合大公國","countrycode":"AE","code":"971"},{"name":"阿根廷","countrycode":"AR","code":"54"},{"name":"比利時","countrycode":"BE","code":"32"},{"name":"義大利","countrycode":"IT","code":"39"},{"name":"葡萄牙","countrycode":"PT","code":"351"}];
+
+            $('.country_code_selectbar').on('touchstart mousedown', function (e) {
+                // 阻止下拉選單列表的開啟
+                e.preventDefault();
+                // 清除搜尋框並顯示
+                $('.country_code_searchbar').val('').show().focus();
+                // 顯示國碼列表
+                $('#countryList').show().empty();
+                // 生成選項
+                countries.forEach(function (country) {
+                    $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                });
+            });
+
+            $('.country_code_searchbar').on('input', function () {
+                var searchTerm = $(this).val().toLowerCase();
+                $('#countryList').show().empty();
+                // 搜尋對應國碼
+                countries.forEach(function (country) {
+                    if (country.name.toLowerCase().includes(searchTerm) || country.countrycode.toLowerCase().includes(searchTerm) || country.code.toLowerCase().includes(searchTerm)) {
+                        $('#countryList').append('<li data-countrycode="' + country.countrycode + '|' + country.code + '">' + country.name + ' (+' + country.code + ')</li>');
+                    }
+                });
+            });
+
+            $('#countryList').on('click', 'li', function () {
+                var countryCodeData = $(this).data('countrycode');
+                $('.country_code_selectbar option').removeAttr('selected');
+                $('.country_code_selectbar option[value="' + countryCodeData + '"]').attr("selected", "selected");;
+                $('.country_code_searchbar').hide();
+                $('#countryList').hide();
+            });
+
+            $('.country_code_searchbar').on('blur', function () {
+                setTimeout(function () {
+                    $('.country_code_searchbar').val('').hide();
+                    $('#countryList').hide();
+                }, 300);
+            });
+
+            //20240423 登入頁4碼錯誤
+            $('.account_textbox').on('blur keyup', function () {
+                $("#SendMsg").text("");
+            });
+            //
+
+            $("#btnLogin,#btnResend").click(function () {
+                //20240423 登入頁4碼錯誤
+                var validator = $("#form").validate();
+                validator.element("#Account");
+                if (!validator.valid())
+                    return;
+
+                if (meter)
+                    clearTimeout(meter);
+
+                if (smeter)
+                    clearTimeout(smeter);
+
+                //20220802 按下登入後QRcode顯示失效
+                $(".qrcode_mask,.refresh").show();
+
+                var clickButton = $(this).attr("id");
+                var account = $("#Account").val();
+
+                //20231013 檢查輸入帳號/email
+                var CountryCode = $("#CountryCode").val();
+
+                var o = false;
+                var appaccount = account;
+                o = CountryCodeChecker($("#Account").val());
+                if (o == true) {
+                    account = $("#Account").val();
+
+                    //20230307 app推播, 登入帳號另外處理
+                    if ($("#CountryCode").val().split("|")[1] == "886") {
+                        if (account.substring(0, 5) == "88609") {
+                            appaccount = "09" + account.substring(5, parseInt(account.length));
+                        }
+                        else if (account.substring(0, 4) == "8869") {
+                            appaccount = "09" + account.substring(4, parseInt(account.length));
+                        }
+                        else if (account.substring(0, 1) == "9") {
+                            appaccount = "09" + account.substring(1, parseInt(account.length));
+                        }
+                    }
+                    else {
+                        //20240315 非886手機(國碼+手機)
+                        appaccount = $("#CountryCode").val().split("|")[1] + account;
+                    }
+                }
+                else {
+                    CountryCode = "";
+                }
+
+                 // if (account == "") return;
+                 //20240423 登入頁4碼錯誤
+                 //$(".error").html("");
+
+                var token = $('input[name="__RequestVerificationToken"]').val();
+
+                var sendInfo = {
+                    __RequestVerificationToken: token,
+                    Account: account,
+                    UseEvent: "polling",
+                    CountryCode: CountryCode
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/zh-tw/Login/PollingLogin",
+                    data: sendInfo,
+                    //contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        $("#btnPassword").show();
+
+                        if (data.loginStatus == 2) {
+                            //20240423 登入頁4碼錯誤
+                            //$(".error").html(data.message);
+                            $("#SendMsg").text(data.message);
+                            return;
+                        }
+                        if (data.loginStatus == 3) {
+                            self.document.location.href = "/zh-tw/Login/Password";
+                           return;
+                        }
+                        else if (data.loginStatus == 0) {
+                            $("#login_popup > p").html(data.message);
+                            t = 5;
+
+                            //20240307 改傳重組後的app手機
+                            //console.log("polling|" + appaccount + "|" + data.pollingString);
+                            polling(appaccount, data.pollingString, "polling");
+                            st = 20;
+                            showTime();
+                        }
+                        else if (data.loginStatus == 4 || data.loginStatus == 5 || data.loginStatus == 8) {
+                            self.document.location.href = "/zh-tw/Login/Password";
+                            return;
+                        }
+                        else if (data.trustBrowser) {
+                            self.document.location.href = "/zh-tw/Login/Password";
+                            return;
+                        }
+                        else {
+                            if (data.message == "InvalidApnsCredential")
+                                data.message = "推播功能維護中，請使用QRCode掃描登入。";
+                            //20240423 登入頁4碼錯誤
+                            //$(".error").html(data.message);
+                            $("#SendMsg").text(data.message);
+                            return;
+                        }
+
+                        if (clickButton == "btnLogin")
+                            $("#login_popup").reveal({ animation: "fade", revealId: "login_popup" });
+                    }
+                });
+            });
+
+            $("#btnScan,.qrcode_mask,.refresh").click(function () {
+                if (meter)
+                    clearTimeout(meter);
+
+                var clickButton = $(this).attr("id");
+
+                var account = "0000000000";
+                //20240423 登入頁4碼錯誤
+                //$(".error").html("");
+
+                var token = $('input[name="__RequestVerificationToken"]').val();
+
+                var sendInfo = {
+                    __RequestVerificationToken: token,
+                    Account: account,
+                    UseEvent: "qrcode"
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/zh-tw/Login/PollingLogin",
+                    data: sendInfo,
+                    //contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.loginStatus == 0) {
+                            $(".qrcode_mask,.refresh").hide();
+                            $("#imgQR").attr("src", data.qrcodeUrl);
+                            t = 13;
+                            polling(account, data.pollingString, "qrcode");
+
+                            //if (clickButton == "btnScan")
+                            //    $("#scan_popup").reveal({ animation: "fade", revealId: "scan_popup" });
+                        }
+                        else {
+                            //20240423 登入頁4碼錯誤
+                            //$(".error").html(data.message);
+                            $("#SendMsg").text(data.message);
+                        }
+                    }
+                });
+            });
+
+            $('#btnRegister').click(function () {
+                var href = $(this).attr('href');
+                var text = $('#Account').val();
+                $(this).attr('href', href + "?Input=" + text);
+                console.log(href + "?Input=" + text);
+            });
+
+            $("#btnPassword").click(function () {
+                self.document.location.href = "/zh-tw/Login/Password";
+            });
+
+            $("#btnLater").click(function () {
+                $("#nextForm").submit();
+            });
+
+            $("#btnBrowser").click(function () {
+                var sendInfo = {
+                    Account: ""
+                };
+
+                $.ajax({
+                    type: "post",
+                    url: "/zh-tw/Login/Browser",
+                    data: JSON.stringify(sendInfo),
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.ReturnMsgNo == 1) {
+                            $("#nextForm").submit();
+                        }
+                    }
+                });
+            });
+
+            //20220802
+            $(".refresh").click();
+
+            $(".forgot").click(function () {
+                $(".login_box, .scan_box").css("display", "none");
+                $(".forgot_box").css("display", "flex");
+            });
+
+            $(".account_textbox").on('change blur keyup', function () {
+                if (!this.value) {
+                    $('.login_btn').attr('disabled', true);
+                    $('.login_btn').addClass('disabled_btn');
+                } else {
+                    $('.login_btn').attr('disabled', false);
+                    $('.login_btn').removeClass('disabled_btn');
+                }
+            });
+            //
+        });
+
+        $(document).keypress(
+          function (event) {
+              if (event.which == '13') {
+                  $("#btnLogin").trigger("click");
+                  //20220802
+                  event.preventDefault();
+              }
+          });
+
+        //顯示倒數秒收
+        function showTime() {
+            $("#btnResend").attr("disabled", true);
+            smeter = setTimeout("showTime()", 1000);
+            st -= 1;
+            $("#btnResend").html(st + "s");
+            if (st < 1) {
+                clearTimeout(smeter);
+                $("#btnResend").html("重發手機推播通知");
+                $("#btnResend").attr("disabled", false);
+            }
+        }
+
+        //顯示倒數秒收
+        function polling(account, pollingString, funcType) {
+            //console.log("polling-In|" + account + "|" + pollingString + "|" + funcType);
+            meter = setTimeout("polling('" + account + "','" + pollingString + "','" + funcType + "')", 5000);
+
+            t -= 1;
+            if (t < 1) {
+                clearTimeout(meter);
+                if (funcType == "qrcode")
+                    $(".qrcode_mask,.refresh").show();
+            }
+
+            var token = $('input[name="__RequestVerificationToken"]').val();
+
+            var sendInfo = {
+                __RequestVerificationToken: token,
+                Account: account,
+                UseEvent: funcType,
+                PollingString: pollingString
+            };
+
+            $.ajax({
+                type: "post",
+                url: "/zh-tw/Login/LoginStatus",
+                data: sendInfo,
+                //contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (funcType == "polling" && (data.loginStatus == 4 || data.loginStatus == 5 || data.loginStatus == 6)) {
+                        if (meter)
+                            clearTimeout(meter);
+
+                        $('#login_popup').trigger('reveal:close');
+                        $("#polling_popup > p").html(data.message);
+                        $("#polling_popup").reveal({ animation: "fade", revealId: "polling_popup" });
+                        return;
+                    }
+                    else if (data.loginStatus == 0) {
+                        if (meter)
+                            clearTimeout(meter);
+
+                        $("#Sequence").val(pollingString);
+
+                        if ((funcType == "qrcode" || funcType == "polling") && data.trustBrowser) {
+                            if (data.trustBrowser) {
+                                $('#browser_popup').trigger('reveal:close');
+                                $("#nextForm").submit();
+                            }
+                        }
+                        else if (funcType == "qrcode") {
+                            //$("#scan_popup").trigger('reveal:close');
+                            $("#browser_popup").reveal({ animation: "fade", revealId: "browser_popup" });
+                        }
+                        else if (funcType == "polling") {
+                            $('#login_popup').trigger('reveal:close');
+                            $("#browser_popup").reveal({ animation: "fade", revealId: "browser_popup" });
+                        }
+                    }
+                }
+            });
+        }
+
+        //20231013 判斷顯示國碼下拉
+        function CountryCodeChecker(inputValue, RexValue) {
+            var o = false;
+            var rules = new RegExp('^[0-9]*$');
+
+            if (rules.test(inputValue)) {
+                o = true;
+            }
+            return o;
+        };
+    </script>
+    <!-- MyCard會員中心樣式 結束-->
+
+    <!-- 注意 這是新的css樣式 -->
+     <link rel="stylesheet" href="./css/new-style.css">
     <!-- Google Tag Manager -->
     <script>
         (function (w, d, s, l, i) {
@@ -905,7 +1375,7 @@
         <div class="main-content-container">
             <div class="title-bar-region">
                 <div>
-                    <h2>中華網龍遊戲(遊龍點數)</h2>
+                    <h2>MyCard 會員點數</h2>
                     <div class="tags my-tags my-tags-s my-tags-primary my-mt-4 my-d-flex my-justify-content-between my-align-content-center my-flex-column-sm my-align-content-start-sm">
                             <ul class="my-tags-box">
                                 <li class="my-tags-item tags-color">手機遊戲</li>
@@ -932,40 +1402,35 @@
                         <div class="slider-display">
                             <div class="slider-container">
                                 <div class="slider-change">
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-1.jpg" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-2.jpg" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-3.jpg" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-4.png" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-5.jpg" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-6.webp" alt=""></div>
-                                    <div class="change-item"><img src="./images/test-img/chinesegamer-7.jpg" alt=""></div>
+                                    <div class="change-item"><img src="./images/test-img/mycard-point.png" alt=""></div>
+                                    <!-- <div class="change-item"><img src="./images/test-img/mycard-point-1.png" alt=""></div> -->
+                                    <!-- <div class="change-item"><img src="./images/test-img/mycard-point-2.png" alt=""></div> -->
+                                    <!-- <div class="change-item"><img src="./images/test-img/mycard-point-3.png" alt=""></div> -->
+                                    <!-- <div class="change-item"><img src="./images/test-img/mycard-point-4.png" alt=""></div> -->
+                                    <!-- <div class="change-item"><img src="./images/test-img/mycard-point-5.png" alt=""></div> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="slider-wrapper">
+                        <!-- <div class="slider-wrapper">
                             <button class="slider-arrow prev">&lt;</button>
                             <div class="slider-outer">
                                 <div class="slider-inner">
-                                    <div class="chose-item active"><img src="./images/test-img/chinesegamer-1.jpg" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-2.jpg" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-3.jpg" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-4.png" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-5.jpg" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-6.webp" alt=""></div>
-                                    <div class="chose-item"><img src="./images/test-img/chinesegamer-7.jpg" alt=""></div>
+                                    <div class="chose-item active"><img src="./images/test-img/mycard-point.png" alt=""></div>
+                                    <div class="chose-item"><img src="./images/test-img/mycard-point-1.png" alt=""></div>
+                                    <div class="chose-item"><img src="./images/test-img/mycard-point-2.png" alt=""></div>
+                                    <div class="chose-item"><img src="./images/test-img/mycard-point-3.png" alt=""></div>
+                                    <div class="chose-item"><img src="./images/test-img/mycard-point-4.png" alt=""></div>
+                                    <div class="chose-item"><img src="./images/test-img/mycard-point-5.png" alt=""></div>
                                 </div>
                             </div>
                             <button class="slider-arrow next">&gt;</button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="about-game">
                         <h2>關於這個遊戲服務</h2>
                         <div class="about-game-inner">
                             <div class="game-desc articleContent">
-                                中華網龍（Chinese Gamer International Corp.）
-                                成立於2000年，為台灣資深的線上與手機遊戲研發商，隸屬智冠科技體系。
-                                公司長年深耕華人題材與經典IP，代表作包含《金庸群俠傳Online》《黃易群俠傳Online》《武林群俠傳Online》《中華英雄Online》《天子傳奇Online》，以及延伸至行動與多平台的《吞食天地》系列等，
-                                並曾將多款自製作品授權至海外營運。中華網龍的「遊龍點數」是官方發行的通用儲值點數，可用於旗下多款線上遊戲與活動消費。玩家購買後，即可將點數轉為遊戲內貨幣或月卡等服務。遊龍點數的特色在於「跨作互通」：同一張點數卡可依個人需求選擇儲值到不同的中華網龍遊戲帳號與產品，方便管理多款遊戲的消費。
+                               MyCard為台、港、澳地區應用最廣泛之遊戲點數卡，提供上千款國內外數位內容服務，為一國際性數位內容點數平台。玩家可行動電話、市話、ADSL、WebATM、信用卡等支付方式，或在便利商店與全省e-PLAY門市購買點數並轉為遊戲幣。玩家可享受安全的購物環境、穩定且具有保障的顧客服務，即時體驗MyCard平台上豐富的數位內容服務吧。
                             </div>
                             <a href="javascript:void(0);" class="text-btn toggleBtn">顯示更多</a>
                         </div>
@@ -1544,95 +2009,163 @@
                         <h3 class="information-color my-font-h3 my-text-secondary-950 my-d-flex my-align-content-center my-p-4-sm my-py-2-sm my-border-b-sm my-border-secondary-100-sm my-justify-content-between-sm my-mb-5 my-mb-0-sm">
                             <span class="stored-one">1</span> <span class="textBox">用戶儲值資料</span>
                         </h3>
-                        <div class="stored-value-one">
-                            <form class="my-d-flex my-flex-wrap my-gap-5 my-gap-3-md my-p-3-sm inputForm" action="" method="">
-                                <!-- 非原生 -->
-                                                            <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
-                                                                <div class="my-select-title my-mb-2">選擇遊戲</div>
-                                                                <!--錯誤狀態加上 is-invalid -->
-                                                                <div class="my-form-select my-form-select-l my-form-select-m-md is-invalid my-font-14 select-option-ul">請選擇</div>
-                                                                <div class="options-box">
-                                                                    <ul class="options-ul">
-                                                                        <li data-value="server1">遊戲1</li>
-                                                                        <li data-value="server2">遊戲2</li>
-                                                                        <li data-value="server3">遊戲3</li>
-                                                                        <li data-value="server4">遊戲4</li>
-                                                                        <li data-value="server5">遊戲5</li>
-                                                                        <li data-value="server6">遊戲6</li>
-                                                                        <li data-value="server7">遊戲7</li>
-                                                                        <li data-value="server8">遊戲8</li>
-                                                                        <li data-value="server9">遊戲9</li>
-                                                                        <li data-value="server10">遊戲10</li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="my-font-s my-mt-1 invalid-feedback">未選擇玩家伺服器</div>
-                                                            </div>
-                                                            
-                                                            <!-- 隱藏的原生 select -->
-                                                            <select id="server-select" name="server" style="display: none;">
-                                                                <option value="server1">伺服器1</option>
-                                                                <option value="server2">伺服器2</option>
-                                                                <option value="server3">伺服器3</option>
-                                                                <option value="server4">伺服器4</option>
-                                                                <option value="server5">伺服器5</option>
-                                                                <option value="server6">伺服器6</option>
-                                                                <option value="server7">伺服器7</option>
-                                                                <option value="server8">伺服器8</option>
-                                                                <option value="server9">伺服器9</option>
-                                                                <option value="server10">伺服器10</option>
-                                                            </select>
-
-                                                            <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
-                                                                <div class="my-select-title my-mb-2">選擇伺服器</div>
-                                                                <!--錯誤狀態加上 is-invalid -->
-                                                                <div class="my-form-select my-form-select-l my-form-select-m-md is-invalid my-font-14 select-option-ul">請選擇</div>
-                                                                <div class="options-box">
-                                                                    <ul class="options-ul">
-                                                                        <li data-value="server1">伺服器1</li>
-                                                                        <li data-value="server2">伺服器2</li>
-                                                                        <li data-value="server3">伺服器3</li>
-                                                                        <li data-value="server4">伺服器4</li>
-                                                                        <li data-value="server5">伺服器5</li>
-                                                                        <li data-value="server6">伺服器6</li>
-                                                                        <li data-value="server7">伺服器7</li>
-                                                                        <li data-value="server8">伺服器8</li>
-                                                                        <li data-value="server9">伺服器9</li>
-                                                                        <li data-value="server10">伺服器10</li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="my-font-s my-mt-1 invalid-feedback">未選擇玩家伺服器</div>
-                                                            </div>
-
-                                                            <div class="my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
-                                                                <div class="my-select-title my-mb-2">遊戲帳號類型</div>
-                                                                 <!--錯誤狀態加上 is-invalid -->
-                                                                <div class="my-form-select my-form-select-l my-form-select-m-md my-font-14 select-option-ul">請選擇</div>
-                                                                <div class="options-box">
-                                                                  <ul class="options-ul" id="AccountList"><li data-value="1" onclick="getAccountData('1');">1</li><li data-value="2" onclick="getAccountData('2');">2</li></ul>
-                                                                </div>
-                                                               <div class="my-font-s my-mt-1 invalid-feedback"><span class="field-validation-valid" data-valmsg-for="ul.ULAccount" data-valmsg-replace="true"></span></div>
-                                                           </div>
-
-                                                            <div class="my-form-group my-flex-column">
-                                                                <label class="my-form-label my-mb-2" for="form-input-account">請輸入遊戲帳號</label>
-                                                                <input class="my-form-control my-form-control-l my-form-control-m-md is-invalid" id="form-input-account" name="uid" type="text" placeholder="請輸入遊戲帳號">
-                                                                <div class="my-font-s my-mt-1 invalid-feedback">未填寫玩家遊戲帳號</div>
-                                                            </div>
-
-                                                            <div class="my-form-group my-flex-column">
-                                                                <label class="my-form-label my-mb-2" for="form-input-againAccount">再次輸入遊戲帳號</label>
-                                                                <input class="my-form-control my-form-control-l my-form-control-m-md is-invalid" id="form-input-againAccount" name="uid" type="text" placeholder="請輸入遊戲帳號">
-                                                                <div class="my-font-s my-mt-1 invalid-feedback">未填寫玩家遊戲帳號</div>
-                                                            </div>
-                                                        <div class="my-w100 my-d-flex my-flex-column">
-                                                          <label class="user-form-title my-form-label my-mb-2 my-font-14" for="form-input-uid">登入遊戲帳號</label>
-                                                          <div class="chinesegamer-logout">
-                                                              <div class="my-form-btn my-d-flex my-flex-column my-gap-2">
-                                                                  <button class="my-btn-main my-btn-primary my-w100-sm my-font-14" type="submit">確認</button>
-                                                                  <div class="my-font-s invalid-feedback">請先進行遊戲帳號確認</div>
-                                                              </div>
-                                                          </div>
-                                                </div>
+                        <div class="stored-value-one login-step-1">
+                            <div class="new-modal-body my-modal-body my-overflow-auto">
+                                    <div class="member_event">
+                                       <div class="member_event_icon">
+                                       </div>
+                                    </div>
+                                    <div class="login_box">
+                                        <form id="form" class="login_form" name="form" novalidate="novalidate">
+                                            <input name="__RequestVerificationToken" type="hidden" value="Q1a6-TxGSOehVIPK5EjtDGjei9_ihwas_T19QZd4hhnHNnt00aygE7k9sRF2XtyobYXVOC6K7MBJWA6dOlbdFJwvjLc1">
+                                            <h2>輸入帳號登入</h2>
+                                            <div class="account-title">
+                                                <h3>帳號</h3>
+                                            </div>
+                                            <div class="account_container">
+                                            <select class="selectbar country_code_selectbar" id="CountryCode" name="CountryCode"><option selected="selected" value="TW|886">台灣(+886)</option>
+                                            <option value="HK|852">香港(+852)</option>
+                                            <option value="MO|853">澳門(+853)</option>
+                                            <option value="CN|86">中國(+86)</option>
+                                            <option value="MY|60">馬來西亞(+60)</option>
+                                            <option value="SG|65">新加坡(+65)</option>
+                                            <option value="ID|62">印尼(+62)</option>
+                                            <option value="TH|66">泰國(+66)</option>
+                                            <option value="PH|63">菲律賓(+63)</option>
+                                            <option value="VN|84">越南(+84)</option>
+                                            <option value="KR|82">韓國(+82)</option>
+                                            <option value="JP|81">日本(+81)</option>
+                                            <option value="US|1">美國(+1)</option>
+                                            <option value="CA|1">加拿大(+1)</option>
+                                            <option value="GB|44">英國(+44)</option>
+                                            <option value="AU|61">澳洲(+61)</option>
+                                            <option value="PE|51">秘鲁(+51)</option>
+                                            <option value="MX|52">墨西哥(+52)</option>
+                                            <option value="BR|55">巴西(+55)</option>
+                                            <option value="CL|56">智利(+56)</option>
+                                            <option value="CO|57">哥倫比亞(+57)</option>
+                                            <option value="UY|598">烏拉圭(+598)</option>
+                                            <option value="LA|856">寮國(+856)</option>
+                                            <option value="DE|49">德國(+49)</option>
+                                            <option value="ES|34">西班牙(+34)</option>
+                                            <option value="FR|33">法國(+33)</option>
+                                            <option value="SE|46">瑞典(+46)</option>
+                                            <option value="RU|7">俄羅斯(+7)</option>
+                                            <option value="NZ|64">紐西蘭(+64)</option>
+                                            <option value="KH|855">柬埔寨(+855)</option>
+                                            <option value="TR|90">土耳其(+90)</option>
+                                            <option value="NL|31">荷蘭(+31)</option>
+                                            <option value="AE|971">阿拉伯聯合大公國(+971)</option>
+                                            <option value="AR|54">阿根廷(+54)</option>
+                                            <option value="BE|32">比利時(+32)</option>
+                                            <option value="IT|39">義大利(+39)</option>
+                                            <option value="PT|351">葡萄牙(+351)</option>
+                                         </select>
+                                         <input class="account-info textbox account_textbox" data-val="true" data-val-length="您輸入的會員帳號有誤，請重新輸入" data-val-length-max="200" data-val-regex="您輸入的會員帳號有誤，請重新輸入" data-val-regex-pattern="((\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|(^[0-9]{5,25}$))" data-val-required="此為必填欄位" id="Account" maxlength="50" name="Account" placeholder="Email / 手機門號" type="text" value="">
+                                         <input type="search" class="country_code_searchbar" placeholder="搜尋..." maxlength="50">
+                                         <ul id="countryList"> </ul>
+                                        </div>
+                                        <div class="login-password-title">
+                                            <h3>密碼</h3>
+                                        </div>
+                                        <div class="login-insert-pwd">
+                                           <input class="text-pwd textbox password" data-val="true" data-val-length="長度有誤" data-val-length-max="12" data-val-length-min="8" data-val-regex="格式有誤" data-val-regex-pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$" data-val-required="此為必填欄位" id="Password" name="Password" placeholder="請輸入8-12碼英數字" type="password">
+                                        </div>
+                                        <div class="check-number-title">
+                                          <h3>驗證碼</h3>
+                                        </div>
+                                        <div class="check-number-insert">
+                                            <input class="textbox authentication_code code" data-val="true" data-val-length="長度有誤" data-val-length-max="6" data-val-regex="格式有誤" data-val-regex-pattern="^[0-9]{6}$" data-val-required="此為必填欄位" id="VerifyCode" name="VerifyCode" placeholder="請輸入驗證碼" type="text" value="">
+                                            <span class="code_pic noise01 noise04 noise03"><img id="captcha" src="./MyCard官方網站 - login_files/Captcha"></span>
+                                           <div class="reload-icon"><a href="javascript:freshCode()"><img src="./MyCard官方網站 - login_files/refresh_icon.png"></a></div>
+                                        </div>
+                                        <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="Account" data-valmsg-replace="true"></span></p>
+                                        <p class="error" id="SendMsg" style="display: none;"></p>
+                                        <button type="button" class="push-login btn login_btn disabled_btn" id="btnLogin" disabled="">登入</button>
+                                        <!--若玩家有輸入資料時將CLASS: disabled_btn及屬性：disabled拿掉，若沒有輸入或是將輸入的字全數刪除，要再加回來-->
+                                        </form>
+                                        <div class="scan_box">
+                                            <div class="web">
+                                               <h2>掃描登入</h2>
+                                               <p>請開啟MyCard APP掃描登入</p>
+                                               <div class="qrcode">
+                                                 <span class="qrcode_mask" style="display: none;">QR Code已失效</span><img id="imgQR" src="./MyCard官方網站 - login_files/QRcode.ashx">
+                                               </div>
+                                               <input type="button" class="refresh" value="換一組 QR Code" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="stored-value-one login-step-3">
+                            <div class="user-login-outer">
+                                <div class="user-login-inner">
+                                    <div class="login-title">
+                                        <h2>會員登入</h2>
+                                    </div>
+                                    <div class="go-back">
+                                        <a href="javascript:(0)" class="backto">
+                                            <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                  <mask id="mask0_5453_43977" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+                                                     <rect width="24" height="24" fill="#D9D9D9"/>
+                                                  </mask>
+                                                  <g mask="url(#mask0_5453_43977)">
+                                                   <path d="M10 18L4 12L10 6L11.4 7.45L7.85 11H20V13H7.85L11.4 16.55L10 18Z" fill="#1C1B1F"/>
+                                                   </g>
+                                                  </svg>
+                                                </span>
+                                            <span>返回</span>
+                                        </a>
+                                    </div>
+                                    <div class="remind">
+                                        <p>
+                                            <img src="./MyCard官方網站 - login_files/warning.png" alt="">
+                                            下載並登入MyCard APP 可使用QRCode掃描登入及手機推播登入服務。
+                                        </p>
+                                    </div>
+                                    <div class="mobile-number">
+                                        <h3>手機門號</h3>
+                                    </div>
+                                    <div class="lock_textbox lock_pic">0988****02</div>
+                                    <div class="text-message">
+                                        <h3>請輸入簡訊驗證碼</h3>
+                                    </div>
+                                    <div class="verify">
+                                       <input data-val="true" data-val-regex="格式有誤" data-val-regex-pattern="^[0-9a-zA-Z]*$" data-val-required="此為必填欄位" id="Sequence" name="Sequence" type="hidden" value="22569f98a4e248678024b99665be405d">
+                                       <input data-val="true" data-val-length="長度有誤" data-val-length-max="20" data-val-regex="格式有誤" data-val-regex-pattern="^[0-9]{8,30}$" data-val-required="此為必填欄位" id="Mobile" name="Mobile" type="hidden" value="0922622202">
+                                       <input class="textbox" data-val="true" data-val-regex="格式有誤" data-val-regex-pattern="^[0-9]{6}$" data-val-required="*" id="VerifyCode" name="VerifyCode" placeholder="Code 123456" type="text" value="">
+                                       <button id="ResendMobileButton" type="button" class="btn_grey">發送認證碼</button>
+                                    </div>
+                                    <p class="error" id="errMsg" style="display: block;"></p>
+                                    <p class="info">請先點選「發送」取得認證碼，再於10分鐘內回填，以免失效。</p>
+                                    <div class="insert-pwd-info">
+                                        <div class="pwd-info-inner">
+                                            <button type="button" class="login_btn agree-btn" id="">確認送出</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stored-value-one login-step-4">
+                            <form class="my-d-flex my-form-column-2 my-form-column-1-lg my-flex-wrap my-gap-3 my-p-3-sm inputForm" action="" method="">
+                                <div class="my-w100 my-d-flex my-gap-7 my-flex-column-md my-gap-3-md">
+                                <div class="login-account">
+                                        <!-- <label class="my-account-play my-form-label my-mb-2" for="form-input-mycardAccount">MyCard 帳號</label> -->
+                                        <input class="my-account-play my-form-control my-form-control-l my-form-control-m-md is-valid" id="form-input-mycardAccount" name="mycardAccount" type="text" value="mycard1234567890@gmail.com" readonly="">
+                                    </div>
+                                </div>
+                                <div class="my-w100">
+                                    <div class="my-w100 my-d-flex my-flex-column">
+                                        <div class="my-form-group">
+                                            <label class="my-form-label my-mb-2" for="form-input-mycardAccount"></label>
+                                        </div>
+                                          <div class="login-logout">
+                                            <div class="logout-outer my-form-btn my-d-flex my-flex-column my-gap-2">
+                                                <button class="return-login logout-btn push-login my-btn-main my-btn-primary my-w100-sm my-font-14" type="button" >登出</button>
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -1665,8 +2198,8 @@
                             <li data-value="currency9">台幣9 TWD</li>
                             <li data-value="currency10">台幣10 TWD</li>
                         </select>
-                        <div class="tabs my-tabs my-tabs-primary my-mt-5 my-mt-0-sm my-p-3-sm">
-                            <ul class="my-tabs-box">
+                        <div class="new-tabs-style tabs my-tabs my-tabs-primary my-mt-5 my-mt-0-sm my-p-3-sm">
+                            <!-- <ul class="my-tabs-box">
                                 <li class="my-tabs-item active">全部</li>
                                 <li class="my-tabs-item">特殊</li>
                                 <li class="my-tabs-item">水晶</li>
@@ -1674,34 +2207,109 @@
                                 <li class="my-tabs-item">裝備強化</li>
                                 <li class="my-tabs-item">成長</li>
                                 <li class="my-tabs-item">功能性</li>
-                            </ul>
+                            </ul> -->
+                            <div class="customize-point">
+                                <form class="my-mt-5 my-mt-0-sm customize-point-insert">
+                                                        <ul class="product">
+                                                            <!-- my-skeleton -->
+                                                            <li class="product-column-item customize-item">
+                                                                <input type="radio" id="product1-1" name="product" value="10000">
+                                                                <div class="customize-item-outer" for="product1-1">
+                                                                    <div class="imgText">
+                                                                        <!-- <div class="imgBox">
+                                                                            <img src="https://image.mycard520.com/globalmycard/member/mycardweb-test/images/test/package.png" alt="">
+                                                                        </div> -->
+                                                                        <div class="customize-item-inner">
+                                                                            <div class="product-item-tags">
+                                                                              <p>最新</p>
+                                                                            </div>
+                                                                            <div class="customize-item-image">
+                                                                                <img src="./images/test-img/mycard-point-10.png" alt="">
+                                                                            </div>
+                                                                            <div class="imgText freeInput customize-desc">
+                                                                                <div class="textBox my-w-initial">
+                                                                                    <h5 class="my-font-h4 my-text-secondary-800 my-text-nowrap">MyCard 會員點數</h5>
+                                                                                </div>
+                                                                                 <!-- 確認 -->
+                                                                                <div class="inputBox inputBtnBox customize-insert-info">
+                                                                                    <input class="my-form-control my-form-control-m" type="text" placeholder="30~100000">
+                                                                                    <input class="my-btn-main-s my-btn-primary ready-buy" type="button" value="確認">
+                                                                                </div>
+                                                                                <!-- 修改 -->
+                                                                                <!-- <div class="inputBox inputBtnBox">
+                                                                                    <input class="my-form-control my-form-control-m" type="text" placeholder="30~100000" value="30" readonly>
+                                                                                    <input class="my-btn-main-s my-btn-secondary" type="button" value="修改">
+                                                                                </div> -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                        <!-- <div class="my-p-3-sm">
+                                                            <button class="btn-loadMore my-btn-main my-btn-primary my-w100-sm my-mt-5 my-mx-auto my-mt-0-sm my-d-none" type="button">
+                                                                <span class="my-btn-text">載入更多</span>
+                                                            </button>
+                                                        </div> -->
+                                                    </form>
+                            </div>
                         </div>
                         <div class="my-tab-content active">
                             <form class="my-mt-5 my-mt-0-sm">
                                 <ul class="product card-list-gap">
                                 <!-- 資料未載入完整會增加class my-skeleton -->
                                     <li class="product-new-item">
-                                        <!-- <div class="product-item-tags">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-30.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard50點</div>
+                                                            <div class="title-first">MyCard 30點</div>
                                                             <div class="title-second"></div>
                                                         </div>
                                                         <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
+                                                            </a>
                                                         </div>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$30</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-tags">
+                                            <p>最新</p>
+                                        </div>
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-50.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 50點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
                                                         <div class="price-num"><span>TWD</span>$50</div>
@@ -1711,264 +2319,141 @@
                                         </div>
                                     </li>
                                     <li class="product-new-item">
-                                        <!-- <div class="product-item-tags">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-90.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard150點</div>
+                                                            <div class="title-first">MyCard 90點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$150</div>
+                                                        <div class="price-num"><span>TWD</span>$90</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="product-new-item  push-350">
-                                        <!-- <div class="product-item-tags">
+                                    <li class="product-new-item">
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-170.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 170點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$170</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-300.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 300點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$300</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-30.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard350點</div>
+                                                            <div class="title-first">MyCard 30點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$350</div>
+                                                        <div class="price-num"><span>TWD</span>$30</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard 400點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
-                                                                <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$400</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard450點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
-                                                                <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$450</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard500點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
-                                                                <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$500</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard1000點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$1,000</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard2000點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$2,000</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard3000點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$3,000</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <div class="product-item-inner">
-                                            <div class="product-image">
-                                                <div class="product-image-inner">
-                                                    <img src="" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="product-desc">
-                                                <div class="product-desc-inner">
-                                                    <div class="desc-title">
-                                                        <div class="title-text">
-                                                            <div class="title-first">MyCard5000點</div>
-                                                            <div class="title-second"></div>
-                                                        </div>
-                                                        <div class="exclam exclam-btn">
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$5,000</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="product-new-item">
-                                        <!-- <div class="product-item-tags">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-50.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard50點</div>
+                                                            <div class="title-first">MyCard 50點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
                                                         <div class="price-num"><span>TWD</span>$50</div>
@@ -1978,60 +2463,174 @@
                                         </div>
                                     </li>
                                     <li class="product-new-item">
-                                        <!-- <div class="product-item-tags">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-90.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard150點</div>
+                                                            <div class="title-first">MyCard 90點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$150</div>
+                                                        <div class="price-num"><span>TWD</span>$90</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="product-new-item">
-                                        <!-- <div class="product-item-tags">
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-170.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 170點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$170</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-300.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 300點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$300</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-tags">
                                             <p>最新</p>
-                                        </div> -->
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-30.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard350點</div>
+                                                            <div class="title-first">MyCard 30點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$350</div>
+                                                        <div class="price-num"><span>TWD</span>$30</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-tags">
+                                            <p>最新</p>
+                                        </div>
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-50.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 50點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$50</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="product-new-item">
+                                        <div class="product-item-tags">
+                                            <p>最新</p>
+                                        </div>
+                                        <div class="product-item-inner">
+                                            <div class="product-image">
+                                                <div class="product-image-inner">
+                                                    <img src="./images/test-img/point-90.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="product-desc">
+                                                <div class="product-desc-inner">
+                                                    <div class="desc-title">
+                                                        <div class="title-text">
+                                                            <div class="title-first">MyCard 90點</div>
+                                                            <div class="title-second"></div>
+                                                        </div>
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
+                                                                <img src="./images/exclamation.png" alt="">
+                                                            </a>
+                                                        </div> -->
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <div class="price-num"><span>TWD</span>$90</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2041,24 +2640,24 @@
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-170.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard 400點</div>
+                                                            <div class="title-first">MyCard 170點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$400</div>
+                                                        <div class="price-num"><span>TWD</span>$170</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2068,58 +2667,61 @@
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-300.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard450點</div>
+                                                            <div class="title-first">MyCard 300點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$450</div>
+                                                        <div class="price-num"><span>TWD</span>$300</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="product-new-item">
+                                     <li class="product-new-item">
+                                        <div class="product-item-tags">
+                                            <p>最新</p>
+                                        </div>
                                         <div class="product-item-inner">
                                             <div class="product-image">
                                                 <div class="product-image-inner">
-                                                    <img src="" alt="">
+                                                    <img src="./images/test-img/point-30.png" alt="">
                                                 </div>
                                             </div>
                                             <div class="product-desc">
                                                 <div class="product-desc-inner">
                                                     <div class="desc-title">
                                                         <div class="title-text">
-                                                            <div class="title-first">MyCard500點</div>
+                                                            <div class="title-first">MyCard 30點</div>
                                                             <div class="title-second"></div>
                                                         </div>
-                                                        <div class="exclam exclam-btn">
-                                                            <!-- <a href="javascript:void(0);" class="btn-seemore">
+                                                        <!-- <div class="exclam exclam-btn">
+                                                            <a href="javascript:void(0);" class="btn-seemore">
                                                                 <img src="./images/exclamation.png" alt="">
-                                                            </a> -->
-                                                        </div>
+                                                            </a>
+                                                        </div> -->
                                                     </div>
                                                     <div class="product-price">
-                                                        <div class="price-num"><span>TWD</span>$500</div>
+                                                        <div class="price-num"><span>TWD</span>$30</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="my-p-3-sm product-buy">
+                                <div class="my-p-3-sm member-buy">
                                     <button class=" my-btn-main my-btn-primary my-w100-sm my-mt-5 my-d-block my-mx-auto my-mt-0-sm" type="button">
                                         <span class="my-btn-text">載入更多</span>
                                     </button>
@@ -2267,16 +2869,6 @@
                                                     </ul>
                                                 </nav> -->
                                             </div>
-                                            <div class="350-price card-change my-form-group my-form-select-group my-flex-column my-position-relative custom-select-ul">
-                            <div class="coin-color my-select-title my-mb-2">是否轉換為月卡</div>
-                            <div class="form-select-color my-form-select my-form-select-l my-form-select-m-md my-font-14 select-option-ul">是，轉換為月卡</div>
-                            <div class="options-box new-option-style">
-                                <ul class="options-ul">
-                                    <li data-value="currency1">是，轉換為月卡</li>
-                                    <li data-value="currency2">否，維持為點卡</li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                     <div class="payment-type">
                         <h3 class="information-color my-font-h3 my-text-secondary-950 my-d-flex my-align-content-center my-p-4-sm my-py-2-sm my-border-b-sm my-border-secondary-100-sm my-justify-content-between-sm my-mb-5 my-mb-0-sm">
@@ -3103,14 +3695,12 @@
                             </div>
                         </div>
 
-                        <div class="my-modal-footer">
+                        <!-- <div class="my-modal-footer">
                             <div class="btnBox my-d-flex my-gap-5">
                                 <div class="selectQuantity my-d-flex my-align-content-center my-gap-5">
                                     <div class="amountBox">
                                         <h5 class="my-font-h4 my-text-secondary-800">選擇數量</h5>
-                                        <!-- 超過數量上限顯示 開始 -->
-                                        <!-- <p class="my-font-s my-mt-2 my-text-errorNote-500">已超過上限10個</p> -->
-                                        <!-- 超過數量上限顯示 結束 -->
+                                        
                                     </div>
                                     <div class="inputNumberBox">
                                         <button type="button" class="inputNumberBox-btn inputNumberBox-btn-prev my-bg-my-secondary-100 opacity-50">
@@ -3138,7 +3728,7 @@
                                     <span class="my-btn-text my-ml-1">8,990</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </form>
@@ -3146,6 +3736,53 @@
 
         <!-- 遮罩 -->
         <div class="topUpItem-overlay my-overlay my-d-none"></div>
+
+        <!-- MyCard會員登入資料 開始 -->
+         <div class="login-step-2 login-pup login-list login-none new-my-pup my-pup-m my-position-fixed my-position-fixed-center my-position-bottom-0-sm my-position-left-0-sm my-position-transform-initial-sm my-round-top-3-sm">
+            <div action="" class="new-my-modal my-modal my-modal-m my-round-5 my-round-top-3-sm">
+                <div class="my-modal-dialog my-scrollbar-m">
+                    <div class="modal-content">
+                        <div class="my-modal-header">
+                            <div class="my-modal-title my-font-center">
+                                <h4 class="my-font-h3 my-text-secondary-900">加入信任瀏覽器</h4>
+                            </div>
+                            <div class="login-block">
+                                <div class="iconBox">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.6572 11.1567L10.3435 22.4704" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M21.6572 22.4707L10.3435 11.157" stroke="#C8C8C8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-infomation">
+                            <div class="info-1">
+                                <div class="my-modal-body my-overflow-auto">
+                                    <div class="info_box">
+                                       <div class="box-font">
+                                         建議在您信任的場合及裝置上選擇「好」，讓下次登入更便捷。
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-box-btn">
+                            <div class="use-password">
+                                <button class="next-time">下次再說</button>
+                            </div>
+                            <div class="push-notion">
+                                <button class="sure-agree">好</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+        <!-- MyCard會員登入資料 結束 -->
+
+        <!-- 會員資料遮罩 開始-->
+         <div class="member-overlay overlay-style overlay-close"></div>
+        <!-- 會員資料遮罩 結束-->
 
         <!-- 頁腳 -->
         <footer id="footer" class="footer-bgcolor">
@@ -3322,6 +3959,8 @@
                                 <input class="my-input-btn-text" type="button" value="Subscribe">
                             </div>
                         </div>
+
+                        
                         <div class="new-copyright-style copyright footer-copyright">
                             <p>© Soft-World International Corporation. All Rights Reserved.</p>
                         </div>
@@ -3433,243 +4072,54 @@
 });
     </script>
 
-      <script>
-    $(document).ready(function () {
-    const $container = $(".slider-container"); 
-    const $mainTrack = $(".slider-change");
-    const $mainItems = $(".change-item");
-    let currentIndex = 0;
+    <script>
+      $(document).ready(function () {
+        const $mainTrack = $(".slider-change");
+        const $mainItems = $(".change-item");
+        const $thumbItems = $(".chose-item");
+        const totalItems = $mainItems.length;
+        let currentIndex = 0;
 
-    // 拖曳相關變數
-    let isDragging = false;
-    let isMoving = false;
-    let startX = 0;
-    let currentX = 0;
-    let containerWidth = 0;
+        function updateGallery(index) {
+          if (index < 0) index = 0;
+          if (index >= totalItems) index = totalItems - 1;
 
-    function updateGallery(index) {
-        const totalItems = $(".change-item").length;
-        if (index < 0) index = 0;
-        if (index >= totalItems) index = totalItems - 1;
+          currentIndex = index;
 
-        currentIndex = index;
+          // 大圖軌道位移
+          const offset = -currentIndex * 100;
+          $mainTrack.css("transform", `translateX(${offset}%)`);
 
-        $mainTrack.css("transition", "transform 0.5s ease-in-out");
+          // 更新縮圖
+          $thumbItems.removeClass("active").eq(currentIndex).addClass("active");
 
-        const offset = -currentIndex * 100;
-        $mainTrack.css("transform", `translateX(${offset}%)`);
-
-        // 更新縮圖高亮時，每次都動態選取當前畫面上所有的 .chose-item
-        // 這樣新加入的第 7 張縮圖才能順利吃得到 "active" 樣式
-        $(".chose-item").removeClass("active").eq(currentIndex).addClass("active");
-
-        $(".prev").prop("disabled", currentIndex === 0);
-        $(".next").prop("disabled", currentIndex === totalItems - 1);
-    }
-
-    // --- 拖曳邏輯 ---
-
-    function dragStart(e) {
-        isDragging = true;
-        isMoving = false;
-        containerWidth = $container.width(); 
-        startX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
-        currentX = startX;
-        $mainTrack.css("transition", "none");
-        
-        if (e.type === 'mousedown') {
-            $mainTrack.css("cursor", "grabbing");
-        }
-    }
-
-    function dragMove(e) {
-        if (!isDragging) return;
-        
-        currentX = e.type.includes('mouse') ? e.pageX : e.originalEvent.touches[0].clientX;
-        const diff = currentX - startX;
-
-        if(!isMoving && Math.abs(diff) > 5){
-            isMoving = true;
+          // 【新增/優化】按鈕失效狀態處理
+          $(".prev").prop("disabled", currentIndex === 0);
+          $(".next").prop("disabled", currentIndex === totalItems - 1);
         }
 
-        if(isMoving){
-            const currentOffset = (-currentIndex * 100) + (diff / containerWidth * 100);
-            $mainTrack.css("transform", `translateX(${currentOffset}%)`);
-            if (e.cancelable) e.preventDefault();
-        }
-    }
-
-    function dragEnd() {
-        if (!isDragging) return;
-        isDragging = false;
-        
-        $mainTrack.css("cursor", "grab");
-        if (!isMoving) {
-            updateGallery(currentIndex); 
-            return;
-        }
-        const diff = currentX - startX;
-        const totalItems = $(".change-item").length;
-
-        if (diff < -containerWidth * 0.2 && currentIndex < totalItems - 1) {
-            currentIndex++;
-        } else if (diff > containerWidth * 0.2 && currentIndex > 0) {
-            currentIndex--;
-        }
-
-        updateGallery(currentIndex);
-    }
-
-    $mainTrack.on("mousedown", dragStart);
-    $(document).on("mousemove", dragMove);
-    $(document).on("mouseup", dragEnd);
-    $mainTrack.on("touchstart", dragStart);
-    $(document).on("touchmove", dragMove);
-    $(document).on("touchend", dragEnd);
-
-    $mainTrack.on("dragstart", "img", function() { 
-        return false; 
-    });
-    $mainTrack.css("cursor", "grab");
-
-    // --- 按鈕與縮圖控制邏輯 ---
-
-    $(".next").on("click", function () {
-        const totalItems = $(".change-item").length;
-        if (currentIndex < totalItems - 1) {
+        // 按鈕點擊 (HTML結構雖然換了，但ID和Class對的話事件依然生效)
+        $(".next").on("click", function () {
+          if (currentIndex < totalItems - 1) {
             updateGallery(currentIndex + 1);
-        }
-    });
+          }
+        });
 
-    $(".prev").on("click", function () {
-        if (currentIndex > 0) {
+        $(".prev").on("click", function () {
+          if (currentIndex > 0) {
             updateGallery(currentIndex - 1);
-        }
-    });
+          }
+        });
 
-    // 改用事件委託！監聽外層容器，假設是 .slider-inner，請確保與你的 HTML 結構類名相符
-    // 如果包裹縮圖的外層不是 .slider-inner，請自行更換為正確的父層 class
-    $(".slider-inner").on("click", ".chose-item", function () {
-        const index = $(this).index(); // 這裡能精確抓到新舊元素在父層中的排行索引
-        updateGallery(index);
-    });
+        // 縮圖點擊聯動
+        $thumbItems.on("click", function () {
+          const index = $(this).index();
+          updateGallery(index);
+        });
 
-    // 初始化
-    updateGallery(0);
-   });
-    </script>
-
-     <script>
-   $(document).ready(function () {
-    const $outer = $(".payment-info .information-left .game-image-slider .slider-wrapper .slider-outer");
-    const $inner = $outer.find(".slider-inner");
-
-    let isDragging = false;
-    let isMoving = false; 
-    let startX = 0;       
-    let currentTranslate = 0; 
-    let prevTranslate = 0;    
-    let animationId = null;
-
-    function getMinTranslate() {
-        const outerWidth = $outer.width();
-        const innerWidth = $inner.outerWidth();
-        if (innerWidth <= outerWidth) return 0;
-        return outerWidth - innerWidth;
-    }
-
-    function dragStart(e) {
-        // 新增判斷：當寬度大於 768px 時，直接跳出，不執行拖曳
-        if (window.innerWidth > 768) return;
-
-        isDragging = true;
-        isMoving = false; 
-        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        $inner.css("transition", "none");
-    }
-
-    function dragMove(e) {
-        // 新增判斷：當寬度大於 768px 時，不執行任何位移
-        if (window.innerWidth > 768) return;
-        if (!isDragging) return;
-
-        const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-        const diff = x - startX; 
-
-        if (!isMoving && Math.abs(diff) > 3) {
-            isMoving = true;
-            $outer.addClass("is-dragging"); 
-        }
-
-        if (isMoving) {
-            let currentX = prevTranslate + diff;
-            const minTranslate = getMinTranslate();
-            
-            if (currentX > 0) currentX = currentX * 0.2; 
-            if (currentX < minTranslate) currentX = minTranslate + (currentX - minTranslate) * 0.2; 
-
-            currentTranslate = currentX;
-
-            if (animationId) cancelAnimationFrame(animationId);
-            animationId = requestAnimationFrame(() => {
-                $inner.css("transform", `translateX(${currentTranslate}px)`);
-            });
-
-            if (e.cancelable) e.preventDefault();
-        }
-    }
-
-    function dragEnd(e) {
-        // 新增判斷：大於 768px 時直接跳出
-        if (window.innerWidth > 768) return;
-        if (!isDragging) return;
-        
-        isDragging = false;
-        $outer.removeClass("is-dragging");
-        if (animationId) cancelAnimationFrame(animationId);
-
-        if (!isMoving) return; 
-
-        $inner.css("transition", "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)");
-
-        const minTranslate = getMinTranslate();
-        if (currentTranslate > 0) {
-            currentTranslate = 0;
-        } else if (currentTranslate < minTranslate) {
-            currentTranslate = minTranslate;
-        }
-
-        prevTranslate = currentTranslate;
-        $inner.css("transform", `translateX(${currentTranslate}px)`);
-    }
-
-    // 視窗大小改變時（例如桌機拉大、拉小），自動重設大螢幕時的圖片位置
-    $(window).on("resize", function() {
-        if (window.innerWidth > 768) {
-            // 清除可能殘留的變數與行內樣式，讓 CSS 預設排版接管
-            isDragging = false;
-            isMoving = false;
-            currentTranslate = 0;
-            prevTranslate = 0;
-            $inner.css({
-                "transition": "none",
-                "transform": "none"
-            });
-            $outer.removeClass("is-dragging");
-        }
-    });
-
-    // 事件綁定
-    $outer.on("mousedown", dragStart);
-    $(document).on("mousemove", dragMove).on("mouseup", dragEnd);
-
-    const outerEl = $outer[0];
-     if (outerEl) {
-        outerEl.addEventListener("touchstart", dragStart, { passive: true });
-        window.addEventListener("touchmove", dragMove, { passive: false });
-        window.addEventListener("touchend", dragEnd, { passive: true });
-     }
-   });
+        // 初始化
+        updateGallery(0);
+      });
     </script>
 
     <script>
@@ -3755,6 +4205,13 @@
       });
     });
 
+    $(document).ready(function(){
+        $('.ready-buy').on('click',function(){
+            $('.checkout-block').css('display','none');
+            $('.checkout-none').css('display','block');
+        });
+    });
+
     $(document).ready(function(e){
         $('.btn-cancel').on('click', function(event){
             event.preventDefault();
@@ -3765,11 +4222,11 @@
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
     // 1. 選取元素（增加防呆檢查）
     const productList = document.querySelector('.product');
     const items = document.querySelectorAll('li.product-new-item');
-    const loadMoreBtn = document.querySelector('.product-buy button');
+    const loadMoreBtn = document.querySelector('.member-buy button');
 
     if (!productList || items.length === 0 || !loadMoreBtn) {
         console.error("找不到必要的 DOM 元素，請檢查 HTML 類名是否正確。");
@@ -3811,8 +4268,6 @@
         updateListDisplay();
     });
 });
-    </script>
-
     </script>
 
     <script>
@@ -3878,28 +4333,67 @@
         });
     </script>
 
+
+
+    <!-- 會員登入效果 開始-->
     <script>
     $(document).ready(function() {
-    // 初始狀態：先將 350 的下拉選單隱藏（如果 CSS 沒設定的話）
-      $('.350-price').hide();
+    
+    // --- 步驟 1：網頁載入時的初始狀態 ---
+    // 隱藏 step-2, step-3 和遮罩，只顯示 step-1
+    $('.login-step-2, .login-step-3, .login-step-4, .member-overlay').hide();
+    $('.login-step-1').show();
 
-    // 功能 1：點擊 class="push-350" 的 <li> 時，顯示下拉選單
-      $(document).on('click', '.push-350', function(e) {
-        // 阻止事件冒泡，避免觸發到功能 2 的全域點擊隱藏
-        e.stopPropagation(); 
-        
-        $('.350-price').show();
-      });
+    // --- 步驟 2：點擊 step-1 的登入按鈕 ---
+    $('.login-step-1 .push-login').on('click', function() {
+        // 開啟 step-2 和遮罩
+        $('.login-step-2, .member-overlay').show();
+        // 隱藏 step-1
+        $('.login-step-1').hide();
+    });
 
-    // 功能 2：點擊 400TWD（或其他任何非 push-350 的區塊）時，隱藏下拉選單
-      $(document).on('click', function(e) {
-        // 檢查點擊的目標，如果不是 .push-350 內部，也不是 .350-price 下拉選單內部，就隱藏
-        if (!$(e.target).closest('.push-350').length && !$(e.target).closest('.350-price').length && !$(e.target).closest('.my-btn-main').length) {
-            $('.350-price').hide();
+    // --- 步驟 3 & 4：點擊 step-2 的按鈕（下次再說 或 好） ---
+    $('.login-step-2 .next-time, .login-step-2 .sure-agree').on('click', function() {
+        // 關閉 step-2 和遮罩
+        $('.login-step-2, .member-overlay').hide();
+        // 開啟 step-3
+        $('.login-step-3').show();
+    });
+
+    // --- 步驟 4 續：step-3 的後續操作 ---
+    
+    // 情境 A：點擊「確認送出」
+    $('.login-step-3 .agree-btn').on('click', function() {
+        // 關閉 step-3，開啟 step-4
+        $('.login-step-3').hide();
+        $('.login-step-4').show();
+    });
+
+    // 情境 B：點擊「返回」連結
+    $('.login-step-3 .backto').on('click', function(e) {
+        e.preventDefault(); // 防止 a 標籤預防跳轉
+        // 關閉 step-3，開啟 step-1
+        $('.login-step-3').hide();
+        $('.login-step-1').show();
+    });
+
+    
+    
+    // --- 新增功能：點擊遮罩或指定區塊返回步驟 1 ---
+    $('.member-overlay, .login-block').on('click', function(e) {
+        // 檢查點擊的目標（e.target）是不是遮罩或 login-block 本身
+        // 避免點擊 login-step-2 內部的內容時誤觸關閉
+        if ($(e.target).hasClass('member-overlay') || $(e.target).hasClass('login-block')) {
+            // 關閉 step-2 和遮罩
+            $('.login-step-2, .member-overlay').hide();
+            // 重新開啟 step-1
+            $('.login-step-1').show();
         }
-     });
+    });
+    
 });
     </script>
+    <!-- 會員登入效果 結束-->
 </body>
 </html>
 

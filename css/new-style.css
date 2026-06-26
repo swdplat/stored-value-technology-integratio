@@ -2906,6 +2906,12 @@ a:link {
     flex-direction: column;
 }
 
+@media(max-width:945px){
+  .login_box .login_form{
+    width: 100%;
+  }
+}
+
 .login_form h2 {
     margin: 0 0 15px 0;
     text-align: center;
@@ -3085,6 +3091,12 @@ a:link {
     border-radius: 10px;
     box-sizing: border-box;
     /* box-shadow: 5px 5px 60px rgba(0, 0, 0, 0.08); */
+}
+
+@media(max-width:945px){
+  .scan_box{
+    display: none;
+  }
 }
 
 .scan_box h2 {

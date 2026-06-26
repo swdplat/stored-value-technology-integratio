@@ -2034,10 +2034,11 @@
     text-decoration: none !important;
     transition: 0.5s !important;
     border-radius: 6px !important;
-    padding: 2px 8px 4px 8px !important;
+    padding: 4px 8px 4px 8px !important;
     background-color: #ffffff !important;
     color: #4FAFF1 !important;
     border: 1px solid #4FAFF1 !important;
+    font-size: 14px !important;
 }
 
 .confirm-money:hover{
@@ -3422,6 +3423,7 @@ a:link {
     width: 100%;
     height: 100%;
     color: #ffffff;
+    font-size: 14px;
   }
 
   /* OTP 驗證區塊 */

@@ -3560,6 +3560,10 @@ a:link {
 
 .my-account-play{
   margin-top: 12px;
+  background: url(https://image.mycard520.com/mycardweb/image/form/form-fill.svg) no-repeat scroll right 16px center #E5E7EB !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
   
 /* 遮罩 開始 */

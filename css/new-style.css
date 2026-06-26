@@ -2513,7 +2513,7 @@ input[type="text"] {
     height: 48px;
     width: 100%;
     max-width: unset !important;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 0;
 }
 
@@ -2915,7 +2915,6 @@ a:link {
 
 .account-title h3{
     color: #1E2939;
-    font-family: "Noto Sans CJK TC";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -2924,7 +2923,6 @@ a:link {
 
 .login-password-title h3 {
     color: #1E2939;
-    font-family: "Noto Sans CJK TC";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -2952,7 +2950,6 @@ a:link {
 
 .check-number-title h3{
   color: #1E2939;
-  font-family: "Noto Sans CJK TC";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -3234,7 +3231,6 @@ a:link {
 
 .info_box .box-font{
   color: #1E2939;
-  font-family: "Noto Sans CJK TC";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -3250,7 +3246,7 @@ a:link {
 }
 
 .login-box-btn .use-password{
-  border: 2px solid #1E2939;
+  border: 1px solid #1E2939;
   align-content: center;
   width: 100%;
   display: flex;
@@ -3260,6 +3256,7 @@ a:link {
 
 .use-password button{
   width: 100%;
+  font-size: 14px;
 }
 
 .login-box-btn .push-notion{
@@ -3276,6 +3273,7 @@ a:link {
 .login-box-btn .push-notion button{
   color: #ffffff;
   width: 100%;
+  font-size: 14px;
 }
 
 
@@ -3437,7 +3435,6 @@ a:link {
 
   .mobile-number h3{
     color: #1E2939;
-    font-family: "Noto Sans CJK TC";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -3452,7 +3449,7 @@ a:link {
     border: 1px solid #ececec;
     height: 48px;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     text-align: left;
     line-height: 48px;
     border-radius: 6px;
@@ -3473,7 +3470,6 @@ a:link {
 
   .text-message h3{
     color: #1E2939;
-    font-family: "Noto Sans CJK TC";
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -3508,7 +3504,6 @@ a:link {
   padding: 10px 0;
   height: 48px;
   font-size: 14px;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 500;
   color: #4FAFF1;;
    border: 1px solid #4FAFF1;
@@ -3531,7 +3526,6 @@ a:link {
 }
 
 .user-login-inner .info{
-  font-family: Verdana, Geneva, sans-serif;
   margin: 0;
   padding: 12px 0 12px 0;
   color: #999;

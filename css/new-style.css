@@ -3347,6 +3347,13 @@ a:link {
 } 
 }
 
+@media(max-width:576px){
+  .check-number-insert .check-number-width{
+  border-radius: 6px;
+  width: 50% !important;
+} 
+}
+
 
 .check-number-insert .code_pic {
     position: relative;
@@ -3361,7 +3368,7 @@ a:link {
     vertical-align: middle;
     line-height: 48px;
     text-align: center;
-    margin-left: 16px;
+    margin-left: 5px;
     border-radius: 6px 0 0 6px;
     align-content: center;
 }
@@ -3381,7 +3388,7 @@ a:link {
 .reload-icon{
     margin: 0;
     padding: 0;
-    width: 15%;
+    width: 20%;
     height: 48px;
     display: inline-block;
   }

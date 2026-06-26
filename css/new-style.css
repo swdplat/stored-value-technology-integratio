@@ -3319,8 +3319,14 @@ a:link {
 
 .check-number-insert input{
   border-radius: 6px;
+  width: 50%;
+}
+
+@media(max-width:768px){
+  .check-number-insert input{
+  border-radius: 6px;
   width: 100%;
-  max-width: 175px !important;
+} 
 }
 
 
@@ -3332,7 +3338,7 @@ a:link {
     border: 1px solid #ececec;
     max-height: 48px;
     height: 48px;
-    width: 30%;
+    width: 50%;
     display: inline-block;
     vertical-align: middle;
     line-height: 48px;

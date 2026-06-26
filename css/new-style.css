@@ -576,23 +576,30 @@
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
+  margin-bottom: 16px;
 }
+
 
 .title-bar-region .game-platform .platform-icon{
-  width: 76px;
+  display: flex;
+  align-items: center;
+  width: auto;
 }
 
-.title-bar-region .game-platform .particular-icon{
-  width: 110px !important;
+.title-bar-region .game-platform .platform-icon .icon-image{
+  width: 100%;
+  max-width: 16px;
+  margin-right: 6px;
 }
 
-.title-bar-region .game-platform .particular-other{
-  width: 60px !important;
-}
-
-.title-bar-region .game-platform .platform-icon img{
+.title-bar-region .game-platform .platform-icon .icon-image img{
   width: 100%;
 }
+
+.title-bar-region .game-platform .platform-icon .text-desc{
+  font-size: 12px;
+}
+
 /* title-bar-region區塊 結束 */
 
 /* payment-info 區塊 開始 */
@@ -600,7 +607,7 @@
   width: 100%;
   display: flex;
   gap: 32px;
-  padding: 0px 10px 15px 10px;
+  padding: 0px 0px 15px 0px;
 }
 
 
@@ -853,7 +860,7 @@
   margin-right: 10px;
   position: absolute;
   width: 85px;
-  bottom: 45px;
+  bottom: 30px;
   height: 40px;
   background-color: #1E2939;
   color: #ffffff;
@@ -1690,7 +1697,7 @@
     padding: 24px;
     background-color: #ffffff;
     border-radius: 16px;
-    margin-top: 40px !important;
+    margin-top: 0px !important;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 }

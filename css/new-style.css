@@ -1962,7 +1962,7 @@
 .user-stored-value .stored-value-one .stored-process .process-first-block{
   display: flex;
   align-items: center;
-  background-color: #DEF1FD;
+  background-color: #E7F5FE;
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 1px;
@@ -2034,7 +2034,7 @@
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step{
   display: flex;
   align-items: center;
-  background-color: #DEF1FD;
+  background-color: #E7F5FE;
   border-radius: 6px;
   width: 100%;
 }

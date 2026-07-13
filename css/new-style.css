@@ -1561,7 +1561,7 @@
 
 .payment-info .activity-news{
   width: 100%;
-  margin: 40px 0px  0px 0px;
+  margin: 24px 0px;
 }
 
 .payment-info .activity-news h2{
@@ -1602,6 +1602,133 @@
   background-color: #007aff !important;
   color: #ffffff !important;
 }
+
+/* 07頁客製版 PC-優惠活動區塊 開始*/
+
+.active-pc-region{
+  padding: 24px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    margin-top: 40px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    position: relative;
+}
+
+.payment-info .pc-news{
+  width: 100%;
+  margin: 0px 0px;
+}
+
+@media(max-width:768px){
+  .active-pc-region{
+    display: none;
+  }
+  
+  .payment-info .pc-news{
+   width: 100%;
+   margin: 0px 0px;
+   display: none;
+}
+}
+
+.payment-info .pc-news h2{
+  font-size: 28px;
+  color:#1E2939;
+}
+
+.payment-info .pc-news .news-list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media(max-width:576px){
+  .payment-info .pc-news .news-list{
+  padding: 16px 0px !important;
+}
+}
+
+.payment-info .pc-news .news-list .list-inner{
+  width: 100%;
+  max-width: calc(100% - 0px) !important;
+  border: 1px solid #EDEEF1;
+  border-radius: 8px 8px 8px 8px;
+  background-color: #ffffff;
+}
+
+.payment-info .pc-news .news-list .list-inner .btn-new-style{
+  color: #4FAFF1 !important;
+  background-color: #ffffff !important;
+  border: 2px solid #4FAFF1 !important;
+  transition: .8s !important;
+  width: 102px;
+}
+
+.payment-info .pc-news .news-list .list-inner .btn-new-style:hover{
+  background-color: #007aff !important;
+  color: #ffffff !important;
+}
+
+/* 07頁客製版 PC-優惠活動區塊 結束*/
+
+/* 07頁客製版 mobile-優惠活動區塊 開始*/
+
+.payment-info .mobile-news{
+  width: 100%;
+  margin: 0px 0px;
+  display: none;
+}
+
+@media(max-width:768px){
+  .payment-info .mobile-news{
+  width: 100%;
+  margin: 0px 0px;
+  display: block;
+ }
+}
+
+.payment-info .mobile-news h2{
+  font-size: 28px;
+  color:#1E2939;
+}
+
+.payment-info .mobile-news .news-list{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media(max-width:576px){
+  .payment-info .mobile-news .news-list{
+  padding: 16px 0px !important;
+}
+}
+
+.payment-info .mobile-news .news-list .list-inner{
+  width: 100%;
+  max-width: calc(100% - 0px) !important;
+  border: 1px solid #EDEEF1;
+  border-radius: 8px 8px 8px 8px;
+  background-color: #ffffff;
+}
+
+.payment-info .mobile-news .news-list .list-inner .btn-new-style{
+  color: #4FAFF1 !important;
+  background-color: #ffffff !important;
+  border: 2px solid #4FAFF1 !important;
+  transition: .8s !important;
+  width: 102px;
+}
+
+.payment-info .mobile-news .news-list .list-inner .btn-new-style:hover{
+  background-color: #007aff !important;
+  color: #ffffff !important;
+}
+
+/* 07頁客製版 mobile-優惠活動區塊 結束*/
+
 
 
 @media(max-width:768px){
@@ -1713,7 +1840,7 @@
 .user-stored-value .stored-value-one .stored-process .process-first-block{
   display: flex;
   align-items: center;
-  background-color: #1D3254;
+  background-color: #DEF1FD;;
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 4px;
@@ -1724,7 +1851,7 @@
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-number{
-  color: #ffffff;
+  color: #1E2939;
   font-size: 32px;
   font-weight: bold;
   line-height: normal;
@@ -1732,8 +1859,10 @@
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-text .process-text-title{
-  color: #ffffff;
+  color: #1E2939;
   font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
   margin-bottom: 12px;
 }
@@ -1760,6 +1889,10 @@
 .process-first-block .process-text .process-btn .buttom-item a .item-style{
   padding: 16px 24px;
   text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block {
@@ -1772,7 +1905,7 @@
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step{
   display: flex;
   align-items: center;
-  background-color: #1D3254;
+  background-color: #DEF1FD;;
   border-radius: 6px;
   width: 100%;
 }
@@ -1803,15 +1936,17 @@
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step .step-number{
   margin: 16px 10px 16px 24px;
-  color: #ffffff;
-  font-size: 28px;
+  color: #1E2939;
+  font-size: 32px;
   font-weight: bold;
   line-height: normal;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step  .step-desc{
-  color: #ffffff;
-  font-size: 14px;
+  color: #1E2939;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
   margin-right: 16px;
 }
@@ -1826,10 +1961,10 @@
 .user-stored-value .stored-value-one .stored-process .process-first-block{
   display: flex;
   align-items: center;
-  background-color: #1D3254;
+  background-color: #DEF1FD;
   padding: 16px 24px;
   border-radius: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-text{
@@ -1837,15 +1972,15 @@
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-number{
-  color: #ffffff;
-  font-size: 32px;
+  color: #1E2939;
+  font-size: 40px;
   font-weight: bold;
   line-height: normal;
   margin-right: 24px;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-text .process-text-title{
-  color: #ffffff;
+  color: #1E2939;
   font-size: 16px;
   line-height: normal;
   margin-bottom: 12px;
@@ -1856,6 +1991,17 @@
   justify-content: center;
   gap: 16px;
   flex-direction: column;
+  width: 50%;
+}
+
+@media(max-width:412px){
+   .user-stored-value .stored-value-one .stored-process .process-first-block .process-text .process-btn{
+   display: flex;
+   justify-content: center;
+   gap: 16px;
+   flex-direction: column;
+   width: 60%;
+  }
 }
 
 .process-first-block .process-text .process-btn .buttom-item{
@@ -1887,7 +2033,7 @@
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step{
   display: flex;
   align-items: center;
-  background-color: #1D3254;
+  background-color: #DEF1FD;
   border-radius: 6px;
   width: 100%;
 }
@@ -1920,14 +2066,14 @@
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step .step-number{
   margin: 16px 24px 16px 24px;
-  color: #ffffff;
-  font-size: 28px;
+  color: #1E2939;
+  font-size: 40px;
   font-weight: bold;
   line-height: normal;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step  .step-desc{
-  color: #ffffff;
+  color: #1E2939;
   font-size: 16px;
   line-height: normal;
   margin-right: 16px;
@@ -1947,7 +2093,6 @@
 .redeem-items .out-connect .inner-connect .connect-item-1{
   border: 1px solid #1E2939;
   border-radius: 6px;
-  height: 32px;
 }
 
 .redeem-items .out-connect .inner-connect .connect-item-1 a{
@@ -1974,7 +2119,6 @@
 .redeem-items .out-connect .inner-connect .connect-item-2{
   border: 1px solid #1E2939;
   border-radius: 6px;
-  height: 32px;
 }
 
 .redeem-items .out-connect .inner-connect .connect-item-2 a{
@@ -3335,30 +3479,35 @@ a:link {
 
 .check-number-insert{
   display: flex;
-  margin-bottom: 12px;
+  flex-direction: column;
 }
 
-.check-number-insert input{
+.check-number-insert .number-insert-inner{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.check-number-insert .number-insert-inner input{
   border-radius: 6px;
   width: 50%;
 }
 
 @media(max-width:768px){
-  .check-number-insert input{
+  .check-number-insert .number-insert-inner input{
   border-radius: 6px;
   width: 100%;
 } 
 }
 
 @media(max-width:576px){
-  .check-number-insert .check-number-width{
+  .check-number-insert .number-insert-inner .check-number-width{
   border-radius: 6px;
   width: 50% !important;
 } 
 }
 
 
-.check-number-insert .code_pic {
+.check-number-insert .number-insert-inner .code_pic {
     position: relative;
     margin: 0;
     padding: 0 5px;
@@ -3376,13 +3525,13 @@ a:link {
     align-content: center;
 }
 
-.check-number-insert .code_pic img{
+.check-number-insert .number-insert-inner .code_pic img{
   width: 100%;
   max-height: 45px;
 }
 
 @media(max-width:576px){
-  .check-number-insert .code_pic img {
+  .check-number-insert .number-insert-inner .code_pic img {
     width: 100%;
     height: 40px;
 }
@@ -3603,4 +3752,14 @@ a:link {
   background-color: rgba(0, 0, 0, 0.6);
 }
 /* 遮罩 結束 */
+
+
+/* copyright style 開始*/
+@media(max-width:576px){
+  .copyright-style-padding{
+    padding-bottom: 16px !important;
+    padding-top: 16px !important;
+  }
+}
+/* copyright style 結束*/
 /* 會員登入 樣式結束 */

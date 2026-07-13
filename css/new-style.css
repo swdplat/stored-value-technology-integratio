@@ -822,7 +822,7 @@
 /* 這是information-right 區塊 開始*/
 .payment-info .information-right{
   width: 60%;
-  padding: 0px 3px 0px 3px;
+  padding: 0 3px 0 3px ;
 }
 
 .payment-info .information-right .user-stored-value{
@@ -1841,7 +1841,7 @@
 .user-stored-value .stored-value-one .stored-process .process-first-block{
   display: flex;
   align-items: center;
-  background-color: #DEF1FD;;
+  background-color: #E7F5FE;
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 4px;
@@ -1888,7 +1888,7 @@
 }
 
 .process-first-block .process-text .process-btn .buttom-item a .item-style{
-  padding: 16px 24px;
+  padding: 6px 16px;
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -1906,7 +1906,7 @@
 .user-stored-value .stored-value-one .stored-process .process-sec-block .prcess-step{
   display: flex;
   align-items: center;
-  background-color: #DEF1FD;;
+  background-color: #E7F5FE;
   border-radius: 6px;
   width: 100%;
 }
@@ -1965,7 +1965,7 @@
   background-color: #DEF1FD;
   padding: 16px 24px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-first-block .process-text{
@@ -1992,7 +1992,7 @@
   justify-content: center;
   gap: 16px;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
 }
 
 @media(max-width:412px){
@@ -2001,7 +2001,7 @@
    justify-content: center;
    gap: 16px;
    flex-direction: column;
-   width: 60%;
+   width: 80%;
   }
 }
 
@@ -2019,14 +2019,14 @@
 }
 
 .process-first-block .process-text .process-btn .buttom-item a .item-style{
-  padding: 16px 24px;
+  padding: 6px 16px;
   text-align: center;
 }
 
 .user-stored-value .stored-value-one .stored-process .process-sec-block {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 1px;
   position: relative;
   flex-direction: column;
 }

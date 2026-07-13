@@ -822,7 +822,7 @@
 /* 這是information-right 區塊 開始*/
 .payment-info .information-right{
   width: 60%;
-  padding: 0px 3px 0px 0px;
+  padding: 0px 3px 0px 3px;
 }
 
 .payment-info .information-right .user-stored-value{

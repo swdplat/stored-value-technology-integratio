@@ -157,10 +157,10 @@
             }
         }
     </style>
-    <script src="./MyCard官方網站 - login_files/jquery.unobtrusive-ajax.min.js"></script>
-    <script src="./MyCard官方網站 - login_files/jquery.validate.min.js"></script>
-    <script src="./MyCard官方網站 - login_files/jquery.validate.unobtrusive.min.js"></script>
-    <script src="./MyCard官方網站 - login_files/singleAccount.js"></script>
+    <script src="https://member.mycard520.com/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="https://member.mycard520.com/Scripts/jquery.validate.min.js"></script>
+    <script src="https://member.mycard520.com/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://member.mycard520.com/Scripts/singleAccount.js"></script>
     <!-- 上線要移除 -->
      <script type="text/javascript">
         //設定倒數秒數
@@ -1464,7 +1464,6 @@
                             <a href="javascript:void(0);" class="text-btn toggleBtn">顯示更多</a>
                         </div>
                     </div>
-                    <div class="help-you"><div class="text">需要幫助嗎?</div><a href="">如何儲值</a></div>
                     <div class="activity-news">
                         <h2>優惠活動</h2>
                         <div class="my-bg-grey-50-sm">
@@ -2099,6 +2098,7 @@
                                         </div>
                                         <div class="login-insert-pwd">
                                            <input class="text-pwd textbox password" data-val="true" data-val-length="長度有誤" data-val-length-max="12" data-val-length-min="8" data-val-regex="格式有誤" data-val-regex-pattern="^([a-zA-Z]+\d+|\d+[a-zA-Z]+)[a-zA-Z0-9]*$" data-val-required="此為必填欄位" id="Password" name="Password" placeholder="請輸入8-12碼英數字" type="password">
+                                           <p class="error" id="pdError" style="display: none;">(GMEMSV0091)密碼為必填欄位</p>
                                         </div>
                                         <div class="check-number-title">
                                           <h3>驗證碼</h3>
@@ -2109,8 +2109,8 @@
                                                 <span class="code_pic noise01 noise04 noise03"><img id="captcha" src="./MyCard官方網站 - login_files/Captcha"></span>
                                                 <div class="reload-icon"><a href="javascript:freshCode()"><img src="./MyCard官方網站 - login_files/refresh_icon.png"></a></div>
                                             </div>
+                                            <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="Account" data-valmsg-replace="true">此為必填欄位</span></p>
                                         </div>
-                                        <p class="error" style="display: none;"><span class="field-validation-valid" data-valmsg-for="Account" data-valmsg-replace="true"></span></p>
                                         <p class="error" id="SendMsg" style="display: none;"></p>
                                         <button type="button" class="push-login btn login_btn disabled_btn" id="btnLogin" disabled="">登入</button>
                                         <!--若玩家有輸入資料時將CLASS: disabled_btn及屬性：disabled拿掉，若沒有輸入或是將輸入的字全數刪除，要再加回來-->
@@ -3564,6 +3564,7 @@
       </div>
     </div>
                     </div>
+                    <div class="help-you"><div class="text">需要幫助嗎?</div><a href="">如何儲值</a></div>
                 </div>
             </div>
             
@@ -3586,7 +3587,7 @@
                   </div>
                 </div>
                 <div class="rule-item-2">
-                  <h3>*線上購點交易注意事項</h3>
+                  <h3>線上購點交易注意事項</h3>
                   <div class="rule-item-inner">
                     <ul class="my-mt-5 my-mt-2-sm my-text-list-group-numbered my-text-secondary-800 my-font-m">
                         <li>使用線上交易購買商品，請您妥善保存您的交易資料且不得使用虛偽不實之資料進行交易，若因而導致交易糾紛或有犯罪情事者，MyCard將提供相關資料予檢調單位配合司法調查，請勿以身試法。</li>

@@ -787,23 +787,24 @@
   color: #4FAFF1;
 }
 
-.payment-info .information-left .help-you{
+.payment-info .information-right .help-you{
   font-size: 20px;
   font-weight: 500;
   color: #1E2939;
   display: flex;
   align-items: center;
-  margin: 48px 0px 48px 0px;
+  margin: 24px 0px 24px 0px;
 }
 
-.payment-info .information-left .help-you .text{
+.payment-info .information-right .help-you .text{
   margin-right: 10px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
-.payment-info .information-left .help-you a{
+.payment-info .information-right .help-you a{
   color: #4FAFF1;
   font-size: 20px;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -1690,7 +1691,7 @@
 @media(max-width:768px){
   .payment-info .mobile-news{
   width: 100%;
-  margin: 6px 0px;
+  margin: 48px 0px 6px 0;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   display: block;
  }
